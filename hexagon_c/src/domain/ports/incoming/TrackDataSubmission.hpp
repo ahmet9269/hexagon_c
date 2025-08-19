@@ -22,13 +22,7 @@ public:
      */
     virtual bool submitDelayCalcTrackData(const model::DelayCalcTrackData& data) = 0;
 
-    /**
-     * Batch olarak DelayCalcTrackData işleme alır (performans için)
-     * @param delay_calc_data DelayCalcTrackData listesi
-     * @return İşlenen veri sayısı
-     */
-    virtual size_t submitBatchDelayCalcData(
-        const std::vector<model::DelayCalcTrackData>& delay_calc_data) = 0;
+
 
     /**
      * Sistem durumunu kontrol eder

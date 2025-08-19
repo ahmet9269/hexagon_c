@@ -3,7 +3,7 @@
 #include "../../../domain/ports/incoming/TrackDataSubmission.hpp"
 #include "../../../domain/model/DelayCalcTrackData.hpp"
 #include "../../../domain/model/FinalCalcDelayData.hpp"
-#include "../../../../include/zmq/zmq.hpp"
+#include "zmq/zmq.hpp"
 #include <thread>
 #include <atomic>
 #include <memory>

@@ -66,102 +66,11 @@ public:
         return result;
     }
 
-    bool updateDelayCalcTrackData(const domain::model::DelayCalcTrackData& data) override {
-        return saveDelayCalcTrackData(data);
-    }
-
     // FinalCalcDelayData operations
     bool saveFinalCalcDelayData(const domain::model::FinalCalcDelayData& data) override {
         std::lock_guard<std::mutex> lock(data_mutex_);
         final_calc_data_[data.getTrackId()] = data;
         return true;
-    }
-
-    std::optional<domain::model::FinalCalcDelayData> findFinalCalcDelayDataByTrackId(int track_id) override {
-        std::lock_guard<std::mutex> lock(data_mutex_);
-        auto it = final_calc_data_.find(track_id);
-        if (it != final_calc_data_.end()) {
-            return it->second;
-        }
-        return std::nullopt;
-    }
-
-    bool updateFinalCalcDelayData(const domain::model::FinalCalcDelayData& data) override {
-        return saveFinalCalcDelayData(data);
-    }
-
-    // Query operations - basit implementasyonlar
-    std::vector<domain::model::DelayCalcTrackData> findDelayCalcDataByTimeRange(
-        int64_t start_time, int64_t end_time) override {
-        std::lock_guard<std::mutex> lock(data_mutex_);
-        std::vector<domain::model::DelayCalcTrackData> result;
-        for (const auto& pair : delay_calc_data_) {
-            auto update_time = pair.second.getUpdateTime();
-            if (update_time >= start_time && update_time <= end_time) {
-                result.push_back(pair.second);
-            }
-        }
-        return result;
-    }
-
-    std::vector<domain::model::FinalCalcDelayData> findFinalCalcDataByTimeRange(
-        int64_t start_time, int64_t end_time) override {
-        std::lock_guard<std::mutex> lock(data_mutex_);
-        std::vector<domain::model::FinalCalcDelayData> result;
-        for (const auto& pair : final_calc_data_) {
-            auto update_time = pair.second.getUpdateTime();
-            if (update_time >= start_time && update_time <= end_time) {
-                result.push_back(pair.second);
-            }
-        }
-        return result;
-    }
-
-    std::vector<domain::model::FinalCalcDelayData> findHighDelayData(int64_t delay_threshold_ms) override {
-        std::lock_guard<std::mutex> lock(data_mutex_);
-        std::vector<domain::model::FinalCalcDelayData> result;
-        for (const auto& pair : final_calc_data_) {
-            if (pair.second.getTotalDelayTime() > delay_threshold_ms) {
-                result.push_back(pair.second);
-            }
-        }
-        return result;
-    }
-
-    std::vector<int> getActiveTrackIds() override {
-        std::lock_guard<std::mutex> lock(data_mutex_);
-        std::vector<int> result;
-        for (const auto& pair : final_calc_data_) {
-            result.push_back(pair.first);
-        }
-        return result;
-    }
-
-    size_t cleanupOldData(int64_t cutoff_time) override {
-        std::lock_guard<std::mutex> lock(data_mutex_);
-        size_t removed = 0;
-        
-        // DelayCalcTrackData cleanup
-        for (auto it = delay_calc_data_.begin(); it != delay_calc_data_.end();) {
-            if (it->second.getUpdateTime() < cutoff_time) {
-                it = delay_calc_data_.erase(it);
-                removed++;
-            } else {
-                ++it;
-            }
-        }
-        
-        // FinalCalcDelayData cleanup
-        for (auto it = final_calc_data_.begin(); it != final_calc_data_.end();) {
-            if (it->second.getUpdateTime() < cutoff_time) {
-                it = final_calc_data_.erase(it);
-                removed++;
-            } else {
-                ++it;
-            }
-        }
-        
-        return removed;
     }
 
     RepositoryStats getRepositoryStats() override {

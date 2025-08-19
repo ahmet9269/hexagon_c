@@ -3,7 +3,7 @@
 #include "../../../domain/ports/outgoing/TrackDataPublisher.hpp"
 #include "../../../domain/model/DelayCalcTrackData.hpp"
 #include "../../../domain/model/FinalCalcDelayData.hpp"
-#include "../../../../include/zmq/zmq.hpp"
+#include "zmq/zmq.hpp"
 #include <thread>
 #include <atomic>
 #include <memory>
@@ -176,52 +176,7 @@ public:
         }
     }
 
-    /**
-     * Batch veri yayınlama
-     */
-    size_t publishBatchData(
-        const std::vector<domain::model::DelayCalcTrackData>& delay_calc_data,
-        const std::vector<domain::model::FinalCalcDelayData>& final_calc_data) override {
-        
-        size_t published = 0;
 
-        // DelayCalcTrackData batch
-        for (const auto& data : delay_calc_data) {
-            if (publishDelayCalcTrackData(data)) {
-                published++;
-            }
-        }
-
-        // FinalCalcDelayData batch
-        for (const auto& data : final_calc_data) {
-            if (publishFinalCalcDelayData(data)) {
-                published++;
-            }
-        }
-
-        return published;
-    }
-
-    /**
-     * Belirli track ID için yayınlama
-     */
-    bool publishForTrackId(
-        int track_id,
-        const domain::model::DelayCalcTrackData* delay_calc_data,
-        const domain::model::FinalCalcDelayData* final_calc_data) override {
-        
-        bool success = true;
-
-        if (delay_calc_data != nullptr) {
-            success &= publishDelayCalcTrackData(*delay_calc_data);
-        }
-
-        if (final_calc_data != nullptr) {
-            success &= publishFinalCalcDelayData(*final_calc_data);
-        }
-
-        return success;
-    }
 
     /**
      * Publisher aktif durumu

@@ -148,12 +148,7 @@ public:
         return first_hop_delay_time_ - first_hop_sent_time_;
     }
 
-    /**
-     * Toplam işlem gecikmesini hesaplar
-     */
-    int64_t calculateTotalProcessingDelay() const {
-        return update_time_ - original_update_time_;
-    }
+
 
     /**
      * Mevcut zamana göre veri yaşını hesaplar

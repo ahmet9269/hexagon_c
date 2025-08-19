@@ -10,6 +10,12 @@
 
 namespace hat::domain::logic {
 
+// İş mantığı konfigürasyonu
+struct ProcessorConfig {
+    int64_t max_acceptable_delay_ms = 5000;
+    double high_velocity_threshold = 100.0;
+};
+
 /**
  * Core business logic - Hexagon'un kalbi
  * Track data işleme, gecikme analizi ve veri akışı yönetimi
@@ -20,23 +26,16 @@ private:
     std::shared_ptr<ports::outgoing::TrackDataPublisher> publisher_;
     std::shared_ptr<ports::outgoing::TrackDataRepository> repository_;
     
-    // İş mantığı konfigürasyonu
-    int64_t max_acceptable_delay_ms_;
-    double high_velocity_threshold_;
-    bool enable_batch_processing_;
+    ProcessorConfig config_;
 
 public:
     TrackDataProcessor(
         std::shared_ptr<ports::outgoing::TrackDataPublisher> publisher,
         std::shared_ptr<ports::outgoing::TrackDataRepository> repository,
-        int64_t max_acceptable_delay_ms = 5000,
-        double high_velocity_threshold = 100.0,
-        bool enable_batch_processing = true)
+        const ProcessorConfig& config = ProcessorConfig{})
         : publisher_(publisher)
         , repository_(repository)
-        , max_acceptable_delay_ms_(max_acceptable_delay_ms)
-        , high_velocity_threshold_(high_velocity_threshold)
-        , enable_batch_processing_(enable_batch_processing) {}
+        , config_(config) {}
 
     // TrackDataSubmission interface implementation
     
@@ -51,13 +50,13 @@ public:
             }
 
             // İş kuralı: Veri yaşı kontrolü
-            if (!data.isDataFresh(max_acceptable_delay_ms_)) {
+            if (!data.isDataFresh(config_.max_acceptable_delay_ms)) {
                 // Eski veri uyarısı - yine de işle ama logla
                 // Gerçek uygulamada logging yapılacak
             }
 
             // İş kuralı: Yüksek hız kontrolü
-            if (data.isHighVelocity(high_velocity_threshold_)) {
+            if (data.isHighVelocity(config_.high_velocity_threshold)) {
                 // Yüksek hız uyarısı - öncelikli işlem
                 return processHighVelocityData(data);
             }
@@ -103,23 +102,7 @@ public:
         }
     }
 
-    /**
-     * Batch DelayCalcTrackData işleme - Performans optimizasyonu
-     */
-    size_t submitBatchDelayCalcData(
-        const std::vector<model::DelayCalcTrackData>& delay_calc_data) override {
-        
-        if (!enable_batch_processing_) {
-            // Tek tek işle
-            size_t processed = 0;
-            for (const auto& data : delay_calc_data) {
-                if (submitDelayCalcTrackData(data)) processed++;
-            }
-            return processed;
-        }
 
-        return processBatchDelayCalcData(delay_calc_data);
-    }
 
     /**
      * Sistem hazır durumu kontrolü
@@ -139,8 +122,7 @@ private:
             return false;
         }
 
-        // 2. İş mantığı: Gecikme analizi yap
-        auto delay_analysis = performDelayAnalysis(data);
+
 
         // 3. FinalCalcDelayData üret ve gönder
         if (!generateAndPublishFinalCalcDelayData(data)) {
@@ -167,8 +149,7 @@ private:
             return false;
         }
 
-        // 3. İlgili track'leri kontrol et
-        checkRelatedTracks(data.getTrackId());
+
         
         return true;
     }
@@ -201,8 +182,7 @@ private:
         // 2. Acil yayınlama
         publisher_->publishFinalCalcDelayData(data);
 
-        // 3. Sistem uyarısı tetikle
-        triggerSystemAlert(data);
+
 
         return true;
     }
@@ -216,8 +196,7 @@ private:
         repository_->saveFinalCalcDelayData(data);
         publisher_->publishFinalCalcDelayData(data);
 
-        // İzleme seviyesini artır
-        increaseMonitoringLevel(data.getTrackId());
+
 
         return true;
     }
@@ -271,81 +250,22 @@ private:
                   << " - ⏱️  DELAY: " << total_delay_time << " ms";
         
         // Gecikme kategorisi
-        if (total_delay_time < 10) std::cout << " 🟢 EXCELLENT";
-        else if (total_delay_time < 50) std::cout << " 🟢 GOOD";
-        else if (total_delay_time < 100) std::cout << " 🟡 ACCEPTABLE";
-        else if (total_delay_time < 500) std::cout << " 🟠 POOR";
+        static constexpr int64_t EXCELLENT_THRESHOLD = 10;
+        static constexpr int64_t GOOD_THRESHOLD = 50;
+        static constexpr int64_t ACCEPTABLE_THRESHOLD = 100;
+        static constexpr int64_t POOR_THRESHOLD = 500;
+        
+        if (total_delay_time < EXCELLENT_THRESHOLD) std::cout << " 🟢 EXCELLENT";
+        else if (total_delay_time < GOOD_THRESHOLD) std::cout << " 🟢 GOOD";
+        else if (total_delay_time < ACCEPTABLE_THRESHOLD) std::cout << " 🟡 ACCEPTABLE";
+        else if (total_delay_time < POOR_THRESHOLD) std::cout << " 🟠 POOR";
         else std::cout << " 🔴 CRITICAL";
         std::cout << std::endl;
         
         return final_data;
     }
 
-    /**
-     * Batch DelayCalcTrackData işleme optimizasyonu
-     */
-    size_t processBatchDelayCalcData(
-        const std::vector<model::DelayCalcTrackData>& delay_calc_data) {
-        
-        size_t processed = 0;
 
-        // Batch validation ve processing
-        std::vector<model::DelayCalcTrackData> valid_delay_data;
-        std::vector<model::FinalCalcDelayData> generated_final_data;
-
-        for (const auto& data : delay_calc_data) {
-            if (data.isValid()) {
-                valid_delay_data.push_back(data);
-                
-                // Her DelayCalcTrackData için FinalCalcDelayData üret
-                auto final_data = createFinalCalcDelayData(data);
-                generated_final_data.push_back(final_data);
-                
-                // Repository'ye kaydet
-                repository_->saveDelayCalcTrackData(data);
-                repository_->saveFinalCalcDelayData(final_data);
-                
-                processed++;
-            }
-        }
-
-        // Batch publishing - hem orijinal hem de üretilen verileri gönder
-        publisher_->publishBatchData(valid_delay_data, generated_final_data);
-
-        return processed;
-    }
-
-    // Yardımcı iş mantığı metodları
-
-    struct DelayAnalysisResult {
-        bool is_acceptable;
-        int64_t calculated_delay;
-        std::string analysis_notes;
-    };
-
-    DelayAnalysisResult performDelayAnalysis(const model::DelayCalcTrackData& data) {
-        DelayAnalysisResult result;
-        result.calculated_delay = data.calculateDataAge();
-        result.is_acceptable = result.calculated_delay <= max_acceptable_delay_ms_;
-        result.analysis_notes = "Delay analysis completed for track " + std::to_string(data.getTrackId());
-        return result;
-    }
-
-    void checkRelatedTracks(int track_id) {
-        // İlgili track'leri kontrol et - iş mantığı
-        auto related_data = repository_->findDelayCalcTrackDataByTrackId(track_id);
-        // İlgili track analizi...
-    }
-
-    void triggerSystemAlert(const model::FinalCalcDelayData& data) {
-        // Sistem uyarısı tetikle - iş mantığı
-        // Gerçek uygulamada alert sistemi çağrılacak
-    }
-
-    void increaseMonitoringLevel(int track_id) {
-        // İzleme seviyesini artır - iş mantığı
-        // Gerçek uygulamada monitoring sistemi güncellenecek
-    }
 };
 
 } // namespace hat::domain::logic
