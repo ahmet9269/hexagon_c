@@ -53,7 +53,7 @@ bool TrackDataProcessor::submitDelayCalcTrackData(const model::DelayCalcTrackDat
             // Gerçek uygulamada structured logging yapılacak
             // Bu durumda processing devam ediyor (business decision)
         }
-
+        //TODO:Burası aslında kendi iç dizaynımızda ypk. örnek kaldırılacak.
         // BUSINESS RULE 3: HIGH VELOCITY DETECTION - Yüksek hız kontrolü
         // config_.high_velocity_threshold = Hız threshold'u
         // Yüksek hızlı objeler özel işlem gerektirebilir (radar tracking domain knowledge)
