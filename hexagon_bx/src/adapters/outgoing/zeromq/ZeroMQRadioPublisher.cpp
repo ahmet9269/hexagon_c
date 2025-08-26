@@ -30,6 +30,14 @@ void ZeroMQRadioPublisher::initializeRadioSocket() {
         // RADIO socket oluştur (C++ wrapper ile) - Draft API gerekli
         radio_socket_ = std::make_unique<zmq::socket_t>(zmq_context_, zmq::socket_type::radio);
 
+        // Performance optimizations
+        radio_socket_->set(zmq::sockopt::sndhwm, 0);      // Unlimited send buffer
+        radio_socket_->set(zmq::sockopt::sndtimeo, 0);    // Non-blocking send
+        radio_socket_->set(zmq::sockopt::linger, 0);      // No linger on close
+        radio_socket_->set(zmq::sockopt::tcp_keepalive, 1); // Keep connections alive
+        radio_socket_->set(zmq::sockopt::tcp_keepalive_idle, 60);
+        radio_socket_->set(zmq::sockopt::immediate, 1);   // Connect immediately
+        
         // Endpoint'e connect (RADIO için connect kullanılır)
         radio_socket_->connect(multicast_endpoint_);
 
@@ -51,6 +59,19 @@ bool ZeroMQRadioPublisher::start() {
 
     // Publisher worker thread'ini başlat
     publisher_thread_ = std::thread([this]() {
+        // Real-time thread priority ayarla
+        #ifdef __linux__
+        struct sched_param param;
+        param.sched_priority = 94; // High priority
+        pthread_setschedparam(pthread_self(), SCHED_FIFO, &param);
+        
+        // CPU affinity - dedicated core
+        cpu_set_t cpuset;
+        CPU_ZERO(&cpuset);
+        CPU_SET(0, &cpuset); // Core 0'a bind et
+        pthread_setaffinity_np(pthread_self(), sizeof(cpu_set_t), &cpuset);
+        #endif
+        
         publisherWorker();
     });
 
@@ -70,8 +91,8 @@ bool ZeroMQRadioPublisher::publishDelayCalcTrackData(const hat::domain::model::D
         // Veriyi serialize et
         std::string serialized_data = serializeDelayCalcTrackData(data);
         
-        // Gecikme ölçümü için timestamp ekle
-        auto send_time = std::chrono::high_resolution_clock::now();
+        // Gecikme ölçümü için timestamp ekle (nanosecond precision)
+        auto send_time = std::chrono::steady_clock::now();
         auto ns_since_epoch = std::chrono::duration_cast<std::chrono::nanoseconds>(
             send_time.time_since_epoch()).count();
 

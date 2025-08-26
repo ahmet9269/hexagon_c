@@ -41,7 +41,7 @@ private:
     
     // Gecikme hesaplama için
     struct LatencyMeasurement {
-        std::chrono::high_resolution_clock::time_point receive_time;
+        std::chrono::steady_clock::time_point receive_time;
         long long send_timestamp_ns;
         long long latency_ns;
         std::string original_data;

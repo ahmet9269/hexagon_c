@@ -31,6 +31,12 @@ void ZeroMQDishTrackDataSubscriber::initializeDishSocket() {
         // DISH socket oluştur (C++ wrapper ile) - Draft API gerekli
         dish_socket_ = std::make_unique<zmq::socket_t>(zmq_context_, zmq::socket_type::dish);
 
+        // Performance optimizations
+        dish_socket_->set(zmq::sockopt::rcvhwm, 0);       // Unlimited receive buffer
+        dish_socket_->set(zmq::sockopt::rcvtimeo, 100);   // 100ms timeout for graceful shutdown
+        dish_socket_->set(zmq::sockopt::linger, 0);       // No linger on close
+        dish_socket_->set(zmq::sockopt::immediate, 1);    // Process messages immediately
+        
         // UDP multicast için DISH socket bind yapar
         dish_socket_->bind(multicast_endpoint_);
         
@@ -55,6 +61,19 @@ bool ZeroMQDishTrackDataSubscriber::start() {
 
     // Subscriber worker thread'ini başlat
     subscriber_thread_ = std::thread([this]() {
+        // Real-time thread priority ayarla
+        #ifdef __linux__
+        struct sched_param param;
+        param.sched_priority = 95; // Max priority
+        pthread_setschedparam(pthread_self(), SCHED_FIFO, &param);
+        
+        // CPU affinity - dedicated core
+        cpu_set_t cpuset;
+        CPU_ZERO(&cpuset);
+        CPU_SET(1, &cpuset); // Core 1'e bind et
+        pthread_setaffinity_np(pthread_self(), sizeof(cpu_set_t), &cpuset);
+        #endif
+        
         subscriberWorker();
     });
 
@@ -122,8 +141,8 @@ ZeroMQDishTrackDataSubscriber::processReceivedMessage(const std::string& receive
     LatencyMeasurement result;
     
     // app2_processor.cpp pattern'ini takip et
-    // 1. Mesajı alır almaz mevcut zamanı kaydet
-    result.receive_time = std::chrono::high_resolution_clock::now();
+    // 1. Mesajı alır almaz mevcut zamanı kaydet (steady_clock daha kararlı)
+    result.receive_time = std::chrono::steady_clock::now();
 
     // 2. Mesajı '|' karakterinden ayırarak orijinal metni ve gönderim zamanını bul
     size_t separator_pos = received_payload.find_last_of('|');
