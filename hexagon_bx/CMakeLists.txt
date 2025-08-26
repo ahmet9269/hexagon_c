@@ -20,8 +20,10 @@ include_directories(${CMAKE_SOURCE_DIR}/src)
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
 # ZeroMQ dependency
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(ZMQ REQUIRED libzmq)
+find_package(PkgConfig QUIET)
+if(PkgConfig_FOUND)
+    pkg_check_modules(ZMQ libzmq QUIET)
+endif()
 
 # Alternatif ZeroMQ bulma yöntemi
 if(NOT ZMQ_FOUND)
@@ -36,7 +38,14 @@ if(NOT ZMQ_FOUND)
 endif()
 
 if(NOT ZMQ_FOUND)
-    message(FATAL_ERROR "ZeroMQ library not found. Please install libzmq-dev")
+    # Fall back to standard library name
+    find_library(ZMQ_LIBRARY NAMES zmq)
+    if(ZMQ_LIBRARY)
+        set(ZMQ_FOUND TRUE)
+        set(ZMQ_LIBRARIES ${ZMQ_LIBRARY})
+    else()
+        message(FATAL_ERROR "ZeroMQ library not found (tried pkg-config and find_library). Install libzmq3-dev.")
+    endif()
 endif()
 
 # cppzmq (ZeroMQ C++ bindings) - header-only
@@ -46,7 +55,12 @@ find_path(CPPZMQ_INCLUDE_DIR zmq.hpp
 )
 
 if(NOT CPPZMQ_INCLUDE_DIR)
-    message(FATAL_ERROR "cppzmq headers not found. Please install libzmq3-dev or cppzmq")
+    # Use local bundled headers under include/zmq
+    if(EXISTS ${CMAKE_SOURCE_DIR}/include/zmq/zmq.hpp)
+        set(CPPZMQ_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include/zmq)
+    else()
+        message(FATAL_ERROR "cppzmq headers not found. Provide include/zmq or install libzmq3-dev.")
+    endif()
 endif()
 
 # Thread support
@@ -72,13 +86,14 @@ set(DOMAIN_LOGIC_SOURCES
 # Source files - Adapters
 set(ADAPTER_SOURCES
     src/adapters/incoming/zeromq/ZeroMQDataSubscriber.hpp
-    src/adapters/outgoing/zeromq/ZeroMQDataPublisher.hpp
+    src/adapters/outgoing/zeromq/ZeroMQRadioPublisher.hpp
 )
 
 # Ana library - Domain + Adapters
 add_library(hat_b_core INTERFACE)
 target_include_directories(hat_b_core INTERFACE
     ${CMAKE_SOURCE_DIR}/src
+    ${CMAKE_SOURCE_DIR}/include
     ${ZMQ_INCLUDE_DIRS}
     ${CPPZMQ_INCLUDE_DIR}
 )
@@ -103,14 +118,18 @@ target_link_libraries(hat_b_app PRIVATE
 option(BUILD_TESTS "Build test executable" ON)
 
 if(BUILD_TESTS)
-    add_executable(hat_b_tests
-        test/domain/model/ModelTest.cpp
-        test/domain/logic/DataProcessorTest.cpp
-    )
-    
-    target_link_libraries(hat_b_tests PRIVATE
-        hat_b_core
-    )
+    set(HAT_B_TEST_SOURCES)
+    foreach(f IN ITEMS test/domain/model/ModelTest.cpp test/domain/logic/DataProcessorTest.cpp)
+        if(EXISTS ${CMAKE_SOURCE_DIR}/${f})
+            list(APPEND HAT_B_TEST_SOURCES ${f})
+        endif()
+    endforeach()
+    if(HAT_B_TEST_SOURCES)
+        add_executable(hat_b_tests ${HAT_B_TEST_SOURCES})
+        target_link_libraries(hat_b_tests PRIVATE hat_b_core)
+    else()
+        message(STATUS "No test sources found; skipping hat_b_tests target")
+    endif()
 endif()
 
 # Install rules

@@ -1,0 +1,2307 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake:233 (message)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      The system is: Linux - 6.8.0-1030-azure - x86_64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /usr/bin/cc 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is GNU, found in:
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/3.28.3/CompilerIdC/a.out
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /usr/bin/c++ 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is GNU, found in:
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/3.28.3/CompilerIdCXX/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-FXh55y"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-FXh55y"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-FXh55y'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_47095/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_47095.dir/build.make CMakeFiles/cmTC_47095.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-FXh55y'
+        Building C object CMakeFiles/cmTC_47095.dir/CMakeCCompilerABI.c.o
+        /usr/bin/cc   -v -o CMakeFiles/cmTC_47095.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/cc
+        Target: x86_64-pc-linux-gnu
+        Configured with: ../configure --prefix=/opt/gcc-8.5 --enable-languages=c,c++ --disable-multilib --disable-nls --program-suffix=-8.5
+        Thread model: posix
+        gcc version 8.5.0 (GCC) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_47095.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+         /opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/8.5.0/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_47095.dir/CMakeCCompilerABI.c.o -version -o /tmp/ccQpmKtV.s
+        GNU C17 (GCC) version 8.5.0 (x86_64-pc-linux-gnu)
+        	compiled by GNU C version 8.5.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+        ignoring nonexistent directory "/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include
+         /usr/local/include
+         /opt/gcc-8.5/include
+         /opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed
+         /usr/include/x86_64-linux-gnu
+         /usr/include
+        End of search list.
+        GNU C17 (GCC) version 8.5.0 (x86_64-pc-linux-gnu)
+        	compiled by GNU C version 8.5.0, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: 83426cd6feb6b6ef9de316d007316b49
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_47095.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+         as -v --64 -o CMakeFiles/cmTC_47095.dir/CMakeCCompilerABI.c.o /tmp/ccQpmKtV.s
+        GNU assembler version 2.42 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.42
+        COMPILER_PATH=/opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/:/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/
+        LIBRARY_PATH=/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/x86_64-linux-gnu/:/lib/../lib64/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib64/:/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_47095.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+        Linking C executable cmTC_47095
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_47095.dir/link.txt --verbose=1
+        /usr/bin/cc  -v CMakeFiles/cmTC_47095.dir/CMakeCCompilerABI.c.o -o cmTC_47095 
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/cc
+        COLLECT_LTO_WRAPPER=/opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/8.5.0/lto-wrapper
+        Target: x86_64-pc-linux-gnu
+        Configured with: ../configure --prefix=/opt/gcc-8.5 --enable-languages=c,c++ --disable-multilib --disable-nls --program-suffix=-8.5
+        Thread model: posix
+        gcc version 8.5.0 (GCC) 
+        COMPILER_PATH=/opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/:/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/
+        LIBRARY_PATH=/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/x86_64-linux-gnu/:/lib/../lib64/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib64/:/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_47095' '-mtune=generic' '-march=x86-64'
+         /opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/8.5.0/collect2 -plugin /opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/8.5.0/liblto_plugin.so -plugin-opt=/opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/8.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccp0Zdwh.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_47095 /lib/x86_64-linux-gnu/crt1.o /lib/x86_64-linux-gnu/crti.o /opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtbegin.o -L/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0 -L/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../.. CMakeFiles/cmTC_47095.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtend.o /lib/x86_64-linux-gnu/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_47095' '-mtune=generic' '-march=x86-64'
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-FXh55y'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
+      - "/usr/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include]
+          add: [/usr/local/include]
+          add: [/opt/gcc-8.5/include]
+          add: [/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed]
+          add: [/usr/include/x86_64-linux-gnu]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include] ==> [/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/opt/gcc-8.5/include] ==> [/opt/gcc-8.5/include]
+        collapse include dir [/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed] ==> [/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed]
+        collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include;/usr/local/include;/opt/gcc-8.5/include;/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed;/usr/include/x86_64-linux-gnu;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:159 (message)"
+      - "/usr/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-FXh55y']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_47095/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_47095.dir/build.make CMakeFiles/cmTC_47095.dir/build]
+        ignore line: [gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-FXh55y']
+        ignore line: [Building C object CMakeFiles/cmTC_47095.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_47095.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Configured with: ../configure --prefix=/opt/gcc-8.5 --enable-languages=c c++ --disable-multilib --disable-nls --program-suffix=-8.5]
+        ignore line: [Thread model: posix]
+        ignore line: [gcc version 8.5.0 (GCC) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_47095.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [ /opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/8.5.0/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_47095.dir/CMakeCCompilerABI.c.o -version -o /tmp/ccQpmKtV.s]
+        ignore line: [GNU C17 (GCC) version 8.5.0 (x86_64-pc-linux-gnu)]
+        ignore line: [	compiled by GNU C version 8.5.0  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"]
+        ignore line: [ignoring nonexistent directory "/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../x86_64-pc-linux-gnu/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /opt/gcc-8.5/include]
+        ignore line: [ /opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed]
+        ignore line: [ /usr/include/x86_64-linux-gnu]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [GNU C17 (GCC) version 8.5.0 (x86_64-pc-linux-gnu)]
+        ignore line: [	compiled by GNU C version 8.5.0  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [Compiler executable checksum: 83426cd6feb6b6ef9de316d007316b49]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_47095.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_47095.dir/CMakeCCompilerABI.c.o /tmp/ccQpmKtV.s]
+        ignore line: [GNU assembler version 2.42 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.42]
+        ignore line: [COMPILER_PATH=/opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/:/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/x86_64-linux-gnu/:/lib/../lib64/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib64/:/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_47095.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [Linking C executable cmTC_47095]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_47095.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/cc  -v CMakeFiles/cmTC_47095.dir/CMakeCCompilerABI.c.o -o cmTC_47095 ]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [COLLECT_LTO_WRAPPER=/opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/8.5.0/lto-wrapper]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Configured with: ../configure --prefix=/opt/gcc-8.5 --enable-languages=c c++ --disable-multilib --disable-nls --program-suffix=-8.5]
+        ignore line: [Thread model: posix]
+        ignore line: [gcc version 8.5.0 (GCC) ]
+        ignore line: [COMPILER_PATH=/opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/8.5.0/:/opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/:/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/:/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64/:/lib/x86_64-linux-gnu/:/lib/../lib64/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib64/:/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_47095' '-mtune=generic' '-march=x86-64']
+        link line: [ /opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/8.5.0/collect2 -plugin /opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/8.5.0/liblto_plugin.so -plugin-opt=/opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/8.5.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccp0Zdwh.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_47095 /lib/x86_64-linux-gnu/crt1.o /lib/x86_64-linux-gnu/crti.o /opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtbegin.o -L/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0 -L/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../.. CMakeFiles/cmTC_47095.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtend.o /lib/x86_64-linux-gnu/crtn.o]
+          arg [/opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/8.5.0/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/8.5.0/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/opt/gcc-8.5/libexec/gcc/x86_64-pc-linux-gnu/8.5.0/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccp0Zdwh.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_47095] ==> ignore
+          arg [/lib/x86_64-linux-gnu/crt1.o] ==> obj [/lib/x86_64-linux-gnu/crt1.o]
+          arg [/lib/x86_64-linux-gnu/crti.o] ==> obj [/lib/x86_64-linux-gnu/crti.o]
+          arg [/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtbegin.o] ==> obj [/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtbegin.o]
+          arg [-L/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0] ==> dir [/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0]
+          arg [-L/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64] ==> dir [/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64]
+          arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+          arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+          arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+          arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+          arg [-L/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../..] ==> dir [/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../..]
+          arg [CMakeFiles/cmTC_47095.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [-lgcc] ==> lib [gcc]
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--no-as-needed] ==> ignore
+          arg [-lc] ==> lib [c]
+          arg [-lgcc] ==> lib [gcc]
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--no-as-needed] ==> ignore
+          arg [/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtend.o] ==> obj [/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtend.o]
+          arg [/lib/x86_64-linux-gnu/crtn.o] ==> obj [/lib/x86_64-linux-gnu/crtn.o]
+        collapse library dir [/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0] ==> [/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0]
+        collapse library dir [/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../../../lib64] ==> [/opt/gcc-8.5/lib64]
+        collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+        collapse library dir [/lib/../lib64] ==> [/lib64]
+        collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+        collapse library dir [/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/../../..] ==> [/opt/gcc-8.5/lib]
+        implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+        implicit objs: [/lib/x86_64-linux-gnu/crt1.o;/lib/x86_64-linux-gnu/crti.o;/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtbegin.o;/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/crtend.o;/lib/x86_64-linux-gnu/crtn.o]
+        implicit dirs: [/opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0;/opt/gcc-8.5/lib64;/lib/x86_64-linux-gnu;/lib64;/usr/lib/x86_64-linux-gnu;/usr/lib64;/opt/gcc-8.5/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-7dX1W3"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-7dX1W3"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-7dX1W3'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_ded2e/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_ded2e.dir/build.make CMakeFiles/cmTC_ded2e.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-7dX1W3'
+        Building CXX object CMakeFiles/cmTC_ded2e.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/c++   -v -o CMakeFiles/cmTC_ded2e.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/c++
+        OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 12.3.0-17ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-12/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-12 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-12-4qxEZC/gcc-12-12.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-12-4qxEZC/gcc-12-12.3.0/debian/tmp-gcn/usr --enable-offload-defaulted --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 12.3.0 (Ubuntu 12.3.0-17ubuntu1) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ded2e.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_ded2e.dir/'
+         /usr/lib/gcc/x86_64-linux-gnu/12/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_ded2e.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccBMHT2z.s
+        GNU C++17 (Ubuntu 12.3.0-17ubuntu1) version 12.3.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 12.3.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.26-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring duplicate directory "/usr/include/x86_64-linux-gnu/c++/12"
+        ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/include-fixed"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/../../../../x86_64-linux-gnu/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/include/c++/12
+         /usr/include/x86_64-linux-gnu/c++/12
+         /usr/include/c++/12/backward
+         /usr/lib/gcc/x86_64-linux-gnu/12/include
+         /usr/local/include
+         /usr/include/x86_64-linux-gnu
+         /usr/include
+        End of search list.
+        GNU C++17 (Ubuntu 12.3.0-17ubuntu1) version 12.3.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 12.3.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.26-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: ad8099c2459a2c0c0050f96ea82e9468
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ded2e.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_ded2e.dir/'
+         as -v --64 -o CMakeFiles/cmTC_ded2e.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccBMHT2z.s
+        GNU assembler version 2.42 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.42
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ded2e.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_ded2e.dir/CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_ded2e
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ded2e.dir/link.txt --verbose=1
+        /usr/bin/c++  -v CMakeFiles/cmTC_ded2e.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_ded2e 
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/c++
+        COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper
+        OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 12.3.0-17ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-12/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-12 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-12-4qxEZC/gcc-12-12.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-12-4qxEZC/gcc-12-12.3.0/debian/tmp-gcn/usr --enable-offload-defaulted --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 12.3.0 (Ubuntu 12.3.0-17ubuntu1) 
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ded2e' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_ded2e.'
+         /usr/lib/gcc/x86_64-linux-gnu/12/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/12/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper -plugin-opt=-fresolution=/tmp/ccYHvhQn.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_ded2e /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/12 -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/12/../../.. CMakeFiles/cmTC_ded2e.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ded2e' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_ded2e.'
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-7dX1W3'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
+      - "/usr/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/usr/include/c++/12]
+          add: [/usr/include/x86_64-linux-gnu/c++/12]
+          add: [/usr/include/c++/12/backward]
+          add: [/usr/lib/gcc/x86_64-linux-gnu/12/include]
+          add: [/usr/local/include]
+          add: [/usr/include/x86_64-linux-gnu]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/usr/include/c++/12] ==> [/usr/include/c++/12]
+        collapse include dir [/usr/include/x86_64-linux-gnu/c++/12] ==> [/usr/include/x86_64-linux-gnu/c++/12]
+        collapse include dir [/usr/include/c++/12/backward] ==> [/usr/include/c++/12/backward]
+        collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/12/include] ==> [/usr/lib/gcc/x86_64-linux-gnu/12/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/include/c++/12;/usr/include/x86_64-linux-gnu/c++/12;/usr/include/c++/12/backward;/usr/lib/gcc/x86_64-linux-gnu/12/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:159 (message)"
+      - "/usr/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-7dX1W3']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_ded2e/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_ded2e.dir/build.make CMakeFiles/cmTC_ded2e.dir/build]
+        ignore line: [gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-7dX1W3']
+        ignore line: [Building CXX object CMakeFiles/cmTC_ded2e.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_ded2e.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/c++]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 12.3.0-17ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-12/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-12 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-12-4qxEZC/gcc-12-12.3.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-12-4qxEZC/gcc-12-12.3.0/debian/tmp-gcn/usr --enable-offload-defaulted --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 12.3.0 (Ubuntu 12.3.0-17ubuntu1) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ded2e.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_ded2e.dir/']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/12/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_ded2e.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccBMHT2z.s]
+        ignore line: [GNU C++17 (Ubuntu 12.3.0-17ubuntu1) version 12.3.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 12.3.0  GMP version 6.3.0  MPFR version 4.2.1  MPC version 1.3.1  isl version isl-0.26-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring duplicate directory "/usr/include/x86_64-linux-gnu/c++/12"]
+        ignore line: [ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/../../../../x86_64-linux-gnu/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/include/c++/12]
+        ignore line: [ /usr/include/x86_64-linux-gnu/c++/12]
+        ignore line: [ /usr/include/c++/12/backward]
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/12/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include/x86_64-linux-gnu]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [GNU C++17 (Ubuntu 12.3.0-17ubuntu1) version 12.3.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 12.3.0  GMP version 6.3.0  MPFR version 4.2.1  MPC version 1.3.1  isl version isl-0.26-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [Compiler executable checksum: ad8099c2459a2c0c0050f96ea82e9468]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ded2e.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_ded2e.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_ded2e.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccBMHT2z.s]
+        ignore line: [GNU assembler version 2.42 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.42]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ded2e.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_ded2e.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_ded2e]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ded2e.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/c++  -v CMakeFiles/cmTC_ded2e.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_ded2e ]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/c++]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 12.3.0-17ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-12/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-12 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-12-4qxEZC/gcc-12-12.3.0/debian/tmp-nvptx/usr amdgcn-amdhsa=/build/gcc-12-4qxEZC/gcc-12-12.3.0/debian/tmp-gcn/usr --enable-offload-defaulted --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 12.3.0 (Ubuntu 12.3.0-17ubuntu1) ]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ded2e' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_ded2e.']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/12/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/12/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper -plugin-opt=-fresolution=/tmp/ccYHvhQn.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_ded2e /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/12 -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/12/../../.. CMakeFiles/cmTC_ded2e.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/12/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/12/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccYHvhQn.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-znow] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_ded2e] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/12] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/12]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib]
+          arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+          arg [-L/lib/../lib] ==> dir [/lib/../lib]
+          arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+          arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/12/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/12/../../..]
+          arg [CMakeFiles/cmTC_ded2e.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lm] ==> lib [m]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o] ==> [/usr/lib/x86_64-linux-gnu/Scrt1.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o] ==> [/usr/lib/x86_64-linux-gnu/crtn.o]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/12] ==> [/usr/lib/gcc/x86_64-linux-gnu/12]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib] ==> [/usr/lib]
+        collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+        collapse library dir [/lib/../lib] ==> [/lib]
+        collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/12/../../..] ==> [/usr/lib]
+        implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+        implicit objs: [/usr/lib/x86_64-linux-gnu/Scrt1.o;/usr/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o;/usr/lib/x86_64-linux-gnu/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/12;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "/usr/share/cmake-3.28/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "CMakeLists.txt:21 (include)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-wIYYBO"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-wIYYBO"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-wIYYBO'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_4e2ae/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_4e2ae.dir/build.make CMakeFiles/cmTC_4e2ae.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-wIYYBO'
+        Building C object CMakeFiles/cmTC_4e2ae.dir/src.c.o
+        /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_4e2ae.dir/src.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-wIYYBO/src.c
+        Linking C executable cmTC_4e2ae
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4e2ae.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_4e2ae.dir/src.c.o -o cmTC_4e2ae 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-wIYYBO'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXCompilerFlag.cmake:34 (cmake_check_compiler_flag)"
+      - "CMakeLists.txt:118 (check_cxx_compiler_flag)"
+    checks:
+      - "Performing Test COMPILER_SUPPORTS_CXX11"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Xhpmo3"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Xhpmo3"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "COMPILER_SUPPORTS_CXX11"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Xhpmo3'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_b43ed/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_b43ed.dir/build.make CMakeFiles/cmTC_b43ed.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Xhpmo3'
+        Building CXX object CMakeFiles/cmTC_b43ed.dir/src.cxx.o
+        /usr/bin/c++ -DCOMPILER_SUPPORTS_CXX11  -std=c++11 -o CMakeFiles/cmTC_b43ed.dir/src.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Xhpmo3/src.cxx
+        Linking CXX executable cmTC_b43ed
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b43ed.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_b43ed.dir/src.cxx.o -o cmTC_b43ed 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Xhpmo3'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/CheckCCompilerFlag.cmake:51 (cmake_check_compiler_flag)"
+      - "CMakeLists.txt:124 (check_c_compiler_flag)"
+    checks:
+      - "Performing Test COMPILER_SUPPORTS_C11"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-8OcwSe"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-8OcwSe"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "COMPILER_SUPPORTS_C11"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-8OcwSe'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_074ba/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_074ba.dir/build.make CMakeFiles/cmTC_074ba.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-8OcwSe'
+        Building C object CMakeFiles/cmTC_074ba.dir/src.c.o
+        /usr/bin/cc -DCOMPILER_SUPPORTS_C11  -std=c11 -o CMakeFiles/cmTC_074ba.dir/src.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-8OcwSe/src.c
+        Linking C executable cmTC_074ba
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_074ba.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_074ba.dir/src.c.o -o cmTC_074ba 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-8OcwSe'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXCompilerFlag.cmake:34 (cmake_check_compiler_flag)"
+      - "CMakeLists.txt:133 (check_cxx_compiler_flag)"
+    checks:
+      - "Performing Test CXX_HAS_TAUT_WARNING"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-MipzIk"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-MipzIk"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "CXX_HAS_TAUT_WARNING"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-MipzIk'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_a1178/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_a1178.dir/build.make CMakeFiles/cmTC_a1178.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-MipzIk'
+        Building CXX object CMakeFiles/cmTC_a1178.dir/src.cxx.o
+        /usr/bin/c++ -DCXX_HAS_TAUT_WARNING  -std=c++11    -Wno-tautological-constant-compare -o CMakeFiles/cmTC_a1178.dir/src.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-MipzIk/src.cxx
+        Linking CXX executable cmTC_a1178
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a1178.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11  CMakeFiles/cmTC_a1178.dir/src.cxx.o -o cmTC_a1178 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-MipzIk'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/CheckCCompilerFlag.cmake:51 (cmake_check_compiler_flag)"
+      - "CMakeLists.txt:137 (check_c_compiler_flag)"
+    checks:
+      - "Performing Test CC_HAS_TAUT_WARNING"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-0qes3Q"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-0qes3Q"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "CC_HAS_TAUT_WARNING"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-0qes3Q'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_cc93b/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_cc93b.dir/build.make CMakeFiles/cmTC_cc93b.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-0qes3Q'
+        Building C object CMakeFiles/cmTC_cc93b.dir/src.c.o
+        /usr/bin/cc -DCC_HAS_TAUT_WARNING  -D_DEFAULT_SOURCE -std=c11    -Wno-tautological-constant-compare -o CMakeFiles/cmTC_cc93b.dir/src.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-0qes3Q/src.c
+        Linking C executable cmTC_cc93b
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cc93b.dir/link.txt --verbose=1
+        /usr/bin/cc  -D_DEFAULT_SOURCE -std=c11  CMakeFiles/cmTC_cc93b.dir/src.c.o -o cmTC_cc93b 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-0qes3Q'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSymbolExists.cmake:72 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:256 (check_cxx_symbol_exists)"
+    checks:
+      - "Looking for strlcpy"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-uDOJ65"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-uDOJ65"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_STRLCPY"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-uDOJ65'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_e9304/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_e9304.dir/build.make CMakeFiles/cmTC_e9304.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-uDOJ65'
+        Building CXX object CMakeFiles/cmTC_e9304.dir/CheckSymbolExists.cxx.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_e9304.dir/CheckSymbolExists.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-uDOJ65/CheckSymbolExists.cxx
+        Linking CXX executable cmTC_e9304
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e9304.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_e9304.dir/CheckSymbolExists.cxx.o -o cmTC_e9304 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-uDOJ65'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSymbolExists.cmake:72 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:400 (check_cxx_symbol_exists)"
+    checks:
+      - "Looking for kqueue"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-LCTLMv"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-LCTLMv"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "HAVE_KQUEUE"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-LCTLMv'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_349ac/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_349ac.dir/build.make CMakeFiles/cmTC_349ac.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-LCTLMv'
+        Building CXX object CMakeFiles/cmTC_349ac.dir/CheckSymbolExists.cxx.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_349ac.dir/CheckSymbolExists.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-LCTLMv/CheckSymbolExists.cxx
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-LCTLMv/CheckSymbolExists.cxx:3:10: fatal error: sys/event.h: No such file or directory
+            3 | #include <sys/event.h>
+              |          ^~~~~~~~~~~~~
+        compilation terminated.
+        gmake[1]: *** [CMakeFiles/cmTC_349ac.dir/build.make:78: CMakeFiles/cmTC_349ac.dir/CheckSymbolExists.cxx.o] Error 1
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-LCTLMv'
+        gmake: *** [Makefile:127: cmTC_349ac/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSymbolExists.cmake:72 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:407 (check_cxx_symbol_exists)"
+    checks:
+      - "Looking for epoll_create"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-LIAn0p"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-LIAn0p"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "HAVE_EPOLL"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-LIAn0p'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_f3e44/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_f3e44.dir/build.make CMakeFiles/cmTC_f3e44.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-LIAn0p'
+        Building CXX object CMakeFiles/cmTC_f3e44.dir/CheckSymbolExists.cxx.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_f3e44.dir/CheckSymbolExists.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-LIAn0p/CheckSymbolExists.cxx
+        Linking CXX executable cmTC_f3e44
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f3e44.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_f3e44.dir/CheckSymbolExists.cxx.o -o cmTC_f3e44 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-LIAn0p'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSymbolExists.cmake:72 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:410 (check_cxx_symbol_exists)"
+    checks:
+      - "Looking for epoll_create1"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-HYzyDT"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-HYzyDT"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "HAVE_EPOLL_CLOEXEC"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-HYzyDT'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_4855c/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_4855c.dir/build.make CMakeFiles/cmTC_4855c.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-HYzyDT'
+        Building CXX object CMakeFiles/cmTC_4855c.dir/CheckSymbolExists.cxx.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_4855c.dir/CheckSymbolExists.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-HYzyDT/CheckSymbolExists.cxx
+        Linking CXX executable cmTC_4855c
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4855c.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_4855c.dir/CheckSymbolExists.cxx.o -o cmTC_4855c 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-HYzyDT'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSymbolExists.cmake:72 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:483 (check_cxx_symbol_exists)"
+    checks:
+      - "Looking for pselect"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-ps1CoY"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-ps1CoY"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "HAVE_PSELECT"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-ps1CoY'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_d864c/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_d864c.dir/build.make CMakeFiles/cmTC_d864c.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-ps1CoY'
+        Building CXX object CMakeFiles/cmTC_d864c.dir/CheckSymbolExists.cxx.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_d864c.dir/CheckSymbolExists.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-ps1CoY/CheckSymbolExists.cxx
+        Linking CXX executable cmTC_d864c
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d864c.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_d864c.dir/CheckSymbolExists.cxx.o -o cmTC_d864c 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-ps1CoY'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSymbolExists.cmake:72 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:502 (check_cxx_symbol_exists)"
+    checks:
+      - "Looking for posix_memalign"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-u36aKk"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-u36aKk"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "HAVE_POSIX_MEMALIGN"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-u36aKk'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_acf88/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_acf88.dir/build.make CMakeFiles/cmTC_acf88.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-u36aKk'
+        Building CXX object CMakeFiles/cmTC_acf88.dir/CheckSymbolExists.cxx.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_acf88.dir/CheckSymbolExists.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-u36aKk/CheckSymbolExists.cxx
+        Linking CXX executable cmTC_acf88
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_acf88.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_acf88.dir/CheckSymbolExists.cxx.o -o cmTC_acf88 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-u36aKk'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckIncludeFiles.cmake:132 (try_compile)"
+      - "CMakeLists.txt:506 (check_include_files)"
+    checks:
+      - "Looking for include file windows.h"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-4boeMg"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-4boeMg"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_WINDOWS"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-4boeMg'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_65221/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_65221.dir/build.make CMakeFiles/cmTC_65221.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-4boeMg'
+        Building C object CMakeFiles/cmTC_65221.dir/ZMQ_HAVE_WINDOWS.c.o
+        /usr/bin/cc   -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_65221.dir/ZMQ_HAVE_WINDOWS.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-4boeMg/ZMQ_HAVE_WINDOWS.c
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-4boeMg/ZMQ_HAVE_WINDOWS.c:2:10: fatal error: windows.h: No such file or directory
+         #include <windows.h>
+                  ^~~~~~~~~~~
+        compilation terminated.
+        gmake[1]: *** [CMakeFiles/cmTC_65221.dir/build.make:78: CMakeFiles/cmTC_65221.dir/ZMQ_HAVE_WINDOWS.c.o] Error 1
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-4boeMg'
+        gmake: *** [Makefile:127: cmTC_65221/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckIncludeFiles.cmake:132 (try_compile)"
+      - "CMakeLists.txt:522 (check_include_files)"
+    checks:
+      - "Looking for include file condition_variable"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-ouhLVp"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-ouhLVp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_STL_CONDITION_VARIABLE"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-ouhLVp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_d65f2/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_d65f2.dir/build.make CMakeFiles/cmTC_d65f2.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-ouhLVp'
+        Building CXX object CMakeFiles/cmTC_d65f2.dir/ZMQ_HAVE_STL_CONDITION_VARIABLE.cpp.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_d65f2.dir/ZMQ_HAVE_STL_CONDITION_VARIABLE.cpp.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-ouhLVp/ZMQ_HAVE_STL_CONDITION_VARIABLE.cpp
+        Linking CXX executable cmTC_d65f2
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d65f2.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_d65f2.dir/ZMQ_HAVE_STL_CONDITION_VARIABLE.cpp.o -o cmTC_d65f2 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-ouhLVp'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckIncludeFiles.cmake:132 (try_compile)"
+      - "CMakeLists.txt:559 (check_include_files)"
+    checks:
+      - "Looking for include file ifaddrs.h"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-ftzrdr"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-ftzrdr"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_IFADDRS"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-ftzrdr'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_1cb02/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_1cb02.dir/build.make CMakeFiles/cmTC_1cb02.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-ftzrdr'
+        Building C object CMakeFiles/cmTC_1cb02.dir/ZMQ_HAVE_IFADDRS.c.o
+        /usr/bin/cc   -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_1cb02.dir/ZMQ_HAVE_IFADDRS.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-ftzrdr/ZMQ_HAVE_IFADDRS.c
+        Linking C executable cmTC_1cb02
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1cb02.dir/link.txt --verbose=1
+        /usr/bin/cc  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_1cb02.dir/ZMQ_HAVE_IFADDRS.c.o -o cmTC_1cb02 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-ftzrdr'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckIncludeFiles.cmake:132 (try_compile)"
+      - "CMakeLists.txt:560 (check_include_files)"
+    checks:
+      - "Looking for include file sys/uio.h"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-YSBEvl"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-YSBEvl"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_UIO"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-YSBEvl'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_77684/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_77684.dir/build.make CMakeFiles/cmTC_77684.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-YSBEvl'
+        Building C object CMakeFiles/cmTC_77684.dir/ZMQ_HAVE_UIO.c.o
+        /usr/bin/cc   -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_77684.dir/ZMQ_HAVE_UIO.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-YSBEvl/ZMQ_HAVE_UIO.c
+        Linking C executable cmTC_77684
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_77684.dir/link.txt --verbose=1
+        /usr/bin/cc  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_77684.dir/ZMQ_HAVE_UIO.c.o -o cmTC_77684 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-YSBEvl'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckIncludeFiles.cmake:132 (try_compile)"
+      - "CMakeLists.txt:561 (check_include_files)"
+    checks:
+      - "Looking for include file sys/eventfd.h"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-h2HhhC"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-h2HhhC"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_EVENTFD"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-h2HhhC'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_15441/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_15441.dir/build.make CMakeFiles/cmTC_15441.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-h2HhhC'
+        Building C object CMakeFiles/cmTC_15441.dir/ZMQ_HAVE_EVENTFD.c.o
+        /usr/bin/cc   -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_15441.dir/ZMQ_HAVE_EVENTFD.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-h2HhhC/ZMQ_HAVE_EVENTFD.c
+        Linking C executable cmTC_15441
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_15441.dir/link.txt --verbose=1
+        /usr/bin/cc  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_15441.dir/ZMQ_HAVE_EVENTFD.c.o -o cmTC_15441 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-h2HhhC'
+        
+      exitCode: 0
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceRuns.cmake:93 (try_run)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceRuns.cmake:52 (cmake_check_source_runs)"
+      - "builds/cmake/Modules/ZMQSourceRunChecks.cmake:21 (check_c_source_runs)"
+      - "CMakeLists.txt:563 (zmq_check_efd_cloexec)"
+    checks:
+      - "Performing Test ZMQ_HAVE_EVENTFD_CLOEXEC"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-irW0RM"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-irW0RM"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_EVENTFD_CLOEXEC_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-irW0RM'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_4b99f/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_4b99f.dir/build.make CMakeFiles/cmTC_4b99f.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-irW0RM'
+        Building C object CMakeFiles/cmTC_4b99f.dir/src.c.o
+        /usr/bin/cc -DZMQ_HAVE_EVENTFD_CLOEXEC  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_4b99f.dir/src.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-irW0RM/src.c
+        Linking C executable cmTC_4b99f
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4b99f.dir/link.txt --verbose=1
+        /usr/bin/cc  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_4b99f.dir/src.c.o -o cmTC_4b99f 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-irW0RM'
+        
+      exitCode: 0
+    runResult:
+      variable: "ZMQ_HAVE_EVENTFD_CLOEXEC_EXITCODE"
+      cached: true
+      stdout: |
+      stderr: |
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSymbolExists.cmake:72 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:589 (check_cxx_symbol_exists)"
+    checks:
+      - "Looking for if_nametoindex"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-I90esP"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-I90esP"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "HAVE_IF_NAMETOINDEX"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-I90esP'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_a04a3/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_a04a3.dir/build.make CMakeFiles/cmTC_a04a3.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-I90esP'
+        Building CXX object CMakeFiles/cmTC_a04a3.dir/CheckSymbolExists.cxx.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_a04a3.dir/CheckSymbolExists.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-I90esP/CheckSymbolExists.cxx
+        Linking CXX executable cmTC_a04a3
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a04a3.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_a04a3.dir/CheckSymbolExists.cxx.o -o cmTC_a04a3 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-I90esP'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSymbolExists.cmake:72 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:590 (check_cxx_symbol_exists)"
+    checks:
+      - "Looking for SO_PEERCRED"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-IUMPBf"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-IUMPBf"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_SO_PEERCRED"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-IUMPBf'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_64f27/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_64f27.dir/build.make CMakeFiles/cmTC_64f27.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-IUMPBf'
+        Building CXX object CMakeFiles/cmTC_64f27.dir/CheckSymbolExists.cxx.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_64f27.dir/CheckSymbolExists.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-IUMPBf/CheckSymbolExists.cxx
+        Linking CXX executable cmTC_64f27
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_64f27.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_64f27.dir/CheckSymbolExists.cxx.o -o cmTC_64f27 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-IUMPBf'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSymbolExists.cmake:72 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:591 (check_cxx_symbol_exists)"
+    checks:
+      - "Looking for LOCAL_PEERCRED"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-HAaV4A"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-HAaV4A"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_LOCAL_PEERCRED"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-HAaV4A'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_a7175/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_a7175.dir/build.make CMakeFiles/cmTC_a7175.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-HAaV4A'
+        Building CXX object CMakeFiles/cmTC_a7175.dir/CheckSymbolExists.cxx.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_a7175.dir/CheckSymbolExists.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-HAaV4A/CheckSymbolExists.cxx
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-HAaV4A/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-HAaV4A/CheckSymbolExists.cxx:8:19: error: ‘LOCAL_PEERCRED’ was not declared in this scope; did you mean ‘SO_PEERCRED’?
+            8 |   return ((int*)(&LOCAL_PEERCRED))[argc];
+              |                   ^~~~~~~~~~~~~~
+              |                   SO_PEERCRED
+        At global scope:
+        cc1plus: note: unrecognized command-line option ‘-Wno-tautological-constant-compare’ may have been intended to silence earlier diagnostics
+        gmake[1]: *** [CMakeFiles/cmTC_a7175.dir/build.make:78: CMakeFiles/cmTC_a7175.dir/CheckSymbolExists.cxx.o] Error 1
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-HAaV4A'
+        gmake: *** [Makefile:127: cmTC_a7175/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSymbolExists.cmake:72 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:592 (check_cxx_symbol_exists)"
+    checks:
+      - "Looking for SO_BUSY_POLL"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-tQL3Nf"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-tQL3Nf"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_BUSY_POLL"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-tQL3Nf'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_da413/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_da413.dir/build.make CMakeFiles/cmTC_da413.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-tQL3Nf'
+        Building CXX object CMakeFiles/cmTC_da413.dir/CheckSymbolExists.cxx.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_da413.dir/CheckSymbolExists.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-tQL3Nf/CheckSymbolExists.cxx
+        Linking CXX executable cmTC_da413
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_da413.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_da413.dir/CheckSymbolExists.cxx.o -o cmTC_da413 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-tQL3Nf'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSymbolExists.cmake:72 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:601 (check_cxx_symbol_exists)"
+    checks:
+      - "Looking for clock_gettime"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-xpvIdN"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-xpvIdN"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "HAVE_CLOCK_GETTIME"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-xpvIdN'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_ba317/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_ba317.dir/build.make CMakeFiles/cmTC_ba317.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-xpvIdN'
+        Building CXX object CMakeFiles/cmTC_ba317.dir/CheckSymbolExists.cxx.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_ba317.dir/CheckSymbolExists.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-xpvIdN/CheckSymbolExists.cxx
+        Linking CXX executable cmTC_ba317
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ba317.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_ba317.dir/CheckSymbolExists.cxx.o -o cmTC_ba317  -lrt 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-xpvIdN'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSymbolExists.cmake:72 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:625 (check_cxx_symbol_exists)"
+    checks:
+      - "Looking for fork"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-SDJdES"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-SDJdES"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "HAVE_FORK"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-SDJdES'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_b99c7/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_b99c7.dir/build.make CMakeFiles/cmTC_b99c7.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-SDJdES'
+        Building CXX object CMakeFiles/cmTC_b99c7.dir/CheckSymbolExists.cxx.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_b99c7.dir/CheckSymbolExists.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-SDJdES/CheckSymbolExists.cxx
+        Linking CXX executable cmTC_b99c7
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b99c7.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_b99c7.dir/CheckSymbolExists.cxx.o -o cmTC_b99c7 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-SDJdES'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSymbolExists.cmake:72 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:626 (check_cxx_symbol_exists)"
+    checks:
+      - "Looking for gethrtime"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-dmplOF"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-dmplOF"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "HAVE_GETHRTIME"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-dmplOF'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_c5b53/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_c5b53.dir/build.make CMakeFiles/cmTC_c5b53.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-dmplOF'
+        Building CXX object CMakeFiles/cmTC_c5b53.dir/CheckSymbolExists.cxx.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_c5b53.dir/CheckSymbolExists.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-dmplOF/CheckSymbolExists.cxx
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-dmplOF/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-dmplOF/CheckSymbolExists.cxx:8:19: error: ‘gethrtime’ was not declared in this scope; did you mean ‘getitimer’?
+            8 |   return ((int*)(&gethrtime))[argc];
+              |                   ^~~~~~~~~
+              |                   getitimer
+        At global scope:
+        cc1plus: note: unrecognized command-line option ‘-Wno-tautological-constant-compare’ may have been intended to silence earlier diagnostics
+        gmake[1]: *** [CMakeFiles/cmTC_c5b53.dir/build.make:78: CMakeFiles/cmTC_c5b53.dir/CheckSymbolExists.cxx.o] Error 1
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-dmplOF'
+        gmake: *** [Makefile:127: cmTC_c5b53/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSymbolExists.cmake:72 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:627 (check_cxx_symbol_exists)"
+    checks:
+      - "Looking for mkdtemp"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-7pSWWG"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-7pSWWG"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "HAVE_MKDTEMP"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-7pSWWG'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_ab436/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_ab436.dir/build.make CMakeFiles/cmTC_ab436.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-7pSWWG'
+        Building CXX object CMakeFiles/cmTC_ab436.dir/CheckSymbolExists.cxx.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_ab436.dir/CheckSymbolExists.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-7pSWWG/CheckSymbolExists.cxx
+        Linking CXX executable cmTC_ab436
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ab436.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_ab436.dir/CheckSymbolExists.cxx.o -o cmTC_ab436 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-7pSWWG'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSymbolExists.cmake:72 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:628 (check_cxx_symbol_exists)"
+    checks:
+      - "Looking for accept4"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-HtdRGj"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-HtdRGj"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "HAVE_ACCEPT4"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-HtdRGj'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_8b8e5/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_8b8e5.dir/build.make CMakeFiles/cmTC_8b8e5.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-HtdRGj'
+        Building CXX object CMakeFiles/cmTC_8b8e5.dir/CheckSymbolExists.cxx.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_8b8e5.dir/CheckSymbolExists.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-HtdRGj/CheckSymbolExists.cxx
+        Linking CXX executable cmTC_8b8e5
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8b8e5.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_8b8e5.dir/CheckSymbolExists.cxx.o -o cmTC_8b8e5 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-HtdRGj'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSymbolExists.cmake:72 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:629 (check_cxx_symbol_exists)"
+    checks:
+      - "Looking for strnlen"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-pirgys"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-pirgys"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "HAVE_STRNLEN"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-pirgys'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_d8d45/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_d8d45.dir/build.make CMakeFiles/cmTC_d8d45.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-pirgys'
+        Building CXX object CMakeFiles/cmTC_d8d45.dir/CheckSymbolExists.cxx.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_d8d45.dir/CheckSymbolExists.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-pirgys/CheckSymbolExists.cxx
+        Linking CXX executable cmTC_d8d45
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d8d45.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_d8d45.dir/CheckSymbolExists.cxx.o -o cmTC_d8d45 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-pirgys'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXCompilerFlag.cmake:34 (cmake_check_compiler_flag)"
+      - "CMakeLists.txt:640 (check_cxx_compiler_flag)"
+      - "CMakeLists.txt:684 (zmq_check_cxx_flag_prepend)"
+    checks:
+      - "Performing Test HAVE_FLAG_-Wall"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-3IDhyX"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-3IDhyX"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "HAVE_FLAG_-Wall"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-3IDhyX'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_c369f/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_c369f.dir/build.make CMakeFiles/cmTC_c369f.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-3IDhyX'
+        Building CXX object CMakeFiles/cmTC_c369f.dir/src.cxx.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare    -DHAVE_FLAG_-Wall -Wall -o CMakeFiles/cmTC_c369f.dir/src.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-3IDhyX/src.cxx
+        <command-line>: warning: ISO C++11 requires whitespace after the macro name
+        cc1plus: note: unrecognized command-line option '-Wno-tautological-constant-compare' may have been intended to silence earlier diagnostics
+        Linking CXX executable cmTC_c369f
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c369f.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_c369f.dir/src.cxx.o -o cmTC_c369f 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-3IDhyX'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXCompilerFlag.cmake:34 (cmake_check_compiler_flag)"
+      - "CMakeLists.txt:640 (check_cxx_compiler_flag)"
+      - "CMakeLists.txt:688 (zmq_check_cxx_flag_prepend)"
+    checks:
+      - "Performing Test HAVE_FLAG_-Wextra"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-RkEWac"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-RkEWac"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "HAVE_FLAG_-Wextra"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-RkEWac'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_9c041/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_9c041.dir/build.make CMakeFiles/cmTC_9c041.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-RkEWac'
+        Building CXX object CMakeFiles/cmTC_9c041.dir/src.cxx.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare    -DHAVE_FLAG_-Wextra -Wextra -o CMakeFiles/cmTC_9c041.dir/src.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-RkEWac/src.cxx
+        <command-line>: warning: ISO C++11 requires whitespace after the macro name
+        cc1plus: note: unrecognized command-line option '-Wno-tautological-constant-compare' may have been intended to silence earlier diagnostics
+        Linking CXX executable cmTC_9c041
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9c041.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_9c041.dir/src.cxx.o -o cmTC_9c041 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-RkEWac'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXCompilerFlag.cmake:34 (cmake_check_compiler_flag)"
+      - "CMakeLists.txt:640 (check_cxx_compiler_flag)"
+      - "CMakeLists.txt:696 (zmq_check_cxx_flag_prepend)"
+    checks:
+      - "Performing Test HAVE_FLAG_-Wno-long-long"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Z01E2H"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Z01E2H"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "HAVE_FLAG_-Wno-long-long"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Z01E2H'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_3e492/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_3e492.dir/build.make CMakeFiles/cmTC_3e492.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Z01E2H'
+        Building CXX object CMakeFiles/cmTC_3e492.dir/src.cxx.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare    -DHAVE_FLAG_-Wno-long-long -Wno-long-long -o CMakeFiles/cmTC_3e492.dir/src.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Z01E2H/src.cxx
+        <command-line>: warning: ISO C++11 requires whitespace after the macro name
+        cc1plus: note: unrecognized command-line option '-Wno-tautological-constant-compare' may have been intended to silence earlier diagnostics
+        Linking CXX executable cmTC_3e492
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3e492.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_3e492.dir/src.cxx.o -o cmTC_3e492 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Z01E2H'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXCompilerFlag.cmake:34 (cmake_check_compiler_flag)"
+      - "CMakeLists.txt:640 (check_cxx_compiler_flag)"
+      - "CMakeLists.txt:697 (zmq_check_cxx_flag_prepend)"
+    checks:
+      - "Performing Test HAVE_FLAG_-Wno-uninitialized"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-cDYFi1"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-cDYFi1"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "HAVE_FLAG_-Wno-uninitialized"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-cDYFi1'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_6c141/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_6c141.dir/build.make CMakeFiles/cmTC_6c141.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-cDYFi1'
+        Building CXX object CMakeFiles/cmTC_6c141.dir/src.cxx.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare    -DHAVE_FLAG_-Wno-uninitialized -Wno-uninitialized -o CMakeFiles/cmTC_6c141.dir/src.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-cDYFi1/src.cxx
+        <command-line>: warning: ISO C++11 requires whitespace after the macro name
+        cc1plus: note: unrecognized command-line option '-Wno-tautological-constant-compare' may have been intended to silence earlier diagnostics
+        Linking CXX executable cmTC_6c141
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6c141.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_6c141.dir/src.cxx.o -o cmTC_6c141 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-cDYFi1'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXCompilerFlag.cmake:34 (cmake_check_compiler_flag)"
+      - "CMakeLists.txt:640 (check_cxx_compiler_flag)"
+      - "CMakeLists.txt:700 (zmq_check_cxx_flag_prepend)"
+    checks:
+      - "Performing Test HAVE_FLAG_-pedantic"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-svZiy0"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-svZiy0"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "HAVE_FLAG_-pedantic"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-svZiy0'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_4d56f/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_4d56f.dir/build.make CMakeFiles/cmTC_4d56f.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-svZiy0'
+        Building CXX object CMakeFiles/cmTC_4d56f.dir/src.cxx.o
+        /usr/bin/c++   -std=c++11 -Wno-tautological-constant-compare    -DHAVE_FLAG_-pedantic -pedantic -o CMakeFiles/cmTC_4d56f.dir/src.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-svZiy0/src.cxx
+        <command-line>: warning: ISO C++11 requires whitespace after the macro name
+        cc1plus: note: unrecognized command-line option '-Wno-tautological-constant-compare' may have been intended to silence earlier diagnostics
+        Linking CXX executable cmTC_4d56f
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4d56f.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_4d56f.dir/src.cxx.o -o cmTC_4d56f 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-svZiy0'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "builds/cmake/Modules/ZMQSourceRunChecks.cmake:300 (check_cxx_source_compiles)"
+      - "CMakeLists.txt:754 (zmq_check_noexcept)"
+    checks:
+      - "Performing Test ZMQ_HAVE_NOEXCEPT"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Q6ifpG"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Q6ifpG"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -std=c++11 -Wno-tautological-constant-compare"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_NOEXCEPT"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Q6ifpG'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_3bd0f/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_3bd0f.dir/build.make CMakeFiles/cmTC_3bd0f.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Q6ifpG'
+        Building CXX object CMakeFiles/cmTC_3bd0f.dir/src.cxx.o
+        /usr/bin/c++ -DZMQ_HAVE_NOEXCEPT  -std=c++11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_3bd0f.dir/src.cxx.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Q6ifpG/src.cxx
+        Linking CXX executable cmTC_3bd0f
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3bd0f.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_3bd0f.dir/src.cxx.o -o cmTC_3bd0f 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Q6ifpG'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "builds/cmake/Modules/ZMQSourceRunChecks.cmake:215 (check_c_source_compiles)"
+      - "CMakeLists.txt:760 (zmq_check_pthread_setname)"
+    checks:
+      - "Performing Test ZMQ_HAVE_PTHREAD_SETNAME_1"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-VPUJCy"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-VPUJCy"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_PTHREAD_SETNAME_1"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-VPUJCy'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_1b9e1/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_1b9e1.dir/build.make CMakeFiles/cmTC_1b9e1.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-VPUJCy'
+        Building C object CMakeFiles/cmTC_1b9e1.dir/src.c.o
+        /usr/bin/cc -DZMQ_HAVE_PTHREAD_SETNAME_1  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare -D_GNU_SOURCE -Werror -pthread -o CMakeFiles/cmTC_1b9e1.dir/src.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-VPUJCy/src.c
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-VPUJCy/src.c: In function 'main':
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-VPUJCy/src.c:6:25: error: passing argument 1 of 'pthread_setname_np' makes integer from pointer without a cast [-Werror=int-conversion]
+             pthread_setname_np ("foo");
+                                 ^~~~~
+        In file included from /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-VPUJCy/src.c:2:
+        /opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed/pthread.h:472:42: note: expected 'pthread_t' {aka 'long unsigned int'} but argument is of type 'char *'
+         extern int pthread_setname_np (pthread_t __target_thread, const char *__name)
+                                        ~~~~~~~~~~^~~~~~~~~~~~~~~
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-VPUJCy/src.c:6:5: error: too few arguments to function 'pthread_setname_np'
+             pthread_setname_np ("foo");
+             ^~~~~~~~~~~~~~~~~~
+        In file included from /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-VPUJCy/src.c:2:
+        /opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed/pthread.h:472:12: note: declared here
+         extern int pthread_setname_np (pthread_t __target_thread, const char *__name)
+                    ^~~~~~~~~~~~~~~~~~
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-VPUJCy/src.c: At top level:
+        cc1: error: unrecognized command line option '-Wno-tautological-constant-compare' [-Werror]
+        cc1: all warnings being treated as errors
+        gmake[1]: *** [CMakeFiles/cmTC_1b9e1.dir/build.make:78: CMakeFiles/cmTC_1b9e1.dir/src.c.o] Error 1
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-VPUJCy'
+        gmake: *** [Makefile:127: cmTC_1b9e1/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "builds/cmake/Modules/ZMQSourceRunChecks.cmake:226 (check_c_source_compiles)"
+      - "CMakeLists.txt:760 (zmq_check_pthread_setname)"
+    checks:
+      - "Performing Test ZMQ_HAVE_PTHREAD_SETNAME_2"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-dsu4BI"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-dsu4BI"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_PTHREAD_SETNAME_2"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-dsu4BI'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_80ddf/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_80ddf.dir/build.make CMakeFiles/cmTC_80ddf.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-dsu4BI'
+        Building C object CMakeFiles/cmTC_80ddf.dir/src.c.o
+        /usr/bin/cc -DZMQ_HAVE_PTHREAD_SETNAME_2  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare -D_GNU_SOURCE -Werror -pthread -o CMakeFiles/cmTC_80ddf.dir/src.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-dsu4BI/src.c
+        Linking C executable cmTC_80ddf
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_80ddf.dir/link.txt --verbose=1
+        /usr/bin/cc  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare -D_GNU_SOURCE -Werror -pthread CMakeFiles/cmTC_80ddf.dir/src.c.o -o cmTC_80ddf 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-dsu4BI'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "builds/cmake/Modules/ZMQSourceRunChecks.cmake:237 (check_c_source_compiles)"
+      - "CMakeLists.txt:760 (zmq_check_pthread_setname)"
+    checks:
+      - "Performing Test ZMQ_HAVE_PTHREAD_SETNAME_3"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-02CYsf"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-02CYsf"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_PTHREAD_SETNAME_3"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-02CYsf'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_0b461/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_0b461.dir/build.make CMakeFiles/cmTC_0b461.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-02CYsf'
+        Building C object CMakeFiles/cmTC_0b461.dir/src.c.o
+        /usr/bin/cc -DZMQ_HAVE_PTHREAD_SETNAME_3  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare -D_GNU_SOURCE -Werror -pthread -o CMakeFiles/cmTC_0b461.dir/src.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-02CYsf/src.c
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-02CYsf/src.c: In function 'main':
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-02CYsf/src.c:6:5: error: too many arguments to function 'pthread_setname_np'
+             pthread_setname_np (pthread_self(), "foo", (void *)0);
+             ^~~~~~~~~~~~~~~~~~
+        In file included from /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-02CYsf/src.c:2:
+        /opt/gcc-8.5/lib/gcc/x86_64-pc-linux-gnu/8.5.0/include-fixed/pthread.h:472:12: note: declared here
+         extern int pthread_setname_np (pthread_t __target_thread, const char *__name)
+                    ^~~~~~~~~~~~~~~~~~
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-02CYsf/src.c: At top level:
+        cc1: error: unrecognized command line option '-Wno-tautological-constant-compare' [-Werror]
+        cc1: all warnings being treated as errors
+        gmake[1]: *** [CMakeFiles/cmTC_0b461.dir/build.make:78: CMakeFiles/cmTC_0b461.dir/src.c.o] Error 1
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-02CYsf'
+        gmake: *** [Makefile:127: cmTC_0b461/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "builds/cmake/Modules/ZMQSourceRunChecks.cmake:248 (check_c_source_compiles)"
+      - "CMakeLists.txt:760 (zmq_check_pthread_setname)"
+    checks:
+      - "Performing Test ZMQ_HAVE_PTHREAD_SET_NAME"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-bKMkv3"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-bKMkv3"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_PTHREAD_SET_NAME"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-bKMkv3'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_3c848/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_3c848.dir/build.make CMakeFiles/cmTC_3c848.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-bKMkv3'
+        Building C object CMakeFiles/cmTC_3c848.dir/src.c.o
+        /usr/bin/cc -DZMQ_HAVE_PTHREAD_SET_NAME  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare -D_GNU_SOURCE -Werror -pthread -o CMakeFiles/cmTC_3c848.dir/src.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-bKMkv3/src.c
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-bKMkv3/src.c: In function 'main':
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-bKMkv3/src.c:6:5: error: implicit declaration of function 'pthread_set_name_np'; did you mean 'pthread_setname_np'? [-Werror=implicit-function-declaration]
+             pthread_set_name_np (pthread_self(), "foo");
+             ^~~~~~~~~~~~~~~~~~~
+             pthread_setname_np
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-bKMkv3/src.c: At top level:
+        cc1: error: unrecognized command line option '-Wno-tautological-constant-compare' [-Werror]
+        cc1: all warnings being treated as errors
+        gmake[1]: *** [CMakeFiles/cmTC_3c848.dir/build.make:78: CMakeFiles/cmTC_3c848.dir/src.c.o] Error 1
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-bKMkv3'
+        gmake: *** [Makefile:127: cmTC_3c848/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "builds/cmake/Modules/ZMQSourceRunChecks.cmake:266 (check_c_source_compiles)"
+      - "CMakeLists.txt:761 (zmq_check_pthread_setaffinity)"
+    checks:
+      - "Performing Test ZMQ_HAVE_PTHREAD_SET_AFFINITY"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-cDBQS8"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-cDBQS8"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_PTHREAD_SET_AFFINITY"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-cDBQS8'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_e269c/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_e269c.dir/build.make CMakeFiles/cmTC_e269c.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-cDBQS8'
+        Building C object CMakeFiles/cmTC_e269c.dir/src.c.o
+        /usr/bin/cc -DZMQ_HAVE_PTHREAD_SET_AFFINITY  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare -D_GNU_SOURCE -Werror -pthread -o CMakeFiles/cmTC_e269c.dir/src.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-cDBQS8/src.c
+        Linking C executable cmTC_e269c
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e269c.dir/link.txt --verbose=1
+        /usr/bin/cc  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare -D_GNU_SOURCE -Werror -pthread CMakeFiles/cmTC_e269c.dir/src.c.o -o cmTC_e269c 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-cDBQS8'
+        
+      exitCode: 0
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceRuns.cmake:93 (try_run)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceRuns.cmake:52 (cmake_check_source_runs)"
+      - "builds/cmake/Modules/ZMQSourceRunChecks.cmake:5 (check_c_source_runs)"
+      - "CMakeLists.txt:764 (zmq_check_sock_cloexec)"
+    checks:
+      - "Performing Test ZMQ_HAVE_SOCK_CLOEXEC"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-toXXZl"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-toXXZl"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_SOCK_CLOEXEC_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-toXXZl'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_77d9f/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_77d9f.dir/build.make CMakeFiles/cmTC_77d9f.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-toXXZl'
+        Building C object CMakeFiles/cmTC_77d9f.dir/src.c.o
+        /usr/bin/cc -DZMQ_HAVE_SOCK_CLOEXEC  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_77d9f.dir/src.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-toXXZl/src.c
+        Linking C executable cmTC_77d9f
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_77d9f.dir/link.txt --verbose=1
+        /usr/bin/cc  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_77d9f.dir/src.c.o -o cmTC_77d9f 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-toXXZl'
+        
+      exitCode: 0
+    runResult:
+      variable: "ZMQ_HAVE_SOCK_CLOEXEC_EXITCODE"
+      cached: true
+      stdout: |
+      stderr: |
+      exitCode: 0
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceRuns.cmake:93 (try_run)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceRuns.cmake:52 (cmake_check_source_runs)"
+      - "builds/cmake/Modules/ZMQSourceRunChecks.cmake:36 (check_c_source_runs)"
+      - "CMakeLists.txt:765 (zmq_check_o_cloexec)"
+    checks:
+      - "Performing Test ZMQ_HAVE_O_CLOEXEC"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-SzrEq0"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-SzrEq0"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_O_CLOEXEC_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-SzrEq0'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_660ac/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_660ac.dir/build.make CMakeFiles/cmTC_660ac.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-SzrEq0'
+        Building C object CMakeFiles/cmTC_660ac.dir/src.c.o
+        /usr/bin/cc -DZMQ_HAVE_O_CLOEXEC  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_660ac.dir/src.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-SzrEq0/src.c
+        Linking C executable cmTC_660ac
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_660ac.dir/link.txt --verbose=1
+        /usr/bin/cc  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_660ac.dir/src.c.o -o cmTC_660ac 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-SzrEq0'
+        
+      exitCode: 0
+    runResult:
+      variable: "ZMQ_HAVE_O_CLOEXEC_EXITCODE"
+      cached: true
+      stdout: |
+      stderr: |
+      exitCode: 0
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceRuns.cmake:93 (try_run)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceRuns.cmake:52 (cmake_check_source_runs)"
+      - "builds/cmake/Modules/ZMQSourceRunChecks.cmake:53 (check_c_source_runs)"
+      - "CMakeLists.txt:766 (zmq_check_so_bindtodevice)"
+    checks:
+      - "Performing Test ZMQ_HAVE_SO_BINDTODEVICE"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-w1ZFF4"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-w1ZFF4"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_SO_BINDTODEVICE_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-w1ZFF4'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_526eb/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_526eb.dir/build.make CMakeFiles/cmTC_526eb.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-w1ZFF4'
+        Building C object CMakeFiles/cmTC_526eb.dir/src.c.o
+        /usr/bin/cc -DZMQ_HAVE_SO_BINDTODEVICE  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_526eb.dir/src.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-w1ZFF4/src.c
+        Linking C executable cmTC_526eb
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_526eb.dir/link.txt --verbose=1
+        /usr/bin/cc  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_526eb.dir/src.c.o -o cmTC_526eb 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-w1ZFF4'
+        
+      exitCode: 0
+    runResult:
+      variable: "ZMQ_HAVE_SO_BINDTODEVICE_EXITCODE"
+      cached: true
+      stdout: |
+      stderr: |
+      exitCode: 0
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceRuns.cmake:93 (try_run)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceRuns.cmake:52 (cmake_check_source_runs)"
+      - "builds/cmake/Modules/ZMQSourceRunChecks.cmake:74 (check_c_source_runs)"
+      - "CMakeLists.txt:767 (zmq_check_so_keepalive)"
+    checks:
+      - "Performing Test ZMQ_HAVE_SO_KEEPALIVE"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-9V8n0e"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-9V8n0e"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_SO_KEEPALIVE_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-9V8n0e'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_92eb3/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_92eb3.dir/build.make CMakeFiles/cmTC_92eb3.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-9V8n0e'
+        Building C object CMakeFiles/cmTC_92eb3.dir/src.c.o
+        /usr/bin/cc -DZMQ_HAVE_SO_KEEPALIVE  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_92eb3.dir/src.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-9V8n0e/src.c
+        Linking C executable cmTC_92eb3
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_92eb3.dir/link.txt --verbose=1
+        /usr/bin/cc  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_92eb3.dir/src.c.o -o cmTC_92eb3 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-9V8n0e'
+        
+      exitCode: 0
+    runResult:
+      variable: "ZMQ_HAVE_SO_KEEPALIVE_EXITCODE"
+      cached: true
+      stdout: |
+      stderr: |
+      exitCode: 0
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceRuns.cmake:93 (try_run)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceRuns.cmake:52 (cmake_check_source_runs)"
+      - "builds/cmake/Modules/ZMQSourceRunChecks.cmake:318 (check_c_source_runs)"
+      - "CMakeLists.txt:768 (zmq_check_so_priority)"
+    checks:
+      - "Performing Test ZMQ_HAVE_SO_PRIORITY"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-SuP24w"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-SuP24w"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_SO_PRIORITY_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-SuP24w'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_9e5a7/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_9e5a7.dir/build.make CMakeFiles/cmTC_9e5a7.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-SuP24w'
+        Building C object CMakeFiles/cmTC_9e5a7.dir/src.c.o
+        /usr/bin/cc -DZMQ_HAVE_SO_PRIORITY  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_9e5a7.dir/src.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-SuP24w/src.c
+        Linking C executable cmTC_9e5a7
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9e5a7.dir/link.txt --verbose=1
+        /usr/bin/cc  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_9e5a7.dir/src.c.o -o cmTC_9e5a7 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-SuP24w'
+        
+      exitCode: 0
+    runResult:
+      variable: "ZMQ_HAVE_SO_PRIORITY_EXITCODE"
+      cached: true
+      stdout: |
+      stderr: |
+      exitCode: 0
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceRuns.cmake:93 (try_run)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceRuns.cmake:52 (cmake_check_source_runs)"
+      - "builds/cmake/Modules/ZMQSourceRunChecks.cmake:93 (check_c_source_runs)"
+      - "CMakeLists.txt:769 (zmq_check_tcp_keepcnt)"
+    checks:
+      - "Performing Test ZMQ_HAVE_TCP_KEEPCNT"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-NsCMXi"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-NsCMXi"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_TCP_KEEPCNT_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-NsCMXi'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_2eeac/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_2eeac.dir/build.make CMakeFiles/cmTC_2eeac.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-NsCMXi'
+        Building C object CMakeFiles/cmTC_2eeac.dir/src.c.o
+        /usr/bin/cc -DZMQ_HAVE_TCP_KEEPCNT  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_2eeac.dir/src.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-NsCMXi/src.c
+        Linking C executable cmTC_2eeac
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2eeac.dir/link.txt --verbose=1
+        /usr/bin/cc  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_2eeac.dir/src.c.o -o cmTC_2eeac 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-NsCMXi'
+        
+      exitCode: 0
+    runResult:
+      variable: "ZMQ_HAVE_TCP_KEEPCNT_EXITCODE"
+      cached: true
+      stdout: |
+      stderr: |
+      exitCode: 0
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceRuns.cmake:93 (try_run)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceRuns.cmake:52 (cmake_check_source_runs)"
+      - "builds/cmake/Modules/ZMQSourceRunChecks.cmake:115 (check_c_source_runs)"
+      - "CMakeLists.txt:770 (zmq_check_tcp_keepidle)"
+    checks:
+      - "Performing Test ZMQ_HAVE_TCP_KEEPIDLE"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-6EW0zy"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-6EW0zy"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_TCP_KEEPIDLE_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-6EW0zy'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_9a60c/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_9a60c.dir/build.make CMakeFiles/cmTC_9a60c.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-6EW0zy'
+        Building C object CMakeFiles/cmTC_9a60c.dir/src.c.o
+        /usr/bin/cc -DZMQ_HAVE_TCP_KEEPIDLE  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_9a60c.dir/src.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-6EW0zy/src.c
+        Linking C executable cmTC_9a60c
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9a60c.dir/link.txt --verbose=1
+        /usr/bin/cc  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_9a60c.dir/src.c.o -o cmTC_9a60c 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-6EW0zy'
+        
+      exitCode: 0
+    runResult:
+      variable: "ZMQ_HAVE_TCP_KEEPIDLE_EXITCODE"
+      cached: true
+      stdout: |
+      stderr: |
+      exitCode: 0
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceRuns.cmake:93 (try_run)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceRuns.cmake:52 (cmake_check_source_runs)"
+      - "builds/cmake/Modules/ZMQSourceRunChecks.cmake:138 (check_c_source_runs)"
+      - "CMakeLists.txt:771 (zmq_check_tcp_keepintvl)"
+    checks:
+      - "Performing Test ZMQ_HAVE_TCP_KEEPINTVL"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-eJEjAj"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-eJEjAj"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_TCP_KEEPINTVL_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-eJEjAj'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_7ad38/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_7ad38.dir/build.make CMakeFiles/cmTC_7ad38.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-eJEjAj'
+        Building C object CMakeFiles/cmTC_7ad38.dir/src.c.o
+        /usr/bin/cc -DZMQ_HAVE_TCP_KEEPINTVL  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_7ad38.dir/src.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-eJEjAj/src.c
+        Linking C executable cmTC_7ad38
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7ad38.dir/link.txt --verbose=1
+        /usr/bin/cc  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_7ad38.dir/src.c.o -o cmTC_7ad38 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-eJEjAj'
+        
+      exitCode: 0
+    runResult:
+      variable: "ZMQ_HAVE_TCP_KEEPINTVL_EXITCODE"
+      cached: true
+      stdout: |
+      stderr: |
+      exitCode: 0
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceRuns.cmake:93 (try_run)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceRuns.cmake:52 (cmake_check_source_runs)"
+      - "builds/cmake/Modules/ZMQSourceRunChecks.cmake:162 (check_c_source_runs)"
+      - "CMakeLists.txt:772 (zmq_check_tcp_keepalive)"
+    checks:
+      - "Performing Test ZMQ_HAVE_TCP_KEEPALIVE"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-XPmB2f"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-XPmB2f"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_TCP_KEEPALIVE_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-XPmB2f'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_f7436/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_f7436.dir/build.make CMakeFiles/cmTC_f7436.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-XPmB2f'
+        Building C object CMakeFiles/cmTC_f7436.dir/src.c.o
+        /usr/bin/cc -DZMQ_HAVE_TCP_KEEPALIVE  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_f7436.dir/src.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-XPmB2f/src.c
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-XPmB2f/src.c: In function 'main':
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-XPmB2f/src.c:13:42: error: 'TCP_KEEPALIVE' undeclared (first use in this function); did you mean 'SO_KEEPALIVE'?
+                ((rc = setsockopt(s, IPPROTO_TCP, TCP_KEEPALIVE,(char*) &opt, sizeof(int))) == -1)
+                                                  ^~~~~~~~~~~~~
+                                                  SO_KEEPALIVE
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-XPmB2f/src.c:13:42: note: each undeclared identifier is reported only once for each function it appears in
+        /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-XPmB2f/src.c: At top level:
+        cc1: warning: unrecognized command line option '-Wno-tautological-constant-compare'
+        gmake[1]: *** [CMakeFiles/cmTC_f7436.dir/build.make:78: CMakeFiles/cmTC_f7436.dir/src.c.o] Error 1
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-XPmB2f'
+        gmake: *** [Makefile:127: cmTC_f7436/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "ZMQ_HAVE_TCP_KEEPALIVE_EXITCODE"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceRuns.cmake:93 (try_run)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceRuns.cmake:52 (cmake_check_source_runs)"
+      - "builds/cmake/Modules/ZMQSourceRunChecks.cmake:185 (check_c_source_runs)"
+      - "CMakeLists.txt:773 (zmq_check_tcp_tipc)"
+    checks:
+      - "Performing Test ZMQ_HAVE_TIPC"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Encbkc"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Encbkc"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_TIPC_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Encbkc'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_cc3e2/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_cc3e2.dir/build.make CMakeFiles/cmTC_cc3e2.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Encbkc'
+        Building C object CMakeFiles/cmTC_cc3e2.dir/src.c.o
+        /usr/bin/cc -DZMQ_HAVE_TIPC  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_cc3e2.dir/src.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Encbkc/src.c
+        Linking C executable cmTC_cc3e2
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cc3e2.dir/link.txt --verbose=1
+        /usr/bin/cc  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_cc3e2.dir/src.c.o -o cmTC_cc3e2 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Encbkc'
+        
+      exitCode: 0
+    runResult:
+      variable: "ZMQ_HAVE_TIPC_EXITCODE"
+      cached: true
+      stdout: |
+      stderr: |
+      exitCode: 0
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceRuns.cmake:93 (try_run)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceRuns.cmake:52 (cmake_check_source_runs)"
+      - "builds/cmake/Modules/ZMQSourceRunChecks.cmake:284 (check_c_source_runs)"
+      - "CMakeLists.txt:774 (zmq_check_getrandom)"
+    checks:
+      - "Performing Test ZMQ_HAVE_GETRANDOM"
+    directories:
+      source: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Pvde1z"
+      binary: "/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Pvde1z"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/hexagon_c/hexagon_c/libzmq;/workspaces/hexagon_c/hexagon_c/libzmq/builds/cmake/Modules"
+    buildResult:
+      variable: "ZMQ_HAVE_GETRANDOM_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Pvde1z'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_37271/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_37271.dir/build.make CMakeFiles/cmTC_37271.dir/build
+        gmake[1]: Entering directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Pvde1z'
+        Building C object CMakeFiles/cmTC_37271.dir/src.c.o
+        /usr/bin/cc -DZMQ_HAVE_GETRANDOM  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  -o CMakeFiles/cmTC_37271.dir/src.c.o -c /workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Pvde1z/src.c
+        Linking C executable cmTC_37271
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_37271.dir/link.txt --verbose=1
+        /usr/bin/cc  -D_DEFAULT_SOURCE -std=c11 -Wno-tautological-constant-compare  CMakeFiles/cmTC_37271.dir/src.c.o -o cmTC_37271 
+        gmake[1]: Leaving directory '/workspaces/hexagon_c/hexagon_c/libzmq/build/CMakeFiles/CMakeScratch/TryCompile-Pvde1z'
+        
+      exitCode: 0
+    runResult:
+      variable: "ZMQ_HAVE_GETRANDOM_EXITCODE"
+      cached: true
+      stdout: |
+      stderr: |
+      exitCode: 0
+...

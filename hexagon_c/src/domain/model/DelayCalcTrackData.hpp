@@ -11,12 +11,6 @@ namespace hat::domain::model {
  */
 class DelayCalcTrackData {
 private:
-    // Ana alanlar
-    int id_;                          // ID
-    double velocity_;                 // Velocity field
-    double position_;                 // Position field  
-    int64_t time_field_;              // Time field (milliseconds)
-    
     // Track ID ve ECEF koordinatları
     int track_id_;                    // Track ID (*)
     
@@ -39,8 +33,7 @@ private:
 
 public:
     // Constructors
-    DelayCalcTrackData(int id, double velocity, double position, int64_t time_field,
-                       int track_id,
+    DelayCalcTrackData(int track_id,
                        double x_vel_ecef, double y_vel_ecef, double z_vel_ecef,
                        double x_pos_ecef, double y_pos_ecef, double z_pos_ecef,
                        int64_t update_time, int64_t original_update_time,
@@ -50,10 +43,6 @@ public:
     DelayCalcTrackData();
 
     // Getters - Ana alanlar
-    int getId() const { return id_; }
-    double getVelocity() const { return velocity_; }
-    double getPosition() const { return position_; }
-    int64_t getTimeField() const { return time_field_; }
     int getTrackId() const { return track_id_; }
     
     // Getters - ECEF Velocity
@@ -74,10 +63,6 @@ public:
     int64_t getSecondHopSentTime() const { return second_hop_sent_time_; }
 
     // Setters - Ana alanlar
-    void setId(int id) { id_ = id; }
-    void setVelocity(double velocity) { velocity_ = velocity; }
-    void setPosition(double position) { position_ = position; }
-    void setTimeField(int64_t time_field) { time_field_ = time_field; }
     void setTrackId(int track_id) { track_id_ = track_id; }
     
     // Setters - ECEF
@@ -91,13 +76,10 @@ public:
     void setFirstHopDelayTime(int64_t time) { first_hop_delay_time_ = time; }
     void setSecondHopSentTime(int64_t time) { second_hop_sent_time_ = time; }
 
-    // İş mantığı metodları
-    double getECEFSpeed() const;
-    double getDistanceFromOrigin() const;
+    // İş mantığı metodları - basitleştirildi
     int64_t calculateFirstHopDelay() const;
     int64_t calculateDataAge() const;
     bool isDataFresh(int64_t threshold_ms = 1000) const;
-    bool isHighVelocity(double threshold = 100.0) const;
 
     // Validation
     bool isValid() const;

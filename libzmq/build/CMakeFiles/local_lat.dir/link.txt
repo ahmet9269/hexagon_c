@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++11 -Wno-tautological-constant-compare -O3 -DNDEBUG CMakeFiles/local_lat.dir/perf/local_lat.cpp.o -o bin/local_lat  -Wl,-rpath,/workspaces/hexagon_c/hexagon_c/libzmq/build/lib: lib/libzmq.so.5.2.6 /usr/lib/x86_64-linux-gnu/libgnutls.so -lbsd -lrt 

@@ -107,57 +107,7 @@ public:    // Public section - dışarıdan erişilebilir members
     // const = member function modifier, object state'ini değiştirmez
     virtual bool isPublisherActive() const = 0;
 
-    /**
-     * NESTED STRUCT - Publisher istatistik verileri
-     * 
-     * STRUCT vs CLASS:
-     * - struct = default public members (C compatibility)
-     * - class = default private members
-     * - Functionality açısından aynı
-     * - Struct genelde data container için kullanılır
-     * 
-     * STATISTICS PATTERN:
-     * - System monitoring için kritik veriler
-     * - Performance analysis için gerekli
-     * - Debugging ve troubleshooting için yararlı
-     */
-    struct PublisherStats {
-        // size_t = platform-specific unsigned integer type
-        // Genelde pointer boyutunda (32-bit'te 4 byte, 64-bit'te 8 byte)
-        // Array indexing ve memory size için optimize edilmiş
-        size_t total_published;        // Toplam yayınlanan mesaj sayısı
-        size_t failed_publications;    // Başarısız yayın sayısı
-        size_t active_connections;     // Aktif bağlantı sayısı
-        
-        // double = double-precision floating point (64-bit)
-        // float'tan daha hassas, scientific calculation'lar için uygun
-        // Latency measurement için yeterli precision
-        double average_latency_ms;     // Ortalama gecikme süresi (milisaniye)
-        
-        // STRUCT DESIGN NOTES:
-        // - POD (Plain Old Data) struct
-        // - Copyable ve movable
-        // - Stack'te efficient storage
-        // - Serialization'a uygun
-    };
-
-    /**
-     * STATISTICS RETRIEVAL - İstatistik verilerini alma fonksiyonu
-     * Publisher'ın performans ve durum istatistiklerini döner
-     * 
-     * RETURN BY VALUE:
-     * - Struct küçük olduğu için copy overhead düşük
-     * - RVO (Return Value Optimization) ile optimize edilebilir
-     * - Thread-safe (caller'ın kendi copy'si)
-     * 
-     * MONITORING PATTERN:
-     * - Real-time system monitoring
-     * - Performance metrics collection
-     * - Alerting ve dashboard'lar için veri kaynağı
-     * 
-     * @return Publisher istatistikleri
-     */
-    virtual PublisherStats getPublisherStats() const = 0;
+    // Statistics removed - unnecessary complexity
 
     // INTERFACE DESIGN PRINCIPLES:
     // 
