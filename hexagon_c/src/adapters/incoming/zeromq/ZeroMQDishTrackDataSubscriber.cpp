@@ -7,6 +7,20 @@
 
 namespace hat::adapters::incoming::zeromq {
 
+// Default constructor with standard configuration
+ZeroMQDishTrackDataSubscriber::ZeroMQDishTrackDataSubscriber(
+    std::shared_ptr<domain::ports::incoming::TrackDataSubmission> track_data_submission)
+    : track_data_submission_(track_data_submission)
+    , running_(false)
+    , multicast_endpoint_("udp://239.1.1.1:9001")  // Default UDP multicast endpoint
+    , group_name_("SOURCE_DATA")                    // Default group name
+    , zmq_context_(1)  // 1 I/O thread
+    , dish_socket_(nullptr) {
+    
+    initializeDishSocket();
+}
+
+// Custom configuration constructor
 ZeroMQDishTrackDataSubscriber::ZeroMQDishTrackDataSubscriber(
     std::shared_ptr<domain::ports::incoming::TrackDataSubmission> track_data_submission,
     const std::string& multicast_endpoint,
@@ -28,6 +42,10 @@ ZeroMQDishTrackDataSubscriber::~ZeroMQDishTrackDataSubscriber() {
 
 void ZeroMQDishTrackDataSubscriber::initializeDishSocket() {
     try {
+        std::cout << "🔧 ZeroMQ DISH Configuration:" << std::endl;
+        std::cout << "   📡 Endpoint: " << multicast_endpoint_ << std::endl;
+        std::cout << "   👥 Group: " << group_name_ << std::endl;
+        
         // DISH socket oluştur (C++ wrapper ile) - Draft API gerekli
         dish_socket_ = std::make_unique<zmq::socket_t>(zmq_context_, zmq::socket_type::dish);
 

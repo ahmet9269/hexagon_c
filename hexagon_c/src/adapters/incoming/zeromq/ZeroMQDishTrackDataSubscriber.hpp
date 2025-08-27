@@ -52,15 +52,22 @@ private:
 
 public:
     /**
-     * Constructor
+     * Constructor - Default UDP multicast configuration
+     * @param track_data_submission Domain katmanına veri göndermek için port
+     */
+    ZeroMQDishTrackDataSubscriber(
+        std::shared_ptr<domain::ports::incoming::TrackDataSubmission> track_data_submission);
+
+    /**
+     * Constructor with custom configuration
      * @param track_data_submission Domain katmanına veri göndermek için port
      * @param multicast_endpoint UDP multicast endpoint (örn: "udp://239.1.1.1:9001")
      * @param group_name Dinlenecek multicast grup adı (örn: "SOURCE_DATA")
      */
     ZeroMQDishTrackDataSubscriber(
         std::shared_ptr<domain::ports::incoming::TrackDataSubmission> track_data_submission,
-        const std::string& multicast_endpoint = "udp://239.1.1.1:9001",
-        const std::string& group_name = "SOURCE_DATA");
+        const std::string& multicast_endpoint,
+        const std::string& group_name);
 
     ~ZeroMQDishTrackDataSubscriber();
 

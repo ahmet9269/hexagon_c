@@ -11,3 +11,6 @@ cmake --build build
 ./hexagon_c_app &
 cd /workspaces/hexagon_c/hexagon_c/hexagon_bx
 ./hat_b_app_radio_optimized
+
+
+cd /workspaces/hexagon_c/hexagon_c/hexagon_c && cmake --build build
