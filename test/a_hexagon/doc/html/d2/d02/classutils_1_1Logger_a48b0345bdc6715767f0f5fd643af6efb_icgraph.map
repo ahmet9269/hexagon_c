@@ -1,0 +1,11 @@
+<map id="utils::Logger::logTrackReceived" name="utils::Logger::logTrackReceived">
+<area shape="rect" id="Node000001" title="Log track data reception." alt="" coords="629,84,853,109"/>
+<area shape="rect" id="Node000002" href="$d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a5f1c5efb3c8c5a7bfd2f59affacb92cb" title="Main receive loop (runs in dedicated thread)" alt="" coords="317,5,581,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="669,84,574,63,575,57,670,78"/>
+<area shape="rect" id="Node000004" href="$d5/d02/LoggerTest_8cpp.html#ac81b6f2f25b05a6fb4507448ffaee7fa" title=" " alt="" coords="415,84,484,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="616,99,484,99,484,94,616,94"/>
+<area shape="rect" id="Node000005" href="$d5/d02/LoggerTest_8cpp.html#aac4fc9a7f31ee6ddb3700b2739dd3b87" title=" " alt="" coords="415,133,484,159"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="653,114,485,143,484,138,652,109"/>
+<area shape="rect" id="Node000003" href="$d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a19b3ef73e13d71c1b6dd66dcebc145ee" title="Start the adapter&#39;s receive loop." alt="" coords="5,5,269,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="304,35,269,35,269,30,304,30"/>
+</map>

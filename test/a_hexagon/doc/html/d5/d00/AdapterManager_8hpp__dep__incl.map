@@ -1,0 +1,7 @@
+<map id="a_hexagon/adapters/common/AdapterManager.hpp" name="a_hexagon/adapters/common/AdapterManager.hpp">
+<area shape="rect" id="Node000001" title="Thread&#45;per&#45;Type Adapter Manager for Hexagonal Architecture." alt="" coords="109,5,331,45"/>
+<area shape="rect" id="Node000002" href="$d1/d03/AdapterManagerTest_8cpp.html" title="Unit tests for AdapterManager class." alt="" coords="5,93,224,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,57,152,95,148,91,188,53"/>
+<area shape="rect" id="Node000003" href="$df/d02/main_8cpp.html" title="Main entry point for A_Hexagon application." alt="" coords="248,115,405,141"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="252,53,316,113,312,117,248,57"/>
+</map>

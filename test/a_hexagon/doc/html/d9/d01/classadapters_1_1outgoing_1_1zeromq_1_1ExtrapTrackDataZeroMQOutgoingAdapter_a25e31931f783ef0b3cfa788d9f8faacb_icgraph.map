@@ -1,0 +1,5 @@
+<map id="adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::stop" name="adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::stop">
+<area shape="rect" id="Node000001" title="Stop the adapter gracefully." alt="" coords="333,13,557,67"/>
+<area shape="rect" id="Node000002" href="$d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a9e945c59c6ab6fd721a669c5b7d8c210" title="Destructor &#45; ensures graceful shutdown." alt="" coords="5,5,285,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="320,43,286,43,286,37,320,37"/>
+</map>

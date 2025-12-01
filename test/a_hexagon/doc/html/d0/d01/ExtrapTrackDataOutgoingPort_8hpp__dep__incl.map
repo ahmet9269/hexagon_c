@@ -1,0 +1,19 @@
+<map id="a_hexagon/domain/ports/outgoing/ExtrapTrackDataOutgoingPort.hpp" name="a_hexagon/domain/ports/outgoing/ExtrapTrackDataOutgoingPort.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="514,5,767,60"/>
+<area shape="rect" id="Node000002" href="$d3/d00/TrackDataExtrapolatorTest_8cpp.html" title="Unit tests for TrackDataExtrapolator domain logic." alt="" coords="674,211,898,280"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="669,70,765,209,761,212,664,73"/>
+<area shape="rect" id="Node000003" href="$d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp.html" title="ZeroMQ UDP RADIO Outgoing Adapter for ExtrapTrackData messages." alt="" coords="206,108,449,163"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="547,67,410,110,408,105,546,62"/>
+<area shape="rect" id="Node000006" href="$d7/d03/TrackDataExtrapolator_8hpp.html" title=" " alt="" coords="473,115,672,155"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="617,73,588,116,583,113,613,70"/>
+<area shape="rect" id="Node000008" href="$d7/d00/ExtrapTrackDataOutgoingPort_8cpp.html" title=" " alt="" coords="746,108,999,163"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="714,63,813,105,811,110,712,68"/>
+<area shape="rect" id="Node000004" href="$d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp.html" title="ZeroMQ UDP RADIO Outgoing Adapter implementation." alt="" coords="5,218,247,273"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="267,172,176,220,174,215,265,167"/>
+<area shape="rect" id="Node000005" href="$df/d02/main_8cpp.html" title="Main entry point for A_Hexagon application." alt="" coords="271,233,429,258"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="338,176,350,232,345,233,333,177"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="623,159,721,208,718,213,621,164"/>
+<area shape="poly" id="edge8_Node000006_Node000005" title=" " alt="" coords="523,164,375,235,373,230,520,159"/>
+<area shape="rect" id="Node000007" href="$dc/d02/TrackDataExtrapolator_8cpp.html" title=" " alt="" coords="453,225,650,265"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="569,169,558,226,552,225,564,168"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="a_hexagon/utils/Logger.hpp" name="a_hexagon/utils/Logger.hpp">
+<area shape="rect" id="Node000001" title="High&#45;performance async logging utility using spdlog." alt="" coords="391,5,591,31"/>
+<area shape="rect" id="Node000002" href="$d5/d02/LoggerTest_8cpp.html" title="Unit tests for Logger utility class." alt="" coords="5,79,236,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="429,36,234,81,233,76,428,31"/>
+<area shape="rect" id="Node000003" href="$d5/d00/TrackDataZeroMQIncomingAdapter_8cpp.html" title="ZeroMQ UDP DISH Incoming Adapter implementation." alt="" coords="261,79,471,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="465,41,406,81,403,76,462,36"/>
+<area shape="rect" id="Node000004" href="$d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp.html" title="ZeroMQ UDP RADIO Outgoing Adapter implementation." alt="" coords="496,79,737,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="521,36,580,76,577,81,518,41"/>
+<area shape="rect" id="Node000005" href="$df/d02/main_8cpp.html" title="Main entry point for A_Hexagon application." alt="" coords="762,93,919,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="559,31,751,76,804,91,802,96,749,81,558,36"/>
+</map>

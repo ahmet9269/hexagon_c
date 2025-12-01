@@ -1,0 +1,7 @@
+<map id="adapters::AdapterManager::stopAll" name="adapters::AdapterManager::stopAll">
+<area shape="rect" id="Node000001" title="Stop all pipelines gracefully." alt="" coords="248,35,443,75"/>
+<area shape="rect" id="Node000002" href="$d1/d02/classadapters_1_1AdapterManager.html#a223f36f9d52ff86467860de118e41fbe" title="Destructor &#45; stops all pipelines." alt="" coords="5,5,200,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="234,44,200,40,201,34,235,39"/>
+<area shape="rect" id="Node000003" href="$df/d02/main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="75,70,130,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="235,70,131,82,130,77,234,65"/>
+</map>

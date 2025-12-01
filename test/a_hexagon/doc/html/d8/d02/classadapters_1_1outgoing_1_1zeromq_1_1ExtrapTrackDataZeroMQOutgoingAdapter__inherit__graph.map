@@ -1,0 +1,7 @@
+<map id="adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter" name="adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter">
+<area shape="rect" id="Node000001" title="Sends ExtrapTrackData via ZeroMQ RADIO socket (UDP multicast)" alt="" coords="43,299,300,852"/>
+<area shape="rect" id="Node000002" href="$dd/d03/classadapters_1_1IAdapter.html" title="Base interface for all adapters (incoming and outgoing)" alt="" coords="5,5,140,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,264,113,298,108,299,100,265"/>
+<area shape="rect" id="Node000003" href="$d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html" title=" " alt="" coords="164,61,379,195"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="256,209,236,299,231,298,251,208"/>
+</map>

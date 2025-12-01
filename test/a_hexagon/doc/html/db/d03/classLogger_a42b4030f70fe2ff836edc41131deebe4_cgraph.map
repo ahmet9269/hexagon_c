@@ -1,0 +1,7 @@
+<map id="Logger::initialize" name="Logger::initialize">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,136,56"/>
+<area shape="rect" id="Node000002" href="$d2/d02/classutils_1_1Logger.html#a894382020336e2fa814f4611148c8cd7" title="Initialize the async logger with default configuration." alt="" coords="211,5,341,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,33,197,25,197,30,136,38"/>
+<area shape="rect" id="Node000003" href="$d2/d02/classutils_1_1Logger.html#aa1b3a68b450b98a82c1426fb4a0153c3" title="Initialize logger with file output." alt="" coords="184,55,368,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="136,48,171,52,170,58,136,54"/>
+</map>

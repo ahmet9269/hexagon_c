@@ -1,0 +1,27 @@
+<map id="domain::model::TrackData::getTrackId" name="domain::model::TrackData::getTrackId">
+<area shape="rect" id="Node000001" title=" " alt="" coords="629,277,823,317"/>
+<area shape="rect" id="Node000002" href="$db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html#ac273b01129efc99c894080a7134d26a0" title="Extrapolate track data at specified frequencies." alt="" coords="324,14,575,54"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="710,265,691,221,663,169,626,116,604,93,580,72,552,57,555,52,583,68,608,89,630,113,668,166,696,218,715,263"/>
+<area shape="rect" id="Node000004" href="$d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a5f1c5efb3c8c5a7bfd2f59affacb92cb" title="Main receive loop (runs in dedicated thread)" alt="" coords="317,81,581,136"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="700,267,649,208,616,177,580,151,556,138,558,134,583,146,619,173,653,204,704,264"/>
+<area shape="rect" id="Node000006" href="$dd/d03/TrackDataTest_8cpp.html#a9860e59e8f4febf1b654f17f618305b2" title=" " alt="" coords="415,160,484,185"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="690,270,640,233,580,200,531,186,484,178,485,173,532,180,582,196,643,229,693,266"/>
+<area shape="rect" id="Node000007" href="$dd/d03/TrackDataTest_8cpp.html#ad5342fc235f508d86ce2e286d0ad9f89" title=" " alt="" coords="415,209,484,235"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="659,275,581,250,484,230,485,225,582,245,660,270"/>
+<area shape="rect" id="Node000008" href="$dd/d03/TrackDataTest_8cpp.html#a39ec1f20dd14318f822be894472c65fb" title=" " alt="" coords="415,259,484,284"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="615,289,484,277,485,272,616,284"/>
+<area shape="rect" id="Node000009" href="$dd/d03/TrackDataTest_8cpp.html#a12224e530b1a1ac5621060210e5ecbfa" title=" " alt="" coords="415,308,484,333"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="616,309,485,320,484,315,615,304"/>
+<area shape="rect" id="Node000010" href="$dd/d03/TrackDataTest_8cpp.html#aac99fa46263d96a325f66c3d29c7690a" title=" " alt="" coords="415,357,484,383"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="661,324,582,349,485,368,484,363,581,343,659,319"/>
+<area shape="rect" id="Node000011" href="$dd/d03/TrackDataTest_8cpp.html#ac3c262f5e09f1bac9b2cd15fe9f900f2" title=" " alt="" coords="415,407,484,432"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="693,328,643,365,582,398,532,413,485,420,484,414,531,407,580,393,640,360,690,323"/>
+<area shape="rect" id="Node000012" href="$dd/d03/TrackDataTest_8cpp.html#af85c4e64615147efb6add88ab32766b7" title=" " alt="" coords="415,456,484,481"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="706,330,655,391,621,422,583,447,558,457,532,464,485,471,484,465,531,459,556,452,580,442,617,417,651,387,702,326"/>
+<area shape="rect" id="Node000013" href="$dd/d03/TrackDataTest_8cpp.html#ac524a2edcd875f8731cbc1c380ac4f74" title=" " alt="" coords="415,505,484,531"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="713,330,693,369,664,415,627,459,583,496,559,508,533,515,485,521,484,516,532,510,557,503,580,492,624,456,660,412,688,367,708,328"/>
+<area shape="rect" id="Node000003" href="$db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html#a4af9555dd108a446e4b16d416fcc7360" title="Process and forward track data." alt="" coords="19,5,256,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="310,36,256,36,256,31,310,31"/>
+<area shape="rect" id="Node000005" href="$d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a19b3ef73e13d71c1b6dd66dcebc145ee" title="Start the adapter&#39;s receive loop." alt="" coords="5,84,269,139"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="304,113,269,113,269,108,304,107"/>
+</map>

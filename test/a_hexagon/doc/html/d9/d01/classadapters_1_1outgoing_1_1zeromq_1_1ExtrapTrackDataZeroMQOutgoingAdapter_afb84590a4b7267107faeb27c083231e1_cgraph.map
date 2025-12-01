@@ -1,0 +1,5 @@
+<map id="adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::start" name="adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::start">
+<area shape="rect" id="Node000001" title="Start the adapter." alt="" coords="5,5,229,60"/>
+<area shape="rect" id="Node000002" href="$d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a97f6bac15d665323c6e0e6dc7df0cff9" title="Initialize ZeroMQ socket." alt="" coords="277,5,539,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,30,264,30,264,35,230,35"/>
+</map>

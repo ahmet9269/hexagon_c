@@ -1,0 +1,7 @@
+<map id="utils::Logger::initWithFile" name="utils::Logger::initWithFile">
+<area shape="rect" id="Node000001" title="Initialize logger with file output." alt="" coords="184,31,368,56"/>
+<area shape="rect" id="Node000002" href="$db/d03/classLogger.html#a42b4030f70fe2ff836edc41131deebe4" title=" " alt="" coords="5,5,136,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,33,136,29,136,23,170,28"/>
+<area shape="rect" id="Node000003" href="$d5/d02/LoggerTest_8cpp.html#a4b3379375a5df6908052147b45316313" title=" " alt="" coords="36,55,105,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="170,58,106,66,105,61,169,53"/>
+</map>

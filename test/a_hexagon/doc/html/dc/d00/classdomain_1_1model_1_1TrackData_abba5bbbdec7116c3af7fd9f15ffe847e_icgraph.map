@@ -1,0 +1,9 @@
+<map id="domain::model::TrackData::isValid" name="domain::model::TrackData::isValid">
+<area shape="rect" id="Node000001" title=" " alt="" coords="629,45,823,85"/>
+<area shape="rect" id="Node000002" href="$d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a5f1c5efb3c8c5a7bfd2f59affacb92cb" title="Main receive loop (runs in dedicated thread)" alt="" coords="317,5,581,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="615,55,581,51,582,45,616,49"/>
+<area shape="rect" id="Node000004" href="$dd/d03/TrackDataTest_8cpp.html#aeae422cd40224fcbd9f85b7c619b3390" title=" " alt="" coords="415,84,484,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="616,80,485,95,484,90,615,75"/>
+<area shape="rect" id="Node000003" href="$d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a19b3ef73e13d71c1b6dd66dcebc145ee" title="Start the adapter&#39;s receive loop." alt="" coords="5,5,269,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="304,35,269,35,269,30,304,30"/>
+</map>

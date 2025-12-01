@@ -1,0 +1,5 @@
+<map id="domain::logic::TrackDataExtrapolator::extrapolateTrackData" name="domain::logic::TrackDataExtrapolator::extrapolateTrackData">
+<area shape="rect" id="Node000001" title="Extrapolate track data at specified frequencies." alt="" coords="291,13,541,53"/>
+<area shape="rect" id="Node000002" href="$db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html#a4af9555dd108a446e4b16d416fcc7360" title="Process and forward track data." alt="" coords="5,5,243,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="277,35,243,35,243,30,277,30"/>
+</map>

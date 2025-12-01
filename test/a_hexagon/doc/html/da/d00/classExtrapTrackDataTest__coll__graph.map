@@ -1,0 +1,7 @@
+<map id="ExtrapTrackDataTest" name="ExtrapTrackDataTest">
+<area shape="rect" id="Node000001" title="Test fixture for ExtrapTrackData tests." alt="" coords="71,793,217,859"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,335,99,401"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,414,78,556,94,643,113,730,134,792,129,794,108,731,89,644,73,557,54,415"/>
+<area shape="rect" id="Node000003" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html" title="Bir izin ECEF koordinat sistemindeki extrapolation yapılmış kinematik durumunu ve detaylı zamanlama b..." alt="" coords="123,5,349,731"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="166,731,156,778,151,777,160,730"/>
+</map>

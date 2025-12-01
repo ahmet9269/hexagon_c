@@ -1,0 +1,11 @@
+<map id="a_hexagon/adapters/common/MessagePipeline.hpp" name="a_hexagon/adapters/common/MessagePipeline.hpp">
+<area shape="rect" id="Node000001" title="Message Processing Pipeline for Thread&#45;per&#45;Type Architecture." alt="" coords="129,5,354,45"/>
+<area shape="rect" id="Node000002" href="$d1/d03/AdapterManagerTest_8cpp.html" title="Unit tests for AdapterManager class." alt="" coords="5,181,224,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,54,142,71,121,95,112,115,108,138,110,181,105,181,103,137,107,114,116,92,138,67,166,49"/>
+<area shape="rect" id="Node000003" href="$d5/d00/AdapterManager_8hpp.html" title="Thread&#45;per&#45;Type Adapter Manager for Hexagonal Architecture." alt="" coords="130,93,353,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="244,59,244,93,239,93,239,59"/>
+<area shape="rect" id="Node000004" href="$df/d02/main_8cpp.html" title="Main entry point for A_Hexagon application." alt="" coords="289,203,447,229"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="319,49,346,67,368,92,379,121,381,153,374,204,369,203,376,153,374,123,363,95,342,71,316,54"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="209,144,159,183,156,179,205,140"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="278,140,355,201,352,205,274,144"/>
+</map>

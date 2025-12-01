@@ -1,0 +1,22 @@
+<map id="adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter" name="adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter">
+<area shape="rect" id="Node000001" title="Sends ExtrapTrackData via ZeroMQ RADIO socket (UDP multicast)" alt="" coords="313,613,571,1067"/>
+<area shape="rect" id="Node000002" href="$dd/d03/classadapters_1_1IAdapter.html" title="Base interface for all adapters (incoming and outgoing)" alt="" coords="5,276,140,521"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,516,153,520,233,616,315,706,311,710,229,620,149,523,146,519"/>
+<area shape="rect" id="Node000003" href="$d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html" title=" " alt="" coords="164,331,379,466"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="304,478,357,612,352,614,299,480"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="403,366,481,431"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="445,432,445,597,439,597,439,432"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="367,133,498,213"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="438,227,443,366,438,366,432,227"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="506,359,661,439"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="578,439,561,510,539,590,537,599,531,597,534,589,556,509,573,438"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="522,141,671,206"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="597,220,588,359,583,358,591,220"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="665,5,688,71"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="667,60,626,128,622,125,663,57"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="695,141,821,206"/>
+<area shape="poly" id="edge10_Node000010_Node000008" title=" " alt="" coords="691,57,732,125,728,128,686,60"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="685,366,831,431"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="738,433,675,523,582,651,578,648,670,520,734,430"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="761,220,761,366,755,366,755,220"/>
+</map>

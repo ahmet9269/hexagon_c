@@ -1,0 +1,31 @@
+<map id="adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter::deserializeTrackData" name="adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter::deserializeTrackData">
+<area shape="rect" id="Node000001" title="Deserialize binary data to TrackData." alt="" coords="5,222,269,277"/>
+<area shape="rect" id="Node000002" href="$dc/d00/classdomain_1_1model_1_1TrackData.html#a9d8b4329f6061d2c4aabdbca5f43da61" title=" " alt="" coords="317,5,511,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,220,220,139,265,94,316,55,327,49,329,53,319,60,269,98,224,143,159,223"/>
+<area shape="rect" id="Node000004" href="$dc/d00/classdomain_1_1model_1_1TrackData.html#a14b48474d7f39bd646bcf85567eaa6c5" title=" " alt="" coords="317,69,511,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="169,220,235,169,316,119,331,112,333,117,319,124,238,174,173,224"/>
+<area shape="rect" id="Node000006" href="$dc/d00/classdomain_1_1model_1_1TrackData.html#acaddc6c98e571d5c764d5efe4334ba35" title=" " alt="" coords="317,133,511,173"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="213,219,316,183,338,175,340,180,318,188,215,224"/>
+<area shape="rect" id="Node000008" href="$dc/d00/classdomain_1_1model_1_1TrackData.html#a3302bb0db0a48b69a9dea0843254344a" title=" " alt="" coords="317,325,511,365"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="215,274,318,311,340,318,338,323,316,316,213,279"/>
+<area shape="rect" id="Node000010" href="$dc/d00/classdomain_1_1model_1_1TrackData.html#a43ac6f94fda7366c4daab8542083819c" title=" " alt="" coords="317,197,511,237"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="269,231,303,227,304,233,270,237"/>
+<area shape="rect" id="Node000011" href="$dc/d00/classdomain_1_1model_1_1TrackData.html#a3a44e52ee923bb135992b14711725000" title=" " alt="" coords="317,389,511,429"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="173,275,238,325,319,375,333,382,331,387,316,380,235,329,169,279"/>
+<area shape="rect" id="Node000012" href="$dc/d00/classdomain_1_1model_1_1TrackData.html#ac1593e6605994fd75bac66ffe55164b0" title=" " alt="" coords="317,261,511,301"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="270,262,304,266,303,271,269,267"/>
+<area shape="rect" id="Node000013" href="$dc/d00/classdomain_1_1model_1_1TrackData.html#a082cafc85546c369eb2271dd0f4d0c9e" title=" " alt="" coords="317,453,511,493"/>
+<area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="159,275,224,356,269,401,319,439,329,445,327,450,316,444,265,405,220,360,155,279"/>
+<area shape="rect" id="Node000003" href="$dc/d00/classdomain_1_1model_1_1TrackData.html#a700ffaffc20720424adc5ec36589407a" title=" " alt="" coords="559,5,752,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="511,23,545,23,545,28,511,28"/>
+<area shape="rect" id="Node000005" href="$dc/d00/classdomain_1_1model_1_1TrackData.html#aa243bbbfe931728e3682f582d16f465e" title=" " alt="" coords="559,69,752,109"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="511,87,545,87,545,92,511,92"/>
+<area shape="rect" id="Node000007" href="$dc/d00/classdomain_1_1model_1_1TrackData.html#a16bc8d428886863ba37b6289e8090bd2" title=" " alt="" coords="559,197,752,237"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="491,171,567,191,566,196,490,176"/>
+<area shape="rect" id="Node000009" href="$dc/d00/classdomain_1_1model_1_1TrackData.html#a6f35effa78946cfb116047a2e0a2bdd0" title=" " alt="" coords="559,389,752,429"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="491,363,567,383,566,388,490,368"/>
+<area shape="poly" id="edge10_Node000010_Node000007" title=" " alt="" coords="511,215,545,215,545,220,511,220"/>
+<area shape="poly" id="edge12_Node000011_Node000009" title=" " alt="" coords="511,407,545,407,545,412,511,412"/>
+<area shape="poly" id="edge14_Node000012_Node000007" title=" " alt="" coords="490,259,566,238,567,243,491,264"/>
+<area shape="poly" id="edge16_Node000013_Node000009" title=" " alt="" coords="490,451,566,430,567,435,491,456"/>
+</map>

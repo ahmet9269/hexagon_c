@@ -1,0 +1,9 @@
+<map id="adapters::IAdapter" name="adapters::IAdapter">
+<area shape="rect" id="Node000001" title="Base interface for all adapters (incoming and outgoing)" alt="" coords="239,5,374,251"/>
+<area shape="rect" id="Node000002" href="$de/d01/classMockAdapter.html" title="Mock class for IAdapter interface." alt="" coords="5,561,149,686"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,205,195,250,164,300,135,367,113,437,97,504,87,561,82,560,92,503,108,435,130,365,159,297,191,247,228,202"/>
+<area shape="rect" id="Node000003" href="$d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html" title="Receives TrackData via ZeroMQ DISH socket (UDP multicast)" alt="" coords="173,299,440,948"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="309,265,309,299,304,299,304,265"/>
+<area shape="rect" id="Node000004" href="$d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html" title="Sends ExtrapTrackData via ZeroMQ RADIO socket (UDP multicast)" alt="" coords="465,347,722,900"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="385,207,421,251,454,297,482,345,477,348,450,300,417,254,381,210"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="utils::Logger::logLatency" name="utils::Logger::logLatency">
+<area shape="rect" id="Node000001" title="Log latency measurement (commonly used in real&#45;time systems)" alt="" coords="123,55,304,80"/>
+<area shape="rect" id="Node000002" href="$d5/d02/LoggerTest_8cpp.html#afc0e27b9894e1faf6b4dcc8e4f508935" title=" " alt="" coords="5,5,75,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,53,74,30,76,25,156,48"/>
+<area shape="rect" id="Node000003" href="$d5/d02/LoggerTest_8cpp.html#a50fe7c02b6a5d4fe32108908ef94a8ea" title=" " alt="" coords="5,55,75,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="109,70,75,70,75,65,109,65"/>
+<area shape="rect" id="Node000004" href="$d5/d02/LoggerTest_8cpp.html#a66f4ed7288ac7bfe9d2150d7bf5595a3" title=" " alt="" coords="5,104,75,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="156,86,76,110,74,104,154,81"/>
+</map>

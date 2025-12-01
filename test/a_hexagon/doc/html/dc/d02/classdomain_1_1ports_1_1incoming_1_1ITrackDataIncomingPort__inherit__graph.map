@@ -1,0 +1,5 @@
+<map id="domain::ports::incoming::ITrackDataIncomingPort" name="domain::ports::incoming::ITrackDataIncomingPort">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,236,105"/>
+<area shape="rect" id="Node000002" href="$db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html" title="Domain service for extrapolating track data." alt="" coords="5,153,236,393"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,119,123,153,118,153,118,119"/>
+</map>

@@ -1,0 +1,18 @@
+<map id="a_hexagon/adapters/common/AdapterManager.hpp" name="a_hexagon/adapters/common/AdapterManager.hpp">
+<area shape="rect" id="Node000001" title="Thread&#45;per&#45;Type Adapter Manager for Hexagonal Architecture." alt="" coords="215,5,438,45"/>
+<area shape="rect" id="Node000002" href="$d4/d01/MessagePipeline_8hpp.html" title="Message Processing Pipeline for Thread&#45;per&#45;Type Architecture." alt="" coords="67,93,227,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="285,48,187,90,185,85,282,43"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="251,93,314,119"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="318,47,298,83,294,80,314,44"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="339,93,405,119"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="340,44,361,80,356,83,335,47"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="429,93,515,119"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="363,43,440,84,437,89,360,48"/>
+<area shape="rect" id="Node000003" href="$d0/d00/IAdapter_8hpp.html" title="Base interface for all adapters in the hexagonal architecture." alt="" coords="5,167,109,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="134,121,84,160,81,156,131,117"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="72,240,131,265"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="146,120,124,193,112,228,107,226,119,191,141,118"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="184,167,261,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="161,117,202,155,198,159,157,121"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="67,191,89,227,85,230,62,194"/>
+</map>

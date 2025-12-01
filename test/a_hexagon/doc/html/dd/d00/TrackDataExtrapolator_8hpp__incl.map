@@ -1,0 +1,41 @@
+<map id="a_hexagon/domain/logic/TrackDataExtrapolator.hpp" name="a_hexagon/domain/logic/TrackDataExtrapolator.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="495,5,694,45"/>
+<area shape="rect" id="Node000002" href="$d6/d01/ExtrapTrackDataOutgoingPort_8hpp.html" title=" " alt="" coords="163,93,410,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="528,48,368,92,366,87,526,43"/>
+<area shape="rect" id="Node000003" href="$d7/d00/model_2ExtrapTrackData_8hpp.html" title="Redirect header for ExtrapTrackData model." alt="" coords="29,181,225,221"/>
+<area shape="poly" id="edge24_Node000001_Node000003" title=" " alt="" coords="495,32,400,37,298,49,209,67,176,80,152,95,141,111,133,129,128,168,122,167,128,128,136,108,149,91,173,75,208,62,297,43,399,32,495,26"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="467,357,530,383"/>
+<area shape="poly" id="edge20_Node000001_Node000009" title=" " alt="" coords="633,43,683,75,732,117,752,142,764,168,766,195,757,223,737,251,713,276,656,315,596,343,544,360,542,355,594,338,653,310,709,271,733,247,752,220,761,194,758,169,747,145,729,121,680,79,630,48"/>
+<area shape="rect" id="Node000011" href="$dc/d01/TrackDataIncomingPort_8h.html" title="Legacy header &#45; redirects to ITrackDataIncomingPort.hpp." alt="" coords="435,93,624,133"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="582,47,554,84,550,81,578,44"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="817,101,895,126"/>
+<area shape="poly" id="edge21_Node000001_Node000014" title=" " alt="" coords="653,43,809,94,807,99,651,48"/>
+<area shape="rect" id="Node000015" href="$d9/d03/model_2TrackData_8hpp.html" title="Redirect header for TrackData model." alt="" coords="529,189,743,214"/>
+<area shape="poly" id="edge22_Node000001_Node000015" title=" " alt="" coords="613,44,627,66,639,93,644,136,642,175,637,175,639,136,633,94,623,69,608,47"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="253,136,175,177,172,173,250,131"/>
+<area shape="poly" id="edge10_Node000002_Node000009" title=" " alt="" coords="393,131,434,150,469,180,482,199,491,220,503,265,506,308,504,343,499,343,500,308,497,266,486,222,477,201,465,183,431,155,391,136"/>
+<area shape="rect" id="Node000004" href="$d3/d02/ports_2ExtrapTrackData_8hpp.html" title=" " alt="" coords="37,269,225,309"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="130,221,132,255,126,256,125,222"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="96,357,155,383"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="132,310,130,344,124,343,127,309"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="179,357,245,383"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="152,308,192,346,188,349,149,311"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="270,357,357,383"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="175,307,275,349,273,354,173,312"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="381,357,443,383"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="199,307,368,354,367,359,197,312"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="225,306,454,355,453,360,224,311"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="5,357,72,383"/>
+<area shape="poly" id="edge9_Node000004_Node000010" title=" " alt="" coords="110,312,65,350,61,346,107,308"/>
+<area shape="rect" id="Node000012" href="$d1/d03/ITrackDataIncomingPort_8hpp.html" title=" " alt="" coords="249,189,455,214"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="492,136,389,185,387,180,489,131"/>
+<area shape="rect" id="Node000013" href="$df/d03/ports_2TrackData_8hpp.html" title="Header file for TrackData model class." alt="" coords="249,277,455,302"/>
+<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="355,214,355,262,349,262,349,214"/>
+<area shape="poly" id="edge14_Node000013_Node000005" title=" " alt="" coords="320,305,168,357,167,352,318,299"/>
+<area shape="poly" id="edge15_Node000013_Node000006" title=" " alt="" coords="333,305,246,353,243,348,330,300"/>
+<area shape="poly" id="edge16_Node000013_Node000007" title=" " alt="" coords="349,303,328,346,323,344,344,301"/>
+<area shape="poly" id="edge17_Node000013_Node000008" title=" " alt="" coords="363,301,397,344,393,348,359,304"/>
+<area shape="poly" id="edge18_Node000013_Node000009" title=" " alt="" coords="375,300,466,348,464,353,372,305"/>
+<area shape="poly" id="edge19_Node000013_Node000010" title=" " alt="" coords="307,305,86,360,85,354,305,300"/>
+<area shape="poly" id="edge23_Node000015_Node000013" title=" " alt="" coords="598,217,404,275,402,270,597,212"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="TEST_F" name="TEST_F">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,75,80"/>
+<area shape="rect" id="Node000002" href="$d2/d02/classutils_1_1Logger.html#a894382020336e2fa814f4611148c8cd7" title="Initialize the async logger with default configuration." alt="" coords="150,5,281,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,54,122,39,151,32,152,37,123,45,76,59"/>
+<area shape="rect" id="Node000003" href="$d2/d02/classutils_1_1Logger.html#aba4dfb4fa0860d1fe1a2fe68526146c3" title=" " alt="" coords="123,55,308,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="75,65,109,65,109,70,75,70"/>
+<area shape="rect" id="Node000004" href="$d2/d02/classutils_1_1Logger.html#a90c64228f55a9ea0da67edca275b0804" title="Shutdown logger and flush all pending messages." alt="" coords="129,104,302,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="76,75,123,89,155,98,154,103,122,94,74,80"/>
+</map>

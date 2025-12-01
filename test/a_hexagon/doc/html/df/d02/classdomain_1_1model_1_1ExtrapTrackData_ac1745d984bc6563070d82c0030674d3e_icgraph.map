@@ -1,0 +1,7 @@
+<map id="domain::model::ExtrapTrackData::getSerializedSize" name="domain::model::ExtrapTrackData::getSerializedSize">
+<area shape="rect" id="Node000001" title=" " alt="" coords="605,13,809,53"/>
+<area shape="rect" id="Node000002" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a2675e4b6c0b542ed6b27928ce62dba35" title=" " alt="" coords="353,13,557,53"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="592,35,558,35,558,30,592,30"/>
+<area shape="rect" id="Node000003" href="$d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#afecb8b06d636f11abb3f24e5220f2df6" title="Send single ExtrapTrackData." alt="" coords="5,5,305,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="339,35,305,35,305,30,339,30"/>
+</map>

@@ -1,0 +1,20 @@
+<map id="a_hexagon/domain/model/TrackData.cpp" name="a_hexagon/domain/model/TrackData.cpp">
+<area shape="rect" id="Node000001" title="Implementation of TrackData model class." alt="" coords="383,5,574,45"/>
+<area shape="rect" id="Node000002" href="$df/d03/ports_2TrackData_8hpp.html" title="Header file for TrackData model class." alt="" coords="219,93,424,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="442,48,358,89,356,85,440,43"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="464,167,531,192"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="484,46,497,153,492,153,478,46"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="516,93,575,119"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="497,44,529,81,525,84,493,47"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,64,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="273,121,78,169,77,164,272,116"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="88,167,155,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="290,121,168,164,166,159,288,116"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="179,167,266,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="307,121,251,161,248,156,304,117"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="290,167,353,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="324,119,324,153,319,153,319,119"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="377,167,439,192"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="337,117,385,156,382,160,334,121"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="351,116,457,159,455,164,349,121"/>
+</map>

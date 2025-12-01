@@ -1,0 +1,5 @@
+<map id="adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter::TrackDataZeroMQIncomingAdapter" name="adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter::TrackDataZeroMQIncomingAdapter">
+<area shape="rect" id="Node000001" title="Construct adapter with domain port (raw pointer &#45; legacy)" alt="" coords="5,5,315,60"/>
+<area shape="rect" id="Node000002" href="$d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a0663f13de6bf049d9fc0fc2cf7e95995" title="Load ZeroMQ configuration." alt="" coords="363,5,627,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="315,30,349,30,349,35,315,35"/>
+</map>

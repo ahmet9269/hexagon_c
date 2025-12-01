@@ -1,0 +1,23 @@
+<map id="domain::model::ExtrapTrackData::isValid" name="domain::model::ExtrapTrackData::isValid">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,293,209,333"/>
+<area shape="rect" id="Node000002" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a2b4fd571dac5d8ea9961efae9cf13f22" title=" " alt="" coords="265,5,495,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,292,129,244,158,179,200,112,226,82,256,55,263,50,267,54,259,59,230,85,204,116,163,182,134,246,117,294"/>
+<area shape="rect" id="Node000003" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a677e0098f4733a9c46c33a7354c035f3" title=" " alt="" coords="257,69,503,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="116,292,137,254,168,208,208,160,256,119,266,113,269,118,259,124,212,164,172,211,142,257,121,294"/>
+<area shape="rect" id="Node000004" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a813c43696773bddf5f747cd45ae92252" title=" " alt="" coords="278,133,482,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="124,291,180,237,216,208,256,183,271,176,273,181,259,188,219,212,183,241,128,295"/>
+<area shape="rect" id="Node000005" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a5c082b5475891697c2f743795be065ee" title=" " alt="" coords="278,197,482,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="150,291,256,247,282,239,284,244,258,252,152,296"/>
+<area shape="rect" id="Node000006" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#aae44f42340c7a6bd2b59b3641eb0efaa" title=" " alt="" coords="276,261,484,301"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="209,299,262,292,263,298,210,304"/>
+<area shape="rect" id="Node000007" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a25b7cfba19766f9ea51d85312bf5d5fa" title=" " alt="" coords="276,325,484,365"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="210,323,263,329,262,334,209,328"/>
+<area shape="rect" id="Node000008" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#ada016a73863b14aa07ee088e84f41e2b" title=" " alt="" coords="277,389,483,429"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="152,331,258,375,284,383,282,388,256,380,150,336"/>
+<area shape="rect" id="Node000009" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a4f659516f39151d2c13e064dacf3f5e2" title=" " alt="" coords="277,453,483,493"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="128,331,183,385,219,414,259,439,273,446,271,451,256,444,216,419,180,389,124,335"/>
+<area shape="rect" id="Node000010" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a65c29489550196c3c17cb183b7804bda" title=" " alt="" coords="276,517,484,557"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="121,332,142,369,172,416,212,463,259,503,269,509,266,514,256,508,208,467,168,419,137,372,116,335"/>
+<area shape="rect" id="Node000011" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a495d364ce620fe2b7fa253d19a61fe84" title=" " alt="" coords="276,581,484,621"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="117,333,134,381,163,445,204,511,230,541,259,567,267,572,263,577,256,571,226,545,200,514,158,447,129,383,112,334"/>
+</map>

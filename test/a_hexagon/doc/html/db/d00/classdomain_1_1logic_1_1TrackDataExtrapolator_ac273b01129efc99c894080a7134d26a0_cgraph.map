@@ -1,0 +1,59 @@
+<map id="domain::logic::TrackDataExtrapolator::extrapolateTrackData" name="domain::logic::TrackDataExtrapolator::extrapolateTrackData">
+<area shape="rect" id="Node000001" title="Extrapolate track data at specified frequencies." alt="" coords="5,549,256,589"/>
+<area shape="rect" id="Node000002" href="$dc/d00/classdomain_1_1model_1_1TrackData.html#a6511bf559bc53b277b2801e6b56819e4" title=" " alt="" coords="313,5,507,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,549,137,460,147,398,162,328,183,255,213,183,252,115,302,55,307,51,310,55,306,59,257,118,218,185,188,257,167,329,152,399,143,461,135,550"/>
+<area shape="rect" id="Node000003" href="$dc/d00/classdomain_1_1model_1_1TrackData.html#a76036a48062bcef72e758a8a873b9a35" title=" " alt="" coords="313,69,507,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="131,549,142,469,153,414,169,354,192,291,220,229,257,170,302,119,307,115,310,119,306,123,261,174,225,231,197,293,175,356,158,416,147,470,136,549"/>
+<area shape="rect" id="Node000004" href="$dc/d00/classdomain_1_1model_1_1TrackData.html#a6558be09f739b2f1fc847f942aabf5e8" title=" " alt="" coords="313,133,507,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="132,549,147,479,177,381,200,328,228,275,262,226,302,183,308,179,311,183,306,187,266,230,232,278,205,330,182,383,152,481,138,550"/>
+<area shape="rect" id="Node000005" href="$dc/d00/classdomain_1_1model_1_1TrackData.html#aad987a4546c712d6e67f9ba358eece3f" title=" " alt="" coords="313,197,507,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="135,548,153,489,186,408,208,365,235,322,266,282,302,247,309,242,312,247,306,251,270,286,239,325,213,367,191,410,158,491,140,550"/>
+<area shape="rect" id="Node000006" href="$dc/d00/classdomain_1_1model_1_1TrackData.html#a1c348cb2c69b2ad4da111d1650cb570b" title=" " alt="" coords="313,261,507,301"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="137,548,159,500,194,436,242,369,271,338,302,311,310,306,313,310,306,315,275,342,246,372,199,439,164,502,142,550"/>
+<area shape="rect" id="Node000007" href="$dc/d00/classdomain_1_1model_1_1TrackData.html#af77195063d065c5f0d7dc5b63f88363d" title=" " alt="" coords="313,325,507,365"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="142,548,168,511,204,464,250,416,303,375,313,369,316,374,305,380,254,420,208,468,172,514,147,551"/>
+<area shape="rect" id="Node000008" href="$dc/d00/classdomain_1_1model_1_1TrackData.html#a72dfadaf180449a3a8c644b0d1c7e35a" title=" " alt="" coords="313,389,507,429"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="152,547,217,494,259,465,303,439,318,432,321,437,305,444,261,469,220,498,155,551"/>
+<area shape="rect" id="Node000009" href="$dc/d00/classdomain_1_1model_1_1TrackData.html#a26671293a9ae314eb57839ecd2c8b23a" title=" " alt="" coords="313,453,507,493"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="183,547,303,503,327,495,329,500,305,508,185,552"/>
+<area shape="rect" id="Node000010" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#ad36a198bb2d40394e6fc1352bb257f47" title=" " alt="" coords="308,517,512,557"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="256,552,294,548,295,553,256,558"/>
+<area shape="rect" id="Node000012" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#af5d4f299d85bf539b9033d8ca7fbe8c7" title=" " alt="" coords="304,581,516,621"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="256,581,291,585,290,590,256,586"/>
+<area shape="rect" id="Node000014" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#ad32e1b75741b42645ac616abe10a8657" title=" " alt="" coords="308,645,512,685"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="185,587,305,631,329,639,327,644,303,636,183,592"/>
+<area shape="rect" id="Node000016" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a6dbd5056633f92751b9673d89e358cfe" title=" " alt="" coords="308,709,512,749"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="155,587,220,640,261,670,305,695,321,702,318,707,303,700,259,674,217,645,152,591"/>
+<area shape="rect" id="Node000018" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a07d65c00cab19d6b4f56fa0314f2626b" title=" " alt="" coords="308,773,512,813"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="147,588,172,625,208,671,254,718,305,759,316,765,313,770,303,764,250,722,204,674,168,628,142,591"/>
+<area shape="rect" id="Node000020" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a3b82e8b1cdae8ae8507e7f08d7e6a949" title=" " alt="" coords="308,837,512,877"/>
+<area shape="poly" id="edge19_Node000001_Node000020" title=" " alt="" coords="142,588,164,636,199,700,246,766,275,797,306,823,313,828,310,833,302,827,271,801,242,770,194,703,159,639,137,590"/>
+<area shape="rect" id="Node000022" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#ac40bed004b15ba40e435e00cb851292a" title=" " alt="" coords="308,901,512,941"/>
+<area shape="poly" id="edge21_Node000001_Node000022" title=" " alt="" coords="140,589,158,648,191,728,213,771,239,814,270,853,306,887,312,892,309,896,302,891,266,857,235,817,208,774,186,731,153,649,135,590"/>
+<area shape="rect" id="Node000024" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#adf018f42d1e6fe5617c61e14d0e453bb" title=" " alt="" coords="308,965,512,1005"/>
+<area shape="poly" id="edge23_Node000001_Node000024" title=" " alt="" coords="138,589,152,658,182,756,205,809,232,861,266,909,306,951,311,956,308,960,302,955,262,912,228,863,200,811,177,757,147,659,132,590"/>
+<area shape="rect" id="Node000026" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#afd3d082cc93f0d46fa82632405d65adf" title=" " alt="" coords="308,1029,512,1069"/>
+<area shape="poly" id="edge25_Node000001_Node000026" title=" " alt="" coords="136,589,147,669,158,723,175,783,197,846,225,907,261,965,306,1015,310,1019,307,1023,302,1019,257,968,220,910,192,848,169,785,153,724,142,669,131,590"/>
+<area shape="rect" id="Node000028" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#aba3877ce2c6ffc36f046fc1f4c16921d" title=" " alt="" coords="308,1093,512,1133"/>
+<area shape="poly" id="edge27_Node000001_Node000028" title=" " alt="" coords="135,589,143,678,152,740,167,809,188,882,218,954,257,1021,306,1079,310,1083,307,1087,302,1083,252,1024,213,956,183,884,162,811,147,741,137,678,130,590"/>
+<area shape="rect" id="Node000011" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a2b4fd571dac5d8ea9961efae9cf13f22" title=" " alt="" coords="571,517,802,557"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="512,535,558,535,558,540,512,540"/>
+<area shape="rect" id="Node000013" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a677e0098f4733a9c46c33a7354c035f3" title=" " alt="" coords="564,581,809,621"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="516,599,550,599,550,604,516,604"/>
+<area shape="rect" id="Node000015" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a813c43696773bddf5f747cd45ae92252" title=" " alt="" coords="585,645,789,685"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="512,663,571,663,571,668,512,668"/>
+<area shape="rect" id="Node000017" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a5c082b5475891697c2f743795be065ee" title=" " alt="" coords="585,709,789,749"/>
+<area shape="poly" id="edge16_Node000016_Node000017" title=" " alt="" coords="512,727,571,727,571,732,512,732"/>
+<area shape="rect" id="Node000019" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#aae44f42340c7a6bd2b59b3641eb0efaa" title=" " alt="" coords="583,773,791,813"/>
+<area shape="poly" id="edge18_Node000018_Node000019" title=" " alt="" coords="512,791,569,791,569,796,512,796"/>
+<area shape="rect" id="Node000021" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a25b7cfba19766f9ea51d85312bf5d5fa" title=" " alt="" coords="583,837,791,877"/>
+<area shape="poly" id="edge20_Node000020_Node000021" title=" " alt="" coords="512,855,569,855,569,860,512,860"/>
+<area shape="rect" id="Node000023" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#ada016a73863b14aa07ee088e84f41e2b" title=" " alt="" coords="583,901,790,941"/>
+<area shape="poly" id="edge22_Node000022_Node000023" title=" " alt="" coords="512,919,570,919,570,924,512,924"/>
+<area shape="rect" id="Node000025" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a4f659516f39151d2c13e064dacf3f5e2" title=" " alt="" coords="583,965,790,1005"/>
+<area shape="poly" id="edge24_Node000024_Node000025" title=" " alt="" coords="512,983,570,983,570,988,512,988"/>
+<area shape="rect" id="Node000027" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a65c29489550196c3c17cb183b7804bda" title=" " alt="" coords="583,1029,791,1069"/>
+<area shape="poly" id="edge26_Node000026_Node000027" title=" " alt="" coords="512,1047,569,1047,569,1052,512,1052"/>
+<area shape="rect" id="Node000029" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a495d364ce620fe2b7fa253d19a61fe84" title=" " alt="" coords="583,1093,791,1133"/>
+<area shape="poly" id="edge28_Node000028_Node000029" title=" " alt="" coords="512,1111,569,1111,569,1116,512,1116"/>
+</map>

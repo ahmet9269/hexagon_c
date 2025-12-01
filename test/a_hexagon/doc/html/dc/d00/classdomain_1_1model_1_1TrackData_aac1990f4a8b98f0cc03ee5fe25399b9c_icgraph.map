@@ -1,0 +1,13 @@
+<map id="domain::model::TrackData::deserialize" name="domain::model::TrackData::deserialize">
+<area shape="rect" id="Node000001" title=" " alt="" coords="629,102,823,142"/>
+<area shape="rect" id="Node000002" href="$d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a5f1c5efb3c8c5a7bfd2f59affacb92cb" title="Main receive loop (runs in dedicated thread)" alt="" coords="317,5,581,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="656,100,581,74,545,63,546,58,582,69,658,95"/>
+<area shape="rect" id="Node000004" href="$dd/d03/TrackDataTest_8cpp.html#a682f474cb988038c8b83895879d36903" title=" " alt="" coords="415,84,484,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="615,115,484,102,485,97,616,109"/>
+<area shape="rect" id="Node000005" href="$dd/d03/TrackDataTest_8cpp.html#af6df184fba5e3467356d1f10dedf39c1" title=" " alt="" coords="415,133,484,159"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="616,134,485,146,484,140,615,129"/>
+<area shape="rect" id="Node000006" href="$dd/d03/TrackDataTest_8cpp.html#ac3c262f5e09f1bac9b2cd15fe9f900f2" title=" " alt="" coords="415,183,484,208"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="658,149,582,173,485,193,484,187,581,167,657,144"/>
+<area shape="rect" id="Node000003" href="$d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a19b3ef73e13d71c1b6dd66dcebc145ee" title="Start the adapter&#39;s receive loop." alt="" coords="5,5,269,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="304,35,269,35,269,30,304,30"/>
+</map>

@@ -1,0 +1,28 @@
+<map id="/workspaces/hexagon_c/test/a_hexagon/test/a_hexagon/adapters/common/AdapterManagerTest.cpp" name="/workspaces/hexagon_c/test/a_hexagon/test/a_hexagon/adapters/common/AdapterManagerTest.cpp">
+<area shape="rect" id="Node000001" title="Unit tests for AdapterManager class." alt="" coords="240,5,459,75"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,123,109,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="245,77,107,121,106,116,243,72"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="134,123,261,148"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="296,77,229,118,226,113,293,73"/>
+<area shape="rect" id="Node000004" href="$d5/d00/AdapterManager_8hpp.html" title="Thread&#45;per&#45;Type Adapter Manager for Hexagonal Architecture." alt="" coords="622,123,901,148"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="460,63,698,117,697,122,459,69"/>
+<area shape="rect" id="Node000005" href="$d4/d01/MessagePipeline_8hpp.html" title="Message Processing Pipeline for Thread&#45;per&#45;Type Architecture." alt="" coords="387,196,547,221"/>
+<area shape="poly" id="edge13_Node000001_Node000005" title=" " alt="" coords="375,73,453,183,448,186,371,76"/>
+<area shape="rect" id="Node000006" href="$d0/d00/IAdapter_8hpp.html" title="Base interface for all adapters in the hexagonal architecture." alt="" coords="500,269,604,295"/>
+<area shape="poly" id="edge12_Node000001_Node000006" title=" " alt="" coords="426,72,464,94,501,122,535,156,561,195,566,210,567,226,563,256,558,255,562,226,561,211,556,197,531,159,498,126,461,99,424,77"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="433,343,492,368"/>
+<area shape="poly" id="edge15_Node000001_Node000007" title=" " alt="" coords="338,76,323,122,313,179,311,209,314,239,321,267,334,293,351,312,373,327,421,345,419,350,371,332,348,316,330,296,316,269,309,239,306,209,307,178,318,121,333,74"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="344,269,421,295"/>
+<area shape="poly" id="edge14_Node000001_Node000008" title=" " alt="" coords="357,75,382,255,377,256,351,75"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="715,151,528,195,527,190,713,145"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="641,196,703,221"/>
+<area shape="poly" id="edge9_Node000004_Node000009" title=" " alt="" coords="749,150,699,189,696,185,745,146"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="728,196,795,221"/>
+<area shape="poly" id="edge10_Node000004_Node000010" title=" " alt="" coords="764,148,764,182,759,182,759,148"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="819,196,904,221"/>
+<area shape="poly" id="edge11_Node000004_Node000011" title=" " alt="" coords="779,146,835,186,832,190,776,150"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="482,219,529,258,526,263,479,223"/>
+<area shape="poly" id="edge8_Node000005_Node000007" title=" " alt="" coords="469,222,466,329,461,329,464,222"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="455,223,409,262,405,258,451,219"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="539,297,490,336,486,332,536,293"/>
+</map>

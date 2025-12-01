@@ -1,0 +1,19 @@
+<map id="domain::model::TrackData::getOriginalUpdateTime" name="domain::model::TrackData::getOriginalUpdateTime">
+<area shape="rect" id="Node000001" title=" " alt="" coords="629,178,823,218"/>
+<area shape="rect" id="Node000002" href="$db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html#ac273b01129efc99c894080a7134d26a0" title="Extrapolate track data at specified frequencies." alt="" coords="324,14,575,54"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="697,170,646,120,614,94,580,72,543,56,545,52,583,68,617,90,649,116,701,166"/>
+<area shape="rect" id="Node000004" href="$d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a5f1c5efb3c8c5a7bfd2f59affacb92cb" title="Main receive loop (runs in dedicated thread)" alt="" coords="317,81,581,136"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="654,176,581,151,541,139,542,133,582,146,656,171"/>
+<area shape="rect" id="Node000006" href="$dd/d03/TrackDataTest_8cpp.html#ad5342fc235f508d86ce2e286d0ad9f89" title=" " alt="" coords="415,160,484,185"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="615,191,484,178,485,173,616,185"/>
+<area shape="rect" id="Node000007" href="$dd/d03/TrackDataTest_8cpp.html#a39ec1f20dd14318f822be894472c65fb" title=" " alt="" coords="415,209,484,235"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="616,210,485,222,484,216,615,205"/>
+<area shape="rect" id="Node000008" href="$dd/d03/TrackDataTest_8cpp.html#ac3c262f5e09f1bac9b2cd15fe9f900f2" title=" " alt="" coords="415,259,484,284"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="661,225,582,250,485,269,484,264,581,245,659,220"/>
+<area shape="rect" id="Node000009" href="$dd/d03/TrackDataTest_8cpp.html#ab44e84242496d91673f80188c3433bd6" title=" " alt="" coords="415,308,484,333"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="693,229,643,266,582,299,532,314,485,321,484,316,531,309,580,294,640,262,690,225"/>
+<area shape="rect" id="Node000003" href="$db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html#a4af9555dd108a446e4b16d416fcc7360" title="Process and forward track data." alt="" coords="19,5,256,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="310,36,256,36,256,31,310,31"/>
+<area shape="rect" id="Node000005" href="$d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a19b3ef73e13d71c1b6dd66dcebc145ee" title="Start the adapter&#39;s receive loop." alt="" coords="5,84,269,139"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="304,113,269,113,269,108,304,107"/>
+</map>

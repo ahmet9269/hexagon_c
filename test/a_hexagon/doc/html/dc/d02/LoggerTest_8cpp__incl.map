@@ -1,0 +1,30 @@
+<map id="/workspaces/hexagon_c/test/a_hexagon/test/a_hexagon/utils/LoggerTest.cpp" name="/workspaces/hexagon_c/test/a_hexagon/test/a_hexagon/utils/LoggerTest.cpp">
+<area shape="rect" id="Node000001" title="Unit tests for Logger utility class." alt="" coords="709,5,940,60"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="499,108,603,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="742,63,602,106,600,101,740,58"/>
+<area shape="rect" id="Node000003" href="$d9/d01/Logger_8hpp.html" title="High&#45;performance async logging utility using spdlog." alt="" coords="627,108,753,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="785,62,721,103,718,98,782,58"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="931,189,990,214"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="816,61,809,97,811,115,817,131,924,180,922,185,813,135,806,116,804,96,811,60"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="827,108,891,133"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="838,59,852,94,847,96,833,61"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="915,108,982,133"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="864,58,922,98,919,102,861,62"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="1006,108,1073,133"/>
+<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="891,58,999,100,997,105,889,63"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,189,129,214"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="628,134,616,136,482,150,378,156,274,165,141,184,121,188,120,183,140,179,273,159,377,151,482,144,615,131,627,129"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="153,189,272,214"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="628,134,616,136,449,157,377,167,284,184,266,188,265,183,283,179,376,162,448,152,615,131,627,129"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="296,181,444,221"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="644,136,458,181,457,176,643,131"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="468,181,627,221"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="670,136,595,177,592,172,668,131"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="651,189,729,214"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="693,134,693,175,687,175,687,134"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="745,131,828,151,920,179,926,181,924,186,918,184,827,156,744,136"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="753,189,816,214"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="706,131,762,178,758,182,702,136"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="841,189,907,214"/>
+<area shape="poly" id="edge10_Node000003_Node000011" title=" " alt="" coords="718,131,836,181,834,186,716,136"/>
+</map>
