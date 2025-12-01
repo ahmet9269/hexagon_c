@@ -1,0 +1,101 @@
+#
+# Description: Makefile for c_hexagon unit tests
+#
+
+# Directories
+SRC_DIR := src/c_hexagon
+TEST_DIR := test/c_hexagon
+OBJ_DIR := .obj/test
+BIN_DIR := bin
+LIB_DIR := lib
+
+# Include paths
+INC_DIRS := -I$(SRC_DIR) -I$(LIB_DIR)/include -I/usr/include
+
+# Compiler settings
+CXX := g++
+CPPFLAGS := -std=c++17 $(INC_DIRS) -O2 -g -Wall -Wpedantic -Wextra -DZMQ_BUILD_DRAFT_API=1 -pthread
+
+# Libraries
+LDFLAGS := -L$(LIB_DIR) -L/usr/lib/x86_64-linux-gnu -lgtest -lgtest_main -lpthread -lspdlog
+
+# Runtime library path
+RPATH_CONFIG := -Wl,-rpath,'$$ORIGIN/../lib'
+
+# Find all test source files
+TEST_SRCS := $(shell find $(TEST_DIR) -name "*.cpp" -not -name "main_test.cpp")
+TEST_OBJS := $(patsubst $(TEST_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(TEST_SRCS))
+
+# Find required source files (models and services)
+SRC_SRCS := $(SRC_DIR)/domain/model/DelayCalcTrackData.cpp \
+            $(SRC_DIR)/domain/model/FinalCalcTrackData.cpp \
+            $(SRC_DIR)/domain/logic/FinalCalculationService.cpp
+SRC_OBJS := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/src/%.o,$(SRC_SRCS))
+
+# Main test runner
+MAIN_TEST_SRC := $(TEST_DIR)/main_test.cpp
+MAIN_TEST_OBJ := $(OBJ_DIR)/main_test.o
+
+# Output executable
+TEST_EXECUTABLE := $(BIN_DIR)/c_hexagon_tests
+
+# Targets
+.PHONY: all clean test run_tests
+
+all: $(TEST_EXECUTABLE)
+
+# Link test executable
+$(TEST_EXECUTABLE): $(TEST_OBJS) $(SRC_OBJS) $(MAIN_TEST_OBJ)
+	@echo "==============================================="
+	@echo "  LINKING TEST EXECUTABLE"
+	@echo "==============================================="
+	@mkdir -p $(BIN_DIR)
+	$(CXX) $(CPPFLAGS) $^ -o $@ $(LDFLAGS) $(RPATH_CONFIG)
+	@echo "Test executable created: $@"
+
+# Compile test files
+$(OBJ_DIR)/%.o: $(TEST_DIR)/%.cpp
+	@echo "==============================================="
+	@echo "  COMPILING TEST: $(notdir $<)"
+	@echo "==============================================="
+	@mkdir -p $(dir $@)
+	$(CXX) $(CPPFLAGS) -c $< -o $@
+
+# Compile source files for testing
+$(OBJ_DIR)/src/%.o: $(SRC_DIR)/%.cpp
+	@echo "==============================================="
+	@echo "  COMPILING SOURCE: $(notdir $<)"
+	@echo "==============================================="
+	@mkdir -p $(dir $@)
+	$(CXX) $(CPPFLAGS) -c $< -o $@
+
+# Compile main test runner
+$(MAIN_TEST_OBJ): $(MAIN_TEST_SRC)
+	@echo "==============================================="
+	@echo "  COMPILING TEST MAIN"
+	@echo "==============================================="
+	@mkdir -p $(dir $@)
+	$(CXX) $(CPPFLAGS) -c $< -o $@
+
+# Run tests
+test: $(TEST_EXECUTABLE)
+	@echo ""
+	@echo "==============================================="
+	@echo "  RUNNING UNIT TESTS"
+	@echo "==============================================="
+	@echo ""
+	@export LD_LIBRARY_PATH=$(LIB_DIR):$$LD_LIBRARY_PATH && $(TEST_EXECUTABLE) --gtest_color=yes
+
+run_tests: test
+
+# Clean
+clean:
+	@echo "Cleaning test artifacts..."
+	rm -rf $(OBJ_DIR)
+	rm -f $(TEST_EXECUTABLE)
+
+# Show test info
+info:
+	@echo "Test sources: $(TEST_SRCS)"
+	@echo "Test objects: $(TEST_OBJS)"
+	@echo "Source objects: $(SRC_OBJS)"

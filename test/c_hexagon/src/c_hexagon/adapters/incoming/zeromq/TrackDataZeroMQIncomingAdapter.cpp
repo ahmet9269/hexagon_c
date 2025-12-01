@@ -23,11 +23,12 @@ static constexpr int DEDICATED_CPU_CORE = 1;
 TrackDataZeroMQIncomingAdapter::TrackDataZeroMQIncomingAdapter(
     std::shared_ptr<domain::ports::incoming::IDelayCalcTrackDataIncomingPort> track_data_submission)
     : track_data_submission_(track_data_submission)
-    , running_(false)
     , multicast_endpoint_("udp://udn;239.1.1.1:9002")
     , group_name_("DelayCalcTrackData")
+    , adapter_name_("DelayCalcTrackData-InAdapter")
     , zmq_context_(1)
-    , dish_socket_(nullptr) {
+    , dish_socket_(nullptr)
+    , running_(false) {
     
     initializeDishSocket();
 }
@@ -43,11 +44,12 @@ TrackDataZeroMQIncomingAdapter::TrackDataZeroMQIncomingAdapter(
     const std::string& multicast_endpoint,
     const std::string& group_name)
     : track_data_submission_(track_data_submission)
-    , running_(false)
     , multicast_endpoint_(multicast_endpoint)
     , group_name_(group_name)
+    , adapter_name_(group_name + "-InAdapter")
     , zmq_context_(1)
-    , dish_socket_(nullptr) {
+    , dish_socket_(nullptr)
+    , running_(false) {
     
     initializeDishSocket();
 }
@@ -148,6 +150,14 @@ void TrackDataZeroMQIncomingAdapter::stop() {
  */
 bool TrackDataZeroMQIncomingAdapter::isRunning() const {
     return running_.load();
+}
+
+/**
+ * @brief Returns the adapter's unique identifier
+ * @return Adapter name string for logging and identification
+ */
+std::string TrackDataZeroMQIncomingAdapter::getName() const {
+    return adapter_name_;
 }
 
 /**

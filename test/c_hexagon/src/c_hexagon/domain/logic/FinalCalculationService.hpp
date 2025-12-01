@@ -17,6 +17,15 @@ private:
     std::unique_ptr<ports::outgoing::ITrackDataStatisticOutgoingPort> outgoing_port_;
     
 public:
+    /**
+     * @brief Default constructor - operates without outgoing adapter
+     */
+    FinalCalculationService();
+    
+    /**
+     * @brief Constructor with outgoing port
+     * @param outgoing_port Port for sending processed data
+     */
     explicit FinalCalculationService(
         std::unique_ptr<ports::outgoing::ITrackDataStatisticOutgoingPort> outgoing_port);
     

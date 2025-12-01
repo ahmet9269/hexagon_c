@@ -1,9 +1,26 @@
+/**
+ * @file DelayCalcTrackData.cpp
+ * @brief Implementation of DelayCalcTrackData model class
+ * @details Provides track data with delay calculation fields for multi-hop
+ *          message processing in the hexagonal architecture.
+ * 
+ * @author c_hexagon Team
+ * @version 1.0
+ * @date 2025
+ * 
+ * @note MISRA C++ 2023 compliant implementation
+ * @see DelayCalcTrackData.hpp
+ */
+
 #include "domain/ports/DelayCalcTrackData.hpp"
 
 namespace domain {
 namespace ports {
 
-// MISRA C++ 2023 compliant constructor implementation
+/**
+ * @brief Default constructor - initializes all fields to zero
+ * @note MISRA C++ 2023 compliant with explicit static_cast
+ */
 DelayCalcTrackData::DelayCalcTrackData() noexcept {
     trackId_ = static_cast<int32_t>(0);
     xVelocityECEF_ = static_cast<double>(0);
@@ -19,82 +36,151 @@ DelayCalcTrackData::DelayCalcTrackData() noexcept {
     secondHopSentTime_ = static_cast<int64_t>(0);
 }
 
+/**
+ * @brief Validate TrackId value
+ * @param value Value to validate
+ * @throws std::out_of_range if value is not in range [1, 9999]
+ */
     void DelayCalcTrackData::validateTrackId(int32_t value) const {
         if (value < 1LL || value > 9999LL) {
             throw std::out_of_range("TrackId value is out of valid range: " + std::to_string(value));
         }
     }
 
+/**
+ * @brief Validate X velocity in ECEF coordinates
+ * @param value Velocity value in m/s
+ * @throws std::out_of_range if value is NaN or not in range [-1E+6, 1E+6]
+ */
     void DelayCalcTrackData::validateXVelocityECEF(double value) const {
         if (std::isnan(value) || value < -1.0E+6 || value > 1.0E+6) {
             throw std::out_of_range("XVelocityECEF value is out of valid range: " + std::to_string(value));
         }
     }
 
+/**
+ * @brief Validate Y velocity in ECEF coordinates
+ * @param value Velocity value in m/s
+ * @throws std::out_of_range if value is NaN or not in range [-1E+6, 1E+6]
+ */
     void DelayCalcTrackData::validateYVelocityECEF(double value) const {
         if (std::isnan(value) || value < -1.0E+6 || value > 1.0E+6) {
             throw std::out_of_range("YVelocityECEF value is out of valid range: " + std::to_string(value));
         }
     }
 
+/**
+ * @brief Validate Z velocity in ECEF coordinates
+ * @param value Velocity value in m/s
+ * @throws std::out_of_range if value is NaN or not in range [-1E+6, 1E+6]
+ */
     void DelayCalcTrackData::validateZVelocityECEF(double value) const {
         if (std::isnan(value) || value < -1.0E+6 || value > 1.0E+6) {
             throw std::out_of_range("ZVelocityECEF value is out of valid range: " + std::to_string(value));
         }
     }
 
+/**
+ * @brief Validate X position in ECEF coordinates
+ * @param value Position value in meters
+ * @throws std::out_of_range if value is NaN or not in range [-9.9E+10, 9.9E+10]
+ */
     void DelayCalcTrackData::validateXPositionECEF(double value) const {
         if (std::isnan(value) || value < -9.9E+10 || value > 9.9E+10) {
             throw std::out_of_range("XPositionECEF value is out of valid range: " + std::to_string(value));
         }
     }
 
+/**
+ * @brief Validate Y position in ECEF coordinates
+ * @param value Position value in meters
+ * @throws std::out_of_range if value is NaN or not in range [-9.9E+10, 9.9E+10]
+ */
     void DelayCalcTrackData::validateYPositionECEF(double value) const {
         if (std::isnan(value) || value < -9.9E+10 || value > 9.9E+10) {
             throw std::out_of_range("YPositionECEF value is out of valid range: " + std::to_string(value));
         }
     }
 
+/**
+ * @brief Validate Z position in ECEF coordinates
+ * @param value Position value in meters
+ * @throws std::out_of_range if value is NaN or not in range [-9.9E+10, 9.9E+10]
+ */
     void DelayCalcTrackData::validateZPositionECEF(double value) const {
         if (std::isnan(value) || value < -9.9E+10 || value > 9.9E+10) {
             throw std::out_of_range("ZPositionECEF value is out of valid range: " + std::to_string(value));
         }
     }
 
+/**
+ * @brief Validate original update time
+ * @param value Timestamp in microseconds
+ * @throws std::out_of_range if value is negative or exceeds max valid time
+ */
     void DelayCalcTrackData::validateOriginalUpdateTime(int64_t value) const {
         if (value < 0LL || value > 9223372036854775LL) {
             throw std::out_of_range("OriginalUpdateTime value is out of valid range: " + std::to_string(value));
         }
     }
 
+/**
+ * @brief Validate update time
+ * @param value Timestamp in microseconds
+ * @throws std::out_of_range if value is negative or exceeds max valid time
+ */
     void DelayCalcTrackData::validateUpdateTime(int64_t value) const {
         if (value < 0LL || value > 9223372036854775LL) {
             throw std::out_of_range("UpdateTime value is out of valid range: " + std::to_string(value));
         }
     }
 
+/**
+ * @brief Validate first hop sent time
+ * @param value Timestamp in microseconds
+ * @throws std::out_of_range if value is negative or exceeds max valid time
+ */
     void DelayCalcTrackData::validateFirstHopSentTime(int64_t value) const {
         if (value < 0LL || value > 9223372036854775LL) {
             throw std::out_of_range("FirstHopSentTime value is out of valid range: " + std::to_string(value));
         }
     }
 
+/**
+ * @brief Validate first hop delay time
+ * @param value Delay in microseconds
+ * @throws std::out_of_range if value is negative or exceeds max valid time
+ */
     void DelayCalcTrackData::validateFirstHopDelayTime(int64_t value) const {
         if (value < 0LL || value > 9223372036854775LL) {
             throw std::out_of_range("FirstHopDelayTime value is out of valid range: " + std::to_string(value));
         }
     }
 
+/**
+ * @brief Validate second hop sent time
+ * @param value Timestamp in microseconds
+ * @throws std::out_of_range if value is negative or exceeds max valid time
+ */
     void DelayCalcTrackData::validateSecondHopSentTime(int64_t value) const {
         if (value < 0LL || value > 9223372036854775LL) {
             throw std::out_of_range("SecondHopSentTime value is out of valid range: " + std::to_string(value));
         }
     }
 
+/**
+ * @brief Get track identifier
+ * @return Track ID value
+ */
 int32_t DelayCalcTrackData::getTrackId() const noexcept {
     return trackId_;
 }
 
+/**
+ * @brief Set track identifier with validation
+ * @param value Track ID (must be in range [1, 9999])
+ * @throws std::out_of_range if value is out of valid range
+ */
 void DelayCalcTrackData::setTrackId(const int32_t& value) {
     validateTrackId(value);
     trackId_ = value;

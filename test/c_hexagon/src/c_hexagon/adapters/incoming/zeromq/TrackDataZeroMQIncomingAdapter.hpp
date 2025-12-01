@@ -1,5 +1,6 @@
 #pragma once
 
+#include "adapters/common/AdapterManager.hpp"
 #include "domain/ports/incoming/IDelayCalcTrackDataIncomingPort.hpp"
 #include "domain/ports/DelayCalcTrackData.hpp"
 #include <zmq.hpp>
@@ -24,10 +25,16 @@ namespace zeromq {
  * @brief ZeroMQ Subscriber Adapter using DISH pattern
  * @details Provides group-based message reception over UDP multicast.
  *          Integrates the DISH pattern into hexagonal architecture.
+ *          Implements IAdapter for AdapterManager compatibility.
  */
-class TrackDataZeroMQIncomingAdapter {
+class TrackDataZeroMQIncomingAdapter : public adapters::IAdapter {
 private:
     std::shared_ptr<domain::ports::incoming::IDelayCalcTrackDataIncomingPort> track_data_submission_;
+    
+    // Configuration (initialized first for logging)
+    std::string multicast_endpoint_;  // UDP multicast address (e.g., udp://239.1.1.1:9001)
+    std::string group_name_;          // Group name to subscribe (e.g., "SOURCE_DATA")
+    std::string adapter_name_;        // Adapter identifier for logging
     
     // ZeroMQ C++ context and socket
     zmq::context_t zmq_context_;
@@ -37,10 +44,6 @@ private:
     std::thread subscriber_thread_;
     std::atomic<bool> running_;
     
-    // Configuration
-    std::string multicast_endpoint_;  // UDP multicast address (e.g., udp://239.1.1.1:9001)
-    std::string group_name_;          // Group name to subscribe (e.g., "SOURCE_DATA")
-    
     // Latency measurement
     struct LatencyMeasurement {
         std::chrono::steady_clock::time_point receive_time;
@@ -48,9 +51,6 @@ private:
         long long latency_us;         // microseconds
         std::string original_data;
     };
-    
-    // Helper function for error checking (no longer needed with C++ wrapper)
-    // void check_rc(int rc, const std::string& context_msg);
 
 public:
     /**
@@ -71,24 +71,31 @@ public:
         const std::string& multicast_endpoint,
         const std::string& group_name);
 
-    ~TrackDataZeroMQIncomingAdapter();
+    ~TrackDataZeroMQIncomingAdapter() override;
 
+    // IAdapter interface implementation
     /**
      * @brief Starts the DISH subscriber
      * @return true if started successfully
      */
-  [[nodiscard]]  bool start();
+    [[nodiscard]] bool start() override;
 
     /**
      * @brief Stops the DISH subscriber
      */
-    void stop();
+    void stop() override;
 
     /**
      * @brief Returns subscriber active status
      * @return true if subscriber is running
      */
-   [[nodiscard]] bool isRunning() const;
+    [[nodiscard]] bool isRunning() const override;
+    
+    /**
+     * @brief Get adapter name for logging
+     * @return Adapter identifier
+     */
+    [[nodiscard]] std::string getName() const override;
 
 private:
     /**
@@ -100,9 +107,6 @@ private:
      * @brief Subscriber worker thread - asynchronous message receiving
      */
     void subscriberWorker();
-
-    // Note: processReceivedMessage is not needed for binary DelayCalcTrackData
-    // LatencyMeasurement processReceivedMessage(const std::string& received_payload);
 
     /**
      * @brief Deserializes binary data to DelayCalcTrackData
