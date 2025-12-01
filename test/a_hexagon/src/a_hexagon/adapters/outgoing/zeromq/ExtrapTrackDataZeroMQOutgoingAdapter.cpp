@@ -40,9 +40,16 @@ ExtrapTrackDataZeroMQOutgoingAdapter::~ExtrapTrackDataZeroMQOutgoingAdapter() {
 
 void ExtrapTrackDataZeroMQOutgoingAdapter::loadConfiguration() {
     // Default configuration
-    protocol_ = "udp";
+    
+    // Original UDP multicast configuration (for production environment)
+    // protocol_ = "udp";
+    // socketType_ = ZMQ_RADIO;
+    // endpoint_ = "udp://udn;239.1.1.1:9001";
+    
+    // TCP localhost configuration (for development/container environment)
+    protocol_ = "tcp";
     socketType_ = ZMQ_RADIO;
-    endpoint_ = "udp://udn;239.1.1.1:9001";
+    endpoint_ = "tcp://127.0.0.1:15001";
     groupName_ = DEFAULT_GROUP;
     
     LOG_DEBUG("Configuration loaded - endpoint: {}, group: {}", endpoint_, groupName_);
@@ -55,7 +62,7 @@ bool ExtrapTrackDataZeroMQOutgoingAdapter::initializeSocket() {
         // Configure socket options
         socket_->set(zmq::sockopt::linger, 0);
         
-        // Connect to endpoint
+        // RADIO connects to DISH (b_hexagon binds)
         socket_->connect(endpoint_);
         
         LOG_INFO("ZeroMQ RADIO socket initialized - endpoint: {}, group: {}", 
@@ -141,12 +148,13 @@ void ExtrapTrackDataZeroMQOutgoingAdapter::sendExtrapTrackData(
         std::vector<uint8_t> binaryData = data.serialize();
         zmq::message_t message(binaryData.begin(), binaryData.end());
         
-        // Set group for RADIO socket
+        // Set group for RADIO socket (required for RADIO/DISH pattern)
         message.set_group(groupName_.c_str());
         
         socket_->send(message, zmq::send_flags::none);
         
-        LOG_TRACE("Sent ExtrapTrackData - ID: {}", data.getTrackId());
+        LOG_INFO("[a_hexagon] ExtrapTrackData sent - TrackID: {}, Size: {} bytes", 
+                 data.getTrackId(), binaryData.size());
         
     } catch (const zmq::error_t& e) {
         LOG_ERROR("Failed to send message: {}", e.what());

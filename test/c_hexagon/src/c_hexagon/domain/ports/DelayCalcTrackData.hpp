@@ -22,11 +22,19 @@ namespace ports {
 class DelayCalcTrackData final {
 public:
     // Network configuration constants
-    static constexpr const char* MULTICAST_ADDRESS = "239.1.1.5";
-    static constexpr int PORT = 9595;
-    static constexpr const char* ZMQ_PROTOCOL = "udp";
-    static constexpr const char* ZMQ_MULTICAST_ADDRESS = "239.1.1.5";
-    static constexpr int ZMQ_PORT = 9595;
+    // Original UDP Multicast configuration (for production environment)
+    // static constexpr const char* MULTICAST_ADDRESS = "239.1.1.5";
+    // static constexpr int PORT = 9595;
+    // static constexpr const char* ZMQ_PROTOCOL = "udp";
+    // static constexpr const char* ZMQ_MULTICAST_ADDRESS = "239.1.1.5";
+    // static constexpr int ZMQ_PORT = 9595;
+    
+    // TCP localhost configuration (for development/container environment)
+    static constexpr const char* MULTICAST_ADDRESS = "127.0.0.1";
+    static constexpr int PORT = 15002;
+    static constexpr const char* ZMQ_PROTOCOL = "tcp";
+    static constexpr const char* ZMQ_MULTICAST_ADDRESS = "127.0.0.1";
+    static constexpr int ZMQ_PORT = 15002;
     
     // ZeroMQ DISH socket configuration (incoming)
     static constexpr const char* ZMQ_SOCKET_TYPE = "DISH";

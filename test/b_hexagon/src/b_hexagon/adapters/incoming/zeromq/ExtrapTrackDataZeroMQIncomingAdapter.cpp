@@ -19,23 +19,29 @@ using domain::ports::ExtrapTrackData;
 // Default constructor 
 ExtrapTrackDataZeroMQIncomingAdapter::ExtrapTrackDataZeroMQIncomingAdapter(domain::ports::incoming::IExtrapTrackDataIncomingPort* dataReceiver)
     : context_(1),
-      socket_(context_, ZMQ_DISH),
+      socket_(context_, ZMQ_DISH),  // RADIO/DISH pattern
       group_("ExtrapTrackData"),  // Group name matches message type
       dataReceiver_(dataReceiver) {
     
     try {
         // Build endpoint from ExtrapTrackData configuration constants
         std::ostringstream oss;
-        oss << ZMQ_PROTOCOL << "://udn;"
+        // Original UDP multicast endpoint (for production environment)
+        // oss << ZMQ_PROTOCOL << "://udn;"
+        //     << ZMQ_MULTICAST_ADDRESS << ":"
+        //     << ZMQ_PORT;
+        
+        // TCP localhost endpoint (for development/container environment)
+        oss << ZMQ_PROTOCOL << "://"
             << ZMQ_MULTICAST_ADDRESS << ":"
             << ZMQ_PORT;
         std::string endpoint = oss.str();
         
-        // Bind and join group using C++ API
+        // DISH binds (listens for RADIO connections)
         socket_.bind(endpoint);
-        socket_.join(group_.c_str());
+        socket_.join(group_.c_str());  // Join group for RADIO/DISH pattern
         
-        Logger::info("ExtrapTrackDataZeroMQIncomingAdapter configured from ExtrapTrackData constants -> " + endpoint);
+        Logger::info("ExtrapTrackDataZeroMQIncomingAdapter configured - endpoint: ", endpoint, ", group: ", group_);
         
     } catch (const std::exception& e) {
         throw std::runtime_error("ExtrapTrackDataZeroMQIncomingAdapter config error: " + std::string(e.what()));
@@ -56,25 +62,14 @@ void ExtrapTrackDataZeroMQIncomingAdapter::startReceiving() {
                 continue; // No message received
             }
             
-            Logger::debug("Received ZMQ message, size: ", message.size(), " bytes");
-            
-            // Get group identifier from received message
-            const char* msg_group = message.group();
-            
-            // Verify message group matches our subscribed group
-            if (msg_group == nullptr || group_ != std::string(msg_group)) {
-                Logger::warn("Message received for wrong group: ", (msg_group ? msg_group : "null"));
-                continue;  // Skip messages not for our group
-            }
-            
-            Logger::info("Processing message from group: ", msg_group);
-            
             // Extract binary payload
             const uint8_t* binaryData = static_cast<const uint8_t*>(message.data());
             std::size_t dataSize = message.size();
             
             // Deserialize binary data to domain object
             ExtrapTrackData data = deserializeBinary(binaryData, dataSize);
+            
+            Logger::info("[b_hexagon] ExtrapTrackData received - TrackID: ", data.getTrackId(), ", Size: ", message.size(), " bytes");
             
             // Notify domain layer
             if (dataReceiver_ != nullptr) {

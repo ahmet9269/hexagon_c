@@ -51,11 +51,19 @@ public:
 
 private:
 // Network configuration constants
-    static constexpr const char* MULTICAST_ADDRESS = "239.1.1.1";
-    static constexpr int PORT = 9001;
-    static constexpr const char* ZMQ_PROTOCOL = "udp";
-    static constexpr const char* ZMQ_MULTICAST_ADDRESS = "239.1.1.1";
-    static constexpr int ZMQ_PORT = 9001;
+    // Original UDP Multicast configuration (for production environment)
+    // static constexpr const char* MULTICAST_ADDRESS = "239.1.1.1";
+    // static constexpr int PORT = 9001;
+    // static constexpr const char* ZMQ_PROTOCOL = "udp";
+    // static constexpr const char* ZMQ_MULTICAST_ADDRESS = "239.1.1.1";
+    // static constexpr int ZMQ_PORT = 9001;
+    
+    // TCP localhost configuration (for development/container environment)
+    static constexpr const char* MULTICAST_ADDRESS = "127.0.0.1";
+    static constexpr int PORT = 15001;
+    static constexpr const char* ZMQ_PROTOCOL = "tcp";
+    static constexpr const char* ZMQ_MULTICAST_ADDRESS = "127.0.0.1";
+    static constexpr int ZMQ_PORT = 15001;
     
     // ZeroMQ RADIO socket configuration (outgoing)
     static constexpr const char* ZMQ_SOCKET_TYPE = "RADIO";

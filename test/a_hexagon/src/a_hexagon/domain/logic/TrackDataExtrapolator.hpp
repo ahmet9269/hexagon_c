@@ -26,6 +26,9 @@ class TrackDataExtrapolator : public domain::ports::incoming::TrackDataIncomingP
 private:
     /// @brief Outgoing port for sending extrapolated data - MISRA compliant smart pointer
     std::unique_ptr<domain::ports::outgoing::ExtrapTrackDataOutgoingPort> outgoingPort_;
+    
+    /// @brief Raw pointer for legacy compatibility (non-owning)
+    domain::ports::outgoing::ExtrapTrackDataOutgoingPort* rawOutgoingPort_ = nullptr;
 
 public: 
     /**

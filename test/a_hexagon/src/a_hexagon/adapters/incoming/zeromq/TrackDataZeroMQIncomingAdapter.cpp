@@ -74,12 +74,19 @@ TrackDataZeroMQIncomingAdapter::~TrackDataZeroMQIncomingAdapter() {
 }
 
 void TrackDataZeroMQIncomingAdapter::loadConfiguration() {
-    // Default configuration for UDP multicast DISH socket
+    // Default configuration for DISH/SUB socket
     // TODO: Load from config file if available
     
-    protocol_ = "udp";
-    socketType_ = ZMQ_DISH;
-    endpoint_ = "udp://239.1.1.1:9000";  // TrackData multicast group
+    // Original UDP multicast configuration (for production environment)
+    // protocol_ = "udp";
+    // socketType_ = ZMQ_DISH;
+    // endpoint_ = "udp://239.1.1.1:9000";  // TrackData multicast group
+    
+    // TCP localhost configuration (for development/container environment)
+    // Note: For testing with Python PUB, use SUB socket
+    protocol_ = "tcp";
+    socketType_ = ZMQ_SUB;  // SUB for testing with Python PUB
+    endpoint_ = "tcp://127.0.0.1:15000";  // TrackData TCP endpoint
     groupName_ = "TrackData";
     receiveTimeout_ = DEFAULT_RECEIVE_TIMEOUT;
     
@@ -94,14 +101,13 @@ bool TrackDataZeroMQIncomingAdapter::initializeSocket() {
         socket_->set(zmq::sockopt::rcvtimeo, receiveTimeout_);
         socket_->set(zmq::sockopt::linger, 0);
         
-        // Bind to endpoint
-        socket_->bind(endpoint_);
+        // SUB connects to PUB (test_publisher binds)
+        socket_->connect(endpoint_);
         
-        // Join group for DISH socket
-        socket_->set(zmq::sockopt::subscribe, groupName_);
+        // Subscribe to all messages
+        socket_->set(zmq::sockopt::subscribe, "");
         
-        LOG_INFO("ZeroMQ DISH socket initialized - endpoint: {}, group: {}", 
-                 endpoint_, groupName_);
+        LOG_INFO("ZeroMQ SUB socket initialized - endpoint: {}", endpoint_);
         return true;
         
     } catch (const zmq::error_t& e) {
@@ -225,6 +231,9 @@ void TrackDataZeroMQIncomingAdapter::receiveLoop() {
                     if (trackData.isValid() && incomingPort_) {
                         // Calculate latency
                         auto latency_us = receive_time - trackData.getOriginalUpdateTime();
+                        
+                        LOG_INFO("[a_hexagon] TrackData received - TrackID: {}, Size: {} bytes", 
+                                 trackData.getTrackId(), data.size());
                         
                         // Log latency metrics (async, ~20ns overhead)
                         utils::Logger::logTrackReceived(trackData.getTrackId(), latency_us);

@@ -20,8 +20,13 @@ namespace ports {
 class FinalCalcTrackData final {
 public:
     // Network configuration constants
-    static constexpr const char* MULTICAST_ADDRESS = "239.1.1.5";
-    static constexpr int PORT = 9597;
+    // Original UDP Multicast configuration (for production environment)
+    // static constexpr const char* MULTICAST_ADDRESS = "239.1.1.5";
+    // static constexpr int PORT = 9597;
+    
+    // TCP localhost configuration (for development/container environment)
+    static constexpr const char* MULTICAST_ADDRESS = "127.0.0.1";
+    static constexpr int PORT = 15003;
     
     // ZeroMQ RADIO socket configuration (outgoing)
     static constexpr const char* ZMQ_SOCKET_TYPE = "RADIO";

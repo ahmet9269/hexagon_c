@@ -23,7 +23,10 @@ static constexpr int DEDICATED_CPU_CORE = 1;
 TrackDataZeroMQIncomingAdapter::TrackDataZeroMQIncomingAdapter(
     std::shared_ptr<domain::ports::incoming::IDelayCalcTrackDataIncomingPort> track_data_submission)
     : track_data_submission_(track_data_submission)
-    , multicast_endpoint_("udp://udn;239.1.1.1:9002")
+    // Original UDP multicast endpoint (for production environment)
+    // , multicast_endpoint_("udp://udn;239.1.1.1:9002")
+    // TCP localhost endpoint (for development/container environment)
+    , multicast_endpoint_("tcp://127.0.0.1:15002")
     , group_name_("DelayCalcTrackData")
     , adapter_name_("DelayCalcTrackData-InAdapter")
     , zmq_context_(1)
@@ -69,23 +72,23 @@ TrackDataZeroMQIncomingAdapter::~TrackDataZeroMQIncomingAdapter() {
  */
 void TrackDataZeroMQIncomingAdapter::initializeDishSocket() {
     try {
-        LOG_INFO("DISH Configuration - Endpoint: {}, Group: {}", multicast_endpoint_, group_name_);
+        LOG_INFO("Socket Configuration - Endpoint: {}, Group: {}", multicast_endpoint_, group_name_);
         
-        // Create DISH socket using C++ wrapper - requires Draft API
+        // RADIO/DISH pattern
         dish_socket_ = std::make_unique<zmq::socket_t>(zmq_context_, zmq::socket_type::dish);
-
+        
         // Configure socket options for optimal performance
         dish_socket_->set(zmq::sockopt::rcvhwm, 0);       // Unlimited receive buffer
         dish_socket_->set(zmq::sockopt::rcvtimeo, 100);   // 100ms timeout for graceful shutdown
         dish_socket_->set(zmq::sockopt::linger, 0);       // No linger on close
         dish_socket_->set(zmq::sockopt::immediate, 1);    // Process messages immediately
         
-        // Bind DISH socket to UDP multicast endpoint
+        // DISH binds (listens for RADIO connections)
         LOG_DEBUG("Binding DISH socket to endpoint");
         dish_socket_->bind(multicast_endpoint_);
         
-        // Join the multicast group for message filtering
-        LOG_DEBUG("Joining multicast group: {}", group_name_);
+        // Join group for RADIO/DISH pattern
+        LOG_DEBUG("Joining group: {}", group_name_);
         dish_socket_->join(group_name_.c_str());
         
         LOG_INFO("DISH socket initialized successfully");
@@ -193,6 +196,9 @@ void TrackDataZeroMQIncomingAdapter::subscriberWorker() {
                 if (track_data.isValid() && track_data_submission_) {
                     // Calculate second hop latency
                     auto second_hop_latency_us = static_cast<int64_t>(receive_time - track_data.getSecondHopSentTime());
+                    
+                    LOG_INFO("[c_hexagon] DelayCalcTrackData received - TrackID: {}, Size: {} bytes",
+                             track_data.getTrackId(), binary_data.size());
                     
                     // Log latency metrics (async, ~20ns overhead)
                     utils::Logger::logTrackReceived(

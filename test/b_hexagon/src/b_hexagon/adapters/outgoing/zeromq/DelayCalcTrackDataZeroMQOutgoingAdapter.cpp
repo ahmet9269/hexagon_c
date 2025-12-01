@@ -18,29 +18,31 @@ using domain::ports::DelayCalcTrackData;
 // Default constructor - uses configuration from DelayCalcTrackData domain model
 DelayCalcTrackDataZeroMQOutgoingAdapter::DelayCalcTrackDataZeroMQOutgoingAdapter()
     : context_(1),
-      socket_(context_, ZMQ_RADIO),
+      socket_(context_, ZMQ_RADIO),  // RADIO/DISH pattern
       group_("DelayCalcTrackData") {  // Group name matches message type
     
     try {
         // Build endpoint from DelayCalcTrackData configuration constants
         std::ostringstream oss;
-        oss << ZMQ_PROTOCOL << "://udn;"
+        // Original UDP multicast endpoint (for production environment)
+        // oss << ZMQ_PROTOCOL << "://udn;"
+        //     << ZMQ_MULTICAST_ADDRESS << ":"
+        //     << ZMQ_PORT;
+        
+        // TCP localhost endpoint (for development/container environment)
+        oss << ZMQ_PROTOCOL << "://"
             << ZMQ_MULTICAST_ADDRESS << ":"
             << ZMQ_PORT;
         std::string endpoint = oss.str();
         
-        Logger::info("Initializing DelayCalcTrackDataZeroMQOutgoingAdapter from DelayCalcTrackData constants");
+        Logger::info("Initializing DelayCalcTrackDataZeroMQOutgoingAdapter");
         Logger::info("Endpoint: ", endpoint, ", Group: ", group_);
         
-        // Connect to the endpoint (RADIO typically connects)
+        // RADIO connects to DISH (c_hexagon binds)
         Logger::debug("Connecting RADIO socket to endpoint: ", endpoint);
-
-//        socket_->set(zmq::sockopt::sndhwm, 1);       // Unlimited receive buffer
-//            //dish_socket_->set(zmq::sockopt::linger, 0);       // No linger on close
-//        socket_->set(zmq::sockopt::immediate, 1);
         socket_.connect(endpoint);
         
-        Logger::info("DelayCalcTrackDataZeroMQOutgoingAdapter successfully configured from DelayCalcTrackData constants -> ", endpoint);
+        Logger::info("DelayCalcTrackDataZeroMQOutgoingAdapter configured -> ", endpoint);
         
     } catch (const std::exception& e) {
         throw std::runtime_error("DelayCalcTrackDataZeroMQOutgoingAdapter config error: " + std::string(e.what()));
@@ -72,8 +74,7 @@ void DelayCalcTrackDataZeroMQOutgoingAdapter::sendDelayCalcTrackData(const Delay
         // Create C++ API message with binary payload
         zmq::message_t processed_msg(binaryData.begin(), binaryData.end());
         
-        // Set group identifier for DISH filtering
-        Logger::debug("Setting message group to: ", group_);
+        // Set group for RADIO socket (required for RADIO/DISH pattern)
         processed_msg.set_group(group_.c_str());
         
         // Send via RADIO socket

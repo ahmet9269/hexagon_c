@@ -17,10 +17,9 @@ TrackDataExtrapolator::TrackDataExtrapolator(
 // Legacy constructor for backward compatibility
 TrackDataExtrapolator::TrackDataExtrapolator(
     domain::ports::outgoing::ExtrapTrackDataOutgoingPort* outgoingPort) 
-    : outgoingPort_(nullptr) {
+    : rawOutgoingPort_(outgoingPort) {
     // Note: This constructor does NOT take ownership
     // For legacy code compatibility only - use unique_ptr constructor for new code
-    (void)outgoingPort; // Suppress unused warning - legacy interface
 }
 void TrackDataExtrapolator::extrapolateTrackData(const TrackData& trackData, double inputFrequency,double outputFrequency) {
 	double inputInterval = 1.0 / inputFrequency;
@@ -53,8 +52,11 @@ void TrackDataExtrapolator::extrapolateTrackData(const TrackData& trackData, dou
 
         // Her veriyi hemen gönder (tek tek)
         if (outgoingPort_ != nullptr) {
-            outgoingPort_->sendExtrapTrackData(extrap); // Artık tek veri gönderiyoruz
-        }	        // 200Hz için 5ms bekle (gerçek zamanlı extrapolation)
+            outgoingPort_->sendExtrapTrackData(extrap);
+        } else if (rawOutgoingPort_ != nullptr) {
+            rawOutgoingPort_->sendExtrapTrackData(extrap);
+        }
+        // 200Hz için 5ms bekle (gerçek zamanlı extrapolation)
 	        std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
     }

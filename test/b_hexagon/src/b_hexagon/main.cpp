@@ -36,24 +36,16 @@ int main() {
         // Create domain services
         Logger::debug("Creating CalculatorService...");
         auto calculatorService = std::make_unique<CalculatorService>();
-        //auto calculatorService2 = std::make_unique<CalculatorService>();
         
-        // Create outgoing adapter (RADIO socket)
-        Logger::debug("Creating ZeroMQDataWriter (RADIO socket)...");
+        // Create outgoing adapter (PUB socket for TCP)
+        Logger::debug("Creating ZeroMQDataWriter (PUB socket)...");
         auto dataSender = std::make_unique<DelayCalcTrackDataZeroMQOutgoingAdapter>();
-// Create outgoing adapter (RADIO socket)
-        Logger::debug("Creating ZeroMQDataWriter (RADIO socket)...");
-        auto dataSender2 = std::make_unique<DelayCalcTrackDataZeroMQOutgoingAdapter>();        
+        
         // Create use case with dependencies
         Logger::debug("Creating ProcessTrackUseCase with dependencies...");
         auto useCase = std::make_unique<ProcessTrackUseCase>(
             std::move(calculatorService),
             std::move(dataSender)
-        );
-
-        auto useCase2 = std::make_unique<ProcessTrackUseCase>(
-            std::move(calculatorService),
-            std::move(dataSender2)
         );
         
         // Create incoming adapter (DISH socket) and wire to use case

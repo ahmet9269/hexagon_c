@@ -53,7 +53,10 @@ int main() {
         // Create incoming adapter
         auto delay_calc_adapter = std::make_shared<adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter>(
             delay_calc_service,
-            "udp://udn;239.1.1.1:9002",
+            // Original UDP multicast endpoint (for production environment)
+            // "udp://udn;239.1.1.1:9002",
+            // TCP localhost endpoint (for development/container environment)
+            "tcp://127.0.0.1:15002",
             "DelayCalcTrackData"
         );
         

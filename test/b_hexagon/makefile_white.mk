@@ -19,7 +19,7 @@ CXX := g++
 CPPFLAGS = -std=c++17 $(INC_DIRS) -L$(THIRD_PARTY_DIR) -O3 -Wall -Wpedantic -Wextra -Wconversion -Wcast-align -Wunused -Wuninitialized -Wsign-compare -lpthread
 
 # Acquiring external .so files (ie. libzmq.so)
-SO_FILES = $(notdir $(shell find $(THIRD_PARTY_LIB) -type f -name "*.so"))
+SO_FILES = $(notdir $(shell find $(THIRD_PARTY_DIR) -type f -name "*.so"))
 # Removing 'lib' prefixes (ie. libzmq.so -> zmq.so)
 SO_LIB_NAME = $(shell echo $(SO_FILES) | sed 's/lib//')
 # Removing .so and adding -l prefix (ie. zmq.so -> zmq -> -lzmq) 
