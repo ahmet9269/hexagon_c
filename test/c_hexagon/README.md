@@ -276,7 +276,7 @@ The project is developed in compliance with MISRA C++ 2023 standards:
 
 ## 📄 License
 
-MIT License
+HEX License
 
 ## 👥 Contributors
 
