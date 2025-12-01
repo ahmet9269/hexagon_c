@@ -21,7 +21,7 @@ INC_DIRS = -I$(SRC_DIR) -I$(THIRD_PARTY_DIR)/include
 # Wuninitialized: warn about uninitialized variables
 # Wsign-compare: warn about signed-unsigned comparision
 CXX := g++
-CPPFLAGS = -std=c++17 $(INC_DIRS) -L$(THIRD_PARTY_DIR) -O3 -Wall -Wpedantic -Wextra -Wconversion -Wcast-align -Wunused -Wuninitialized -Wsign-compare
+CPPFLAGS = -std=c++17 $(INC_DIRS) -L$(THIRD_PARTY_DIR) -O3 -Wall -Wpedantic -Wextra -Wconversion -Wcast-align -Wunused -Wuninitialized -Wsign-compare -DZMQ_BUILD_DRAFT_API=1 -pthread
 
 # Acquiring external .so files (ie. libzmq.so)
 SO_FILES = $(notdir $(shell find $(THIRD_PARTY_LIB) -type f -name "*.so"))

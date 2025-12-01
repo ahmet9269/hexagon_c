@@ -1,6 +1,6 @@
 #include "FinalCalculationService.hpp"
+#include "utils/Logger.hpp"
 #include <chrono>
-#include <iostream>
 
 namespace domain {
 namespace logic {
@@ -24,9 +24,9 @@ void FinalCalculationService::processDelayCalcData(const DelayCalcTrackData& del
     // Send via outgoing port (Hexagonal Architecture)
     if (outgoing_port_ && outgoing_port_->isReady()) {
         outgoing_port_->sendFinalTrackData(finalData);
-        //std::cout << "✅ Sent FinalCalcTrackData via custom adapter" << std::endl;
+        LOG_DEBUG("Sent FinalCalcTrackData via outgoing adapter - Track ID: {}", finalData.getTrackId());
     } else {
-        std::cerr << "⚠️  Warning: Custom outgoing adapter not ready" << std::endl;
+        LOG_WARN("Custom outgoing adapter not ready");
     }
 }
 
@@ -50,24 +50,17 @@ FinalCalcTrackData FinalCalculationService::createFinalCalcTrackData(const Delay
     finalData.setSecondHopSentTime(delayCalcData.getSecondHopSentTime());
     finalData.setFirstHopDelayTime(delayCalcData.getFirstHopDelayTime());
     finalData.setSecondHopDelayTime(currentTime - delayCalcData.getSecondHopSentTime());
-    finalData.setTotalDelayTime(finalData.getSecondHopDelayTime()+delayCalcData.getFirstHopDelayTime());
-
-
-
-    //std::cout << "First;" << delayCalcData.getFirstHopDelayTime() << ";Second;"<< finalData.getSecondHopDelayTime()<<";Total;"<<delayCalcData.getFirstHopDelayTime()+finalData.getSecondHopDelayTime() << std::endl;
+    finalData.setTotalDelayTime(finalData.getSecondHopDelayTime() + delayCalcData.getFirstHopDelayTime());
     
     return finalData;
 }
 
 void FinalCalculationService::logProcessingResults(const FinalCalcTrackData& finalData) {
-//    std::cout << "Created FinalCalcTrackData for Track ID: " << finalData.getTrackId() << std::endl
-//              << " FirstHopDelayTime: " << finalData.getFirstHopDelayTime() << " microseconds" << std::endl
-//              << " SecondHopDelayTime: " << finalData.getSecondHopDelayTime() << " microseconds" << std::endl
-//              << " Total ZeroMQ Delay: " << finalData.getFirstHopDelayTime() + finalData.getSecondHopDelayTime() << " microseconds" << std::endl
-//              << " Total Delay: " << finalData.getTotalDelayTime() << " microseconds" << std::endl;
-
-    std::cout << "First;" << finalData.getFirstHopDelayTime() << ";Second;"<< finalData.getSecondHopDelayTime()<<";Total;"<<finalData.getFirstHopDelayTime()+finalData.getSecondHopDelayTime() << std::endl;
-
+    LOG_INFO("Track ID: {} | Hop1: {} μs | Hop2: {} μs | Total: {} μs",
+             finalData.getTrackId(),
+             finalData.getFirstHopDelayTime(),
+             finalData.getSecondHopDelayTime(),
+             finalData.getFirstHopDelayTime() + finalData.getSecondHopDelayTime());
 }
 
 } // namespace logic

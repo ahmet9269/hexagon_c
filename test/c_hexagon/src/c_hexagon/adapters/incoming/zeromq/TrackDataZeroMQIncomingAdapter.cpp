@@ -5,7 +5,7 @@
  */
 
 #include "TrackDataZeroMQIncomingAdapter.hpp"
-#include <iostream>
+#include "utils/Logger.hpp"
 #include <zmq.hpp>
 
 namespace adapters {
@@ -67,9 +67,7 @@ TrackDataZeroMQIncomingAdapter::~TrackDataZeroMQIncomingAdapter() {
  */
 void TrackDataZeroMQIncomingAdapter::initializeDishSocket() {
     try {
-        std::cout << "🔧 YUSUF DISH Configuration:" << std::endl;
-        std::cout << "   📡 Endpoint: " << multicast_endpoint_ << std::endl;
-        std::cout << "   👥 Group: " << group_name_ << std::endl;
+        LOG_INFO("DISH Configuration - Endpoint: {}, Group: {}", multicast_endpoint_, group_name_);
         
         // Create DISH socket using C++ wrapper - requires Draft API
         dish_socket_ = std::make_unique<zmq::socket_t>(zmq_context_, zmq::socket_type::dish);
@@ -81,18 +79,20 @@ void TrackDataZeroMQIncomingAdapter::initializeDishSocket() {
         dish_socket_->set(zmq::sockopt::immediate, 1);    // Process messages immediately
         
         // Bind DISH socket to UDP multicast endpoint
-        std::cout << "🔧 ZeroMQ DISH Configuration- dish_socket_bind" << std::endl;
+        LOG_DEBUG("Binding DISH socket to endpoint");
         dish_socket_->bind(multicast_endpoint_);
         
         // Join the multicast group for message filtering
-        std::cout << "🔧 ZeroMQ DISH Configuration- dish_socket_" << std::endl;
+        LOG_DEBUG("Joining multicast group: {}", group_name_);
         dish_socket_->join(group_name_.c_str());
+        
+        LOG_INFO("DISH socket initialized successfully");
 
     } catch (const zmq::error_t& e) {
-        std::cerr << "[DishSubscriber] ZMQ Initialize hatası: " << e.what() << std::endl;
+        LOG_ERROR("ZMQ initialization error: {}", e.what());
         throw;
     } catch (const std::exception& e) {
-        std::cerr << "[DishSubscriber] Initialize hatası: " << e.what() << std::endl;
+        LOG_ERROR("Initialization error: {}", e.what());
         throw;
     }
 }
@@ -184,29 +184,29 @@ void TrackDataZeroMQIncomingAdapter::subscriberWorker() {
                     // Calculate second hop latency
                     auto second_hop_latency_us = static_cast<int64_t>(receive_time - track_data.getSecondHopSentTime());
                     
+                    // Log latency metrics (async, ~20ns overhead)
+                    utils::Logger::logTrackReceived(
+                        track_data.getTrackId(),
+                        track_data.getFirstHopDelayTime(),
+                        second_hop_latency_us);
+                    
                     // Forward to domain layer via hexagonal architecture port
-                     // std::cout << "📡 DelayCalcTrackData alındı - Track ID: " << track_data.getTrackId() << std::endl;
-                    //std::cout << "   🕐 İkinci Hop Gecikme: " << second_hop_latency_us << " μs" << std::endl;
-                   // std::cout << "   🕐 Birinci Hop Gecikme: " << track_data.getFirstHopDelayTime() << " μs" << std::endl;
-                    //std::cout << "   🕐 Toplam ZMQ Gecikme: " << (track_data.getFirstHopDelayTime() + second_hop_latency_us) << " μs" << std::endl;                    
-                    // Domain katmanına gönder (Hexagonal Architecture)
                     track_data_submission_->submitDelayCalcTrackData(track_data);
                 } else {
-                    std::cerr << "[DishSubscriber] ❌ Invalid DelayCalcTrackData received" << std::endl;
+                    LOG_WARN("Invalid DelayCalcTrackData received");
                 }
             } else {
-                std::cerr << "[DishSubscriber] ❌ Failed to deserialize DelayCalcTrackData" << std::endl;
-                std::cerr << "[DishSubscriber] Message size: " << received_msg.size() << " bytes" << std::endl;
+                LOG_ERROR("Failed to deserialize DelayCalcTrackData - Message size: {} bytes", received_msg.size());
             }
 
         } catch (const zmq::error_t& e) {
             if (e.num() != EAGAIN) {
-                std::cerr << "[DishSubscriber] ZMQ Worker thread hatası: " << e.what() << std::endl;
+                LOG_ERROR("ZMQ worker thread error: {}", e.what());
             }
             // Brief sleep on error before retry
             std::this_thread::sleep_for(std::chrono::microseconds(100));
         } catch (const std::exception& e) {
-            std::cerr << "[DishSubscriber] Worker thread hatası: " << e.what() << std::endl;
+            LOG_ERROR("Worker thread error: {}", e.what());
             std::this_thread::sleep_for(std::chrono::microseconds(100));
         }
     }
@@ -227,24 +227,22 @@ TrackDataZeroMQIncomingAdapter::deserializeDelayCalcTrackData(
         
         if (data.deserialize(binary_data)) {
             if (data.isValid()) {
-                std::cout << "[DishSubscriber] ✅ DelayCalcTrackData successfully deserialized and validated" << std::endl;
-                std::cout << "[DishSubscriber] Track ID: " << data.getTrackId() 
-                         << ", UpdateTime: " << data.getUpdateTime() << " μs" << std::endl;
+                LOG_DEBUG("DelayCalcTrackData deserialized - Track ID: {}, UpdateTime: {} μs",
+                         data.getTrackId(), data.getUpdateTime());
                 return data;
             } else {
-                std::cerr << "[DishSubscriber] ❌ DelayCalcTrackData validation failed after deserialization" << std::endl;
+                LOG_WARN("DelayCalcTrackData validation failed after deserialization");
                 return std::nullopt;
             }
         } else {
-            std::cerr << "[DishSubscriber] ❌ DelayCalcTrackData binary deserialization failed" << std::endl;
-            std::cerr << "[DishSubscriber] Expected size: " << data.getSerializedSize() 
-                     << " bytes, Received: " << binary_data.size() << " bytes" << std::endl;
+            LOG_ERROR("DelayCalcTrackData deserialization failed - Expected: {} bytes, Received: {} bytes",
+                     data.getSerializedSize(), binary_data.size());
             return std::nullopt;
         }
 
     } catch (const std::exception& e) {
-        std::cerr << "[DishSubscriber] ❌ Exception during DelayCalcTrackData deserialization: " << e.what() << std::endl;
-        std::cerr << "[DishSubscriber] Binary data size: " << binary_data.size() << " bytes" << std::endl;
+        LOG_ERROR("Exception during deserialization: {} - Data size: {} bytes",
+                 e.what(), binary_data.size());
         return std::nullopt;
     }
 }
