@@ -21,50 +21,50 @@ namespace incoming {
 namespace zeromq {
 
 /**
- * Dish pattern kullanan ZeroMQ Subscriber Adapter
- * UDP multicast üzerinden grup tabanlı mesaj alma sağlar
- * app2_processor.cpp'deki dish pattern'ini hexagonal architecture'a entegre eder
+ * @brief ZeroMQ Subscriber Adapter using DISH pattern
+ * @details Provides group-based message reception over UDP multicast.
+ *          Integrates the DISH pattern into hexagonal architecture.
  */
 class TrackDataZeroMQIncomingAdapter {
 private:
     std::shared_ptr<domain::ports::incoming::IDelayCalcTrackDataIncomingPort> track_data_submission_;
     
-    // ZeroMQ C++ context ve socket
+    // ZeroMQ C++ context and socket
     zmq::context_t zmq_context_;
     std::unique_ptr<zmq::socket_t> dish_socket_;
     
-    // Thread yönetimi
+    // Thread management
     std::thread subscriber_thread_;
     std::atomic<bool> running_;
     
-    // Konfigürasyon
-    std::string multicast_endpoint_;  // UDP multicast adresi (örn: udp://239.1.1.1:9001)
-    std::string group_name_;          // Dinlenecek grup adı (örn: "SOURCE_DATA")
+    // Configuration
+    std::string multicast_endpoint_;  // UDP multicast address (e.g., udp://239.1.1.1:9001)
+    std::string group_name_;          // Group name to subscribe (e.g., "SOURCE_DATA")
     
-    // Gecikme hesaplama için
+    // Latency measurement
     struct LatencyMeasurement {
         std::chrono::steady_clock::time_point receive_time;
-        long long send_timestamp_us;  // mikrosaniye
-        long long latency_us;         // mikrosaniye
+        long long send_timestamp_us;  // microseconds
+        long long latency_us;         // microseconds
         std::string original_data;
     };
     
-    // Hata kontrolü için yardımcı fonksiyon (C++ wrapper ile artık gereksiz)
+    // Helper function for error checking (no longer needed with C++ wrapper)
     // void check_rc(int rc, const std::string& context_msg);
 
 public:
     /**
-     * Constructor - Default UDP multicast configuration
-     * @param track_data_submission Domain katmanına veri göndermek için port
+     * @brief Constructor - Default UDP multicast configuration
+     * @param track_data_submission Port for sending data to domain layer
      */
     TrackDataZeroMQIncomingAdapter(
         std::shared_ptr<domain::ports::incoming::IDelayCalcTrackDataIncomingPort> track_data_submission);
 
     /**
-     * Constructor with custom configuration
-     * @param track_data_submission Domain katmanına veri göndermek için port
-     * @param multicast_endpoint UDP multicast endpoint (örn: "udp://239.1.1.1:9001")
-     * @param group_name Dinlenecek multicast grup adı (örn: "SOURCE_DATA")
+     * @brief Constructor with custom configuration
+     * @param track_data_submission Port for sending data to domain layer
+     * @param multicast_endpoint UDP multicast endpoint (e.g., "udp://239.1.1.1:9001")
+     * @param group_name Multicast group name to subscribe (e.g., "SOURCE_DATA")
      */
     TrackDataZeroMQIncomingAdapter(
         std::shared_ptr<domain::ports::incoming::IDelayCalcTrackDataIncomingPort> track_data_submission,
@@ -74,28 +74,30 @@ public:
     ~TrackDataZeroMQIncomingAdapter();
 
     /**
-     * Dish Subscriber'ı başlatır
+     * @brief Starts the DISH subscriber
+     * @return true if started successfully
      */
   [[nodiscard]]  bool start();
 
     /**
-     * Dish Subscriber'ı durdurur
+     * @brief Stops the DISH subscriber
      */
     void stop();
 
     /**
-     * Subscriber aktif durumu
+     * @brief Returns subscriber active status
+     * @return true if subscriber is running
      */
    [[nodiscard]] bool isRunning() const;
 
 private:
     /**
-     * ZeroMQ dish socket'ini initialize eder
+     * @brief Initializes the ZeroMQ DISH socket
      */
     void initializeDishSocket();
 
     /**
-     * Subscriber worker thread - asynchronous message receiving
+     * @brief Subscriber worker thread - asynchronous message receiving
      */
     void subscriberWorker();
 
@@ -103,7 +105,9 @@ private:
     // LatencyMeasurement processReceivedMessage(const std::string& received_payload);
 
     /**
-     * Binary veriyi DelayCalcTrackData'ya deserialize eder
+     * @brief Deserializes binary data to DelayCalcTrackData
+     * @param binary_data Raw binary data from ZeroMQ message
+     * @return Optional containing deserialized data if successful
      */
     std::optional<domain::ports::DelayCalcTrackData> deserializeDelayCalcTrackData(
         const std::vector<uint8_t>& binary_data);

@@ -12,7 +12,7 @@ namespace domain {
 namespace ports {
 
 /**
- * @brief Bir izin ECEF koordinat sistemindeki nihai durumunu ve çok adımlı (multi-hop) gecikme hesaplamalarının tam dökümünü içerir.
+ * @brief Contains final track state in ECEF coordinate system and complete breakdown of multi-hop delay calculations.
  * Auto-generated from FinalCalcTrackData.json
  * MISRA C++ 2023 compliant implementation
  * Direction: outgoing
@@ -101,35 +101,35 @@ public:
 
 private:
     // Member variables
-    /// İz için benzersiz tam sayı kimliği
+    /// Unique integer identifier for the track
     int32_t trackId_;
-    /// ECEF koordinatlarındaki X ekseni hızı (m/s)
+    /// X-axis velocity in ECEF coordinates (m/s)
     double xVelocityECEF_;
-    /// ECEF koordinatlarındaki Y ekseni hızı (m/s)
+    /// Y-axis velocity in ECEF coordinates (m/s)
     double yVelocityECEF_;
-    /// ECEF koordinatlarındaki Z ekseni hızı (m/s)
+    /// Z-axis velocity in ECEF coordinates (m/s)
     double zVelocityECEF_;
-    /// ECEF koordinatlarındaki X ekseni konumu (metre)
+    /// X-axis position in ECEF coordinates (meters)
     double xPositionECEF_;
-    /// ECEF koordinatlarındaki Y ekseni konumu (metre)
+    /// Y-axis position in ECEF coordinates (meters)
     double yPositionECEF_;
-    /// ECEF koordinatlarındaki Z ekseni konumu (metre)
+    /// Z-axis position in ECEF coordinates (meters)
     double zPositionECEF_;
-    /// Original güncelleme zamanı (mikrosaniye)
+    /// Original update time (microseconds)
     int64_t originalUpdateTime_;
-    /// Son güncelleme zamanı (mikrosaniye)
+    /// Last update time (microseconds)
     int64_t updateTime_;
-    /// İlk atlamanın gönderildiği zaman (mikrosaniye)
+    /// First hop sent timestamp (microseconds)
     int64_t firstHopSentTime_;
-    /// İlk atlama için hesaplanan gecikme (mikrosaniye)
+    /// Calculated delay for first hop (microseconds)
     int64_t firstHopDelayTime_;
-    /// İkinci atlamanın gönderildiği zaman (mikrosaniye)
+    /// Second hop sent timestamp (microseconds)
     int64_t secondHopSentTime_;
-    /// İkinci atlama için hesaplanan gecikme (mikrosaniye)
+    /// Calculated delay for second hop (microseconds)
     int64_t secondHopDelayTime_;
-    /// Toplam hesaplanan gecikme (mikrosaniye)
+    /// Total calculated delay (microseconds)
     int64_t totalDelayTime_;
-    /// Üçüncü atlamanın gönderildiği zaman (mikrosaniye)
+    /// Third hop sent timestamp (microseconds)
     int64_t thirdHopSentTime_;
 
     // Validation functions - MISRA compliant
