@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../../../domain/ports/incoming/TrackDataSubmission.hpp"
-#include "../../../domain/model/DelayCalcTrackData.hpp"
+#include "domain/ports/incoming/IDelayCalcTrackDataIncomingPort.hpp"
+#include "domain/ports/DelayCalcTrackData.hpp"
 #include <zmq.hpp>
 #include <zmq_addon.hpp>
 #include <thread>
@@ -14,7 +14,7 @@
 #include <chrono>
 
 // Using declarations for convenience
-using domain::model::DelayCalcTrackData;
+using domain::ports::DelayCalcTrackData;
 
 namespace adapters {
 namespace incoming {
@@ -25,9 +25,9 @@ namespace zeromq {
  * UDP multicast üzerinden grup tabanlı mesaj alma sağlar
  * app2_processor.cpp'deki dish pattern'ini hexagonal architecture'a entegre eder
  */
-class ZeroMQDishTrackDataSubscriber {
+class TrackDataZeroMQIncomingAdapter {
 private:
-    std::shared_ptr<domain::ports::incoming::TrackDataSubmission> track_data_submission_;
+    std::shared_ptr<domain::ports::incoming::IDelayCalcTrackDataIncomingPort> track_data_submission_;
     
     // ZeroMQ C++ context ve socket
     zmq::context_t zmq_context_;
@@ -57,8 +57,8 @@ public:
      * Constructor - Default UDP multicast configuration
      * @param track_data_submission Domain katmanına veri göndermek için port
      */
-    ZeroMQDishTrackDataSubscriber(
-        std::shared_ptr<domain::ports::incoming::TrackDataSubmission> track_data_submission);
+    TrackDataZeroMQIncomingAdapter(
+        std::shared_ptr<domain::ports::incoming::IDelayCalcTrackDataIncomingPort> track_data_submission);
 
     /**
      * Constructor with custom configuration
@@ -66,17 +66,17 @@ public:
      * @param multicast_endpoint UDP multicast endpoint (örn: "udp://239.1.1.1:9001")
      * @param group_name Dinlenecek multicast grup adı (örn: "SOURCE_DATA")
      */
-    ZeroMQDishTrackDataSubscriber(
-        std::shared_ptr<domain::ports::incoming::TrackDataSubmission> track_data_submission,
+    TrackDataZeroMQIncomingAdapter(
+        std::shared_ptr<domain::ports::incoming::IDelayCalcTrackDataIncomingPort> track_data_submission,
         const std::string& multicast_endpoint,
         const std::string& group_name);
 
-    ~ZeroMQDishTrackDataSubscriber();
+    ~TrackDataZeroMQIncomingAdapter();
 
     /**
      * Dish Subscriber'ı başlatır
      */
-    bool start();
+  [[nodiscard]]  bool start();
 
     /**
      * Dish Subscriber'ı durdurur
@@ -86,7 +86,7 @@ public:
     /**
      * Subscriber aktif durumu
      */
-    bool isRunning() const;
+   [[nodiscard]] bool isRunning() const;
 
 private:
     /**
@@ -105,7 +105,7 @@ private:
     /**
      * Binary veriyi DelayCalcTrackData'ya deserialize eder
      */
-    std::optional<domain::model::DelayCalcTrackData> deserializeDelayCalcTrackData(
+    std::optional<domain::ports::DelayCalcTrackData> deserializeDelayCalcTrackData(
         const std::vector<uint8_t>& binary_data);
 };
 

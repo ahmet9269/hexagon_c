@@ -50,14 +50,15 @@ void generateTestData() {
             rawTrackData.setOriginalUpdateTime(nowMilliseconds);
             
             // Domain logic'e gönder (8Hz → 200Hz extrapolation)
+
             extrapolator.processAndForwardTrackData(rawTrackData);
             
             messageCount++;
-            std::cout << "[" << messageCount << "] 8Hz TrackData → Extrapolator → 200Hz ExtrapTrackData sent" 
-                      << " - TrackId: " << rawTrackData.getTrackId() << std::endl;
+            std::cout << "[" << messageCount << "]" << " - TrackId: " << rawTrackData.getTrackId() << "  TIME >>> "<<rawTrackData.getOriginalUpdateTime()<<std::endl;
             
             // 8Hz için 125ms bekle (1000ms / 8Hz = 125ms)
-            std::this_thread::sleep_for(std::chrono::milliseconds(125));
+           //std::this_thread::sleep_for(std::chrono::milliseconds(125));
+           //std::this_thread::sleep_for(std::chrono::milliseconds(125));
             
         } catch (const std::exception& e) {
             std::cerr << "HATA - Test verisi oluşturulurken: " << e.what() << std::endl;

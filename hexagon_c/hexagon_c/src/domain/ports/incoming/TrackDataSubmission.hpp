@@ -9,23 +9,30 @@
 // STL (Standard Template Library) INCLUDES
 #include <memory>      // Smart pointer'lar için (std::shared_ptr, std::unique_ptr)
 
+namespace domain {
+namespace ports {
+namespace incoming {
+
 /**
- * @interface IDataReceiver
- * @brief Hexagonal Architecture Primary Port for incoming track data
+ * @brief Primary Port for incoming DelayCalcTrackData
  * 
+ * This is the hexagonal architecture primary port interface that domain logic implements.
  * Receives DelayCalcTrackData from B_hexagon via ZeroMQ DISH socket.
- * This is the primary port interface that domain logic implements.
  */
-class IDataReceiver {
+class TrackDataSubmission {
 public:
-    virtual ~IDataReceiver() = default;
+    virtual ~TrackDataSubmission() = default;
 
     /**
      * @brief Process incoming DelayCalcTrackData from B_hexagon
      * @param data DelayCalcTrackData containing delay calculations from B_hexagon
      */
-    virtual void onDataReceived(const domain::model::DelayCalcTrackData& data) = 0;
+    virtual void submitDelayCalcTrackData(const domain::model::DelayCalcTrackData& data) = 0;
 };
+
+} // namespace incoming
+} // namespace ports
+} // namespace domain
 
 // HEADER GUARD NOTES:
 // Bu dosya #pragma once ile korunmuş durumda

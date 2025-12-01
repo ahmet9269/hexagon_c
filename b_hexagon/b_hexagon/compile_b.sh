@@ -1,0 +1,2 @@
+cd /workspaces/hexagon_c/b_hexagon/b_hexagon
+g++ -std=c++17 -Isrc -I/workspaces/hexagon_c/hexagon_c/libzmq/include -I/workspaces/hexagon_c/hexagon_c/include -DZMQ_BUILD_DRAFT_API -pthread -O3 -march=native -mtune=native -flto -ffast-math -DNDEBUG src/application/main.cpp src/adapters/incoming/ZeroMQDataHandler.cpp src/adapters/outgoing/ZeroMQDataWriter.cpp src/domain/model/ExtrapTrackData.cpp src/domain/model/DelayCalcTrackData.cpp src/domain/logic/CalculatorService.cpp /workspaces/hexagon_c/hexagon_c/libzmq/build/lib/libzmq.a -lsodium -lrt -lgnutls -o b_hexagon_app_new

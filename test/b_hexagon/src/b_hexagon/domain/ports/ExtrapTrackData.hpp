@@ -9,41 +9,33 @@
 #include <cstring>
 
 namespace domain {
-namespace model {
+namespace ports {
 
 /**
- * @brief Bir izin ECEF koordinat sistemindeki nihai durumunu ve çok adımlı (multi-hop) gecikme hesaplamalarının tam dökümünü içerir.
- * Auto-generated from FinalCalcTrackData.json
+ * @brief Bir izin ECEF koordinat sistemindeki extrapolation yapılmış kinematik durumunu ve detaylı zamanlama bilgilerini içerir.
+ * Auto-generated from ExtrapTrackData.json
  * MISRA C++ 2023 compliant implementation
  * Direction: outgoing
  */
-class FinalCalcTrackData final {
+class ExtrapTrackData final {
 public:
-    // Network configuration constants
-    static constexpr const char* MULTICAST_ADDRESS = "239.1.1.5";
-    static constexpr int PORT = 9597;
-    
-    // ZeroMQ RADIO socket configuration (outgoing)
-    static constexpr const char* ZMQ_SOCKET_TYPE = "RADIO";
-    static constexpr bool IS_PUBLISHER = true;
-
     // MISRA C++ 2023 compliant constructors
-    explicit FinalCalcTrackData() noexcept;
+    explicit ExtrapTrackData() noexcept;
     
     // Copy constructor
-    FinalCalcTrackData(const FinalCalcTrackData& other) = default;
+    ExtrapTrackData(const ExtrapTrackData& other) = default;
     
     // Move constructor
-    FinalCalcTrackData(FinalCalcTrackData&& other) noexcept = default;
+    ExtrapTrackData(ExtrapTrackData&& other) noexcept = default;
     
     // Copy assignment operator
-    FinalCalcTrackData& operator=(const FinalCalcTrackData& other) = default;
+    ExtrapTrackData& operator=(const ExtrapTrackData& other) = default;
     
     // Move assignment operator
-    FinalCalcTrackData& operator=(FinalCalcTrackData&& other) noexcept = default;
+    ExtrapTrackData& operator=(ExtrapTrackData&& other) noexcept = default;
     
     // Destructor
-    ~FinalCalcTrackData() = default;
+    ~ExtrapTrackData() = default;
     
     // Getters and Setters
     int32_t getTrackId() const noexcept;
@@ -76,21 +68,6 @@ public:
     int64_t getFirstHopSentTime() const noexcept;
     void setFirstHopSentTime(const int64_t& value);
 
-    int64_t getFirstHopDelayTime() const noexcept;
-    void setFirstHopDelayTime(const int64_t& value);
-
-    int64_t getSecondHopSentTime() const noexcept;
-    void setSecondHopSentTime(const int64_t& value);
-
-    int64_t getSecondHopDelayTime() const noexcept;
-    void setSecondHopDelayTime(const int64_t& value);
-
-    int64_t getTotalDelayTime() const noexcept;
-    void setTotalDelayTime(const int64_t& value);
-
-    int64_t getThirdHopSentTime() const noexcept;
-    void setThirdHopSentTime(const int64_t& value);
-
     // Validation - MISRA compliant
     [[nodiscard]] bool isValid() const noexcept;
 
@@ -121,16 +98,6 @@ private:
     int64_t updateTime_;
     /// İlk atlamanın gönderildiği zaman (mikrosaniye)
     int64_t firstHopSentTime_;
-    /// İlk atlama için hesaplanan gecikme (mikrosaniye)
-    int64_t firstHopDelayTime_;
-    /// İkinci atlamanın gönderildiği zaman (mikrosaniye)
-    int64_t secondHopSentTime_;
-    /// İkinci atlama için hesaplanan gecikme (mikrosaniye)
-    int64_t secondHopDelayTime_;
-    /// Toplam hesaplanan gecikme (mikrosaniye)
-    int64_t totalDelayTime_;
-    /// Üçüncü atlamanın gönderildiği zaman (mikrosaniye)
-    int64_t thirdHopSentTime_;
 
     // Validation functions - MISRA compliant
     void validateTrackId(int32_t value) const;
@@ -143,12 +110,7 @@ private:
     void validateOriginalUpdateTime(int64_t value) const;
     void validateUpdateTime(int64_t value) const;
     void validateFirstHopSentTime(int64_t value) const;
-    void validateFirstHopDelayTime(int64_t value) const;
-    void validateSecondHopSentTime(int64_t value) const;
-    void validateSecondHopDelayTime(int64_t value) const;
-    void validateTotalDelayTime(int64_t value) const;
-    void validateThirdHopSentTime(int64_t value) const;
 };
 
-} // namespace ports
+} // namespace model
 } // namespace domain

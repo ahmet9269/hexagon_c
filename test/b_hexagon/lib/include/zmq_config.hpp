@@ -1,0 +1,3 @@
+#ifndef ZMQ_BUILD_DRAFT_API
+#define ZMQ_BUILD_DRAFT_API 1
+#endif

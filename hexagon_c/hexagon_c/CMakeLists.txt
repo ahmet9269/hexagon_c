@@ -19,8 +19,11 @@ find_package(Threads REQUIRED)
 # Source files
 set(SOURCES
     src/application/main.cpp
+    src/adapters/incoming/zeromq/ZeroMQDishTrackDataSubscriber.cpp
+    src/adapters/outgoing/CustomFinalTrackDataAdapter.cpp
     src/domain/model/DelayCalcTrackData.cpp
     src/domain/model/FinalCalcTrackData.cpp
+    src/domain/logic/FinalCalculationService.cpp
 )
 
 # Create executable

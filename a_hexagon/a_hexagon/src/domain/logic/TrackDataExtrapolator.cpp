@@ -41,7 +41,7 @@ void TrackDataExtrapolator::extrapolateTo200Hz(const TrackData& trackData) {
         }
         
         // 200Hz için 5ms bekle (gerçek zamanlı extrapolation)
-        std::this_thread::sleep_for(std::chrono::microseconds(250));
+        std::this_thread::sleep_for(std::chrono::milliseconds(5));
     }
 }
 void TrackDataExtrapolator::processAndForwardTrackData(const TrackData& trackData) {

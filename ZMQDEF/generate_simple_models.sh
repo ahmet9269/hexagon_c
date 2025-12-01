@@ -35,20 +35,22 @@ else
     exit 1
 fi
 
-# Model dizinini bul - ZMQDEF/zmq_messages/zmq_models altında olmalı
+# Model dizinini bul - domain/model altında olmalı
 MODEL_DIR=""
-# Önce çalıştığı dizinde ZMQDEF/zmq_messages/zmq_models klasörü ara
-if [ -d "$WORK_DIR/ZMQDEF/zmq_messages/zmq_models" ]; then
-    MODEL_DIR="$WORK_DIR/ZMQDEF/zmq_messages/zmq_models"
-elif [ -d "$WORK_DIR/zmq_models" ]; then
-    MODEL_DIR="$WORK_DIR/zmq_models"
-elif [ -d "$WORK_DIR/../ZMQDEF/zmq_messages/zmq_models" ]; then
-    MODEL_DIR="$WORK_DIR/../ZMQDEF/zmq_messages/zmq_models"
+# Önce çalıştığı dizinde src/domain/model klasörü ara
+if [ -d "$WORK_DIR/src/domain/model" ]; then
+    MODEL_DIR="$WORK_DIR/src/domain/model"
+elif [ -d "$WORK_DIR/domain/model" ]; then
+    MODEL_DIR="$WORK_DIR/domain/model"
+elif [ -d "$WORK_DIR/../src/domain/model" ]; then
+    MODEL_DIR="$WORK_DIR/../src/domain/model"
+elif [ -d "$WORK_DIR/../domain/model" ]; then
+    MODEL_DIR="$WORK_DIR/../domain/model"
 else
-    # ZMQDEF/zmq_messages/zmq_models dizinini oluştur
-    MODEL_DIR="$WORK_DIR/ZMQDEF/zmq_messages/zmq_models"
+    # src/domain/model dizinini oluştur
+    MODEL_DIR="$WORK_DIR/src/domain/model"
     mkdir -p "$MODEL_DIR"
-    echo -e "${YELLOW}⚠️  ZMQDEF/zmq_messages/zmq_models dizini oluşturuldu: $MODEL_DIR${NC}"
+    echo -e "${YELLOW}⚠️  src/domain/model dizini oluşturuldu: $MODEL_DIR${NC}"
 fi
 
 echo -e "${GREEN}📁 Model dizini: $MODEL_DIR${NC}"

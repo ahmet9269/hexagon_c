@@ -1,11 +1,10 @@
-// DRAFT API'leri etkinleştirmek için
-#define ZMQ_BUILD_DRAFT_API
-
 #include "ZeroMQDishTrackDataSubscriber.hpp"
 #include <iostream>
 #include <zmq.hpp> // C++ wrapper için
 
-namespace hat::adapters::incoming::zeromq {
+namespace adapters {
+namespace incoming {
+namespace zeromq {
 
 // Default constructor with standard configuration
 ZeroMQDishTrackDataSubscriber::ZeroMQDishTrackDataSubscriber(
@@ -113,36 +112,46 @@ bool ZeroMQDishTrackDataSubscriber::isRunning() const {
 void ZeroMQDishTrackDataSubscriber::subscriberWorker() {
     while (running_.load()) {
         try {
-            // C++ wrapper ile mesaj alma
+            // ZeroMQ mesaj alma
             zmq::message_t received_msg;
             
-            // Blocking receive with timeout (daha verimli)
-            auto result = dish_socket_->recv(received_msg, zmq::recv_flags::none);
+            // Non-blocking receive with timeout for graceful shutdown
+            auto result = dish_socket_->recv(received_msg, zmq::recv_flags::dontwait);
             
-            if (!result) {
+            if (!result || received_msg.size() == 0) {
+                // Mesaj yok, kısa bekle
+                std::this_thread::sleep_for(std::chrono::microseconds(10));
                 continue;
             }
 
-            // Mesajı string'e çevir (C++ wrapper)
-            std::string received_payload = received_msg.to_string();
+            // Mesaj alındığı anı kaydet (gecikme hesaplaması için)
+            auto receive_time = std::chrono::duration_cast<std::chrono::microseconds>(
+                std::chrono::high_resolution_clock::now().time_since_epoch()).count();
 
-            // app2_processor.cpp pattern'i - gecikme hesaplama
-            auto latency_info = processReceivedMessage(received_payload);
+            // Binary mesajı vector'e dönüştür
+            const uint8_t* msg_data = static_cast<const uint8_t*>(received_msg.data());
+            std::vector<uint8_t> binary_data(msg_data, msg_data + received_msg.size());
 
-            // Veriyi deserialize et
-            auto track_data = deserializeDelayCalcTrackData(latency_info.original_data, latency_info);
-
-            if (track_data.has_value() && track_data_submission_) {
-                // Domain katmanına gönder
-                track_data_submission_->submitDelayCalcTrackData(track_data.value());
-                
-                // Doğru toplam gecikme hesapla: şu anki zaman - ilk gönderim zamanı
-                auto receive_time_us = std::chrono::duration_cast<std::chrono::microseconds>(
-                    latency_info.receive_time.time_since_epoch()).count();
-                long total_latency_us = receive_time_us - track_data->getFirstHopSentTime();
-                
-                std::cout << "📡 Track " << track_data->getTrackId() 
-                          << " alındı - Toplam Gecikme: " << total_latency_us << " μs" << std::endl;
+            // DelayCalcTrackData'yı deserialize et
+            domain::model::DelayCalcTrackData track_data;
+            if (track_data.deserialize(binary_data)) {
+                if (track_data.isValid() && track_data_submission_) {
+                    // Gecikme hesapla: şu anki zaman - ikinci hop gönderim zamanı
+                    long second_hop_latency_us = receive_time - track_data.getSecondHopSentTime();
+                    
+                    std::cout << "📡 DelayCalcTrackData alındı - Track ID: " << track_data.getTrackId() << std::endl;
+                    std::cout << "   🕐 İkinci Hop Gecikme: " << second_hop_latency_us << " μs" << std::endl;
+                    std::cout << "   🕐 Birinci Hop Gecikme: " << track_data.getFirstHopDelayTime() << " μs" << std::endl;
+                    std::cout << "   🕐 Toplam ZMQ Gecikme: " << (track_data.getFirstHopDelayTime() + second_hop_latency_us) << " μs" << std::endl;
+                    
+                    // Domain katmanına gönder (Hexagonal Architecture)
+                    track_data_submission_->submitDelayCalcTrackData(track_data);
+                } else {
+                    std::cerr << "[DishSubscriber] ❌ Invalid DelayCalcTrackData received" << std::endl;
+                }
+            } else {
+                std::cerr << "[DishSubscriber] ❌ Failed to deserialize DelayCalcTrackData" << std::endl;
+                std::cerr << "[DishSubscriber] Message size: " << received_msg.size() << " bytes" << std::endl;
             }
 
         } catch (const zmq::error_t& e) {
@@ -158,66 +167,43 @@ void ZeroMQDishTrackDataSubscriber::subscriberWorker() {
     }
 }
 
-ZeroMQDishTrackDataSubscriber::LatencyMeasurement 
-ZeroMQDishTrackDataSubscriber::processReceivedMessage(const std::string& received_payload) {
-    
-    LatencyMeasurement result;
-    
-    // app2_processor.cpp pattern'ini takip et
-    // 1. Mesajı alır almaz mevcut zamanı kaydet (steady_clock daha kararlı)
-    result.receive_time = std::chrono::steady_clock::now();
-
-    // 2. Mesajı '|' karakterinden ayırarak orijinal metni ve gönderim zamanını bul
-    size_t separator_pos = received_payload.find_last_of('|');
-    if (separator_pos == std::string::npos) {
-        std::cerr << "[DishSubscriber] Hata: Alınan mesajda zaman damgası ayıracı ('|') bulunamadı." << std::endl;
-        result.original_data = received_payload;
-        result.send_timestamp_us = 0;
-        result.latency_us = 0;
-        return result;
-    }
-
-    result.original_data = received_payload.substr(0, separator_pos);
-    try {
-        result.send_timestamp_us = std::stoll(received_payload.substr(separator_pos + 1));
-    } catch (const std::exception& e) {
-        std::cerr << "[DishSubscriber] Zaman damgası parse hatası: " << e.what() << std::endl;
-        result.send_timestamp_us = 0;
-        result.latency_us = 0;
-        return result;
-    }
-
-    // 3. Gecikmeyi hesapla
-    auto receive_time_us = std::chrono::duration_cast<std::chrono::microseconds>(
-        result.receive_time.time_since_epoch()).count();
-    result.latency_us = receive_time_us - result.send_timestamp_us;
-
-    return result;
-}
+// Note: processReceivedMessage is not needed anymore as we handle binary data directly
+// Kept for potential future use with string-based messages
 
 std::optional<domain::model::DelayCalcTrackData> 
 ZeroMQDishTrackDataSubscriber::deserializeDelayCalcTrackData(
-    const std::string& original_data, 
-    const LatencyMeasurement& latency_info) {
+    const std::vector<uint8_t>& binary_data) {
     
     try {
-        // Güncellenmiş modelin binary serialization özelliğini kullan
-        domain::model::DelayCalcTrackData data; // default constructed
+        // DelayCalcTrackData modeli oluştur
+        domain::model::DelayCalcTrackData data;
         
-        // String'i binary data'ya dönüştür
-        std::vector<uint8_t> binary_data(original_data.begin(), original_data.end());
-        
-        // Modelin kendi deserialize metodunu kullan
+        // DelayCalcTrackData'nın kendi binary deserialize metodunu kullan
         if (data.deserialize(binary_data)) {
-            return data;
+            // Deserializasyon başarılı - validation kontrolü
+            if (data.isValid()) {
+                std::cout << "[DishSubscriber] ✅ DelayCalcTrackData successfully deserialized and validated" << std::endl;
+                std::cout << "[DishSubscriber] Track ID: " << data.getTrackId() 
+                         << ", UpdateTime: " << data.getUpdateTime() << " μs" << std::endl;
+                return data;
+            } else {
+                std::cerr << "[DishSubscriber] ❌ DelayCalcTrackData validation failed after deserialization" << std::endl;
+                return std::nullopt;
+            }
         } else {
-            std::cerr << "[DishSubscriber] Binary deserialization failed" << std::endl;
+            std::cerr << "[DishSubscriber] ❌ DelayCalcTrackData binary deserialization failed" << std::endl;
+            std::cerr << "[DishSubscriber] Expected size: " << data.getSerializedSize() 
+                     << " bytes, Received: " << binary_data.size() << " bytes" << std::endl;
             return std::nullopt;
         }
 
     } catch (const std::exception& e) {
-        std::cerr << "[DishSubscriber] Binary deserialization hatası: " << e.what() << std::endl;
-        std::cerr << "[DishSubscriber] Data size: " << original_data.size() << " bytes" << std::endl;
+        std::cerr << "[DishSubscriber] ❌ Exception during DelayCalcTrackData deserialization: " << e.what() << std::endl;
+        std::cerr << "[DishSubscriber] Binary data size: " << binary_data.size() << " bytes" << std::endl;
         return std::nullopt;
     }
-} // namespace hat::adapters::incoming::zeromq
+}
+
+} // namespace zeromq
+} // namespace incoming
+} // namespace adapters

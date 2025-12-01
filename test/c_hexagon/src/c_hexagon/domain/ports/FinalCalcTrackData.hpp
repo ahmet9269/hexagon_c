@@ -9,7 +9,7 @@
 #include <cstring>
 
 namespace domain {
-namespace model {
+namespace ports {
 
 /**
  * @brief Bir izin ECEF koordinat sistemindeki nihai durumunu ve çok adımlı (multi-hop) gecikme hesaplamalarının tam dökümünü içerir.
