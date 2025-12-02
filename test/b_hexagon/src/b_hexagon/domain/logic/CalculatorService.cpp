@@ -1,12 +1,16 @@
 /**
  * @file CalculatorService.cpp
  * @brief Implementation of CalculatorService for track data processing
+ * @details Concrete implementation of ICalculatorService interface
  */
 
 #include "domain/logic/CalculatorService.hpp"
 #include "utils/Logger.hpp"
 
-DelayCalcTrackData CalculatorService::calculateDelay(const ExtrapTrackData& trackData) const {
+namespace domain {
+namespace logic {
+
+ports::DelayCalcTrackData CalculatorService::calculateDelay(const ports::ExtrapTrackData& trackData) const {
     Logger::debug("Processing track ", trackData.getTrackId(), " - calculating delay metrics");
     
     // Get current processing time for second hop
@@ -18,7 +22,7 @@ DelayCalcTrackData CalculatorService::calculateDelay(const ExtrapTrackData& trac
     }
     
     // Create result with calculated values
-    DelayCalcTrackData result;
+    ports::DelayCalcTrackData result;
     
     // Copy all original track data
     result.setTrackId(trackData.getTrackId());
@@ -68,3 +72,6 @@ long CalculatorService::calculateTimeDelta(long originalTime, long currentTime) 
     
     return currentTime - originalTime;
 }
+
+} // namespace logic
+} // namespace domain

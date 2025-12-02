@@ -1,23 +1,33 @@
 /**
  * @file CalculatorService.hpp
- * @brief Application service for track data processing and delay calculations
+ * @brief Concrete implementation of ICalculatorService
+ * @details SOLID compliant - implements abstract interface for dependency injection
  */
 
 #pragma once
 
+#include "ICalculatorService.hpp"
 #include "domain/ports/ExtrapTrackData.hpp"
 #include "domain/ports/DelayCalcTrackData.hpp"
 #include <chrono>
 
-// Using declarations for convenience
-using domain::ports::ExtrapTrackData;
-using domain::ports::DelayCalcTrackData;
+namespace domain {
+namespace logic {
 
 /**
  * @class CalculatorService
  * @brief Domain service for calculating timing delays and processing track data
+ * @details Concrete implementation of ICalculatorService.
+ *          Can be replaced with MockCalculatorService in unit tests.
+ * 
+ * SOLID Compliance:
+ * - Single Responsibility: Only handles delay calculations
+ * - Open/Closed: Extends ICalculatorService, closed for modification
+ * - Liskov Substitution: Can replace any ICalculatorService
+ * - Interface Segregation: Implements focused ICalculatorService interface
+ * - Dependency Inversion: ProcessTrackUseCase depends on ICalculatorService abstraction
  */
-class CalculatorService final {
+class CalculatorService final : public ICalculatorService {
 public:
     /**
      * @brief Default constructor
@@ -27,7 +37,7 @@ public:
     /**
      * @brief Destructor
      */
-    ~CalculatorService() = default;
+    ~CalculatorService() override = default;
 
     // Disable copy operations
     CalculatorService(const CalculatorService&) = delete;
@@ -42,14 +52,15 @@ public:
      * @param trackData Input track data with timing information
      * @return DelayCalcTrackData with computed delay value
      */
-    DelayCalcTrackData calculateDelay(const ExtrapTrackData& trackData) const;
+    [[nodiscard]] ports::DelayCalcTrackData calculateDelay(
+        const ports::ExtrapTrackData& trackData) const override;
 
 private:
     /**
      * @brief Get current time in microseconds since epoch
      * @return Current timestamp in microseconds
      */
-    long getCurrentTimeMicroseconds() const noexcept;
+    [[nodiscard]] long getCurrentTimeMicroseconds() const noexcept;
 
     /**
      * @brief Calculate processing delay from timestamp
@@ -57,5 +68,8 @@ private:
      * @param currentTime Current time in microseconds
      * @return Calculated delay in microseconds
      */
-    long calculateTimeDelta(long originalTime, long currentTime) const noexcept;
+    [[nodiscard]] long calculateTimeDelta(long originalTime, long currentTime) const noexcept;
 };
+
+} // namespace logic
+} // namespace domain

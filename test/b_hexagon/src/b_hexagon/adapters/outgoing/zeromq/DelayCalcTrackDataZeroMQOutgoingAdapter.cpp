@@ -1,103 +1,154 @@
 /**
  * @file DelayCalcTrackDataZeroMQOutgoingAdapter.cpp
- * @brief ZeroMQ RADIO adapter for outbound data transmission using UDP multicast
+ * @brief ZeroMQ RADIO adapter for outbound data transmission
+ * @details Thread-per-Type architecture compliant - thread-safe send operations
+ *          SOLID compliant - uses IMessageSocket abstraction for testability
  */
 
-//#define ZMQ_BUILD_DRAFT_API  // Enable RADIO/DISH socket types
+#include "DelayCalcTrackDataZeroMQOutgoingAdapter.hpp"
+#include "adapters/common/messaging/ZeroMQSocket.hpp"
+#include "../../../utils/Logger.hpp"
+#include <sstream>
+#include <cstring>
+#include <stdexcept>
 
-#include "DelayCalcTrackDataZeroMQOutgoingAdapter.hpp"  // Own header
-#include "../../../utils/Logger.hpp"                        // Logging
-#include <sstream>        // String stream for endpoint formatting
-#include <cstring>        // Memory operations
-#include <stdexcept>      // Exception types
-#include <iostream>       // Error output
-
-// Using declarations for convenience
 using domain::ports::DelayCalcTrackData;
+using adapters::common::messaging::IMessageSocket;
+using adapters::common::messaging::ZeroMQSocket;
 
-// Default constructor - uses configuration from DelayCalcTrackData domain model
+// ==================== Constructors ====================
+
 DelayCalcTrackDataZeroMQOutgoingAdapter::DelayCalcTrackDataZeroMQOutgoingAdapter()
-    : context_(1),
-      socket_(context_, ZMQ_RADIO),  // RADIO/DISH pattern
-      group_("DelayCalcTrackData") {  // Group name matches message type
+    : endpoint_(std::string(DEFAULT_PROTOCOL) + "://" + DEFAULT_ADDRESS + ":" + std::to_string(DEFAULT_PORT))
+    , group_(DEFAULT_GROUP)
+    , adapterName_(std::string(DEFAULT_GROUP) + "-OutAdapter")
+    , socket_(nullptr)
+    , running_{false} {
     
-    try {
-        // Build endpoint from DelayCalcTrackData configuration constants
-        std::ostringstream oss;
-        // Original UDP multicast endpoint (for production environment)
-        // oss << ZMQ_PROTOCOL << "://udn;"
-        //     << ZMQ_MULTICAST_ADDRESS << ":"
-        //     << ZMQ_PORT;
-        
-        // TCP localhost endpoint (for development/container environment)
-        oss << ZMQ_PROTOCOL << "://"
-            << ZMQ_MULTICAST_ADDRESS << ":"
-            << ZMQ_PORT;
-        std::string endpoint = oss.str();
-        
-        Logger::info("Initializing DelayCalcTrackDataZeroMQOutgoingAdapter");
-        Logger::info("Endpoint: ", endpoint, ", Group: ", group_);
-        
-        // RADIO connects to DISH (c_hexagon binds)
-        Logger::debug("Connecting RADIO socket to endpoint: ", endpoint);
-        socket_.connect(endpoint);
-        
-        Logger::info("DelayCalcTrackDataZeroMQOutgoingAdapter configured -> ", endpoint);
-        
-    } catch (const std::exception& e) {
-        throw std::runtime_error("DelayCalcTrackDataZeroMQOutgoingAdapter config error: " + std::string(e.what()));
-    }
+    socket_ = createDefaultSocket();
+    Logger::info("DelayCalcTrackDataZeroMQOutgoingAdapter created - endpoint: ", endpoint_, ", group: ", group_);
 }
 
-// Send DelayCalcTrackData via RADIO socket
+DelayCalcTrackDataZeroMQOutgoingAdapter::DelayCalcTrackDataZeroMQOutgoingAdapter(
+    const std::string& endpoint,
+    const std::string& group)
+    : endpoint_(endpoint)
+    , group_(group)
+    , adapterName_(group + "-OutAdapter")
+    , socket_(nullptr)
+    , running_{false} {
+    
+    socket_ = createDefaultSocket();
+    Logger::info("DelayCalcTrackDataZeroMQOutgoingAdapter created (custom) - endpoint: ", endpoint_, ", group: ", group_);
+}
+
+DelayCalcTrackDataZeroMQOutgoingAdapter::DelayCalcTrackDataZeroMQOutgoingAdapter(
+    std::unique_ptr<IMessageSocket> socket,
+    const std::string& group)
+    : endpoint_("injected")
+    , group_(group)
+    , adapterName_(group + "-OutAdapter")
+    , socket_(std::move(socket))
+    , running_{false} {
+    
+    Logger::info("DelayCalcTrackDataZeroMQOutgoingAdapter created (injected socket) - group: ", group_);
+}
+
+DelayCalcTrackDataZeroMQOutgoingAdapter::~DelayCalcTrackDataZeroMQOutgoingAdapter() noexcept {
+    stop();
+    Logger::debug("DelayCalcTrackDataZeroMQOutgoingAdapter destroyed: ", adapterName_);
+}
+
+// ==================== Socket Factory ====================
+
+std::unique_ptr<IMessageSocket> DelayCalcTrackDataZeroMQOutgoingAdapter::createDefaultSocket() {
+    auto socket = std::make_unique<ZeroMQSocket>(ZeroMQSocket::SocketType::RADIO);
+    
+    if (!socket->connect(endpoint_)) {
+        throw std::runtime_error("Failed to connect RADIO socket to: " + endpoint_);
+    }
+    
+    Logger::debug("RADIO socket initialized via IMessageSocket - endpoint: ", endpoint_, ", group: ", group_);
+    return socket;
+}
+
+// ==================== IAdapter Interface ====================
+
+bool DelayCalcTrackDataZeroMQOutgoingAdapter::start() {
+    if (running_.load()) {
+        Logger::warn("Adapter already running: ", adapterName_);
+        return true;
+    }
+    
+    if (!socket_ || !socket_->isConnected()) {
+        Logger::error("Cannot start adapter: socket not connected");
+        return false;
+    }
+    
+    running_.store(true);
+    Logger::info("Adapter started: ", adapterName_);
+    return true;
+}
+
+void DelayCalcTrackDataZeroMQOutgoingAdapter::stop() {
+    if (!running_.load()) {
+        return;
+    }
+    
+    Logger::info("Stopping adapter: ", adapterName_);
+    running_.store(false);
+    
+    if (socket_) {
+        socket_->close();
+    }
+    
+    Logger::info("Adapter stopped: ", adapterName_);
+}
+
+bool DelayCalcTrackDataZeroMQOutgoingAdapter::isRunning() const {
+    return running_.load();
+}
+
+std::string DelayCalcTrackDataZeroMQOutgoingAdapter::getName() const noexcept {
+    return adapterName_;
+}
+
+// ==================== Send Operation (Thread-Safe) ====================
+
 void DelayCalcTrackDataZeroMQOutgoingAdapter::sendDelayCalcTrackData(const DelayCalcTrackData& data) {
+    // Thread-safe send with mutex
+    std::lock_guard<std::mutex> lock(sendMutex_);
+    
+    if (!running_.load()) {
+        Logger::warn("Adapter not running, dropping message for track: ", data.getTrackId());
+        return;
+    }
     
     Logger::debug("Sending DelayCalcTrackData for track ID: ", data.getTrackId());
     
     // Validate input data
     if (!data.isValid()) {
-        Logger::error("Attempted to send invalid DelayCalcTrackData for track ID: ", data.getTrackId());
-        throw std::invalid_argument("DelayCalcTrackDataZeroMQOutgoingAdapter::send: Invalid DelayCalcTrackData");
+        Logger::error("Invalid DelayCalcTrackData for track ID: ", data.getTrackId());
+        throw std::invalid_argument("Invalid DelayCalcTrackData");
     }
     
     try {
-        // Güncellenmiş modelin binary serialization özelliğini kullan
         std::vector<uint8_t> binaryData = data.serialize();
         
-        Logger::debug("Generated binary payload for track ", data.getTrackId(), " - Size: ", binaryData.size(), " bytes");
-        
         if (binaryData.empty()) {
-            Logger::error("Empty binary payload generated for track ID: ", data.getTrackId());
-            throw std::runtime_error("DelayCalcTrackDataZeroMQOutgoingAdapter::sendData: Empty binary payload generated");
+            Logger::error("Empty payload for track ID: ", data.getTrackId());
+            throw std::runtime_error("Empty binary payload");
         }
         
-        // Create C++ API message with binary payload
-        zmq::message_t processed_msg(binaryData.begin(), binaryData.end());
-        
-        // Set group for RADIO socket (required for RADIO/DISH pattern)
-        processed_msg.set_group(group_.c_str());
-        
-        // Send via RADIO socket
-        Logger::debug("Transmitting message via RADIO socket...");
-        auto send_result = socket_.send(processed_msg, zmq::send_flags::none);
-        
-        if (!send_result || *send_result != binaryData.size()) {
-            Logger::error("ZeroMQ RADIO transmission failed or partial send - expected: ", binaryData.size(), 
-                         ", sent: ", (send_result ? *send_result : 0));
-            throw std::runtime_error("ZeroMQ RADIO transmission failed or partial send");
+        // Send via IMessageSocket abstraction
+        if (!socket_->send(binaryData, group_)) {
+            throw std::runtime_error("Failed to send message");
         }
         
-        Logger::info("Successfully transmitted track ", data.getTrackId(), " (", *send_result, " bytes) to group: ", group_);
+        Logger::debug("[", adapterName_, "] Sent TrackID: ", data.getTrackId(), ", Size: ", binaryData.size(), " bytes");
         
-    } catch (const zmq::error_t& e) {
-        Logger::error("ZeroMQ error during transmission for track ", data.getTrackId(), ": ", e.what());
-        throw std::runtime_error("DelayCalcTrackDataZeroMQOutgoingAdapter::send: ZeroMQ RADIO transmission error - " + 
-            std::string(e.what()));
     } catch (const std::exception& e) {
-        Logger::error("Critical sendData failure for track ", data.getTrackId(), ": ", e.what());
-        throw std::runtime_error("DelayCalcTrackDataZeroMQOutgoingAdapter::send: DelayCalcTrackData transmission failed - " + 
-            std::string(e.what()));
+        Logger::error("[", adapterName_, "] Send error: ", e.what());
+        throw;
     }
-    
-    Logger::debug("sendData completed successfully for track: ", data.getTrackId());
 }

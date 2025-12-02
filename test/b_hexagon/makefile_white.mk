@@ -31,7 +31,8 @@ RPATH_CONFIG = -Wl,-rpath,'$$ORIGIN/lib'
 
 # Directories will be checked out by check_dirs target
 CHECK_DIRS = $(SRC_DIR)/adapters $(SRC_DIR)/domain $(SRC_DIR)/utils \
-	$(SRC_DIR)/adapters/common $(SRC_DIR)/adapters/incoming $(SRC_DIR)/adapters/outgoing \
+	$(SRC_DIR)/adapters/common $(SRC_DIR)/adapters/common/messaging \
+	$(SRC_DIR)/adapters/incoming $(SRC_DIR)/adapters/outgoing \
 	$(SRC_DIR)/domain/logic $(SRC_DIR)/domain/model $(SRC_DIR)/domain/ports \
 	$(SRC_DIR)/domain/ports/outgoing $(SRC_DIR)/domain/ports/outgoing \
 	./test ./lib ./lib/include ./bin ./doc
