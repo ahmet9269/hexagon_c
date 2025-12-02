@@ -19,14 +19,6 @@ namespace model {
  */
 class ExtrapTrackData final {
 public:
-    // Network configuration constants
-    static constexpr const char* MULTICAST_ADDRESS = "239.1.1.5";
-    static constexpr int PORT = 9596;
-    
-    // ZeroMQ RADIO socket configuration (outgoing)
-    static constexpr const char* ZMQ_SOCKET_TYPE = "RADIO";
-    static constexpr bool IS_PUBLISHER = true;
-
     // MISRA C++ 2023 compliant constructors
     explicit ExtrapTrackData() noexcept;
     

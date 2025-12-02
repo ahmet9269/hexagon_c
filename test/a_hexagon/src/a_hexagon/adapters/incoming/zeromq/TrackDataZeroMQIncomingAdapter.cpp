@@ -28,10 +28,6 @@ namespace adapters {
 namespace incoming {
 namespace zeromq {
 
-// MISRA C++ 2023 compliant named constants - Rule 9-3-1: Fixed-width integers
-static constexpr int32_t REALTIME_THREAD_PRIORITY{95};
-static constexpr int32_t DEDICATED_CPU_CORE{1};
-
 TrackDataZeroMQIncomingAdapter::TrackDataZeroMQIncomingAdapter(
     domain::ports::incoming::ITrackDataIncomingPort* incomingPort)
     : protocol_("udp")
@@ -74,20 +70,11 @@ TrackDataZeroMQIncomingAdapter::~TrackDataZeroMQIncomingAdapter() {
 }
 
 void TrackDataZeroMQIncomingAdapter::loadConfiguration() {
-    // Default configuration for DISH/SUB socket
-    // TODO: Load from config file if available
-    
-    // Original UDP multicast configuration (for production environment)
-    // protocol_ = "udp";
-    // socketType_ = ZMQ_DISH;
-    // endpoint_ = "udp://239.1.1.1:9000";  // TrackData multicast group
-    
-    // TCP localhost configuration (for development/container environment)
-    // Note: For testing with Python PUB, use SUB socket
-    protocol_ = "tcp";
-    socketType_ = ZMQ_SUB;  // SUB for testing with Python PUB
-    endpoint_ = "tcp://127.0.0.1:15000";  // TrackData TCP endpoint
-    groupName_ = "TrackData";
+    // Load socket configuration from class constants
+    protocol_ = DEFAULT_PROTOCOL;
+    socketType_ = DEFAULT_SOCKET_TYPE;
+    endpoint_ = DEFAULT_ENDPOINT;
+    groupName_ = DEFAULT_GROUP;
     receiveTimeout_ = DEFAULT_RECEIVE_TIMEOUT;
     
     LOG_DEBUG("Configuration loaded - endpoint: {}, group: {}", endpoint_, groupName_);

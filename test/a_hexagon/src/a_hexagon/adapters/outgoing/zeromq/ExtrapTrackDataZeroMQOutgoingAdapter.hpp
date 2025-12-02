@@ -144,8 +144,17 @@ private:
     // State
     std::atomic<bool> running_;     ///< Running state flag
 
-    // Constants
-    static constexpr const char* DEFAULT_GROUP = "ExtrapTrackData";
+    // ==================== Socket Configuration Constants ====================
+    // Production Environment (UDP Multicast)
+    // static constexpr const char* DEFAULT_ENDPOINT = "udp://239.1.1.5:9596";
+    // static constexpr const char* DEFAULT_PROTOCOL = "udp";
+    
+    // Development Environment (TCP Localhost)
+    static constexpr const char* DEFAULT_ENDPOINT{"tcp://127.0.0.1:15001"};
+    static constexpr const char* DEFAULT_PROTOCOL{"tcp"};
+    static constexpr int32_t DEFAULT_SOCKET_TYPE{ZMQ_RADIO};  ///< RADIO socket type
+    static constexpr const char* DEFAULT_GROUP{"ExtrapTrackData"};  ///< Group name for RADIO socket
+    static constexpr int32_t DEFAULT_SOCKET_LINGER{0};  ///< Socket linger time (ms)
 };
 
 } // namespace zeromq

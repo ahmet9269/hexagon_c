@@ -33,21 +33,6 @@ namespace model {
  */
 class TrackData final {
 public:
-    // Network configuration constants
-    // Original UDP Multicast configuration (for production environment)
-    // static constexpr const char* MULTICAST_ADDRESS = "239.1.1.1";
-    // static constexpr int PORT = 9000;
-    // static constexpr const char* ZMQ_PROTOCOL = "udp";
-    
-    // TCP localhost configuration (for development/container environment)
-    static constexpr const char* MULTICAST_ADDRESS = "127.0.0.1";
-    static constexpr int PORT = 15000;
-    static constexpr const char* ZMQ_PROTOCOL = "tcp";
-    
-    // ZeroMQ DISH socket configuration (incoming)
-    static constexpr const char* ZMQ_SOCKET_TYPE = "DISH";
-    static constexpr bool IS_SUBSCRIBER = true;
-
     // MISRA C++ 2023 compliant constructors
     explicit TrackData() noexcept;
     

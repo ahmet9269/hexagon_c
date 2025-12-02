@@ -169,9 +169,23 @@ private:
     domain::ports::incoming::ITrackDataIncomingPort* incomingPort_;  ///< Domain service port (raw)
     std::shared_ptr<domain::ports::incoming::ITrackDataIncomingPort> incomingPortShared_;  ///< Domain service port (shared)
 
-    // Constants - MISRA compliant
-    static constexpr int32_t DEFAULT_RECEIVE_TIMEOUT{100};  ///< Default timeout (ms)
-    static constexpr const char* DEFAULT_GROUP{"TrackData"};  ///< Default group name
+    // ==================== Socket Configuration Constants ====================
+    // Production Environment (UDP Multicast)
+    // static constexpr const char* DEFAULT_ENDPOINT = "udp://239.1.1.1:9000";
+    // static constexpr const char* DEFAULT_PROTOCOL = "udp";
+    // static constexpr int32_t DEFAULT_SOCKET_TYPE = ZMQ_DISH;
+    
+    // Development Environment (TCP Localhost)
+    static constexpr const char* DEFAULT_ENDPOINT{"tcp://127.0.0.1:15000"};
+    static constexpr const char* DEFAULT_PROTOCOL{"tcp"};
+    static constexpr int32_t DEFAULT_SOCKET_TYPE{ZMQ_SUB};  ///< SUB for TCP, DISH for UDP
+    
+    static constexpr const char* DEFAULT_GROUP{"TrackData"};  ///< Group name for DISH socket
+    static constexpr int32_t DEFAULT_RECEIVE_TIMEOUT{100};    ///< Receive timeout (ms)
+    
+    // Thread Configuration
+    static constexpr int32_t REALTIME_THREAD_PRIORITY{95};    ///< SCHED_FIFO priority
+    static constexpr int32_t DEDICATED_CPU_CORE{1};           ///< CPU affinity core
 };
 
 } // namespace zeromq

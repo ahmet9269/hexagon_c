@@ -39,17 +39,10 @@ ExtrapTrackDataZeroMQOutgoingAdapter::~ExtrapTrackDataZeroMQOutgoingAdapter() {
 }
 
 void ExtrapTrackDataZeroMQOutgoingAdapter::loadConfiguration() {
-    // Default configuration
-    
-    // Original UDP multicast configuration (for production environment)
-    // protocol_ = "udp";
-    // socketType_ = ZMQ_RADIO;
-    // endpoint_ = "udp://udn;239.1.1.1:9001";
-    
-    // TCP localhost configuration (for development/container environment)
-    protocol_ = "tcp";
-    socketType_ = ZMQ_RADIO;
-    endpoint_ = "tcp://127.0.0.1:15001";
+    // Load socket configuration from class constants
+    protocol_ = DEFAULT_PROTOCOL;
+    socketType_ = DEFAULT_SOCKET_TYPE;
+    endpoint_ = DEFAULT_ENDPOINT;
     groupName_ = DEFAULT_GROUP;
     
     LOG_DEBUG("Configuration loaded - endpoint: {}, group: {}", endpoint_, groupName_);
