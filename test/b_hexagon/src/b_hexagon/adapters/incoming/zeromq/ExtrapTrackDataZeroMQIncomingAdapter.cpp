@@ -19,19 +19,14 @@ using domain::ports::ExtrapTrackData;
 // Default constructor 
 ExtrapTrackDataZeroMQIncomingAdapter::ExtrapTrackDataZeroMQIncomingAdapter(domain::ports::incoming::IExtrapTrackDataIncomingPort* dataReceiver)
     : context_(1),
-      socket_(context_, ZMQ_DISH),  // RADIO/DISH pattern
+      socket_(context_, ZMQ_DISH),  // Use DISH for UDP multicast (RADIO/DISH pattern)
       group_("ExtrapTrackData"),  // Group name matches message type
       dataReceiver_(dataReceiver) {
     
     try {
         // Build endpoint from ExtrapTrackData configuration constants
         std::ostringstream oss;
-        // Original UDP multicast endpoint (for production environment)
-        // oss << ZMQ_PROTOCOL << "://udn;"
-        //     << ZMQ_MULTICAST_ADDRESS << ":"
-        //     << ZMQ_PORT;
-        
-        // TCP localhost endpoint (for development/container environment)
+        // UDP multicast endpoint (RADIO/DISH pattern)
         oss << ZMQ_PROTOCOL << "://"
             << ZMQ_MULTICAST_ADDRESS << ":"
             << ZMQ_PORT;

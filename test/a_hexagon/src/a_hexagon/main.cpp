@@ -75,56 +75,57 @@ void signalHandler(int signum) {
 // These can be moved to a configuration file for production
 
 namespace config {
-    // TrackData incoming socket configuration
-    static constexpr const char* TRACK_DATA_INCOMING_ENDPOINT = "tcp://127.0.0.1:15000";
+    // TrackData incoming socket configuration (UDP DISH for multicast)
+    static constexpr const char* TRACK_DATA_INCOMING_ENDPOINT = "udp://239.1.1.1:9000";
     static constexpr const char* TRACK_DATA_INCOMING_GROUP = "TrackData";
     
-    // ExtrapTrackData outgoing socket configuration  
-    static constexpr const char* EXTRAP_DATA_OUTGOING_ENDPOINT = "tcp://127.0.0.1:15001";
+    // ExtrapTrackData outgoing socket configuration (UDP RADIO for multicast)
+    // NOTE: b_hexagon DISH binds to this endpoint - must match!
+    static constexpr const char* EXTRAP_DATA_OUTGOING_ENDPOINT = "udp://239.1.1.2:9001";
     static constexpr const char* EXTRAP_DATA_OUTGOING_GROUP = "ExtrapTrackData";
 }
 
 /**
  * @brief Create socket for incoming TrackData (DIP compliant)
- * @return Configured socket ready for binding
+ * @return Configured socket ready for binding (UDP DISH)
  */
 std::unique_ptr<adapters::common::messaging::IMessageSocket> createIncomingSocket() {
     auto socket = std::make_unique<adapters::common::messaging::ZeroMQSocket>(
-        adapters::common::messaging::ZeroMQSocket::SocketType::SUB
+        adapters::common::messaging::ZeroMQSocket::SocketType::DISH
     );
     
-    // Subscribe to TrackData group
-    socket->subscribe(config::TRACK_DATA_INCOMING_GROUP);
-    
-    // Bind to endpoint
+    // Bind to UDP multicast endpoint first
     if (!socket->connect(config::TRACK_DATA_INCOMING_ENDPOINT, 
                          adapters::common::messaging::ZeroMQSocket::ConnectionMode::Bind)) {
         LOG_ERROR("Failed to bind incoming socket to {}", config::TRACK_DATA_INCOMING_ENDPOINT);
         return nullptr;
     }
     
-    LOG_INFO("Incoming socket bound to {} with group {}", 
+    // Join TrackData group after bind
+    socket->joinGroup(config::TRACK_DATA_INCOMING_GROUP);
+    
+    LOG_INFO("Incoming DISH socket bound to {} with group {}", 
              config::TRACK_DATA_INCOMING_ENDPOINT, config::TRACK_DATA_INCOMING_GROUP);
     return socket;
 }
 
 /**
  * @brief Create socket for outgoing ExtrapTrackData (DIP compliant)
- * @return Configured socket ready for connecting
+ * @return Configured socket ready for connecting (UDP RADIO)
  */
 std::unique_ptr<adapters::common::messaging::IMessageSocket> createOutgoingSocket() {
     auto socket = std::make_unique<adapters::common::messaging::ZeroMQSocket>(
-        adapters::common::messaging::ZeroMQSocket::SocketType::PUB
+        adapters::common::messaging::ZeroMQSocket::SocketType::RADIO
     );
     
-    // Connect to endpoint
+    // Connect to UDP multicast endpoint (b_hexagon DISH socket binds)
     if (!socket->connect(config::EXTRAP_DATA_OUTGOING_ENDPOINT,
                          adapters::common::messaging::ZeroMQSocket::ConnectionMode::Connect)) {
         LOG_ERROR("Failed to connect outgoing socket to {}", config::EXTRAP_DATA_OUTGOING_ENDPOINT);
         return nullptr;
     }
     
-    LOG_INFO("Outgoing socket connected to {} with group {}", 
+    LOG_INFO("Outgoing RADIO socket connected to {} with group {}", 
              config::EXTRAP_DATA_OUTGOING_ENDPOINT, config::EXTRAP_DATA_OUTGOING_GROUP);
     return socket;
 }

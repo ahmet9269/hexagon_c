@@ -100,28 +100,28 @@ bool TrackDataZeroMQIncomingAdapter::initializeSocket() {
     }
     
     try {
-        // Create ZeroMQ SUB socket via abstraction
+        // Create ZeroMQ DISH socket for UDP multicast (Draft API)
         auto zmqSocket = std::make_unique<adapters::common::messaging::ZeroMQSocket>(
-            ZMQ_SUB,
-            adapters::common::messaging::ZeroMQSocket::ConnectionMode::Connect
+            ZMQ_DISH,
+            adapters::common::messaging::ZeroMQSocket::ConnectionMode::Bind
         );
         
         socket_ = std::move(zmqSocket);
         
-        // Connect to endpoint
+        // Bind to endpoint
         if (!socket_->connect(endpoint_)) {
-            LOG_ERROR("Failed to connect socket to: {}", endpoint_);
+            LOG_ERROR("Failed to bind socket to: {}", endpoint_);
             socket_.reset();
             return false;
         }
         
-        // Subscribe to all messages
+        // Join group for DISH socket
         auto* zmqSocketPtr = dynamic_cast<adapters::common::messaging::ZeroMQSocket*>(socket_.get());
         if (zmqSocketPtr) {
-            zmqSocketPtr->subscribe("");
+            zmqSocketPtr->joinGroup(DEFAULT_GROUP);
         }
         
-        LOG_INFO("Socket initialized - endpoint: {}", endpoint_);
+        LOG_INFO("DISH socket initialized - endpoint: {}, group: {}", endpoint_, DEFAULT_GROUP);
         return true;
         
     } catch (const std::exception& e) {

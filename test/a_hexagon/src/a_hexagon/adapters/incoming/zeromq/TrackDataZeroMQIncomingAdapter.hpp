@@ -180,11 +180,9 @@ private:
     bool ownsSocket_{false};
 
     // ==================== Socket Configuration Constants ====================
-    // Production Environment (UDP Multicast)
-    // static constexpr const char* DEFAULT_ENDPOINT = "udp://239.1.1.1:9000";
-    
-    // Development Environment (TCP Localhost)
-    static constexpr const char* DEFAULT_ENDPOINT{"tcp://127.0.0.1:15000"};
+    // UDP Multicast with DISH socket (Draft API)
+    static constexpr const char* DEFAULT_ENDPOINT{"udp://239.1.1.1:9000"};
+    static constexpr const char* DEFAULT_GROUP{"TrackData"};
     static constexpr int32_t DEFAULT_RECEIVE_TIMEOUT{100};    ///< Receive timeout (ms)
     
     // Thread Configuration
