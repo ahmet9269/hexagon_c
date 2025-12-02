@@ -1,10 +1,10 @@
 /**
  * @file ExtrapTrackDataZeroMQOutgoingAdapter.hpp
- * @brief ZeroMQ UDP RADIO Outgoing Adapter for ExtrapTrackData messages
+ * @brief ZeroMQ Outgoing Adapter for ExtrapTrackData messages (DIP compliant)
  * @details Implements both IAdapter interface and ExtrapTrackDataOutgoingPort
- *          for sending extrapolated track data via ZeroMQ RADIO socket.
+ *          for sending extrapolated track data via IMessageSocket abstraction.
  * 
- * Architecture:
+ * Architecture (DIP Compliant):
  * ┌───────────────────────────────────────────────────────────┐
  * │           ExtrapTrackDataZeroMQOutgoingAdapter            │
  * ├───────────────────────────────────────────────────────────┤
@@ -12,37 +12,33 @@
  * │           ↓                                               │
  * │  Binary Serialization                                     │
  * │           ↓                                               │
- * │  ZeroMQ RADIO Socket (UDP Multicast)                      │
+ * │  IMessageSocket (Abstraction) ← ZeroMQ/Mock               │
  * └───────────────────────────────────────────────────────────┘
  * 
  * @author a_hexagon Team
- * @version 1.1
+ * @version 2.0
  * @date 2025
  * 
  * @note MISRA C++ 2023 compliant implementation
+ * @note DIP compliant - depends on IMessageSocket abstraction
  * @see IAdapter.hpp
  * @see ExtrapTrackDataOutgoingPort.hpp
+ * @see IMessageSocket.hpp
  */
 
 #ifndef ZEROMQ_EXTRAP_TRACK_DATA_ADAPTER_H
 #define ZEROMQ_EXTRAP_TRACK_DATA_ADAPTER_H
 
 #include "adapters/common/IAdapter.hpp"
+#include "adapters/common/messaging/IMessageSocket.hpp"
 #include "domain/ports/outgoing/ExtrapTrackDataOutgoingPort.hpp"
 #include "domain/model/ExtrapTrackData.hpp"
-#include "zmq_config.hpp"
 
-#include <zmq.hpp>
 #include <string>
 #include <vector>
 #include <atomic>
 #include <memory>
 #include <cstdint>  // MISRA Rule 9-3-1: Fixed-width integers
-
-// ZMQ_RADIO draft API fallback (IntelliSense için)
-#ifndef ZMQ_RADIO
-#define ZMQ_RADIO 14
-#endif
 
 namespace adapters {
 namespace outgoing {
@@ -61,8 +57,18 @@ class ExtrapTrackDataZeroMQOutgoingAdapter
     , public domain::ports::outgoing::ExtrapTrackDataOutgoingPort {
 public: 
     /**
-     * @brief Default constructor
+     * @brief Construct adapter with DIP - socket injection (preferred for testing)
+     * @param socket Message socket abstraction (ZeroMQ or Mock)
+     * @pre socket is not null
      * @post Adapter is configured but not started
+     */
+    explicit ExtrapTrackDataZeroMQOutgoingAdapter(
+        std::unique_ptr<adapters::common::messaging::IMessageSocket> socket);
+
+    /**
+     * @brief Default constructor (legacy - creates ZeroMQ socket internally)
+     * @post Adapter is configured but not started
+     * @deprecated Use socket injection constructor for new code
      */
     ExtrapTrackDataZeroMQOutgoingAdapter();
 
@@ -121,40 +127,34 @@ public:
 
 private: 
     /**
-     * @brief Load ZeroMQ configuration
+     * @brief Load configuration (for legacy constructor)
      */
     void loadConfiguration();
 
     /**
-     * @brief Initialize ZeroMQ socket
+     * @brief Initialize socket (for legacy constructor)
      * @return true if successful
      */
     bool initializeSocket();
 
     // Configuration
-    std::string protocol_;          ///< Network protocol (udp)
     std::string endpoint_;          ///< ZeroMQ endpoint
     std::string groupName_;         ///< ZeroMQ group name for RADIO
-    int32_t socketType_;            ///< ZeroMQ socket type (RADIO) - MISRA Rule 9-3-1
 
-    // ZeroMQ components
-    zmq::context_t context_;        ///< ZeroMQ context
-    std::unique_ptr<zmq::socket_t> socket_;  ///< RADIO socket
+    // Socket abstraction (DIP compliant)
+    std::unique_ptr<adapters::common::messaging::IMessageSocket> socket_;  ///< Socket abstraction
 
     // State
     std::atomic<bool> running_;     ///< Running state flag
+    bool ownsSocket_{false};        ///< Flag to track socket ownership
 
     // ==================== Socket Configuration Constants ====================
     // Production Environment (UDP Multicast)
     // static constexpr const char* DEFAULT_ENDPOINT = "udp://239.1.1.5:9596";
-    // static constexpr const char* DEFAULT_PROTOCOL = "udp";
     
     // Development Environment (TCP Localhost)
     static constexpr const char* DEFAULT_ENDPOINT{"tcp://127.0.0.1:15001"};
-    static constexpr const char* DEFAULT_PROTOCOL{"tcp"};
-    static constexpr int32_t DEFAULT_SOCKET_TYPE{ZMQ_RADIO};  ///< RADIO socket type
     static constexpr const char* DEFAULT_GROUP{"ExtrapTrackData"};  ///< Group name for RADIO socket
-    static constexpr int32_t DEFAULT_SOCKET_LINGER{0};  ///< Socket linger time (ms)
 };
 
 } // namespace zeromq

@@ -1,17 +1,20 @@
 /**
  * @file TrackDataZeroMQIncomingAdapter.cpp
- * @brief ZeroMQ UDP DISH Incoming Adapter implementation
+ * @brief ZeroMQ Incoming Adapter implementation (DIP compliant)
  * @details Implements the receive loop and message processing for TrackData
- *          with real-time thread priority and CPU affinity support
+ *          with real-time thread priority and CPU affinity support.
+ *          Supports dependency injection for testability.
  * 
  * @author a_hexagon Team
- * @version 2.0
+ * @version 3.0
  * @date 2025
  * 
  * @note MISRA C++ 2023 compliant implementation
+ * @note DIP compliant - IMessageSocket injection
  */
 
 #include "adapters/incoming/zeromq/TrackDataZeroMQIncomingAdapter.hpp"
+#include "adapters/common/messaging/ZeroMQSocket.hpp"
 #include "utils/Logger.hpp"
 
 #include <iostream>
@@ -28,40 +31,53 @@ namespace adapters {
 namespace incoming {
 namespace zeromq {
 
+// ==================== DIP Compliant Constructor (Preferred) ====================
+
+TrackDataZeroMQIncomingAdapter::TrackDataZeroMQIncomingAdapter(
+    std::shared_ptr<domain::ports::incoming::ITrackDataIncomingPort> incomingPort,
+    std::unique_ptr<adapters::common::messaging::IMessageSocket> socket)
+    : endpoint_(DEFAULT_ENDPOINT)
+    , receiveTimeout_(DEFAULT_RECEIVE_TIMEOUT)
+    , socket_(std::move(socket))
+    , running_(false)
+    , stopRequested_(false)
+    , incomingPort_(incomingPort.get())
+    , incomingPortShared_(std::move(incomingPort))
+    , ownsSocket_(false)
+{
+    LOG_INFO("TrackDataZeroMQIncomingAdapter created (DIP) with injected socket");
+}
+
+// ==================== Legacy Constructors (Backward Compatibility) ====================
+
 TrackDataZeroMQIncomingAdapter::TrackDataZeroMQIncomingAdapter(
     domain::ports::incoming::ITrackDataIncomingPort* incomingPort)
-    : protocol_("udp")
-    , endpoint_("")
-    , groupName_(DEFAULT_GROUP)
-    , socketType_(ZMQ_DISH)
+    : endpoint_(DEFAULT_ENDPOINT)
     , receiveTimeout_(DEFAULT_RECEIVE_TIMEOUT)
-    , context_(1)
     , socket_(nullptr)
     , running_(false)
     , stopRequested_(false)
     , incomingPort_(incomingPort)
-    , incomingPortShared_(nullptr) {
-    
+    , incomingPortShared_(nullptr)
+    , ownsSocket_(true)
+{
     loadConfiguration();
-    LOG_INFO("TrackDataZeroMQIncomingAdapter created for endpoint: {}", endpoint_);
+    LOG_INFO("TrackDataZeroMQIncomingAdapter created (legacy) for endpoint: {}", endpoint_);
 }
 
 TrackDataZeroMQIncomingAdapter::TrackDataZeroMQIncomingAdapter(
     std::shared_ptr<domain::ports::incoming::ITrackDataIncomingPort> incomingPort)
-    : protocol_("udp")
-    , endpoint_("")
-    , groupName_(DEFAULT_GROUP)
-    , socketType_(ZMQ_DISH)
+    : endpoint_(DEFAULT_ENDPOINT)
     , receiveTimeout_(DEFAULT_RECEIVE_TIMEOUT)
-    , context_(1)
     , socket_(nullptr)
     , running_(false)
     , stopRequested_(false)
     , incomingPort_(incomingPort.get())
-    , incomingPortShared_(std::move(incomingPort)) {
-    
+    , incomingPortShared_(std::move(incomingPort))
+    , ownsSocket_(true)
+{
     loadConfiguration();
-    LOG_INFO("TrackDataZeroMQIncomingAdapter created (shared_ptr) for endpoint: {}", endpoint_);
+    LOG_INFO("TrackDataZeroMQIncomingAdapter created (shared_ptr legacy) for endpoint: {}", endpoint_);
 }
 
 TrackDataZeroMQIncomingAdapter::~TrackDataZeroMQIncomingAdapter() {
@@ -70,35 +86,46 @@ TrackDataZeroMQIncomingAdapter::~TrackDataZeroMQIncomingAdapter() {
 }
 
 void TrackDataZeroMQIncomingAdapter::loadConfiguration() {
-    // Load socket configuration from class constants
-    protocol_ = DEFAULT_PROTOCOL;
-    socketType_ = DEFAULT_SOCKET_TYPE;
+    // Load socket configuration from class constants (for legacy constructors)
     endpoint_ = DEFAULT_ENDPOINT;
-    groupName_ = DEFAULT_GROUP;
     receiveTimeout_ = DEFAULT_RECEIVE_TIMEOUT;
     
-    LOG_DEBUG("Configuration loaded - endpoint: {}, group: {}", endpoint_, groupName_);
+    LOG_DEBUG("Configuration loaded - endpoint: {}", endpoint_);
 }
 
 bool TrackDataZeroMQIncomingAdapter::initializeSocket() {
+    // Only create socket for legacy constructors
+    if (!ownsSocket_ || socket_) {
+        return true;  // Socket already injected or initialized
+    }
+    
     try {
-        socket_ = std::make_unique<zmq::socket_t>(context_, socketType_);
+        // Create ZeroMQ SUB socket via abstraction
+        auto zmqSocket = std::make_unique<adapters::common::messaging::ZeroMQSocket>(
+            ZMQ_SUB,
+            adapters::common::messaging::ZeroMQSocket::ConnectionMode::Connect
+        );
         
-        // Configure socket options
-        socket_->set(zmq::sockopt::rcvtimeo, receiveTimeout_);
-        socket_->set(zmq::sockopt::linger, 0);
+        socket_ = std::move(zmqSocket);
         
-        // SUB connects to PUB (test_publisher binds)
-        socket_->connect(endpoint_);
+        // Connect to endpoint
+        if (!socket_->connect(endpoint_)) {
+            LOG_ERROR("Failed to connect socket to: {}", endpoint_);
+            socket_.reset();
+            return false;
+        }
         
         // Subscribe to all messages
-        socket_->set(zmq::sockopt::subscribe, "");
+        auto* zmqSocketPtr = dynamic_cast<adapters::common::messaging::ZeroMQSocket*>(socket_.get());
+        if (zmqSocketPtr) {
+            zmqSocketPtr->subscribe("");
+        }
         
-        LOG_INFO("ZeroMQ SUB socket initialized - endpoint: {}", endpoint_);
+        LOG_INFO("Socket initialized - endpoint: {}", endpoint_);
         return true;
         
-    } catch (const zmq::error_t& e) {
-        LOG_ERROR("Failed to initialize ZeroMQ socket: {}", e.what());
+    } catch (const std::exception& e) {
+        LOG_ERROR("Failed to initialize socket: {}", e.what());
         socket_.reset();
         return false;
     }
@@ -115,8 +142,24 @@ bool TrackDataZeroMQIncomingAdapter::start() {
         return false;
     }
     
-    if (!initializeSocket()) {
-        LOG_ERROR("Failed to initialize socket, cannot start adapter");
+    // Initialize socket if using legacy constructor
+    if (ownsSocket_ && !socket_) {
+        if (!initializeSocket()) {
+            LOG_ERROR("Failed to initialize socket, cannot start adapter");
+            return false;
+        }
+    }
+    
+    // For injected socket, connect if not already connected
+    if (socket_ && !socket_->isConnected()) {
+        if (!socket_->connect(endpoint_)) {
+            LOG_ERROR("Failed to connect injected socket to: {}", endpoint_);
+            return false;
+        }
+    }
+    
+    if (!socket_) {
+        LOG_ERROR("Cannot start adapter: socket is null");
         return false;
     }
     
@@ -172,12 +215,10 @@ void TrackDataZeroMQIncomingAdapter::stop() {
     
     // Close socket
     if (socket_) {
-        try {
-            socket_->close();
-        } catch (const zmq::error_t& e) {
-            LOG_WARN("Error closing socket: {}", e.what());
+        socket_->close();
+        if (ownsSocket_) {
+            socket_.reset();
         }
-        socket_.reset();
     }
     
     LOG_INFO("TrackDataZeroMQIncomingAdapter stopped");
@@ -196,21 +237,15 @@ void TrackDataZeroMQIncomingAdapter::receiveLoop() {
     
     while (!stopRequested_.load()) {
         try {
-            zmq::message_t message;
+            // Receive via abstracted socket
+            auto result = socket_->receive(receiveTimeout_);
             
-            // Non-blocking receive with timeout
-            auto result = socket_->recv(message, zmq::recv_flags::none);
-            
-            if (result.has_value() && result.value() > 0) {
+            if (result.has_value() && !result->empty()) {
                 // Record receive timestamp for latency calculation
                 auto receive_time = std::chrono::duration_cast<std::chrono::microseconds>(
                     std::chrono::high_resolution_clock::now().time_since_epoch()).count();
                 
-                // Convert message to byte vector
-                std::vector<uint8_t> data(
-                    static_cast<const uint8_t*>(message.data()),
-                    static_cast<const uint8_t*>(message.data()) + message.size()
-                );
+                const auto& data = result.value();
                 
                 // Deserialize using model's built-in deserialization
                 domain::model::TrackData trackData;
@@ -238,14 +273,11 @@ void TrackDataZeroMQIncomingAdapter::receiveLoop() {
             }
             // Timeout is normal, just continue loop
             
-        } catch (const zmq::error_t& e) {
+        } catch (const std::exception& e) {
             if (!stopRequested_.load()) {
-                LOG_ERROR("ZeroMQ receive error: {}", e.what());
+                LOG_ERROR("Receive loop error: {}", e.what());
             }
             // Brief sleep on error before retry
-            std::this_thread::sleep_for(std::chrono::microseconds(100));
-        } catch (const std::exception& e) {
-            LOG_ERROR("Worker thread error: {}", e.what());
             std::this_thread::sleep_for(std::chrono::microseconds(100));
         }
     }

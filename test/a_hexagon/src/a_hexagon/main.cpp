@@ -20,13 +20,17 @@
  * │  └─────────────────────────────────────────────────────────────┘   │
  * │                                                                     │
  * │  Each pipeline operates in COMPLETE ISOLATION - zero contention!   │
+ * │                                                                     │
+ * │  DIP Compliant: Adapters depend on IMessageSocket abstraction      │
+ * │  Production uses ZeroMQSocket, Tests use MockMessageSocket         │
  * └─────────────────────────────────────────────────────────────────────┘
  * 
  * @author a_hexagon Team
- * @version 2.0
+ * @version 2.1
  * @date 2025
  * 
  * @note MISRA C++ 2023 compliant implementation
+ * @note DIP compliant - socket injection for testability
  */
 
 #include <iostream>
@@ -41,6 +45,10 @@
 // Adapter infrastructure
 #include "adapters/common/AdapterManager.hpp"
 #include "adapters/common/MessagePipeline.hpp"
+
+// Socket abstraction (DIP)
+#include "adapters/common/messaging/IMessageSocket.hpp"
+#include "adapters/common/messaging/ZeroMQSocket.hpp"
 
 // Incoming adapters
 #include "adapters/incoming/zeromq/TrackDataZeroMQIncomingAdapter.hpp"
@@ -63,6 +71,64 @@ void signalHandler(int signum) {
     g_running.store(false);
 }
 
+// ==================== Socket Configuration ====================
+// These can be moved to a configuration file for production
+
+namespace config {
+    // TrackData incoming socket configuration
+    static constexpr const char* TRACK_DATA_INCOMING_ENDPOINT = "tcp://127.0.0.1:15000";
+    static constexpr const char* TRACK_DATA_INCOMING_GROUP = "TrackData";
+    
+    // ExtrapTrackData outgoing socket configuration  
+    static constexpr const char* EXTRAP_DATA_OUTGOING_ENDPOINT = "tcp://127.0.0.1:15001";
+    static constexpr const char* EXTRAP_DATA_OUTGOING_GROUP = "ExtrapTrackData";
+}
+
+/**
+ * @brief Create socket for incoming TrackData (DIP compliant)
+ * @return Configured socket ready for binding
+ */
+std::unique_ptr<adapters::common::messaging::IMessageSocket> createIncomingSocket() {
+    auto socket = std::make_unique<adapters::common::messaging::ZeroMQSocket>(
+        adapters::common::messaging::ZeroMQSocket::SocketType::SUB
+    );
+    
+    // Subscribe to TrackData group
+    socket->subscribe(config::TRACK_DATA_INCOMING_GROUP);
+    
+    // Bind to endpoint
+    if (!socket->connect(config::TRACK_DATA_INCOMING_ENDPOINT, 
+                         adapters::common::messaging::ZeroMQSocket::ConnectionMode::Bind)) {
+        LOG_ERROR("Failed to bind incoming socket to {}", config::TRACK_DATA_INCOMING_ENDPOINT);
+        return nullptr;
+    }
+    
+    LOG_INFO("Incoming socket bound to {} with group {}", 
+             config::TRACK_DATA_INCOMING_ENDPOINT, config::TRACK_DATA_INCOMING_GROUP);
+    return socket;
+}
+
+/**
+ * @brief Create socket for outgoing ExtrapTrackData (DIP compliant)
+ * @return Configured socket ready for connecting
+ */
+std::unique_ptr<adapters::common::messaging::IMessageSocket> createOutgoingSocket() {
+    auto socket = std::make_unique<adapters::common::messaging::ZeroMQSocket>(
+        adapters::common::messaging::ZeroMQSocket::SocketType::PUB
+    );
+    
+    // Connect to endpoint
+    if (!socket->connect(config::EXTRAP_DATA_OUTGOING_ENDPOINT,
+                         adapters::common::messaging::ZeroMQSocket::ConnectionMode::Connect)) {
+        LOG_ERROR("Failed to connect outgoing socket to {}", config::EXTRAP_DATA_OUTGOING_ENDPOINT);
+        return nullptr;
+    }
+    
+    LOG_INFO("Outgoing socket connected to {} with group {}", 
+             config::EXTRAP_DATA_OUTGOING_ENDPOINT, config::EXTRAP_DATA_OUTGOING_GROUP);
+    return socket;
+}
+
 int main() {
     try {
         // Initialize async logger (call once at startup)
@@ -70,7 +136,7 @@ int main() {
         
         LOG_INFO("=================================================");
         LOG_INFO("  A_Hexagon Application Starting");
-        LOG_INFO("  Thread-per-Type Architecture");
+        LOG_INFO("  Thread-per-Type Architecture (DIP Compliant)");
         LOG_INFO("=================================================");
         
         // Register signal handlers for graceful shutdown
@@ -81,18 +147,38 @@ int main() {
         adapters::AdapterManager adapter_manager;
         
         // ========================================
-        // Pipeline 1: TrackData Pipeline
+        // Pipeline 1: TrackData Pipeline (DIP)
         // ========================================
-        LOG_INFO("Creating TrackData processing pipeline...");
+        LOG_INFO("Creating TrackData processing pipeline with DIP...");
         
-        // Create outgoing adapter (ExtrapTrackData sender)
-        auto outgoing_adapter = std::make_shared<adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter>();
+        // Create sockets via factory functions (DIP compliant)
+        auto outgoingSocket = createOutgoingSocket();
+        if (!outgoingSocket) {
+            LOG_ERROR("Failed to create outgoing socket");
+            utils::Logger::shutdown();
+            return 1;
+        }
+        
+        auto incomingSocket = createIncomingSocket();
+        if (!incomingSocket) {
+            LOG_ERROR("Failed to create incoming socket");
+            utils::Logger::shutdown();
+            return 1;
+        }
+        
+        // Create outgoing adapter with injected socket (DIP)
+        auto outgoing_adapter = std::make_shared<adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter>(
+            std::move(outgoingSocket)
+        );
         
         // Create domain service with outgoing port
         auto extrapolator = std::make_shared<domain::logic::TrackDataExtrapolator>(outgoing_adapter.get());
         
-        // Create incoming adapter (TrackData receiver)
-        auto incoming_adapter = std::make_shared<adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter>(extrapolator.get());
+        // Create incoming adapter with injected socket (DIP)
+        auto incoming_adapter = std::make_shared<adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter>(
+            extrapolator,
+            std::move(incomingSocket)
+        );
         
         // Create pipeline and register with manager
         adapters::MessagePipeline track_data_pipeline(
@@ -107,8 +193,9 @@ int main() {
         // Future Pipeline Examples:
         // ========================================
         // Pipeline 2: SensorData Pipeline
-        // auto sensor_service = std::make_shared<SensorDataService>();
-        // auto sensor_adapter = std::make_shared<SensorDataZeroMQIncomingAdapter>(sensor_service);
+        // auto sensorSocket = createSensorSocket();
+        // auto sensor_adapter = std::make_shared<SensorDataZeroMQIncomingAdapter>(
+        //     sensor_service, std::move(sensorSocket));
         // adapter_manager.registerPipeline(MessagePipeline::create("SensorData", sensor_adapter));
         
         // Start all registered pipelines

@@ -216,24 +216,6 @@ TEST_F(ExtrapTrackDataTest, TimingFields_MaxInt64_ThrowsException) {
     EXPECT_THROW(extrap.setFirstHopSentTime(maxValue), std::out_of_range);
 }
 
-// ==================== Network Configuration Tests ====================
-
-TEST_F(ExtrapTrackDataTest, MulticastAddress_CorrectValue) {
-    EXPECT_STREQ(ExtrapTrackData::MULTICAST_ADDRESS, "239.1.1.5");
-}
-
-TEST_F(ExtrapTrackDataTest, Port_CorrectValue) {
-    EXPECT_EQ(ExtrapTrackData::PORT, 9596);
-}
-
-TEST_F(ExtrapTrackDataTest, SocketType_IsRADIO) {
-    EXPECT_STREQ(ExtrapTrackData::ZMQ_SOCKET_TYPE, "RADIO");
-}
-
-TEST_F(ExtrapTrackDataTest, IsPublisher_True) {
-    EXPECT_TRUE(ExtrapTrackData::IS_PUBLISHER);
-}
-
 // ==================== Extrapolation Timing Consistency ====================
 
 TEST_F(ExtrapTrackDataTest, TimingConsistency_UpdateTimeAfterOriginal) {

@@ -14,8 +14,9 @@ INC_DIRS = -I$(SRC_DIR) -I$(THIRD_PARTY_DIR)/include
 # Wunused: warn about unused stuffs such as unused parameters and variables
 # Wuninitialized: warn about uninitialized variables
 # Wsign-compare: warn about signed-unsigned comparision
+# ZMQ_BUILD_DRAFT_API: Enable ZeroMQ Draft API for RADIO/DISH socket support
 CXX := g++
-CPPFLAGS = -std=c++17 $(INC_DIRS) -L$(THIRD_PARTY_DIR) -O3 -Wall -Wpedantic -Wextra -Wconversion -Wcast-align -Wunused -Wuninitialized -Wsign-compare
+CPPFLAGS = -std=c++17 $(INC_DIRS) -L$(THIRD_PARTY_DIR) -O3 -Wall -Wpedantic -Wextra -Wconversion -Wcast-align -Wunused -Wuninitialized -Wsign-compare -DZMQ_BUILD_DRAFT_API
 
 # Acquiring external .so files (ie. libzmq.so)
 SO_FILES = $(notdir $(shell find $(THIRD_PARTY_LIB) -type f -name "*.so"))

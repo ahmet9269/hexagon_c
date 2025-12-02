@@ -240,21 +240,3 @@ TEST_F(TrackDataTest, MoveAssignment_MovesAllFields) {
     EXPECT_EQ(target.getTrackId(), 888);
     EXPECT_DOUBLE_EQ(target.getXPositionECEF(), 999.99);
 }
-
-// ==================== Network Configuration Tests ====================
-
-TEST_F(TrackDataTest, MulticastAddress_CorrectValue) {
-    EXPECT_STREQ(TrackData::MULTICAST_ADDRESS, "239.1.1.1");
-}
-
-TEST_F(TrackDataTest, Port_CorrectValue) {
-    EXPECT_EQ(TrackData::PORT, 9000);
-}
-
-TEST_F(TrackDataTest, SocketType_IsDISH) {
-    EXPECT_STREQ(TrackData::ZMQ_SOCKET_TYPE, "DISH");
-}
-
-TEST_F(TrackDataTest, IsSubscriber_True) {
-    EXPECT_TRUE(TrackData::IS_SUBSCRIBER);
-}

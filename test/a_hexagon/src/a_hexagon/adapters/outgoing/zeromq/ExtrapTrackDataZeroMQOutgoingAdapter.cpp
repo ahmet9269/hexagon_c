@@ -4,13 +4,15 @@
  * @details Implements IAdapter lifecycle and message sending for ExtrapTrackData
  * 
  * @author a_hexagon Team
- * @version 1.1
+ * @version 1.2
  * @date 2025
  * 
  * @note MISRA C++ 2023 compliant implementation
+ * @note DIP compliant - depends on IMessageSocket abstraction
  */
 
 #include "adapters/outgoing/zeromq/ExtrapTrackDataZeroMQOutgoingAdapter.hpp"
+#include "adapters/common/messaging/ZeroMQSocket.hpp"
 #include "utils/Logger.hpp"
 
 #include <iostream>
@@ -20,17 +22,30 @@ namespace adapters {
 namespace outgoing {
 namespace zeromq {
 
-ExtrapTrackDataZeroMQOutgoingAdapter::ExtrapTrackDataZeroMQOutgoingAdapter()
-    : protocol_("udp")
-    , endpoint_("")
+// ==================== DIP Compliant Constructor ====================
+
+ExtrapTrackDataZeroMQOutgoingAdapter::ExtrapTrackDataZeroMQOutgoingAdapter(
+    std::unique_ptr<adapters::common::messaging::IMessageSocket> socket)
+    : endpoint_("")
     , groupName_(DEFAULT_GROUP)
-    , socketType_(ZMQ_RADIO)
-    , context_(1)
+    , socket_(std::move(socket))
+    , running_(false)
+    , ownsSocket_(false) {  // Socket is already configured externally
+    
+    LOG_INFO("ExtrapTrackDataZeroMQOutgoingAdapter created with injected socket (DIP)");
+}
+
+// ==================== Legacy Constructor ====================
+
+ExtrapTrackDataZeroMQOutgoingAdapter::ExtrapTrackDataZeroMQOutgoingAdapter()
+    : endpoint_("")
+    , groupName_(DEFAULT_GROUP)
     , socket_(nullptr)
-    , running_(false) {
+    , running_(false)
+    , ownsSocket_(true) {  // We own the socket, need to initialize it
     
     loadConfiguration();
-    LOG_INFO("ExtrapTrackDataZeroMQOutgoingAdapter created");
+    LOG_INFO("ExtrapTrackDataZeroMQOutgoingAdapter created (legacy)");
 }
 
 ExtrapTrackDataZeroMQOutgoingAdapter::~ExtrapTrackDataZeroMQOutgoingAdapter() {
@@ -40,8 +55,6 @@ ExtrapTrackDataZeroMQOutgoingAdapter::~ExtrapTrackDataZeroMQOutgoingAdapter() {
 
 void ExtrapTrackDataZeroMQOutgoingAdapter::loadConfiguration() {
     // Load socket configuration from class constants
-    protocol_ = DEFAULT_PROTOCOL;
-    socketType_ = DEFAULT_SOCKET_TYPE;
     endpoint_ = DEFAULT_ENDPOINT;
     groupName_ = DEFAULT_GROUP;
     
@@ -49,20 +62,35 @@ void ExtrapTrackDataZeroMQOutgoingAdapter::loadConfiguration() {
 }
 
 bool ExtrapTrackDataZeroMQOutgoingAdapter::initializeSocket() {
+    // Only initialize if we own the socket (legacy constructor)
+    if (!ownsSocket_) {
+        // Socket was injected, just check if it's valid
+        if (socket_ && socket_->isConnected()) {
+            LOG_DEBUG("Using injected socket (DIP mode)");
+            return true;
+        }
+        LOG_ERROR("Injected socket is null or not connected");
+        return false;
+    }
+    
     try {
-        socket_ = std::make_unique<zmq::socket_t>(context_, socketType_);
+        // Create ZeroMQSocket with RADIO type (PUB for TCP fallback)
+        auto zmqSocket = std::make_unique<adapters::common::messaging::ZeroMQSocket>(
+            adapters::common::messaging::ZeroMQSocket::SocketType::PUB);  // Use PUB for TCP
         
-        // Configure socket options
-        socket_->set(zmq::sockopt::linger, 0);
+        // Connect to endpoint
+        if (!zmqSocket->connect(endpoint_, adapters::common::messaging::ZeroMQSocket::ConnectionMode::Connect)) {
+            LOG_ERROR("Failed to connect to endpoint: {}", endpoint_);
+            return false;
+        }
         
-        // RADIO connects to DISH (b_hexagon binds)
-        socket_->connect(endpoint_);
+        socket_ = std::move(zmqSocket);
         
-        LOG_INFO("ZeroMQ RADIO socket initialized - endpoint: {}, group: {}", 
+        LOG_INFO("ZeroMQ socket initialized - endpoint: {}, group: {}", 
                  endpoint_, groupName_);
         return true;
         
-    } catch (const zmq::error_t& e) {
+    } catch (const std::exception& e) {
         LOG_ERROR("Failed to initialize ZeroMQ socket: {}", e.what());
         socket_.reset();
         return false;
@@ -72,6 +100,13 @@ bool ExtrapTrackDataZeroMQOutgoingAdapter::initializeSocket() {
 bool ExtrapTrackDataZeroMQOutgoingAdapter::start() {
     if (running_.load()) {
         LOG_WARN("ExtrapTrackDataZeroMQOutgoingAdapter already running");
+        return true;
+    }
+    
+    // For DIP mode, socket may already be connected
+    if (socket_ && socket_->isConnected()) {
+        running_.store(true);
+        LOG_INFO("ExtrapTrackDataZeroMQOutgoingAdapter started with pre-connected socket");
         return true;
     }
     
@@ -96,11 +131,7 @@ void ExtrapTrackDataZeroMQOutgoingAdapter::stop() {
     
     // Close socket
     if (socket_) {
-        try {
-            socket_->close();
-        } catch (const zmq::error_t& e) {
-            LOG_WARN("Error closing socket: {}", e.what());
-        }
+        socket_->close();
         socket_.reset();
     }
     
@@ -139,17 +170,16 @@ void ExtrapTrackDataZeroMQOutgoingAdapter::sendExtrapTrackData(
     try {
         // Use model's binary serialization
         std::vector<uint8_t> binaryData = data.serialize();
-        zmq::message_t message(binaryData.begin(), binaryData.end());
         
-        // Set group for RADIO socket (required for RADIO/DISH pattern)
-        message.set_group(groupName_.c_str());
+        // Send via IMessageSocket abstraction
+        if (socket_->send(binaryData, groupName_)) {
+            LOG_INFO("[a_hexagon] ExtrapTrackData sent - TrackID: {}, Size: {} bytes", 
+                     data.getTrackId(), binaryData.size());
+        } else {
+            LOG_ERROR("Failed to send ExtrapTrackData - TrackID: {}", data.getTrackId());
+        }
         
-        socket_->send(message, zmq::send_flags::none);
-        
-        LOG_INFO("[a_hexagon] ExtrapTrackData sent - TrackID: {}, Size: {} bytes", 
-                 data.getTrackId(), binaryData.size());
-        
-    } catch (const zmq::error_t& e) {
+    } catch (const std::exception& e) {
         LOG_ERROR("Failed to send message: {}", e.what());
     }
 }

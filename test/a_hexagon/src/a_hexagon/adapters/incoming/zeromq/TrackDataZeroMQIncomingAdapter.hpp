@@ -5,11 +5,11 @@
  *          via ZeroMQ DISH socket (UDP multicast). Runs in its own thread
  *          as part of Thread-per-Type architecture.
  * 
- * Architecture:
+ * Architecture (DIP Compliant):
  * ┌───────────────────────────────────────────────────────────┐
  * │              TrackDataZeroMQIncomingAdapter               │
  * ├───────────────────────────────────────────────────────────┤
- * │  ZeroMQ DISH Socket (UDP Multicast)                       │
+ * │  IMessageSocket (Abstraction) ← ZeroMQ/Mock               │
  * │           ↓                                               │
  * │  Binary Deserialization → TrackData Model                 │
  * │           ↓                                               │
@@ -17,32 +17,28 @@
  * └───────────────────────────────────────────────────────────┘
  * 
  * @author a_hexagon Team
- * @version 2.0
+ * @version 3.0
  * @date 2025
  * 
  * @note MISRA C++ 2023 compliant implementation
+ * @note DIP compliant - depends on IMessageSocket abstraction
  * @see IAdapter.hpp
  * @see ITrackDataIncomingPort.hpp
+ * @see IMessageSocket.hpp
  */
 
 #pragma once
 
 #include "adapters/common/IAdapter.hpp"
+#include "adapters/common/messaging/IMessageSocket.hpp"
 #include "domain/ports/incoming/ITrackDataIncomingPort.hpp"
 #include "domain/ports/TrackData.hpp"
-#include "zmq_config.hpp"
 
-#include <zmq.hpp>
 #include <thread>
 #include <atomic>
 #include <memory>
 #include <string>
 #include <vector>
-
-// ZMQ_DISH draft API fallback (IntelliSense için)
-#ifndef ZMQ_DISH
-#define ZMQ_DISH 15
-#endif
 
 namespace adapters {
 namespace incoming {
@@ -50,10 +46,11 @@ namespace zeromq {
 
 /**
  * @class TrackDataZeroMQIncomingAdapter
- * @brief Receives TrackData via ZeroMQ DISH socket (UDP multicast)
+ * @brief Receives TrackData via IMessageSocket abstraction
  * @details Implements IAdapter interface for lifecycle management.
  *          Each instance runs in its own dedicated thread with
  *          real-time priority and CPU affinity support.
+ *          DIP compliant - socket is injected for testability.
  * 
  * @invariant When running_, receiveThread_ is active
  * @invariant socket_ is properly configured before start()
@@ -61,19 +58,33 @@ namespace zeromq {
 class TrackDataZeroMQIncomingAdapter : public ::adapters::IAdapter {
 public:
     /**
+     * @brief Construct adapter with DIP - socket injection (preferred for testing)
+     * @param incomingPort Domain service port for processing received data
+     * @param socket Message socket abstraction (ZeroMQ or Mock)
+     * @pre incomingPort is not null
+     * @pre socket is not null
+     * @post Adapter is configured but not started
+     */
+    explicit TrackDataZeroMQIncomingAdapter(
+        std::shared_ptr<domain::ports::incoming::ITrackDataIncomingPort> incomingPort,
+        std::unique_ptr<adapters::common::messaging::IMessageSocket> socket);
+
+    /**
      * @brief Construct adapter with domain port (raw pointer - legacy)
      * @param incomingPort Domain service port for processing received data
      * @pre incomingPort is not null
      * @post Adapter is configured but not started
+     * @deprecated Use socket injection constructor for new code
      */
     explicit TrackDataZeroMQIncomingAdapter(
         domain::ports::incoming::ITrackDataIncomingPort* incomingPort);
     
     /**
-     * @brief Construct adapter with domain port (shared_ptr - preferred)
+     * @brief Construct adapter with domain port (shared_ptr - legacy)
      * @param incomingPort Domain service port for processing received data
      * @pre incomingPort is not null
      * @post Adapter is configured but not started
+     * @deprecated Use socket injection constructor for new code
      */
     explicit TrackDataZeroMQIncomingAdapter(
         std::shared_ptr<domain::ports::incoming::ITrackDataIncomingPort> incomingPort);
@@ -123,13 +134,13 @@ public:
 
 private:
     /**
-     * @brief Load ZeroMQ configuration
+     * @brief Load configuration (for legacy constructors)
      * @details Reads from config file or uses defaults
      */
     void loadConfiguration();
 
     /**
-     * @brief Initialize ZeroMQ socket
+     * @brief Initialize socket (for legacy constructors)
      * @return true if socket initialized successfully
      */
     bool initializeSocket();
@@ -150,15 +161,11 @@ private:
                                domain::model::TrackData& trackData);
 
     // Configuration - MISRA: Fixed-width integers
-    std::string protocol_;          ///< Network protocol (udp)
     std::string endpoint_;          ///< ZeroMQ endpoint
-    std::string groupName_;         ///< ZeroMQ group name for DISH
-    int32_t socketType_;            ///< ZeroMQ socket type (DISH)
     int32_t receiveTimeout_;        ///< Receive timeout in ms
 
-    // ZeroMQ components
-    zmq::context_t context_;        ///< ZeroMQ context
-    std::unique_ptr<zmq::socket_t> socket_;  ///< DISH socket
+    // Socket abstraction (DIP compliant)
+    std::unique_ptr<adapters::common::messaging::IMessageSocket> socket_;  ///< Socket abstraction
 
     // Thread management
     std::thread receiveThread_;     ///< Dedicated receive thread
@@ -169,18 +176,15 @@ private:
     domain::ports::incoming::ITrackDataIncomingPort* incomingPort_;  ///< Domain service port (raw)
     std::shared_ptr<domain::ports::incoming::ITrackDataIncomingPort> incomingPortShared_;  ///< Domain service port (shared)
 
+    // Flag to track if we own the socket (for legacy constructors)
+    bool ownsSocket_{false};
+
     // ==================== Socket Configuration Constants ====================
     // Production Environment (UDP Multicast)
     // static constexpr const char* DEFAULT_ENDPOINT = "udp://239.1.1.1:9000";
-    // static constexpr const char* DEFAULT_PROTOCOL = "udp";
-    // static constexpr int32_t DEFAULT_SOCKET_TYPE = ZMQ_DISH;
     
     // Development Environment (TCP Localhost)
     static constexpr const char* DEFAULT_ENDPOINT{"tcp://127.0.0.1:15000"};
-    static constexpr const char* DEFAULT_PROTOCOL{"tcp"};
-    static constexpr int32_t DEFAULT_SOCKET_TYPE{ZMQ_SUB};  ///< SUB for TCP, DISH for UDP
-    
-    static constexpr const char* DEFAULT_GROUP{"TrackData"};  ///< Group name for DISH socket
     static constexpr int32_t DEFAULT_RECEIVE_TIMEOUT{100};    ///< Receive timeout (ms)
     
     // Thread Configuration
