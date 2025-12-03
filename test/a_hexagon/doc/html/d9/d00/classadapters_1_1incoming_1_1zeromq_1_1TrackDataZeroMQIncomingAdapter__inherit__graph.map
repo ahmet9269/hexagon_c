@@ -1,5 +1,5 @@
 <map id="adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter" name="adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter">
-<area shape="rect" id="Node000001" title="Receives TrackData via ZeroMQ DISH socket (UDP multicast)" alt="" coords="5,299,272,948"/>
+<area shape="rect" id="Node000001" title="Receives TrackData via IMessageSocket abstraction." alt="" coords="5,299,272,968"/>
 <area shape="rect" id="Node000002" href="$dd/d03/classadapters_1_1IAdapter.html" title="Base interface for all adapters (incoming and outgoing)" alt="" coords="71,5,206,251"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,265,141,299,136,299,136,265"/>
 </map>

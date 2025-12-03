@@ -124,5 +124,5 @@ private:
     void validateSecondHopSentTime(int64_t value) const;
 };
 
-} // namespace model
+} // namespace ports
 } // namespace domain

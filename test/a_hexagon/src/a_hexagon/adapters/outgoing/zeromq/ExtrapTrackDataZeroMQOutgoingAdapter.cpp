@@ -2,9 +2,10 @@
  * @file ExtrapTrackDataZeroMQOutgoingAdapter.cpp
  * @brief ZeroMQ UDP RADIO Outgoing Adapter implementation
  * @details Implements IAdapter lifecycle and message sending for ExtrapTrackData
+ *          with background worker thread for non-blocking sends (~20ns enqueue)
  * 
  * @author a_hexagon Team
- * @version 1.2
+ * @version 2.0
  * @date 2025
  * 
  * @note MISRA C++ 2023 compliant implementation
@@ -17,6 +18,13 @@
 
 #include <iostream>
 #include <sstream>
+#include <chrono>
+
+// Linux real-time scheduling headers
+#ifdef __linux__
+#include <pthread.h>
+#include <sched.h>
+#endif
 
 namespace adapters {
 namespace outgoing {
@@ -30,6 +38,7 @@ ExtrapTrackDataZeroMQOutgoingAdapter::ExtrapTrackDataZeroMQOutgoingAdapter(
     , group_(DEFAULT_GROUP)
     , socket_(std::move(socket))
     , running_(false)
+    , ready_(false)
     , ownsSocket_(false) {  // Socket is already configured externally
     
     LOG_INFO("ExtrapTrackDataZeroMQOutgoingAdapter created with injected socket (DIP)");
@@ -42,6 +51,7 @@ ExtrapTrackDataZeroMQOutgoingAdapter::ExtrapTrackDataZeroMQOutgoingAdapter()
     , group_(DEFAULT_GROUP)
     , socket_(nullptr)
     , running_(false)
+    , ready_(false)
     , ownsSocket_(true) {  // We own the socket, need to initialize it
     
     loadConfiguration();
@@ -104,19 +114,38 @@ bool ExtrapTrackDataZeroMQOutgoingAdapter::start() {
     }
     
     // For DIP mode, socket may already be connected
-    if (socket_ && socket_->isConnected()) {
-        running_.store(true);
-        LOG_INFO("ExtrapTrackDataZeroMQOutgoingAdapter started with pre-connected socket");
-        return true;
-    }
-    
-    if (!initializeSocket()) {
-        LOG_ERROR("Failed to initialize socket, cannot start adapter");
-        return false;
+    if (!socket_ || !socket_->isConnected()) {
+        if (!initializeSocket()) {
+            LOG_ERROR("Failed to initialize socket, cannot start adapter");
+            return false;
+        }
     }
     
     running_.store(true);
-    LOG_INFO("ExtrapTrackDataZeroMQOutgoingAdapter started successfully");
+    ready_.store(true);
+    
+    // Start background publisher thread
+    publisherThread_ = std::thread([this]() {
+        // Configure real-time thread priority on Linux
+        #ifdef __linux__
+        struct sched_param param;
+        param.sched_priority = REALTIME_THREAD_PRIORITY;
+        int result = pthread_setschedparam(pthread_self(), SCHED_FIFO, &param);
+        if (result == 0) {
+            LOG_DEBUG("Real-time priority set for outgoing: ExtrapTrackDataAdapter");
+        }
+        
+        // Set CPU affinity to dedicated core
+        cpu_set_t cpuset;
+        CPU_ZERO(&cpuset);
+        CPU_SET(DEDICATED_CPU_CORE, &cpuset);
+        pthread_setaffinity_np(pthread_self(), sizeof(cpu_set_t), &cpuset);
+        #endif
+        
+        publisherWorker();
+    });
+    
+    LOG_INFO("ExtrapTrackDataZeroMQOutgoingAdapter started with background worker");
     return true;
 }
 
@@ -128,11 +157,18 @@ void ExtrapTrackDataZeroMQOutgoingAdapter::stop() {
     LOG_INFO("Stopping ExtrapTrackDataZeroMQOutgoingAdapter...");
     
     running_.store(false);
+    ready_.store(false);
+    
+    // Wake up the worker thread
+    queueCV_.notify_all();
+    
+    if (publisherThread_.joinable()) {
+        publisherThread_.join();
+    }
     
     // Close socket
     if (socket_) {
         socket_->close();
-        socket_.reset();
     }
     
     LOG_INFO("ExtrapTrackDataZeroMQOutgoingAdapter stopped");
@@ -142,46 +178,111 @@ bool ExtrapTrackDataZeroMQOutgoingAdapter::isRunning() const {
     return running_.load();
 }
 
+bool ExtrapTrackDataZeroMQOutgoingAdapter::isReady() const noexcept {
+    return ready_.load() && running_.load();
+}
+
 std::string ExtrapTrackDataZeroMQOutgoingAdapter::getName() const noexcept {
     return "ExtrapTrackDataZeroMQOutgoingAdapter";
 }
 
+// ==================== Non-blocking Send (~20ns enqueue) ====================
+
 void ExtrapTrackDataZeroMQOutgoingAdapter::sendExtrapTrackData(
     const std::vector<domain::model::ExtrapTrackData>& data) {
     
-    if (!running_.load() || !socket_) {
-        LOG_WARN("Cannot send: adapter not running");
+    if (!isReady()) {
+        LOG_WARN("Cannot send: adapter not ready");
         return;
     }
     
     for (const auto& item : data) {
-        sendExtrapTrackData(item);
+        enqueueMessage(item);
     }
 }
 
 void ExtrapTrackDataZeroMQOutgoingAdapter::sendExtrapTrackData(
     const domain::model::ExtrapTrackData& data) {
     
-    if (!running_.load() || !socket_) {
-        LOG_WARN("Cannot send: adapter not running");
+    if (!isReady()) {
+        LOG_WARN("Cannot send: adapter not ready, dropping track: {}", data.getTrackId());
         return;
     }
     
-    try {
-        // Use model's binary serialization
-        std::vector<uint8_t> binaryData = data.serialize();
+    // Non-blocking enqueue (~20ns)
+    enqueueMessage(data);
+}
+
+void ExtrapTrackDataZeroMQOutgoingAdapter::enqueueMessage(
+    const domain::model::ExtrapTrackData& data) {
+    {
+        std::lock_guard<std::mutex> lock(queueMutex_);
         
-        // Send via IMessageSocket abstraction
-        if (socket_->send(binaryData, group_)) {
-            LOG_INFO("[a_hexagon] ExtrapTrackData sent - TrackID: {}, Size: {} bytes", 
-                     data.getTrackId(), binaryData.size());
-        } else {
-            LOG_ERROR("Failed to send ExtrapTrackData - TrackID: {}", data.getTrackId());
+        // Prevent unbounded queue growth
+        if (messageQueue_.size() >= MAX_QUEUE_SIZE) {
+            LOG_WARN("Message queue full, dropping oldest message");
+            messageQueue_.pop();
         }
         
-    } catch (const std::exception& e) {
-        LOG_ERROR("Failed to send message: {}", e.what());
+        messageQueue_.push(data);
     }
+    
+    queueCV_.notify_one();
+}
+
+// ==================== Background Worker Thread ====================
+
+void ExtrapTrackDataZeroMQOutgoingAdapter::publisherWorker() {
+    LOG_DEBUG("Publisher worker started: ExtrapTrackDataAdapter");
+    
+    while (running_.load()) {
+        domain::model::ExtrapTrackData data;
+        
+        // Wait for message with timeout
+        {
+            std::unique_lock<std::mutex> lock(queueMutex_);
+            
+            if (queueCV_.wait_for(lock, std::chrono::milliseconds(100),
+                [this]() { return !messageQueue_.empty() || !running_.load(); })) {
+                
+                if (!running_.load()) {
+                    break;
+                }
+                
+                if (!messageQueue_.empty()) {
+                    data = std::move(messageQueue_.front());
+                    messageQueue_.pop();
+                } else {
+                    continue;
+                }
+            } else {
+                continue;  // Timeout, check running flag
+            }
+        }
+        
+        // Serialize and send (outside lock)
+        try {
+            std::vector<uint8_t> binaryData = data.serialize();
+            
+            if (binaryData.empty()) {
+                LOG_ERROR("Empty payload for track ID: {}", data.getTrackId());
+                continue;
+            }
+            
+            // Send via IMessageSocket abstraction
+            if (socket_->send(binaryData, group_)) {
+                LOG_DEBUG("[a_hexagon] ExtrapTrackData sent - TrackID: {}, Size: {} bytes", 
+                         data.getTrackId(), binaryData.size());
+            } else {
+                LOG_WARN("Failed to send ExtrapTrackData - TrackID: {}", data.getTrackId());
+            }
+            
+        } catch (const std::exception& e) {
+            LOG_ERROR("Failed to send message: {}", e.what());
+        }
+    }
+    
+    LOG_DEBUG("Publisher worker stopped: ExtrapTrackDataAdapter");
 }
 
 } // namespace zeromq

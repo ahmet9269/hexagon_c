@@ -1,8 +1,24 @@
+/**
+ * @file TrackDataZeroMQIncomingAdapter.hpp
+ * @brief ZeroMQ DISH socket adapter for receiving DelayCalcTrackData
+ * @details Implements the incoming adapter in hexagonal architecture for
+ *          receiving track data from B_hexagon via UDP multicast RADIO/DISH pattern.
+ * 
+ * @author c_hexagon Team
+ * @version 1.0
+ * @date 2025
+ * 
+ * @note MISRA C++ 2023 compliant implementation
+ * @see IAdapter
+ * @see IDelayCalcTrackDataIncomingPort
+ */
+
 #pragma once
 
 #include "adapters/common/AdapterManager.hpp"
 #include "domain/ports/incoming/IDelayCalcTrackDataIncomingPort.hpp"
 #include "domain/ports/DelayCalcTrackData.hpp"
+#include <zmq_config.hpp>  // Must be included before zmq.hpp for Draft API
 #include <zmq.hpp>
 #include <zmq_addon.hpp>
 #include <thread>

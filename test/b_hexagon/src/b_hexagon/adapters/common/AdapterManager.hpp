@@ -23,7 +23,7 @@
  * └─────────────────────────────────────────────────────────────────────┘
  * 
  * @author b_hexagon Team
- * @version 1.0
+ * @version 1.1 - shared_mutex for improved read performance
  * @date 2025
  * 
  * @note MISRA C++ 2023 compliant implementation
@@ -39,6 +39,7 @@
 #include <atomic>
 #include <algorithm>
 #include <mutex>
+#include <shared_mutex>
 
 namespace adapters {
 
@@ -100,10 +101,10 @@ public:
      * @param pipeline Pipeline to register (moved)
      * @pre Manager should not be running when registering
      * @post getPipelineCount() increases by 1
-     * @thread_safe Yes
+     * @thread_safe Yes (uses unique_lock for write)
      */
     void registerPipeline(MessagePipeline pipeline) {
-        std::lock_guard<std::mutex> lock(mutex_);
+        std::unique_lock<std::shared_mutex> lock(pipelines_mutex_);
         Logger::info("Registering pipeline: ", pipeline.getName());
         pipelines_.push_back(std::move(pipeline));
     }
@@ -114,10 +115,10 @@ public:
      * @post isRunning() returns true if successful
      * @note If any pipeline fails to start, previously started pipelines
      *       remain running. Call stopAll() for cleanup.
-     * @thread_safe Yes
+     * @thread_safe Yes (uses unique_lock for write)
      */
     [[nodiscard]] bool startAll() {
-        std::lock_guard<std::mutex> lock(mutex_);
+        std::unique_lock<std::shared_mutex> lock(pipelines_mutex_);
         
         bool success = true;
         size_t started = 0;
@@ -145,10 +146,10 @@ public:
      * @brief Stop all pipelines gracefully
      * @post isRunning() returns false
      * @post All pipeline.isRunning() return false
-     * @thread_safe Yes
+     * @thread_safe Yes (uses unique_lock for write)
      */
     void stopAll() noexcept {
-        std::lock_guard<std::mutex> lock(mutex_);
+        std::unique_lock<std::shared_mutex> lock(pipelines_mutex_);
         
         Logger::info("Stopping all ", pipelines_.size(), " pipeline(s)...");
         running_.store(false);
@@ -164,10 +165,10 @@ public:
     /**
      * @brief Get number of registered pipelines
      * @return Number of pipelines
-     * @thread_safe Yes
+     * @thread_safe Yes (uses shared_lock for read - concurrent reads allowed)
      */
     [[nodiscard]] std::size_t getPipelineCount() const noexcept {
-        std::lock_guard<std::mutex> lock(mutex_);
+        std::shared_lock<std::shared_mutex> lock(pipelines_mutex_);
         return pipelines_.size();
     }
 
@@ -184,10 +185,10 @@ public:
      * @brief Get pipeline by name
      * @param name Pipeline name to search for
      * @return Pointer to pipeline if found, nullptr otherwise
-     * @thread_safe Yes
+     * @thread_safe Yes (uses shared_lock for read - concurrent reads allowed)
      */
     [[nodiscard]] MessagePipeline* getPipeline(const std::string& name) noexcept {
-        std::lock_guard<std::mutex> lock(mutex_);
+        std::shared_lock<std::shared_mutex> lock(pipelines_mutex_);
         auto it = std::find_if(pipelines_.begin(), pipelines_.end(),
             [&name](const MessagePipeline& p) { return p.getName() == name; });
         return (it != pipelines_.end()) ? &(*it) : nullptr;
@@ -197,10 +198,10 @@ public:
      * @brief Get pipeline by name (const version)
      * @param name Pipeline name to search for
      * @return Const pointer to pipeline if found, nullptr otherwise
-     * @thread_safe Yes
+     * @thread_safe Yes (uses shared_lock for read - concurrent reads allowed)
      */
     [[nodiscard]] const MessagePipeline* getPipeline(const std::string& name) const noexcept {
-        std::lock_guard<std::mutex> lock(mutex_);
+        std::shared_lock<std::shared_mutex> lock(pipelines_mutex_);
         auto it = std::find_if(pipelines_.begin(), pipelines_.end(),
             [&name](const MessagePipeline& p) { return p.getName() == name; });
         return (it != pipelines_.end()) ? &(*it) : nullptr;
@@ -209,10 +210,10 @@ public:
     /**
      * @brief Get all pipeline names
      * @return Vector of pipeline names
-     * @thread_safe Yes
+     * @thread_safe Yes (uses shared_lock for read - concurrent reads allowed)
      */
     [[nodiscard]] std::vector<std::string> getPipelineNames() const {
-        std::lock_guard<std::mutex> lock(mutex_);
+        std::shared_lock<std::shared_mutex> lock(pipelines_mutex_);
         std::vector<std::string> names;
         names.reserve(pipelines_.size());
         for (const auto& pipeline : pipelines_) {
@@ -222,9 +223,9 @@ public:
     }
 
 private:
-    std::vector<MessagePipeline> pipelines_;  ///< Registered pipelines
-    std::atomic<bool> running_;               ///< Manager running state
-    mutable std::mutex mutex_;                ///< Thread safety mutex
+    std::vector<MessagePipeline> pipelines_;        ///< Registered pipelines
+    std::atomic<bool> running_;                     ///< Manager running state
+    mutable std::shared_mutex pipelines_mutex_;     ///< Reader-writer mutex for thread-safe access
 };
 
 } // namespace adapters

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['usage_0',['Logger Usage',['../index.html#autotoc_md20',1,'']]]
+  ['version_20history_0',['Version History',['../index.html#autotoc_md10',1,'']]]
 ];

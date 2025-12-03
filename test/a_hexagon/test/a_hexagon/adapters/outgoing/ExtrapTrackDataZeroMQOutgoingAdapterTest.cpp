@@ -146,6 +146,9 @@ TEST_F(ExtrapTrackDataZeroMQOutgoingAdapterTest, SendExtrapTrackData_SingleMessa
     
     adapter_->sendExtrapTrackData(extrapData);
     
+    // Wait for background worker to process the message
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    
     // Verify message was sent
     EXPECT_EQ(mockSocketPtr_->getSendCallCount(), 1);
     EXPECT_EQ(mockSocketPtr_->getSentMessageCount(), 1);
@@ -162,6 +165,9 @@ TEST_F(ExtrapTrackDataZeroMQOutgoingAdapterTest, SendExtrapTrackData_Vector_Send
     }
     
     adapter_->sendExtrapTrackData(dataVector);
+    
+    // Wait for background worker to process all messages
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
     
     // Verify all messages were sent
     EXPECT_EQ(mockSocketPtr_->getSendCallCount(), NUM_MESSAGES);
@@ -211,6 +217,9 @@ TEST_F(ExtrapTrackDataZeroMQOutgoingAdapterTest, SendExtrapTrackData_PreservesTr
     
     adapter_->sendExtrapTrackData(extrapData);
     
+    // Wait for background worker to process the message
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    
     // Verify sent data
     auto lastSent = mockSocketPtr_->getLastSentMessage();
     ASSERT_TRUE(lastSent.has_value());
@@ -240,6 +249,9 @@ TEST_F(ExtrapTrackDataZeroMQOutgoingAdapterTest, SendExtrapTrackData_PreservesPo
     
     adapter_->sendExtrapTrackData(extrapData);
     
+    // Wait for background worker to process the message
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    
     auto lastSent = mockSocketPtr_->getLastSentMessage();
     ASSERT_TRUE(lastSent.has_value());
     
@@ -268,6 +280,9 @@ TEST_F(ExtrapTrackDataZeroMQOutgoingAdapterTest, SendExtrapTrackData_PreservesVe
     
     adapter_->sendExtrapTrackData(extrapData);
     
+    // Wait for background worker to process the message
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    
     auto lastSent = mockSocketPtr_->getLastSentMessage();
     ASSERT_TRUE(lastSent.has_value());
     
@@ -295,6 +310,9 @@ TEST_F(ExtrapTrackDataZeroMQOutgoingAdapterTest, SendExtrapTrackData_PreservesTi
     extrapData.setFirstHopSentTime(1700000002000);
     
     adapter_->sendExtrapTrackData(extrapData);
+    
+    // Wait for background worker to process the message
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
     
     auto lastSent = mockSocketPtr_->getLastSentMessage();
     ASSERT_TRUE(lastSent.has_value());
@@ -333,6 +351,9 @@ TEST_F(ExtrapTrackDataZeroMQOutgoingAdapterTest, SendExtrapTrackData_SetsGroupNa
     
     adapter_->sendExtrapTrackData(extrapData);
     
+    // Wait for background worker to process the message
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    
     auto lastSent = mockSocketPtr_->getLastSentMessage();
     ASSERT_TRUE(lastSent.has_value());
     
@@ -358,6 +379,9 @@ TEST_F(ExtrapTrackDataZeroMQOutgoingAdapterTest, HighThroughput_SendsMessagesQui
     
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime);
     EXPECT_LT(duration.count(), 1000);  // Should send 1000 messages in < 1 second
+    
+    // Wait for background worker to process all messages
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
     
     EXPECT_EQ(mockSocketPtr_->getSentMessageCount(), static_cast<size_t>(NUM_MESSAGES));
 }
@@ -385,6 +409,9 @@ TEST_F(ExtrapTrackDataZeroMQOutgoingAdapterTest, ConcurrentSends_AreThreadSafe) 
     for (auto& thread : threads) {
         thread.join();
     }
+    
+    // Wait for background worker to process all messages
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
     
     // All messages should be sent
     EXPECT_EQ(mockSocketPtr_->getSentMessageCount(), 

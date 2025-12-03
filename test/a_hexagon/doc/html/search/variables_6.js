@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['manager_5f_0',['manager_',['../d4/d01/classAdapterManagerTest.html#a245bb5e086ff43e9b952e527cd7bbb37',1,'AdapterManagerTest']]],
-  ['multicast_5faddress_1',['multicast_address',['../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a36c5b8887b19ffe998ab6a8c3854d567',1,'domain::model::ExtrapTrackData::MULTICAST_ADDRESS'],['../dc/d00/classdomain_1_1model_1_1TrackData.html#a6eaf6b825a0f874dbefe2f8784342900',1,'domain::model::TrackData::MULTICAST_ADDRESS']]]
+  ['incomingadapter_5f_0',['incomingAdapter_',['../dd/d00/classadapters_1_1MessagePipeline.html#a71625596346df4a440261574f3b9a7b4',1,'adapters::MessagePipeline']]],
+  ['incomingmessages_5f_1',['incomingMessages_',['../d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html#a9da13544985c86d2589aa9ab2e8f8bb7',1,'a_hexagon::test::mocks::MockMessageSocket']]],
+  ['incomingport_5f_2',['incomingPort_',['../d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a2084086513bb93c28504f3e1a0cd4911',1,'adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter']]],
+  ['incomingportshared_5f_3',['incomingPortShared_',['../d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a3e6cf627c06404b3cb220c1fef19d44e',1,'adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter']]],
+  ['initialized_5f_4',['initialized_',['../d2/d02/classutils_1_1Logger.html#a05d945b4997f85e6ca604476524d8e03',1,'utils::Logger']]]
 ];

@@ -25,9 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">a_hexagon<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">a_hexagon<span id="projectnumber">&#160;2.1.0</span>
    </div>
-   <div id="projectbrief">Hexagonal Architecture Track Data Processing Application</div>
+   <div id="projectbrief">Hexagonal Architecture Track Data Extrapolation System - Thread-per-Type Pattern with DIP Compliant Socket Abstraction</div>
   </td>
  </tr>
  </tbody>
@@ -98,12 +98,12 @@ $(document).ready(function(){initNavTree('d2/d01/classTrackDataExtrapolatorTest.
 </div><!--header-->
 <div class="contents">
 
-<p>Test fixture for TrackDataExtrapolator tests.  
+<p>Test fixture for TrackDataExtrapolator.  
  <a href="../../d2/d01/classTrackDataExtrapolatorTest.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for TrackDataExtrapolatorTest:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d01/classTrackDataExtrapolatorTest__inherit__graph.svg" width="196" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d01/classTrackDataExtrapolatorTest__inherit__graph.svg" width="196" height="290"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Collaboration diagram for TrackDataExtrapolatorTest:</div>
@@ -115,17 +115,97 @@ Collaboration diagram for TrackDataExtrapolatorTest:</div>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:accb4e3d1b0b42544ff9ff6a31219f99f" id="r_accb4e3d1b0b42544ff9ff6a31219f99f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d01/classTrackDataExtrapolatorTest.html#accb4e3d1b0b42544ff9ff6a31219f99f">SetUp</a> () override</td></tr>
 <tr class="separator:accb4e3d1b0b42544ff9ff6a31219f99f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb3742202cf73f582e3c67b69439832a" id="r_acb3742202cf73f582e3c67b69439832a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d01/classTrackDataExtrapolatorTest.html#acb3742202cf73f582e3c67b69439832a">TearDown</a> () override</td></tr>
+<tr class="separator:acb3742202cf73f582e3c67b69439832a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87c49a60a95de09be90243eb516274c2" id="r_a87c49a60a95de09be90243eb516274c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d01/classTrackDataExtrapolatorTest.html#a87c49a60a95de09be90243eb516274c2">createExtrapolator</a> ()</td></tr>
+<tr class="memdesc:a87c49a60a95de09be90243eb516274c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create extrapolator with mock outgoing port.  <br /></td></tr>
+<tr class="separator:a87c49a60a95de09be90243eb516274c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7654d81022bfda41650429b5ea3a7b4b" id="r_a7654d81022bfda41650429b5ea3a7b4b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d00/classdomain_1_1model_1_1TrackData.html">TrackData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d01/classTrackDataExtrapolatorTest.html#a7654d81022bfda41650429b5ea3a7b4b">createTestTrackData</a> (int32_t trackId)</td></tr>
+<tr class="memdesc:a7654d81022bfda41650429b5ea3a7b4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create valid test TrackData.  <br /></td></tr>
+<tr class="separator:a7654d81022bfda41650429b5ea3a7b4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a33cbca4c3f21ae2579b0cf7a21cf2d20" id="r_a33cbca4c3f21ae2579b0cf7a21cf2d20"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d00/classdomain_1_1model_1_1TrackData.html">TrackData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d01/classTrackDataExtrapolatorTest.html#a33cbca4c3f21ae2579b0cf7a21cf2d20">inputTrack_</a></td></tr>
-<tr class="separator:a33cbca4c3f21ae2579b0cf7a21cf2d20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f1b377c9f0dc450b4046e602f4bea84" id="r_a4f1b377c9f0dc450b4046e602f4bea84"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="../../de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html">MockOutgoingPort</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d01/classTrackDataExtrapolatorTest.html#a4f1b377c9f0dc450b4046e602f4bea84">mockOutgoingPort_</a></td></tr>
+<tr class="separator:a4f1b377c9f0dc450b4046e602f4bea84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5fb8b37861a7aac04365c2006955cb7" id="r_ab5fb8b37861a7aac04365c2006955cb7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html">MockOutgoingPort</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d01/classTrackDataExtrapolatorTest.html#ab5fb8b37861a7aac04365c2006955cb7">mockOutgoingPortPtr_</a> {nullptr}</td></tr>
+<tr class="separator:ab5fb8b37861a7aac04365c2006955cb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45f98d7427f1d88cda8579781cea1215" id="r_a45f98d7427f1d88cda8579781cea1215"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="../../db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html">TrackDataExtrapolator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d01/classTrackDataExtrapolatorTest.html#a45f98d7427f1d88cda8579781cea1215">extrapolator_</a></td></tr>
+<tr class="separator:a45f98d7427f1d88cda8579781cea1215"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Test fixture for TrackDataExtrapolator tests. </p>
+<div class="textblock"><p>Test fixture for TrackDataExtrapolator. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00039">39</a> of file <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html">TrackDataExtrapolatorTest.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00031">31</a> of file <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html">TrackDataExtrapolatorTest.cpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a87c49a60a95de09be90243eb516274c2" name="a87c49a60a95de09be90243eb516274c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87c49a60a95de09be90243eb516274c2">&#9670;&#160;</a></span>createExtrapolator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TrackDataExtrapolatorTest::createExtrapolator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create extrapolator with mock outgoing port. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00045">45</a> of file <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html">TrackDataExtrapolatorTest.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00067">extrapolator_</a>, and <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00066">mockOutgoingPortPtr_</a>.</p>
+
+</div>
+</div>
+<a id="a7654d81022bfda41650429b5ea3a7b4b" name="a7654d81022bfda41650429b5ea3a7b4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7654d81022bfda41650429b5ea3a7b4b">&#9670;&#160;</a></span>createTestTrackData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d00/classdomain_1_1model_1_1TrackData.html">TrackData</a> TrackDataExtrapolatorTest::createTestTrackData </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>trackId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create valid test TrackData. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00052">52</a> of file <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html">TrackDataExtrapolatorTest.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../df/d00/TrackData_8cpp_source.html#l00099">domain::model::TrackData::setOriginalUpdateTime()</a>, <a class="el" href="../../df/d00/TrackData_8cpp_source.html#l00064">domain::model::TrackData::setTrackId()</a>, <a class="el" href="../../df/d00/TrackData_8cpp_source.html#l00084">domain::model::TrackData::setXPositionECEF()</a>, <a class="el" href="../../df/d00/TrackData_8cpp_source.html#l00069">domain::model::TrackData::setXVelocityECEF()</a>, <a class="el" href="../../df/d00/TrackData_8cpp_source.html#l00089">domain::model::TrackData::setYPositionECEF()</a>, <a class="el" href="../../df/d00/TrackData_8cpp_source.html#l00074">domain::model::TrackData::setYVelocityECEF()</a>, <a class="el" href="../../df/d00/TrackData_8cpp_source.html#l00094">domain::model::TrackData::setZPositionECEF()</a>, and <a class="el" href="../../df/d00/TrackData_8cpp_source.html#l00079">domain::model::TrackData::setZVelocityECEF()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d2/d01/classTrackDataExtrapolatorTest_a7654d81022bfda41650429b5ea3a7b4b_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
 <a id="accb4e3d1b0b42544ff9ff6a31219f99f" name="accb4e3d1b0b42544ff9ff6a31219f99f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#accb4e3d1b0b42544ff9ff6a31219f99f">&#9670;&#160;</a></span>SetUp()</h2>
 
@@ -149,20 +229,14 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00041">41</a> of file <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html">TrackDataExtrapolatorTest.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00033">33</a> of file <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html">TrackDataExtrapolatorTest.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00053">inputTrack_</a>, <a class="el" href="../../df/d00/TrackData_8cpp_source.html#l00099">domain::model::TrackData::setOriginalUpdateTime()</a>, <a class="el" href="../../df/d00/TrackData_8cpp_source.html#l00064">domain::model::TrackData::setTrackId()</a>, <a class="el" href="../../df/d00/TrackData_8cpp_source.html#l00084">domain::model::TrackData::setXPositionECEF()</a>, <a class="el" href="../../df/d00/TrackData_8cpp_source.html#l00069">domain::model::TrackData::setXVelocityECEF()</a>, <a class="el" href="../../df/d00/TrackData_8cpp_source.html#l00089">domain::model::TrackData::setYPositionECEF()</a>, <a class="el" href="../../df/d00/TrackData_8cpp_source.html#l00074">domain::model::TrackData::setYVelocityECEF()</a>, <a class="el" href="../../df/d00/TrackData_8cpp_source.html#l00094">domain::model::TrackData::setZPositionECEF()</a>, and <a class="el" href="../../df/d00/TrackData_8cpp_source.html#l00079">domain::model::TrackData::setZVelocityECEF()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d2/d01/classTrackDataExtrapolatorTest_accb4e3d1b0b42544ff9ff6a31219f99f_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<p class="reference">References <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00065">mockOutgoingPort_</a>, and <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00066">mockOutgoingPortPtr_</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a33cbca4c3f21ae2579b0cf7a21cf2d20" name="a33cbca4c3f21ae2579b0cf7a21cf2d20"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33cbca4c3f21ae2579b0cf7a21cf2d20">&#9670;&#160;</a></span>inputTrack_</h2>
+<a id="acb3742202cf73f582e3c67b69439832a" name="acb3742202cf73f582e3c67b69439832a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb3742202cf73f582e3c67b69439832a">&#9670;&#160;</a></span>TearDown()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -171,7 +245,35 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/d00/classdomain_1_1model_1_1TrackData.html">TrackData</a> TrackDataExtrapolatorTest::inputTrack_</td>
+          <td class="memname">void TrackDataExtrapolatorTest::TearDown </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00038">38</a> of file <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html">TrackDataExtrapolatorTest.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a45f98d7427f1d88cda8579781cea1215" name="a45f98d7427f1d88cda8579781cea1215"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45f98d7427f1d88cda8579781cea1215">&#9670;&#160;</a></span>extrapolator_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="../../db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html">TrackDataExtrapolator</a>&gt; TrackDataExtrapolatorTest::extrapolator_</td>
         </tr>
       </table>
   </td>
@@ -181,9 +283,61 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00053">53</a> of file <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html">TrackDataExtrapolatorTest.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00067">67</a> of file <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html">TrackDataExtrapolatorTest.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00041">SetUp()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00045">createExtrapolator()</a>.</p>
+
+</div>
+</div>
+<a id="a4f1b377c9f0dc450b4046e602f4bea84" name="a4f1b377c9f0dc450b4046e602f4bea84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f1b377c9f0dc450b4046e602f4bea84">&#9670;&#160;</a></span>mockOutgoingPort_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="../../de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html">MockOutgoingPort</a>&gt; TrackDataExtrapolatorTest::mockOutgoingPort_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00065">65</a> of file <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html">TrackDataExtrapolatorTest.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00033">SetUp()</a>.</p>
+
+</div>
+</div>
+<a id="ab5fb8b37861a7aac04365c2006955cb7" name="ab5fb8b37861a7aac04365c2006955cb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5fb8b37861a7aac04365c2006955cb7">&#9670;&#160;</a></span>mockOutgoingPortPtr_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html">MockOutgoingPort</a>* TrackDataExtrapolatorTest::mockOutgoingPortPtr_ {nullptr}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00066">66</a> of file <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html">TrackDataExtrapolatorTest.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00045">createExtrapolator()</a>, and <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00033">SetUp()</a>.</p>
 
 </div>
 </div>
@@ -196,7 +350,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d2/d01/classTrackDataExtrapolatorTest.html">TrackDataExtrapolatorTest</a></li>
-    <li class="footer">Generated on Mon Dec 1 2025 13:08:49 for a_hexagon by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

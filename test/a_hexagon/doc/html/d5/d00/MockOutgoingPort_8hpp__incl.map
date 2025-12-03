@@ -1,0 +1,34 @@
+<map id="/workspaces/hexagon_c/test/a_hexagon/test/a_hexagon/mocks/MockOutgoingPort.hpp" name="/workspaces/hexagon_c/test/a_hexagon/test/a_hexagon/mocks/MockOutgoingPort.hpp">
+<area shape="rect" id="Node000001" title="Mock implementation of IExtrapTrackDataOutgoingPort for unit testing." alt="" coords="529,5,772,75"/>
+<area shape="rect" id="Node000002" href="$d7/d01/IExtrapTrackDataOutgoingPort_8hpp.html" title="Output port interface for ExtrapTrackData transmission." alt="" coords="247,123,497,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="558,77,438,121,436,116,557,72"/>
+<area shape="rect" id="Node000003" href="$d7/d00/model_2ExtrapTrackData_8hpp.html" title="Redirect header for ExtrapTrackData model." alt="" coords="147,211,343,251"/>
+<area shape="poly" id="edge11_Node000001_Node000003" title=" " alt="" coords="529,51,443,60,355,75,282,96,255,109,237,124,228,141,226,159,234,197,229,198,221,159,223,139,233,121,252,105,280,91,354,70,442,55,529,46"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="469,387,531,412"/>
+<area shape="poly" id="edge12_Node000001_Node000009" title=" " alt="" coords="604,77,581,99,562,124,546,156,533,190,515,261,506,325,503,373,498,373,501,324,510,259,528,189,541,154,558,121,577,95,601,73"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="572,130,636,155"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="637,76,618,118,613,116,632,74"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="660,130,735,155"/>
+<area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="669,74,689,116,684,118,664,76"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="759,130,825,155"/>
+<area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="700,73,766,120,763,124,697,77"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="849,130,913,155"/>
+<area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="729,72,844,122,842,127,727,77"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="938,130,1081,155"/>
+<area shape="poly" id="edge17_Node000001_Node000015" title=" " alt="" coords="771,72,956,124,955,129,770,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="345,165,286,205,283,201,342,161"/>
+<area shape="poly" id="edge10_Node000002_Node000009" title=" " alt="" coords="384,161,490,373,485,375,379,164"/>
+<area shape="rect" id="Node000004" href="$d3/d02/ports_2ExtrapTrackData_8hpp.html" title="Header file for ExtrapTrackData model class." alt="" coords="151,299,339,339"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="248,251,248,285,243,285,243,251"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="5,387,64,412"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="196,341,78,385,76,380,194,336"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="88,387,155,412"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="217,341,153,381,150,377,214,337"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="179,387,266,412"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="242,340,232,374,227,373,237,338"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="290,387,353,412"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="266,337,302,375,298,378,262,341"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="307,336,456,382,455,387,306,341"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="377,387,444,412"/>
+<area shape="poly" id="edge9_Node000004_Node000010" title=" " alt="" coords="286,336,375,378,373,383,284,341"/>
+</map>

@@ -6,6 +6,7 @@
 
 #include "TrackDataZeroMQIncomingAdapter.hpp"
 #include "utils/Logger.hpp"
+#include <zmq_config.hpp>  // Must be included before zmq.hpp for Draft API
 #include <zmq.hpp>
 #include <sstream>
 

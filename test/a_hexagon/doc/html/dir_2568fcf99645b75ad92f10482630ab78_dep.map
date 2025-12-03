@@ -1,0 +1,10 @@
+<map id="/workspaces/hexagon_c/test/a_hexagon/test/a_hexagon/adapters/incoming" name="/workspaces/hexagon_c/test/a_hexagon/test/a_hexagon/adapters/incoming">
+<area shape="rect" id="node1" href="dir_2568fcf99645b75ad92f10482630ab78.html" title="incoming" alt="" coords="49,52,131,77"/>
+<area shape="rect" id="node2" href="dir_49039da89b2ffcb3cbc9093834e3e858.html" title="mocks" alt="" coords="5,125,71,151"/>
+<area shape="poly" id="edge1" href="dir_000011_000015.html" alt="" coords="84,79,57,116,52,113,79,76"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000011_000015.html" title="2" alt="" coords="59,108,69,123"/>
+<area shape="rect" id="node3" href="dir_5fed3e74346fe99d77e8db841376dd26.html" title="a_hexagon" alt="" coords="95,125,189,151"/>
+<area shape="poly" id="edge2" href="dir_000011_000000.html" alt="" coords="101,76,128,113,123,116,96,79"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000011_000000.html" title="2" alt="" coords="125,98,134,113"/>
+<area shape="rect" id="clust1" href="dir_f0c574aca7e92de4ab9db4dcf865ca9d.html" title="adapters" alt="" coords="38,16,142,88"/>
+</map>

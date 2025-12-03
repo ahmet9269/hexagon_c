@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Domain service for track data extrapolation.">
 <polygon fill="#999999" stroke="#666666" points="334.5,-118 185.5,-118 185.5,-88 334.5,-88 334.5,-118"/>
 <text text-anchor="start" x="193.5" y="-106" font-family="Helvetica,sans-Serif" font-size="10.00">a_hexagon/domain/logic</text>
 <text text-anchor="middle" x="260" y="-95" font-family="Helvetica,sans-Serif" font-size="10.00">/TrackDataExtrapolator.hpp</text>
@@ -42,7 +42,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="../../dc/d02/TrackDataExtrapolator_8cpp.html" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="../../dc/d02/TrackDataExtrapolator_8cpp.html" target="_top" xlink:title="Implementation of TrackDataExtrapolator domain service.">
 <polygon fill="white" stroke="#666666" points="334,-41 186,-41 186,-11 334,-11 334,-41"/>
 <text text-anchor="start" x="194" y="-29" font-family="Helvetica,sans-Serif" font-size="10.00">a_hexagon/domain/logic</text>
 <text text-anchor="middle" x="260" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">/TrackDataExtrapolator.cpp</text>

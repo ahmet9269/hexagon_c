@@ -1,25 +1,31 @@
 <map id="domain::model::ExtrapTrackData::validateOriginalUpdateTime" name="domain::model::ExtrapTrackData::validateOriginalUpdateTime">
-<area shape="rect" id="Node000001" title=" " alt="" coords="849,170,1095,210"/>
-<area shape="rect" id="Node000002" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a1461f9e93b78ec4ecab7b332bb4516af" title=" " alt="" coords="593,69,797,109"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="903,168,750,111,752,106,905,163"/>
-<area shape="rect" id="Node000004" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#af5d4f299d85bf539b9033d8ca7fbe8c7" title=" " alt="" coords="589,202,801,242"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="836,208,802,212,801,207,836,203"/>
-<area shape="rect" id="Node000003" href="$de/d00/ExtrapTrackDataTest_8cpp.html#a1379fd5c361ccd53b316d97707c13389" title=" " alt="" coords="381,5,451,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="617,67,541,46,450,27,451,21,542,41,619,62"/>
-<area shape="rect" id="Node000005" href="$db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html#ac273b01129efc99c894080a7134d26a0" title="Extrapolate track data at specified frequencies." alt="" coords="291,55,541,95"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="661,195,607,151,540,110,511,98,512,93,543,105,610,147,665,191"/>
-<area shape="rect" id="Node000007" href="$db/d00/classExtrapTrackDataTest.html#a5301096f175d663b50012ff97e3e30b5" title=" " alt="" coords="339,119,493,159"/>
-<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="623,200,541,174,493,161,494,156,542,169,625,195"/>
-<area shape="rect" id="Node000008" href="$de/d00/ExtrapTrackDataTest_8cpp.html#a848a15f82b5882962e07f41219c4b3c2" title=" " alt="" coords="381,184,451,209"/>
-<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="575,214,451,202,451,197,576,209"/>
-<area shape="rect" id="Node000009" href="$de/d00/ExtrapTrackDataTest_8cpp.html#a3c997b45cebdc0cd7f6b9dcfec4f7bfb" title=" " alt="" coords="381,233,451,259"/>
-<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="576,235,451,246,451,240,575,230"/>
-<area shape="rect" id="Node000010" href="$de/d00/ExtrapTrackDataTest_8cpp.html#a0adc6bee432f2cf306e674e4fbb2ba5b" title=" " alt="" coords="381,283,451,308"/>
-<area shape="poly" id="edge9_Node000004_Node000010" title=" " alt="" coords="623,249,542,273,451,292,450,287,541,267,622,244"/>
-<area shape="rect" id="Node000011" href="$de/d00/ExtrapTrackDataTest_8cpp.html#ab2279eb7dff12ef3ed6bb383895b9583" title=" " alt="" coords="381,332,451,357"/>
-<area shape="poly" id="edge10_Node000004_Node000011" title=" " alt="" coords="659,253,606,289,542,322,495,336,451,344,450,339,494,331,540,317,603,284,656,248"/>
-<area shape="rect" id="Node000012" href="$d3/d00/TrackDataExtrapolatorTest_8cpp.html#a472ce7830ac50c681680c58316d6ecc3" title=" " alt="" coords="381,381,451,407"/>
-<area shape="poly" id="edge11_Node000004_Node000012" title=" " alt="" coords="673,255,618,315,582,346,543,371,496,388,452,395,451,390,495,382,540,366,579,341,614,311,669,251"/>
-<area shape="rect" id="Node000006" href="$db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html#a4af9555dd108a446e4b16d416fcc7360" title="Process and forward track data." alt="" coords="5,48,243,103"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="277,78,243,78,243,73,277,73"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="880,258,1125,298"/>
+<area shape="rect" id="Node000002" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a1461f9e93b78ec4ecab7b332bb4516af" title=" " alt="" coords="624,113,828,153"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="950,254,764,155,766,150,953,249"/>
+<area shape="rect" id="Node000004" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#af5d4f299d85bf539b9033d8ca7fbe8c7" title=" " alt="" coords="620,290,832,330"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="867,296,833,300,832,295,866,291"/>
+<area shape="rect" id="Node000003" href="$de/d00/ExtrapTrackDataTest_8cpp.html#a1379fd5c361ccd53b316d97707c13389" title=" " alt="" coords="397,5,466,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="684,107,632,75,571,46,516,31,466,23,467,18,517,26,573,41,634,70,687,102"/>
+<area shape="rect" id="Node000005" href="$d4/d01/classExtrapTrackDataZeroMQOutgoingAdapterTest.html#a60936fdd0cf2548d89f98785439c1fc5" title="Create valid test ExtrapTrackData." alt="" coords="291,55,572,95"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="700,280,623,176,570,109,548,98,551,93,574,105,627,173,704,277"/>
+<area shape="rect" id="Node000006" href="$db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html#ac273b01129efc99c894080a7134d26a0" title="Extrapolate track data at specified frequencies." alt="" coords="306,119,557,159"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="697,281,643,225,608,197,571,174,543,162,545,157,573,169,611,193,646,221,701,277"/>
+<area shape="rect" id="Node000008" href="$db/d00/classExtrapTrackDataTest.html#a5301096f175d663b50012ff97e3e30b5" title=" " alt="" coords="354,183,509,223"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="676,286,626,261,571,238,508,220,509,215,573,233,628,256,678,281"/>
+<area shape="rect" id="Node000009" href="$de/d00/ExtrapTrackDataTest_8cpp.html#a848a15f82b5882962e07f41219c4b3c2" title=" " alt="" coords="397,248,466,273"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="606,293,466,269,467,264,607,287"/>
+<area shape="rect" id="Node000010" href="$de/d00/ExtrapTrackDataTest_8cpp.html#a3c997b45cebdc0cd7f6b9dcfec4f7bfb" title=" " alt="" coords="397,297,466,323"/>
+<area shape="poly" id="edge9_Node000004_Node000010" title=" " alt="" coords="606,313,466,313,466,307,606,307"/>
+<area shape="rect" id="Node000011" href="$de/d00/ExtrapTrackDataTest_8cpp.html#a0adc6bee432f2cf306e674e4fbb2ba5b" title=" " alt="" coords="397,347,466,372"/>
+<area shape="poly" id="edge10_Node000004_Node000011" title=" " alt="" coords="607,333,467,356,466,351,606,327"/>
+<area shape="rect" id="Node000012" href="$de/d00/ExtrapTrackDataTest_8cpp.html#ab2279eb7dff12ef3ed6bb383895b9583" title=" " alt="" coords="397,396,466,421"/>
+<area shape="poly" id="edge11_Node000004_Node000012" title=" " alt="" coords="679,339,628,364,573,386,517,400,467,408,466,402,516,395,571,381,626,359,676,334"/>
+<area shape="rect" id="Node000013" href="$d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html#aaa0e7f79a37ea6490302188d8e7e1fb0" title=" " alt="" coords="397,445,466,471"/>
+<area shape="poly" id="edge12_Node000004_Node000013" title=" " alt="" coords="698,342,644,391,610,415,573,435,518,452,466,459,466,454,517,447,571,430,607,411,640,387,695,338"/>
+<area shape="rect" id="Node000014" href="$d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html#a4cec407e1fd4cc71fd6415c2129f762b" title=" " alt="" coords="397,495,466,520"/>
+<area shape="poly" id="edge13_Node000004_Node000014" title=" " alt="" coords="708,343,685,377,654,416,617,453,573,484,547,496,518,504,467,510,466,505,517,498,545,491,571,480,613,449,650,412,681,374,704,340"/>
+<area shape="rect" id="Node000015" href="$d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html#a0dc51f2e92d71bbdaeabf479df7bf04b" title=" " alt="" coords="397,544,466,569"/>
+<area shape="poly" id="edge14_Node000004_Node000015" title=" " alt="" coords="714,344,693,388,663,440,623,491,599,514,573,534,547,546,519,555,467,560,466,555,518,549,545,542,571,529,596,510,619,488,659,437,689,386,709,342"/>
+<area shape="rect" id="Node000007" href="$db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html#a4af9555dd108a446e4b16d416fcc7360" title="Process and forward track data." alt="" coords="5,112,243,167"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="292,142,243,142,243,137,292,137"/>
 </map>

@@ -1,9 +1,0 @@
-<map id="TEST_F" name="TEST_F">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,45,75,70"/>
-<area shape="rect" id="Node000002" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a14a680e680316d696bb5bd3d64aa329c" title=" " alt="" coords="123,5,327,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,49,109,43,110,48,75,54"/>
-<area shape="rect" id="Node000003" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#ad32e1b75741b42645ac616abe10a8657" title=" " alt="" coords="123,69,327,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="75,61,110,67,109,72,74,66"/>
-<area shape="rect" id="Node000004" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a813c43696773bddf5f747cd45ae92252" title=" " alt="" coords="375,69,579,109"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="327,87,361,87,361,92,327,92"/>
-</map>

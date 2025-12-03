@@ -1,0 +1,5 @@
+<map id="adapters::common::messaging::ZeroMQSocket::getSocketType" name="adapters::common::messaging::ZeroMQSocket::getSocketType">
+<area shape="rect" id="Node000001" title="Get socket type string." alt="" coords="5,5,232,45"/>
+<area shape="rect" id="Node000002" href="$db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html#ae6df858f5c7201d47418ab8470c41187" title="Get socket type name." alt="" coords="280,5,547,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,23,266,23,266,28,232,28"/>
+</map>

@@ -1,5 +1,5 @@
 <map id="a_hexagon/domain/ports/incoming/ITrackDataIncomingPort.hpp" name="a_hexagon/domain/ports/incoming/ITrackDataIncomingPort.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="163,5,381,60"/>
+<area shape="rect" id="Node000001" title="Input port interface for TrackData processing." alt="" coords="163,5,381,60"/>
 <area shape="rect" id="Node000002" href="$df/d03/ports_2TrackData_8hpp.html" title="Header file for TrackData model class." alt="" coords="169,108,375,133"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="275,60,275,94,269,94,269,60"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="5,181,64,207"/>

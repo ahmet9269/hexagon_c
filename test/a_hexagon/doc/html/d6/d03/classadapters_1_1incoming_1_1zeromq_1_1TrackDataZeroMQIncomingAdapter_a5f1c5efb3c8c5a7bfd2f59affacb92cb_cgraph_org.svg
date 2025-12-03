@@ -116,7 +116,7 @@
 <!-- Node7 -->
 <g id="Node000007" class="node">
 <title>Node7</title>
-<g id="a_Node000007"><a xlink:href="../../da/d03/classdomain_1_1ports_1_1incoming_1_1ITrackDataIncomingPort.html#a68caa10cd40d4a198a6be76a108c672c" target="_top" xlink:title=" ">
+<g id="a_Node000007"><a xlink:href="../../da/d03/classdomain_1_1ports_1_1incoming_1_1ITrackDataIncomingPort.html#a68caa10cd40d4a198a6be76a108c672c" target="_top" xlink:title="Process received track data and forward to output.">
 <polygon fill="white" stroke="#666666" points="401.5,-41 234.5,-41 234.5,0 401.5,0 401.5,-41"/>
 <text text-anchor="start" x="242.5" y="-29" font-family="Helvetica,sans-Serif" font-size="10.00">domain::ports::incoming</text>
 <text text-anchor="start" x="242.5" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">::ITrackDataIncomingPort</text>

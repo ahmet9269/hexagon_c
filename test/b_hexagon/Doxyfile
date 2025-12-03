@@ -1,6 +1,7 @@
 # Doxyfile 1.9.8
 # B_Hexagon Project Documentation Configuration
 # Generated: 2025-12-03
+# Last Updated: 2025-12-03
 # Author: b_hexagon Team
 
 #---------------------------------------------------------------------------
@@ -8,8 +9,8 @@
 #---------------------------------------------------------------------------
 
 PROJECT_NAME           = "B_Hexagon"
-PROJECT_NUMBER         = "1.0.1"
-PROJECT_BRIEF          = "Thread-per-Type Hexagonal Architecture ZeroMQ Application - Track Data Processor"
+PROJECT_NUMBER         = "2.1.0"
+PROJECT_BRIEF          = "Thread-per-Type Hexagonal Architecture - Track Data Delay Processor with Async Logging"
 PROJECT_LOGO           = 
 OUTPUT_DIRECTORY       = docs
 CREATE_SUBDIRS         = YES
@@ -43,7 +44,17 @@ PYTHON_DOCSTRING       = YES
 INHERIT_DOCS           = YES
 SEPARATE_MEMBER_PAGES  = NO
 TAB_SIZE               = 4
-ALIASES                = 
+ALIASES                = "misra=\\xrefitem misra \"MISRA C++ 2023\" \"MISRA C++ 2023 Compliance\"" \
+                         "thread_safe=@par Thread Safety:^^" \
+                         "realtime=@par Real-time Constraints:^^" \
+                         "hexagonal=@par Hexagonal Architecture:^^" \
+                         "dip=@par Dependency Inversion:^^" \
+                         "solid=@par SOLID Compliance:^^" \
+                         "performance=@par Performance:^^" \
+                         "latency=@par Latency:^^" \
+                         "invariant=@par Class Invariants:^^" \
+                         "pre=@par Preconditions:^^" \
+                         "post=@par Postconditions:^^" 
 OPTIMIZE_OUTPUT_FOR_C  = NO
 OPTIMIZE_OUTPUT_JAVA   = NO
 OPTIMIZE_FOR_FORTRAN   = NO
@@ -306,7 +317,8 @@ INCLUDE_PATH           = src/b_hexagon \
 INCLUDE_FILE_PATTERNS  = 
 PREDEFINED             = ZMQ_BUILD_DRAFT_API=1 \
                          SPDLOG_COMPILED_LIB \
-                         __cplusplus=201703L
+                         __cplusplus=201703L \
+                         __linux__
 EXPAND_AS_DEFINED      = 
 SKIP_FUNCTION_MACROS   = YES
 

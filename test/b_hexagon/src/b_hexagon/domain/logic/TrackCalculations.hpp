@@ -10,8 +10,12 @@
  */
 
 #pragma once
-#include "domain/model/ExtrapTrackData.hpp"   // Input data structure
-#include <chrono>                        // Time utilities for nanosecond precision
+
+#include "domain/ports/ExtrapTrackData.hpp"   // Input data structure
+#include <chrono>                              // Time utilities for nanosecond precision
+
+namespace domain {
+namespace logic {
 
 /**
  * @brief Pure stateless calculation utilities for `ExtrapTrackData` timing metrics.
@@ -40,24 +44,42 @@
  * }
  * @enddot
  */
+/**
+ * @class TrackCalculations
+ * @brief Pure stateless calculation utilities for track timing metrics
+ * @details Thread-safe utility class providing static methods for timing calculations.
+ *          All methods are const-correct and exception-safe.
+ */
 class TrackCalculations {
 public:
+    /// @brief Deleted constructor - purely static utility class
+    TrackCalculations() = delete;
+    
     /**
-     * @brief Calculates first hop delay time in nanoseconds.
-     * @param trackData The input ExtrapTrackData
-     * @param receiveTimeNs The time when data was received (nanoseconds)
-     * @return Delay time in nanoseconds (receive_time - first_hop_sent_time)
+     * @brief Calculates first hop delay time in nanoseconds
+     * @param trackData The input ExtrapTrackData containing firstHopSentTime
+     * @param receiveTimeNs The time when data was received (nanoseconds since epoch)
+     * @return Delay time in nanoseconds (receiveTimeNs - firstHopSentTime)
+     * @note Thread-safe - uses only input parameters
      */
-    static long calculateFirstHopDelayTime(const ExtrapTrackData& trackData, long receiveTimeNs) {
-        return receiveTimeNs - trackData.firstHopSentTime;
+    [[nodiscard]] static long calculateFirstHopDelayTime(
+        const ports::ExtrapTrackData& trackData, 
+        long receiveTimeNs) noexcept {
+        return receiveTimeNs - trackData.getFirstHopSentTime();
     }
 
     /**
-     * @brief Calculates second hop sent time as the current system time in nanoseconds.
-     * @return Second hop sent time (nanoseconds)
+     * @brief Calculates second hop sent time as current system time in nanoseconds
+     * @return Current system time in nanoseconds since epoch
+     * @note Thread-safe - uses system clock
      */
-    static long calculateSecondHopSentTime() {
+    [[nodiscard]] static long calculateSecondHopSentTime() noexcept {
         auto now = std::chrono::system_clock::now();
-        return static_cast<long>(std::chrono::duration_cast<std::chrono::nanoseconds>(now.time_since_epoch()).count());
+        return static_cast<long>(
+            std::chrono::duration_cast<std::chrono::nanoseconds>(
+                now.time_since_epoch()).count());
     }
 };
+
+} // namespace logic
+} // namespace domain

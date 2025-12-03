@@ -25,9 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">a_hexagon<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">a_hexagon<span id="projectnumber">&#160;2.1.0</span>
    </div>
-   <div id="projectbrief">Hexagonal Architecture Track Data Processing Application</div>
+   <div id="projectbrief">Hexagonal Architecture Track Data Extrapolation System - Thread-per-Type Pattern with DIP Compliant Socket Abstraction</div>
   </td>
  </tr>
  </tbody>
@@ -91,8 +91,7 @@ $(document).ready(function(){initNavTree('dd/d03/namespaceadapters_1_1incoming_1
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle"><div class="title">adapters::incoming::zeromq Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -100,76 +99,16 @@ $(document).ready(function(){initNavTree('dd/d03/namespaceadapters_1_1incoming_1
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html">TrackDataZeroMQIncomingAdapter</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives TrackData via ZeroMQ DISH socket (UDP multicast)  <a href="../../d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives TrackData via IMessageSocket abstraction.  <a href="../../d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ac24cbcf90255aa483aced1e22e351a26" id="r_ac24cbcf90255aa483aced1e22e351a26"><td class="memItemLeft" align="right" valign="top">static constexpr int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d03/namespaceadapters_1_1incoming_1_1zeromq.html#ac24cbcf90255aa483aced1e22e351a26">REALTIME_THREAD_PRIORITY</a> {95}</td></tr>
-<tr class="separator:ac24cbcf90255aa483aced1e22e351a26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65240910a7f0f403e8aaa7286ffde61a" id="r_a65240910a7f0f403e8aaa7286ffde61a"><td class="memItemLeft" align="right" valign="top">static constexpr int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d03/namespaceadapters_1_1incoming_1_1zeromq.html#a65240910a7f0f403e8aaa7286ffde61a">DEDICATED_CPU_CORE</a> {1}</td></tr>
-<tr class="separator:a65240910a7f0f403e8aaa7286ffde61a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a65240910a7f0f403e8aaa7286ffde61a" name="a65240910a7f0f403e8aaa7286ffde61a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65240910a7f0f403e8aaa7286ffde61a">&#9670;&#160;</a></span>DEDICATED_CPU_CORE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr int32_t adapters::incoming::zeromq::DEDICATED_CPU_CORE {1}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d5/d00/TrackDataZeroMQIncomingAdapter_8cpp_source.html#l00033">33</a> of file <a class="el" href="../../d5/d00/TrackDataZeroMQIncomingAdapter_8cpp_source.html">TrackDataZeroMQIncomingAdapter.cpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="../../d5/d00/TrackDataZeroMQIncomingAdapter_8cpp_source.html#l00114">adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter::start()</a>.</p>
-
-</div>
-</div>
-<a id="ac24cbcf90255aa483aced1e22e351a26" name="ac24cbcf90255aa483aced1e22e351a26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac24cbcf90255aa483aced1e22e351a26">&#9670;&#160;</a></span>REALTIME_THREAD_PRIORITY</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr int32_t adapters::incoming::zeromq::REALTIME_THREAD_PRIORITY {95}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d5/d00/TrackDataZeroMQIncomingAdapter_8cpp_source.html#l00032">32</a> of file <a class="el" href="../../d5/d00/TrackDataZeroMQIncomingAdapter_8cpp_source.html">TrackDataZeroMQIncomingAdapter.cpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="../../d5/d00/TrackDataZeroMQIncomingAdapter_8cpp_source.html#l00114">adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter::start()</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d2/d03/namespaceadapters.html">adapters</a></li><li class="navelem"><a class="el" href="../../d4/d03/namespaceadapters_1_1incoming.html">incoming</a></li><li class="navelem"><a class="el" href="../../dd/d03/namespaceadapters_1_1incoming_1_1zeromq.html">zeromq</a></li>
-    <li class="footer">Generated on Mon Dec 1 2025 13:08:49 for a_hexagon by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

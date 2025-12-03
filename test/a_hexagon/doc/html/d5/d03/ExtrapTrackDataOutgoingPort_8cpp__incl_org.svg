@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="../../d6/d01/ExtrapTrackDataOutgoingPort_8hpp.html" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="../../d6/d01/ExtrapTrackDataOutgoingPort_8hpp.html" target="_top" xlink:title="Output port interface for ExtrapTrackData transmission.">
 <polygon fill="white" stroke="#666666" points="396.5,-217 211.5,-217 211.5,-187 396.5,-187 396.5,-217"/>
 <text text-anchor="start" x="219.5" y="-205" font-family="Helvetica,sans-Serif" font-size="10.00">domain/ports/outgoing</text>
 <text text-anchor="middle" x="304" y="-194" font-family="Helvetica,sans-Serif" font-size="10.00">/ExtrapTrackDataOutgoingPort.hpp</text>
@@ -78,7 +78,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="../../d3/d02/ports_2ExtrapTrackData_8hpp.html" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="../../d3/d02/ports_2ExtrapTrackData_8hpp.html" target="_top" xlink:title="Header file for ExtrapTrackData model class.">
 <polygon fill="white" stroke="#666666" points="307.5,-85 166.5,-85 166.5,-55 307.5,-55 307.5,-85"/>
 <text text-anchor="start" x="174.5" y="-73" font-family="Helvetica,sans-Serif" font-size="10.00">domain/ports/ExtrapTrack</text>
 <text text-anchor="middle" x="237" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">Data.hpp</text>

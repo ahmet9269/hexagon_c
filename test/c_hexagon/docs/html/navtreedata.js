@@ -25,35 +25,7 @@
 var NAVTREE =
 [
   [ "C_Hexagon", "index.html", [
-    [ "📋 Table of Contents", "index.html#autotoc_md1", null ],
-    [ "🏗 Architecture", "index.html#autotoc_md2", [
-      [ "Layers", "index.html#autotoc_md3", null ]
-    ] ],
-    [ "📁 Project Structure", "index.html#autotoc_md4", null ],
-    [ "📦 Requirements", "index.html#autotoc_md5", null ],
-    [ "🔨 Building", "index.html#autotoc_md6", [
-      [ "Main Application", "index.html#autotoc_md7", null ],
-      [ "Test Binary", "index.html#autotoc_md8", null ],
-      [ "Build Options", "index.html#autotoc_md9", null ]
-    ] ],
-    [ "🚀 Running", "index.html#autotoc_md10", [
-      [ "Environment Variables", "index.html#autotoc_md11", null ]
-    ] ],
-    [ "🧪 Testing", "index.html#autotoc_md12", [
-      [ "Run All Tests", "index.html#autotoc_md13", null ],
-      [ "Test Results", "index.html#autotoc_md14", null ],
-      [ "Test Suites", "index.html#autotoc_md15", null ]
-    ] ],
-    [ "📚 API Reference", "index.html#autotoc_md16", [
-      [ "IAdapter Interface", "index.html#autotoc_md17", null ],
-      [ "MessagePipeline Class", "index.html#autotoc_md18", null ],
-      [ "AdapterManager Class", "index.html#autotoc_md19", null ],
-      [ "Logger Usage", "index.html#autotoc_md20", null ]
-    ] ],
-    [ "📐 MISRA C++ 2023 Compliance", "index.html#autotoc_md21", null ],
-    [ "📊 Performance", "index.html#autotoc_md22", null ],
-    [ "📄 License", "index.html#autotoc_md23", null ],
-    [ "👥 Contributors", "index.html#autotoc_md24", null ]
+    [ "C_Hexagon Project Documentation", "index.html", "index" ]
   ] ]
 ];
 

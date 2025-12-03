@@ -1,6 +1,6 @@
 /**
  * @file MockOutgoingPort.hpp
- * @brief Mock implementation of ExtrapTrackDataOutgoingPort for unit testing
+ * @brief Mock implementation of IExtrapTrackDataOutgoingPort for unit testing
  * @details Records sent ExtrapTrackData for verification without network operations.
  *          Enables %95+ test coverage for domain logic (TrackDataExtrapolator).
  * 
@@ -28,7 +28,7 @@
 #ifndef A_HEXAGON_TEST_MOCKS_MOCK_OUTGOING_PORT_HPP
 #define A_HEXAGON_TEST_MOCKS_MOCK_OUTGOING_PORT_HPP
 
-#include "domain/ports/outgoing/ExtrapTrackDataOutgoingPort.hpp"
+#include "domain/ports/outgoing/IExtrapTrackDataOutgoingPort.hpp"
 #include "domain/model/ExtrapTrackData.hpp"
 #include <vector>
 #include <mutex>
@@ -43,7 +43,7 @@ namespace mocks {
 
 /**
  * @class MockOutgoingPort
- * @brief Mock implementation of ExtrapTrackDataOutgoingPort for unit testing
+ * @brief Mock implementation of IExtrapTrackDataOutgoingPort for unit testing
  * @details Thread-safe recording of all sent ExtrapTrackData for verification
  * 
  * Features:
@@ -53,7 +53,7 @@ namespace mocks {
  * - Configurable failure injection
  * - Timing capture for latency analysis
  */
-class MockOutgoingPort : public domain::ports::outgoing::ExtrapTrackDataOutgoingPort {
+class MockOutgoingPort : public domain::ports::outgoing::IExtrapTrackDataOutgoingPort {
 public:
     /**
      * @brief Sent data record with timing information
@@ -67,7 +67,7 @@ public:
     MockOutgoingPort() = default;
     ~MockOutgoingPort() override = default;
 
-    // ==================== ExtrapTrackDataOutgoingPort Interface ====================
+    // ==================== IExtrapTrackDataOutgoingPort Interface ====================
 
     /**
      * @brief Record vector of ExtrapTrackData (mock implementation)

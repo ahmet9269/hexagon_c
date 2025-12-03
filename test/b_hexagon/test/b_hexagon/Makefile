@@ -10,7 +10,7 @@ INCLUDES = -I../../src/b_hexagon -I../../src -I$(APP_LIB_DIR)/include -I$(TEST_L
 
 # Link flags - application libs from ../../lib, test libs from ./lib
 LDFLAGS = -L$(APP_LIB_DIR) -L$(TEST_LIB_DIR) \
-          -Wl,-rpath,'$$ORIGIN/../../lib' -Wl,-rpath,'$$ORIGIN/lib' \
+          -Wl,-rpath,'$$ORIGIN/../../../lib' -Wl,-rpath,'$$ORIGIN/../lib' \
           -lspdlog -lzmq \
           -lgtest -lgtest_main -lgmock \
           -lpthread

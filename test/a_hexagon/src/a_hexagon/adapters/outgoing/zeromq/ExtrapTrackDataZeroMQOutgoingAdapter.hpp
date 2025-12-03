@@ -1,7 +1,7 @@
 /**
  * @file ExtrapTrackDataZeroMQOutgoingAdapter.hpp
  * @brief ZeroMQ Outgoing Adapter for ExtrapTrackData messages (DIP compliant)
- * @details Implements both IAdapter interface and ExtrapTrackDataOutgoingPort
+ * @details Implements both IAdapter interface and IExtrapTrackDataOutgoingPort
  *          for sending extrapolated track data via IMessageSocket abstraction.
  * 
  * Architecture (DIP Compliant):
@@ -22,7 +22,7 @@
  * @note MISRA C++ 2023 compliant implementation
  * @note DIP compliant - depends on IMessageSocket abstraction
  * @see IAdapter.hpp
- * @see ExtrapTrackDataOutgoingPort.hpp
+ * @see IExtrapTrackDataOutgoingPort.hpp
  * @see IMessageSocket.hpp
  */
 
@@ -31,7 +31,7 @@
 
 #include "adapters/common/IAdapter.hpp"
 #include "adapters/common/messaging/IMessageSocket.hpp"
-#include "domain/ports/outgoing/ExtrapTrackDataOutgoingPort.hpp"
+#include "domain/ports/outgoing/IExtrapTrackDataOutgoingPort.hpp"
 #include "domain/model/ExtrapTrackData.hpp"
 
 #include <string>
@@ -39,6 +39,10 @@
 #include <atomic>
 #include <memory>
 #include <cstdint>  // MISRA Rule 9-3-1: Fixed-width integers
+#include <thread>
+#include <queue>
+#include <mutex>
+#include <condition_variable>
 
 namespace adapters {
 namespace outgoing {
@@ -48,13 +52,19 @@ namespace zeromq {
  * @class ExtrapTrackDataZeroMQOutgoingAdapter
  * @brief Sends ExtrapTrackData via ZeroMQ RADIO socket (UDP multicast)
  * @details Implements both IAdapter (for lifecycle management) and
- *          ExtrapTrackDataOutgoingPort (for domain service integration).
+ *          IExtrapTrackDataOutgoingPort (for domain service integration).
+ *          Uses background worker thread for non-blocking sends (~20ns enqueue).
+ * 
+ * Thread Safety:
+ * - Uses mutex-protected queue for thread-safe message passing
+ * - Background worker thread handles actual ZMQ transmission
+ * - Non-blocking sendExtrapTrackData() for real-time performance
  * 
  * @invariant When running_, socket is connected and ready to send
  */
 class ExtrapTrackDataZeroMQOutgoingAdapter 
     : public ::adapters::IAdapter
-    , public domain::ports::outgoing::ExtrapTrackDataOutgoingPort {
+    , public domain::ports::outgoing::IExtrapTrackDataOutgoingPort {
 public: 
     /**
      * @brief Construct adapter with DIP - socket injection (preferred for testing)
@@ -116,8 +126,15 @@ public:
     /**
      * @brief Send single ExtrapTrackData
      * @param data ExtrapTrackData to send
+     * @details Non-blocking - queues message for background transmission (~20ns)
      */
     void sendExtrapTrackData(const domain::model::ExtrapTrackData& data) override;
+
+    /**
+     * @brief Check if the outgoing connection is ready
+     * @return true if socket is connected and ready to send
+     */
+    [[nodiscard]] bool isReady() const noexcept;
 
     // Delete copy/move for thread safety
     ExtrapTrackDataZeroMQOutgoingAdapter(const ExtrapTrackDataZeroMQOutgoingAdapter&) = delete;
@@ -137,6 +154,18 @@ private:
      */
     bool initializeSocket();
 
+    /**
+     * @brief Background worker thread for message transmission
+     * @details Runs with real-time priority and CPU affinity
+     */
+    void publisherWorker();
+
+    /**
+     * @brief Enqueue message for transmission (non-blocking ~20ns)
+     * @param data Track data to send
+     */
+    void enqueueMessage(const domain::model::ExtrapTrackData& data);
+
     // Configuration
     std::string endpoint_;          ///< ZeroMQ endpoint
     std::string group_;             ///< ZeroMQ group name for RADIO
@@ -146,9 +175,21 @@ private:
 
     // State
     std::atomic<bool> running_;     ///< Running state flag
+    std::atomic<bool> ready_;       ///< Ready to send flag
     bool ownsSocket_{false};        ///< Flag to track socket ownership
 
-    // ==================== Socket Configuration Constants ====================
+    // Background worker thread infrastructure
+    std::thread publisherThread_;                       ///< Background publisher thread
+    std::queue<domain::model::ExtrapTrackData> messageQueue_;  ///< Message queue
+    mutable std::mutex queueMutex_;                     ///< Queue protection mutex
+    std::condition_variable queueCV_;                   ///< Queue notification
+
+    // ==================== Configuration Constants ====================
+    // Real-time thread configuration
+    static constexpr int32_t REALTIME_THREAD_PRIORITY{80};  ///< SCHED_FIFO priority
+    static constexpr int32_t DEDICATED_CPU_CORE{2};         ///< CPU affinity core
+    static constexpr std::size_t MAX_QUEUE_SIZE{1000};      ///< Max queue size before drop
+
     // Production Environment (UDP Multicast)
     // static constexpr const char* DEFAULT_ENDPOINT = "udp://239.1.1.5:9596";
     

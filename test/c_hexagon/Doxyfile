@@ -6,7 +6,7 @@
 #---------------------------------------------------------------------------
 
 PROJECT_NAME           = "C_Hexagon"
-PROJECT_NUMBER         = "1.0.0"
+PROJECT_NUMBER         = "1.1.0"
 PROJECT_BRIEF          = "Thread-per-Type Hexagonal Architecture ZeroMQ Application"
 PROJECT_LOGO           = 
 OUTPUT_DIRECTORY       = docs
@@ -130,7 +130,18 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 
 INPUT                  = src/c_hexagon \
-                         README.md
+                         src/c_hexagon/adapters \
+                         src/c_hexagon/adapters/common \
+                         src/c_hexagon/adapters/incoming/zeromq \
+                         src/c_hexagon/adapters/outgoing/zeromq \
+                         src/c_hexagon/domain \
+                         src/c_hexagon/domain/logic \
+                         src/c_hexagon/domain/model \
+                         src/c_hexagon/domain/ports \
+                         src/c_hexagon/domain/ports/incoming \
+                         src/c_hexagon/domain/ports/outgoing \
+                         src/c_hexagon/utils \
+                         doc/mainpage.md
 INPUT_ENCODING         = UTF-8
 INPUT_FILE_ENCODING    = 
 FILE_PATTERNS          = *.c \
@@ -163,7 +174,7 @@ INPUT_FILTER           =
 FILTER_PATTERNS        = 
 FILTER_SOURCE_FILES    = NO
 FILTER_SOURCE_PATTERNS = 
-USE_MDFILE_AS_MAINPAGE = README.md
+USE_MDFILE_AS_MAINPAGE = doc/mainpage.md
 
 #---------------------------------------------------------------------------
 # Configuration options related to source browsing
@@ -311,7 +322,7 @@ SKIP_FUNCTION_MACROS   = YES
 #---------------------------------------------------------------------------
 
 TAGFILES               = 
-GENERATE_TAGFILE       = 
+GENERATE_TAGFILE       = doc/c_hexagon.tag
 ALLEXTERNALS           = NO
 EXTERNAL_GROUPS        = YES
 EXTERNAL_PAGES         = YES

@@ -1,29 +1,34 @@
 <map id="a_hexagon/domain/ports/TrackData.hpp" name="a_hexagon/domain/ports/TrackData.hpp">
-<area shape="rect" id="Node000001" title="Header file for TrackData model class." alt="" coords="279,5,462,45"/>
-<area shape="rect" id="Node000002" href="$dd/d03/TrackDataTest_8cpp.html" title="Unit tests for TrackData model class." alt="" coords="5,93,200,163"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="308,53,193,96,192,91,307,48"/>
-<area shape="rect" id="Node000003" href="$da/d03/TrackDataZeroMQIncomingAdapter_8hpp.html" title="ZeroMQ UDP DISH Incoming Adapter for TrackData messages." alt="" coords="209,211,421,265"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="308,54,284,72,265,95,258,112,256,127,265,162,277,187,292,209,288,212,272,189,260,164,251,127,252,111,260,92,280,68,305,50"/>
-<area shape="rect" id="Node000006" href="$df/d00/TrackData_8cpp.html" title="Implementation of TrackData model class." alt="" coords="275,108,466,148"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="373,59,373,108,368,108,368,59"/>
-<area shape="rect" id="Node000007" href="$d9/d03/model_2TrackData_8hpp.html" title="Redirect header for TrackData model." alt="" coords="726,218,917,258"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="476,35,617,57,679,73,723,91,756,120,783,154,816,217,811,219,778,157,752,123,720,96,678,78,616,63,475,40"/>
-<area shape="rect" id="Node000011" href="$d1/d03/ITrackDataIncomingPort_8hpp.html" title=" " alt="" coords="491,101,709,155"/>
-<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="427,48,541,98,539,103,425,53"/>
-<area shape="rect" id="Node000004" href="$d5/d00/TrackDataZeroMQIncomingAdapter_8cpp.html" title="ZeroMQ UDP DISH Incoming Adapter implementation." alt="" coords="137,313,348,368"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="290,278,264,315,259,312,286,275"/>
-<area shape="rect" id="Node000005" href="$df/d02/main_8cpp.html" title="Main entry point for A_Hexagon application." alt="" coords="307,438,464,463"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="344,275,362,312,373,347,381,383,387,437,382,438,375,383,368,349,358,314,339,278"/>
-<area shape="rect" id="Node000008" href="$d3/d00/TrackDataExtrapolatorTest_8cpp.html" title="Unit tests for TrackDataExtrapolator domain logic." alt="" coords="709,416,933,485"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="824,272,824,416,819,416,819,272"/>
-<area shape="rect" id="Node000009" href="$d7/d03/TrackDataExtrapolator_8hpp.html" title=" " alt="" coords="487,321,686,361"/>
-<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="766,266,632,323,630,318,764,261"/>
-<area shape="poly" id="edge11_Node000009_Node000005" title=" " alt="" coords="541,369,408,440,406,435,539,365"/>
-<area shape="poly" id="edge9_Node000009_Node000008" title=" " alt="" coords="641,364,749,413,747,418,639,369"/>
-<area shape="rect" id="Node000010" href="$dc/d02/TrackDataExtrapolator_8cpp.html" title=" " alt="" coords="488,431,685,471"/>
-<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="589,374,589,430,584,430,584,374"/>
-<area shape="poly" id="edge13_Node000011_Node000003" title=" " alt="" coords="519,163,385,213,383,208,517,158"/>
-<area shape="rect" id="Node000012" href="$dc/d01/TrackDataIncomingPort_8h.html" title="Legacy header &#45; redirects to ITrackDataIncomingPort.hpp." alt="" coords="448,218,701,258"/>
-<area shape="poly" id="edge14_Node000011_Node000012" title=" " alt="" coords="593,170,582,218,577,217,588,169"/>
-<area shape="poly" id="edge15_Node000012_Node000009" title=" " alt="" coords="581,271,587,320,582,321,576,272"/>
+<area shape="rect" id="Node000001" title="Header file for TrackData model class." alt="" coords="642,5,825,45"/>
+<area shape="rect" id="Node000002" href="$d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html" title="Unit tests for TrackDataZeroMQIncomingAdapter with DIP compliance." alt="" coords="5,328,312,397"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="629,34,562,41,489,53,414,70,342,96,290,118,251,139,218,168,186,212,173,240,165,271,160,328,155,327,160,270,168,239,182,209,215,164,248,135,288,113,340,91,413,65,488,47,562,35,628,29"/>
+<area shape="rect" id="Node000003" href="$d3/d00/TrackDataExtrapolatorTest_8cpp.html" title="Unit tests for TrackDataExtrapolator domain logic." alt="" coords="973,328,1197,397"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="826,47,870,66,910,91,938,126,981,190,1067,327,1063,329,976,193,934,129,906,95,867,70,824,52"/>
+<area shape="rect" id="Node000004" href="$dd/d03/TrackDataTest_8cpp.html" title="Unit tests for TrackData model class." alt="" coords="972,93,1167,163"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="810,47,973,95,971,100,809,52"/>
+<area shape="rect" id="Node000005" href="$d8/d00/MockIncomingPort_8hpp.html" title="Mock implementation of ITrackDataIncomingPort for unit testing." alt="" coords="196,211,439,280"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="629,40,496,62,439,77,400,96,375,121,354,151,329,211,324,209,350,148,370,117,397,91,437,72,495,57,628,35"/>
+<area shape="rect" id="Node000006" href="$da/d03/TrackDataZeroMQIncomingAdapter_8hpp.html" title="ZeroMQ UDP DISH Incoming Adapter for TrackData messages." alt="" coords="463,218,675,273"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="717,59,643,164,596,219,592,216,639,161,712,56"/>
+<area shape="rect" id="Node000009" href="$df/d00/TrackData_8cpp.html" title="Implementation of TrackData model class." alt="" coords="1191,108,1382,148"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="839,35,1000,57,1179,91,1232,105,1231,110,1178,96,999,62,838,41"/>
+<area shape="rect" id="Node000010" href="$d9/d03/model_2TrackData_8hpp.html" title="Redirect header for TrackData model." alt="" coords="705,108,895,148"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="756,55,790,106,785,109,751,58"/>
+<area shape="rect" id="Node000013" href="$d1/d03/ITrackDataIncomingPort_8hpp.html" title="Input port interface for TrackData processing." alt="" coords="411,101,629,155"/>
+<area shape="poly" id="edge16_Node000001_Node000013" title=" " alt="" coords="682,54,577,103,575,98,680,49"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="262,290,207,330,204,325,259,286"/>
+<area shape="poly" id="edge7_Node000006_Node000002" title=" " alt="" coords="464,279,451,283,279,331,278,325,450,277,463,274"/>
+<area shape="rect" id="Node000007" href="$d5/d00/TrackDataZeroMQIncomingAdapter_8cpp.html" title="ZeroMQ Incoming Adapter implementation (DIP compliant)" alt="" coords="336,335,547,390"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="532,284,472,337,469,333,528,280"/>
+<area shape="rect" id="Node000008" href="$df/d02/main_8cpp.html" title="Main entry point for A_Hexagon application." alt="" coords="571,350,728,375"/>
+<area shape="poly" id="edge9_Node000006_Node000008" title=" " alt="" coords="598,282,643,348,639,351,593,286"/>
+<area shape="rect" id="Node000011" href="$d7/d03/TrackDataExtrapolator_8hpp.html" title="Domain service for track data extrapolation." alt="" coords="699,225,898,265"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="802,162,802,225,796,225,797,162"/>
+<area shape="poly" id="edge13_Node000011_Node000003" title=" " alt="" coords="859,268,1003,325,1001,330,857,273"/>
+<area shape="poly" id="edge15_Node000011_Node000008" title=" " alt="" coords="765,276,666,352,663,348,761,272"/>
+<area shape="rect" id="Node000012" href="$dc/d02/TrackDataExtrapolator_8cpp.html" title="Implementation of TrackDataExtrapolator domain service." alt="" coords="752,343,949,383"/>
+<area shape="poly" id="edge14_Node000011_Node000012" title=" " alt="" coords="815,277,844,341,840,343,811,279"/>
+<area shape="poly" id="edge17_Node000013_Node000005" title=" " alt="" coords="463,164,378,213,375,208,461,160"/>
+<area shape="poly" id="edge18_Node000013_Node000006" title=" " alt="" coords="539,167,560,217,556,219,534,169"/>
+<area shape="poly" id="edge19_Node000013_Node000011" title=" " alt="" coords="597,158,754,223,752,228,595,163"/>
 </map>

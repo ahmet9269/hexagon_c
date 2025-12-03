@@ -3,6 +3,12 @@ OBJ_DIR := .obj
 BIN_DIR := bin
 THIRD_PARTY_DIR := lib
 
+# Get absolute path for library directory
+LIB_ABS_PATH := $(shell pwd)/$(THIRD_PARTY_DIR)
+
+# Set LD_LIBRARY_PATH to include our lib directory
+export LD_LIBRARY_PATH := $(LIB_ABS_PATH):$(LD_LIBRARY_PATH)
+
 # external headers will be located under lib/include/ directory
 INC_DIRS = -I$(SRC_DIR) -I$(THIRD_PARTY_DIR)/include
 
@@ -15,19 +21,22 @@ INC_DIRS = -I$(SRC_DIR) -I$(THIRD_PARTY_DIR)/include
 # Wunused: warn about unused stuffs such as unused parameters and variables
 # Wuninitialized: warn about uninitialized variables
 # Wsign-compare: warn about signed-unsigned comparision
+# SPDLOG_COMPILED_LIB: Use spdlog as compiled library (not header-only)
+# Note: ZMQ_BUILD_DRAFT_API is defined in lib/include/zmq_config.hpp
 CXX := g++
-CPPFLAGS = -std=c++17 $(INC_DIRS) -L$(THIRD_PARTY_DIR) -O3 -Wall -Wpedantic -Wextra -Wconversion -Wcast-align -Wunused -Wuninitialized -Wsign-compare -lpthread
+CPPFLAGS = -std=c++17 $(INC_DIRS) -L$(THIRD_PARTY_DIR) -O3 -Wall -Wpedantic -Wextra -Wconversion -Wcast-align -Wunused -Wuninitialized -Wsign-compare -DSPDLOG_COMPILED_LIB -pthread
 
-# Acquiring external .so files (ie. libzmq.so)
-SO_FILES = $(notdir $(shell find $(THIRD_PARTY_LIB) -type f -name "*.so"))
+# Acquiring external .so files from lib directory (ie. libzmq.so, libspdlog.so)
+SO_FILES = $(notdir $(shell find $(THIRD_PARTY_DIR) -maxdepth 1 -type f -name "*.so" -o -type l -name "*.so"))
 # Removing 'lib' prefixes (ie. libzmq.so -> zmq.so)
-SO_LIB_NAME = $(shell echo $(SO_FILES) | sed 's/lib//')
+SO_LIB_NAME = $(shell echo $(SO_FILES) | sed 's/lib//g')
 # Removing .so and adding -l prefix (ie. zmq.so -> zmq -> -lzmq) 
 SO_LD_FLAGS = $(shell for lib in $(SO_LIB_NAME); do echo $$lib | cut -d"." -f1 | sed 's/^/-l/'; done)
 
-LD_FLAGS = $(SO_LD_FLAGS)
+# Add pthread for threading support
+LD_FLAGS = $(SO_LD_FLAGS) -lpthread
 
-RPATH_CONFIG = -Wl,-rpath,'$$ORIGIN/lib'
+RPATH_CONFIG = -Wl,-rpath,'$$ORIGIN/../lib'
 
 # Directories will be checked out by check_dirs target
 CHECK_DIRS = $(SRC_DIR)/adapters $(SRC_DIR)/domain $(SRC_DIR)/utils \
@@ -51,11 +60,20 @@ exec : check_necessary_dirs check_necessary_files generate_executable
 objs : check_necessary_dirs generate_objects
 
 # Generating executable file under bin/ directory
-generate_executable : generate_objects
+generate_executable : compile_all_sources
 	@echo -e "\n $(DASHES) \n  GENERATING EXECUTABLE $(EXECUTABLE_NAME) \n $(DASHES) \n "
 	@if [ ! -d ./$(BIN_DIR) ]; then mkdir -p ./$(BIN_DIR); fi
 	@$(CXX) $(CPPFLAGS) .obj/*.o -o $(BIN_DIR)/$(PSUEODAPPNAME) $(LD_FLAGS) $(RPATH_CONFIG)
 	@echo $(DASHES)
+
+# Compile all source files found in SRC_DIR
+compile_all_sources:
+	@if [ ! -d ./$(OBJ_DIR) ]; then mkdir -p ./$(OBJ_DIR); fi
+	@for src in $(SRC_FILES); do \
+		obj=$(OBJ_DIR)/$$(basename $${src%.cpp}.o); \
+		echo -e "\n $(DASHES) \n  GENERATING OBJECT FILE : $$(basename $$obj) \n $(DASHES) \n "; \
+		$(CXX) $(CPPFLAGS) -c $$src -o $$obj; \
+	done
  
 generate_objects : $(OBJ_FILES)
 

@@ -1,12 +1,12 @@
 <map id="a_hexagon/domain/ports/outgoing/ExtrapTrackDataOutgoingPort.cpp" name="a_hexagon/domain/ports/outgoing/ExtrapTrackDataOutgoingPort.cpp">
 <area shape="rect" id="Node000001" title=" " alt="" coords="284,5,537,60"/>
-<area shape="rect" id="Node000002" href="$d6/d01/ExtrapTrackDataOutgoingPort_8hpp.html" title=" " alt="" coords="287,108,534,148"/>
+<area shape="rect" id="Node000002" href="$d6/d01/ExtrapTrackDataOutgoingPort_8hpp.html" title="Output port interface for ExtrapTrackData transmission." alt="" coords="287,108,534,148"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="413,60,413,94,408,94,408,60"/>
 <area shape="rect" id="Node000003" href="$d7/d00/model_2ExtrapTrackData_8hpp.html" title="Redirect header for ExtrapTrackData model." alt="" coords="245,196,441,236"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="398,150,368,187,364,183,393,147"/>
 <area shape="rect" id="Node000009" title=" " alt="" coords="469,372,531,397"/>
 <area shape="poly" id="edge10_Node000002_Node000009" title=" " alt="" coords="427,147,454,195,471,239,483,284,499,358,494,359,478,285,465,241,450,197,422,150"/>
-<area shape="rect" id="Node000004" href="$d3/d02/ports_2ExtrapTrackData_8hpp.html" title=" " alt="" coords="227,284,415,324"/>
+<area shape="rect" id="Node000004" href="$d3/d02/ports_2ExtrapTrackData_8hpp.html" title="Header file for ExtrapTrackData model class." alt="" coords="227,284,415,324"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="341,237,332,271,327,270,335,236"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="5,372,64,397"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="253,327,78,374,76,369,251,322"/>

@@ -21,7 +21,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="Initialize ZeroMQ socket.">
+<g id="a_Node000001"><a xlink:title="Initialize socket (for legacy constructor)">
 <polygon fill="#999999" stroke="#666666" points="400,-41 204,-41 204,0 400,0 400,-41"/>
 <text text-anchor="start" x="212" y="-29" font-family="Helvetica,sans-Serif" font-size="10.00">adapters::outgoing</text>
 <text text-anchor="start" x="212" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">::zeromq::ExtrapTrackDataZero</text>

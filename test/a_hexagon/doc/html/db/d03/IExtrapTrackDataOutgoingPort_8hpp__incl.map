@@ -1,0 +1,20 @@
+<map id="a_hexagon/domain/ports/outgoing/IExtrapTrackDataOutgoingPort.hpp" name="a_hexagon/domain/ports/outgoing/IExtrapTrackDataOutgoingPort.hpp">
+<area shape="rect" id="Node000001" title="Output port interface for ExtrapTrackData transmission." alt="" coords="282,5,539,60"/>
+<area shape="rect" id="Node000002" href="$d7/d00/model_2ExtrapTrackData_8hpp.html" title="Redirect header for ExtrapTrackData model." alt="" coords="245,108,441,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="394,62,367,98,362,95,389,59"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="469,284,531,309"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="430,59,454,107,482,196,498,269,493,271,477,197,450,109,425,61"/>
+<area shape="rect" id="Node000003" href="$d3/d02/ports_2ExtrapTrackData_8hpp.html" title="Header file for ExtrapTrackData model class." alt="" coords="227,196,415,236"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="341,149,332,183,327,182,335,148"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,284,64,309"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="253,239,78,286,76,281,251,234"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="88,284,155,309"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="274,239,164,281,162,276,272,234"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="179,284,266,309"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="299,238,250,277,247,273,296,234"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="290,284,353,309"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="324,236,324,270,319,270,319,236"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="365,234,462,276,460,281,363,238"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="377,284,444,309"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="345,234,389,273,385,277,341,238"/>
+</map>

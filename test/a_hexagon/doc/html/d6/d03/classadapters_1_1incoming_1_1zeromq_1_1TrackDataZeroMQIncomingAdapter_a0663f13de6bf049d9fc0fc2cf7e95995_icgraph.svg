@@ -21,7 +21,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="Load ZeroMQ configuration.">
+<g id="a_Node000001"><a xlink:title="Load configuration (for legacy constructors)">
 <polygon fill="#999999" stroke="#666666" points="466,-70 268,-70 268,-29 466,-29 466,-70"/>
 <text text-anchor="start" x="276" y="-58" font-family="Helvetica,sans-Serif" font-size="10.00">adapters::incoming</text>
 <text text-anchor="start" x="276" y="-47" font-family="Helvetica,sans-Serif" font-size="10.00">::zeromq::TrackDataZeroMQIncoming</text>
@@ -52,7 +52,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="../../d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a13af47fb1399618c71d6f434465d6f97" target="_top" xlink:title="Construct adapter with domain port (shared_ptr &#45; preferred)">
+<g id="a_Node000003"><a xlink:href="../../d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a13af47fb1399618c71d6f434465d6f97" target="_top" xlink:title="Construct adapter with domain port (shared_ptr &#45; legacy)">
 <polygon fill="white" stroke="#666666" points="232,-41 0,-41 0,0 232,0 232,-41"/>
 <text text-anchor="start" x="8" y="-29" font-family="Helvetica,sans-Serif" font-size="10.00">adapters::incoming</text>
 <text text-anchor="start" x="8" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">::zeromq::TrackDataZeroMQIncoming</text>

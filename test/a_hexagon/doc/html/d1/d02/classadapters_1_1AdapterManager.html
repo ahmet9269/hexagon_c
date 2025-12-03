@@ -25,9 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">a_hexagon<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">a_hexagon<span id="projectnumber">&#160;2.1.0</span>
    </div>
-   <div id="projectbrief">Hexagonal Architecture Track Data Processing Application</div>
+   <div id="projectbrief">Hexagonal Architecture Track Data Extrapolation System - Thread-per-Type Pattern with DIP Compliant Socket Abstraction</div>
   </td>
  </tr>
  </tbody>
@@ -148,6 +148,9 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:a9950df3adbb11be2609e224ac7baef0a" id="r_a9950df3adbb11be2609e224ac7baef0a"><td class="memItemLeft" align="right" valign="top">std::shared_mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#a9950df3adbb11be2609e224ac7baef0a">pipelines_mutex_</a></td></tr>
+<tr class="memdesc:a9950df3adbb11be2609e224ac7baef0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read-write mutex for pipeline access.  <br /></td></tr>
+<tr class="separator:a9950df3adbb11be2609e224ac7baef0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a041480d4461548ffc80ed66edbb120eb" id="r_a041480d4461548ffc80ed66edbb120eb"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="../../dd/d00/classadapters_1_1MessagePipeline.html">MessagePipeline</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#a041480d4461548ffc80ed66edbb120eb">pipelines_</a></td></tr>
 <tr class="memdesc:a041480d4461548ffc80ed66edbb120eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registered pipelines.  <br /></td></tr>
 <tr class="separator:a041480d4461548ffc80ed66edbb120eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -168,16 +171,15 @@ Private Attributes</h2></td></tr>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line">manager.<a class="code hl_function" href="../../d1/d02/classadapters_1_1AdapterManager.html#a733765e3a1e5b4c99f4f2162dbe96f95">stopAll</a>();</div>
-<div class="ttc" id="aclassadapters_1_1AdapterManager_html"><div class="ttname"><a href="../../d1/d02/classadapters_1_1AdapterManager.html">adapters::AdapterManager</a></div><div class="ttdoc">Manages all message pipelines with thread-per-type isolation.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d00/AdapterManager_8hpp_source.html#l00066">AdapterManager.hpp:66</a></div></div>
-<div class="ttc" id="aclassadapters_1_1AdapterManager_html_a5c65f1bea8587352914aa1b34cd093b9"><div class="ttname"><a href="../../d1/d02/classadapters_1_1AdapterManager.html#a5c65f1bea8587352914aa1b34cd093b9">adapters::AdapterManager::startAll</a></div><div class="ttdeci">bool startAll()</div><div class="ttdoc">Start all registered pipelines.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d00/AdapterManager_8hpp_source.html#l00106">AdapterManager.hpp:106</a></div></div>
-<div class="ttc" id="aclassadapters_1_1AdapterManager_html_a733765e3a1e5b4c99f4f2162dbe96f95"><div class="ttname"><a href="../../d1/d02/classadapters_1_1AdapterManager.html#a733765e3a1e5b4c99f4f2162dbe96f95">adapters::AdapterManager::stopAll</a></div><div class="ttdeci">void stopAll() noexcept</div><div class="ttdoc">Stop all pipelines gracefully.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d00/AdapterManager_8hpp_source.html#l00123">AdapterManager.hpp:123</a></div></div>
-<div class="ttc" id="aclassadapters_1_1AdapterManager_html_ab0d33febc0c6ebf1f8214629aa667699"><div class="ttname"><a href="../../d1/d02/classadapters_1_1AdapterManager.html#ab0d33febc0c6ebf1f8214629aa667699">adapters::AdapterManager::registerPipeline</a></div><div class="ttdeci">void registerPipeline(MessagePipeline pipeline)</div><div class="ttdoc">Register a new message pipeline.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d00/AdapterManager_8hpp_source.html#l00095">AdapterManager.hpp:95</a></div></div>
+<div class="ttc" id="aclassadapters_1_1AdapterManager_html"><div class="ttname"><a href="../../d1/d02/classadapters_1_1AdapterManager.html">adapters::AdapterManager</a></div><div class="ttdoc">Manages all message pipelines with thread-per-type isolation.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d00/AdapterManager_8hpp_source.html#l00068">AdapterManager.hpp:68</a></div></div>
+<div class="ttc" id="aclassadapters_1_1AdapterManager_html_a5c65f1bea8587352914aa1b34cd093b9"><div class="ttname"><a href="../../d1/d02/classadapters_1_1AdapterManager.html#a5c65f1bea8587352914aa1b34cd093b9">adapters::AdapterManager::startAll</a></div><div class="ttdeci">bool startAll()</div><div class="ttdoc">Start all registered pipelines.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d00/AdapterManager_8hpp_source.html#l00111">AdapterManager.hpp:111</a></div></div>
+<div class="ttc" id="aclassadapters_1_1AdapterManager_html_a733765e3a1e5b4c99f4f2162dbe96f95"><div class="ttname"><a href="../../d1/d02/classadapters_1_1AdapterManager.html#a733765e3a1e5b4c99f4f2162dbe96f95">adapters::AdapterManager::stopAll</a></div><div class="ttdeci">void stopAll() noexcept</div><div class="ttdoc">Stop all pipelines gracefully.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d00/AdapterManager_8hpp_source.html#l00130">AdapterManager.hpp:130</a></div></div>
+<div class="ttc" id="aclassadapters_1_1AdapterManager_html_ab0d33febc0c6ebf1f8214629aa667699"><div class="ttname"><a href="../../d1/d02/classadapters_1_1AdapterManager.html#ab0d33febc0c6ebf1f8214629aa667699">adapters::AdapterManager::registerPipeline</a></div><div class="ttdeci">void registerPipeline(MessagePipeline pipeline)</div><div class="ttdoc">Register a new message pipeline.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d00/AdapterManager_8hpp_source.html#l00098">AdapterManager.hpp:98</a></div></div>
 <div class="ttc" id="aclassadapters_1_1MessagePipeline_html"><div class="ttname"><a href="../../dd/d00/classadapters_1_1MessagePipeline.html">adapters::MessagePipeline</a></div><div class="ttdoc">Encapsulates a complete message processing pipeline.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d01/MessagePipeline_8hpp_source.html#l00049">MessagePipeline.hpp:49</a></div></div>
-</div><!-- fragment --><dl class="section invariant"><dt>Invariant</dt><dd>pipelines_ contains only valid <a class="el" href="../../dd/d00/classadapters_1_1MessagePipeline.html" title="Encapsulates a complete message processing pipeline.">MessagePipeline</a> objects </dd>
-<dd>
-running_ reflects actual state of pipelines </dd></dl>
+</div><!-- fragment --><dl class="section user"><dt>Class Invariants:</dt><dd>pipelines_ contains only valid <a class="el" href="../../dd/d00/classadapters_1_1MessagePipeline.html" title="Encapsulates a complete message processing pipeline.">MessagePipeline</a> objects </dd></dl>
+<dl class="section user"><dt>Class Invariants:</dt><dd>running_ reflects actual state of pipelines </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00066">66</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00068">68</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6611af26cd0c5c153339f97fc8769ef6" name="a6611af26cd0c5c153339f97fc8769ef6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6611af26cd0c5c153339f97fc8769ef6">&#9670;&#160;</a></span>AdapterManager() <span class="overload">[1/3]</span></h2>
@@ -207,7 +209,7 @@ running_ reflects actual state of pipelines </dd></dl>
 <dd>
 <a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#ad63c2c791587e7a4b5924dfc2bba1266" title="Get number of registered pipelines.">getPipelineCount()</a> returns 0 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00073">73</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00075">75</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
 
 </div>
 </div>
@@ -237,9 +239,9 @@ running_ reflects actual state of pipelines </dd></dl>
 <p>Destructor - stops all pipelines. </p>
 <p>Ensures graceful shutdown of all registered pipelines </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00079">79</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00081">81</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00123">stopAll()</a>.</p>
+<p class="reference">References <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00130">stopAll()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -333,10 +335,11 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Const pointer to pipeline if found, nullptr otherwise </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Thread-safe via shared_mutex (read lock) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00162">162</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00175">175</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00169">pipelines_</a>.</p>
+<p class="reference">References <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00184">pipelines_</a>, and <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00183">pipelines_mutex_</a>.</p>
 
 </div>
 </div>
@@ -372,10 +375,11 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to pipeline if found, nullptr otherwise </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Thread-safe via shared_mutex (read lock) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00151">151</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00162">162</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00169">pipelines_</a>.</p>
+<p class="reference">References <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00184">pipelines_</a>, and <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00183">pipelines_mutex_</a>.</p>
 
 </div>
 </div>
@@ -404,12 +408,13 @@ Here is the call graph for this function:</div>
 
 <p>Get number of registered pipelines. </p>
 <dl class="section return"><dt>Returns</dt><dd>Number of pipelines </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Thread-safe via shared_mutex (read lock) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00134">134</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00143">143</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00169">pipelines_</a>.</p>
+<p class="reference">References <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00184">pipelines_</a>, and <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00183">pipelines_mutex_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../df/d02/main_8cpp_source.html#l00066">main()</a>, and <a class="el" href="../../d1/d03/AdapterManagerTest_8cpp_source.html#l00060">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../df/d02/main_8cpp_source.html#l00130">main()</a>, and <a class="el" href="../../d1/d03/AdapterManagerTest_8cpp_source.html#l00060">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -444,9 +449,9 @@ Here is the caller graph for this function:</div>
 <p>Check if manager is running. </p>
 <dl class="section return"><dt>Returns</dt><dd>true if running </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00142">142</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00152">152</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00170">running_</a>.</p>
+<p class="reference">References <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00185">running_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d1/d03/AdapterManagerTest_8cpp_source.html#l00055">TEST_F()</a>.</p>
 <div class="dynheader">
@@ -542,12 +547,13 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section pre"><dt>Precondition</dt><dd>Manager should not be running when registering </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#ad63c2c791587e7a4b5924dfc2bba1266" title="Get number of registered pipelines.">getPipelineCount()</a> increases by 1 </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Thread-safe via mutex protection </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00095">95</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00098">98</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00169">pipelines_</a>.</p>
+<p class="reference">References <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00184">pipelines_</a>, and <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00183">pipelines_mutex_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../df/d02/main_8cpp_source.html#l00066">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../df/d02/main_8cpp_source.html#l00130">main()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -582,13 +588,15 @@ Here is the caller graph for this function:</div>
 <p>Start all registered pipelines. </p>
 <dl class="section return"><dt>Returns</dt><dd>true if all started successfully, false if any failed </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#a063037ae77316ede7b2fc346ce2f3496" title="Check if manager is running.">isRunning()</a> returns true if successful </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>If any pipeline fails to start, previously started pipelines remain running. Call <a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#a733765e3a1e5b4c99f4f2162dbe96f95" title="Stop all pipelines gracefully.">stopAll()</a> for cleanup. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If any pipeline fails to start, previously started pipelines remain running. Call <a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#a733765e3a1e5b4c99f4f2162dbe96f95" title="Stop all pipelines gracefully.">stopAll()</a> for cleanup. </dd>
+<dd>
+Thread-safe via mutex protection </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00106">106</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00111">111</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00169">pipelines_</a>, and <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00170">running_</a>.</p>
+<p class="reference">References <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00184">pipelines_</a>, <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00183">pipelines_mutex_</a>, and <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00185">running_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../df/d02/main_8cpp_source.html#l00066">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../df/d02/main_8cpp_source.html#l00130">main()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -624,12 +632,13 @@ Here is the caller graph for this function:</div>
 <dl class="section post"><dt>Postcondition</dt><dd><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#a063037ae77316ede7b2fc346ce2f3496" title="Check if manager is running.">isRunning()</a> returns false </dd>
 <dd>
 All pipeline.isRunning() return false </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Thread-safe via mutex protection </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00123">123</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00130">130</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00169">pipelines_</a>, and <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00170">running_</a>.</p>
+<p class="reference">References <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00184">pipelines_</a>, <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00183">pipelines_mutex_</a>, and <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00185">running_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00079">~AdapterManager()</a>, and <a class="el" href="../../df/d02/main_8cpp_source.html#l00066">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00081">~AdapterManager()</a>, and <a class="el" href="../../df/d02/main_8cpp_source.html#l00130">main()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -661,9 +670,37 @@ Here is the caller graph for this function:</div>
 
 <p>Registered pipelines. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00169">169</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00184">184</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00162">getPipeline()</a>, <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00151">getPipeline()</a>, <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00134">getPipelineCount()</a>, <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00095">registerPipeline()</a>, <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00106">startAll()</a>, and <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00123">stopAll()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00175">getPipeline()</a>, <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00162">getPipeline()</a>, <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00143">getPipelineCount()</a>, <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00098">registerPipeline()</a>, <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00111">startAll()</a>, and <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00130">stopAll()</a>.</p>
+
+</div>
+</div>
+<a id="a9950df3adbb11be2609e224ac7baef0a" name="a9950df3adbb11be2609e224ac7baef0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9950df3adbb11be2609e224ac7baef0a">&#9670;&#160;</a></span>pipelines_mutex_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_mutex adapters::AdapterManager::pipelines_mutex_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Read-write mutex for pipeline access. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00183">183</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00175">getPipeline()</a>, <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00162">getPipeline()</a>, <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00143">getPipelineCount()</a>, <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00098">registerPipeline()</a>, <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00111">startAll()</a>, and <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00130">stopAll()</a>.</p>
 
 </div>
 </div>
@@ -689,9 +726,9 @@ Here is the caller graph for this function:</div>
 
 <p>Manager running state. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00170">170</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00185">185</a> of file <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html">AdapterManager.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00142">isRunning()</a>, <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00106">startAll()</a>, and <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00123">stopAll()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00152">isRunning()</a>, <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00111">startAll()</a>, and <a class="el" href="../../d5/d00/AdapterManager_8hpp_source.html#l00130">stopAll()</a>.</p>
 
 </div>
 </div>
@@ -704,7 +741,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d2/d03/namespaceadapters.html">adapters</a></li><li class="navelem"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html">AdapterManager</a></li>
-    <li class="footer">Generated on Mon Dec 1 2025 13:08:49 for a_hexagon by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

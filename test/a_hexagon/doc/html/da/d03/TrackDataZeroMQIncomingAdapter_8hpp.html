@@ -25,9 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">a_hexagon<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">a_hexagon<span id="projectnumber">&#160;2.1.0</span>
    </div>
-   <div id="projectbrief">Hexagonal Architecture Track Data Processing Application</div>
+   <div id="projectbrief">Hexagonal Architecture Track Data Extrapolation System - Thread-per-Type Pattern with DIP Compliant Socket Abstraction</div>
   </td>
  </tr>
  </tbody>
@@ -92,8 +92,7 @@ $(document).ready(function(){initNavTree('da/d03/TrackDataZeroMQIncomingAdapter_
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle"><div class="title">TrackDataZeroMQIncomingAdapter.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -101,10 +100,9 @@ $(document).ready(function(){initNavTree('da/d03/TrackDataZeroMQIncomingAdapter_
 <p>ZeroMQ UDP DISH Incoming Adapter for TrackData messages.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="../../d0/d00/IAdapter_8hpp_source.html">adapters/common/IAdapter.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d03/IMessageSocket_8hpp_source.html">adapters/common/messaging/IMessageSocket.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d1/d03/ITrackDataIncomingPort_8hpp_source.html">domain/ports/incoming/ITrackDataIncomingPort.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../df/d03/ports_2TrackData_8hpp_source.html">domain/ports/TrackData.hpp</a>&quot;</code><br />
-<code>#include &quot;zmq_config.hpp&quot;</code><br />
-<code>#include &lt;zmq.hpp&gt;</code><br />
 <code>#include &lt;thread&gt;</code><br />
 <code>#include &lt;atomic&gt;</code><br />
 <code>#include &lt;memory&gt;</code><br />
@@ -113,12 +111,12 @@ $(document).ready(function(){initNavTree('da/d03/TrackDataZeroMQIncomingAdapter_
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for TrackDataZeroMQIncomingAdapter.hpp:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d2/d03/TrackDataZeroMQIncomingAdapter_8hpp__incl.svg" width="100%" height="525"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d2/d03/TrackDataZeroMQIncomingAdapter_8hpp__incl.svg" width="100%" height="536"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d1/d01/TrackDataZeroMQIncomingAdapter_8hpp__dep__incl.svg" width="403" height="168"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d1/d01/TrackDataZeroMQIncomingAdapter_8hpp__dep__incl.svg" width="100%" height="437"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="../../da/d03/TrackDataZeroMQIncomingAdapter_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -126,7 +124,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html">adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives TrackData via ZeroMQ DISH socket (UDP multicast)  <a href="../../d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives TrackData via IMessageSocket abstraction.  <a href="../../d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -137,49 +135,31 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:dd/d03/namespaceadapters_1_1incoming_1_1zeromq" id="r_dd/d03/namespaceadapters_1_1incoming_1_1zeromq"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d03/namespaceadapters_1_1incoming_1_1zeromq.html">adapters::incoming::zeromq</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ad7847aff3e15f1fa8862ffad9385a827" id="r_ad7847aff3e15f1fa8862ffad9385a827"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d03/TrackDataZeroMQIncomingAdapter_8hpp.html#ad7847aff3e15f1fa8862ffad9385a827">ZMQ_DISH</a>&#160;&#160;&#160;15</td></tr>
-<tr class="separator:ad7847aff3e15f1fa8862ffad9385a827"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>ZeroMQ UDP DISH Incoming Adapter for TrackData messages. </p>
 <p>Implements the IAdapter interface for receiving TrackData messages via ZeroMQ DISH socket (UDP multicast). Runs in its own thread as part of Thread-per-Type architecture.</p>
-<p>Architecture: ┌───────────────────────────────────────────────────────────┐ │ TrackDataZeroMQIncomingAdapter │ ├───────────────────────────────────────────────────────────┤ │ ZeroMQ DISH Socket (UDP Multicast) │ │ ↓ │ │ Binary Deserialization → TrackData Model │ │ ↓ │ │ ITrackDataIncomingPort::processAndForwardTrackData() │ └───────────────────────────────────────────────────────────┘</p>
-<dl class="section author"><dt>Author</dt><dd>a_hexagon Team </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>2.0 </dd></dl>
+<p>Architecture (DIP Compliant): ┌───────────────────────────────────────────────────────────┐ │ TrackDataZeroMQIncomingAdapter │ ├───────────────────────────────────────────────────────────┤ │ IMessageSocket (Abstraction) ← ZeroMQ/Mock │ │ ↓ │ │ Binary Deserialization → TrackData Model │ │ ↓ │ │ ITrackDataIncomingPort::processAndForwardTrackData() │ └───────────────────────────────────────────────────────────┘</p>
+<dl class="section author"><dt>Author</dt><dd><a class="el" href="../../db/d00/namespacea__hexagon.html">a_hexagon</a> Team </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>3.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2025</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>MISRA C++ 2023 compliant implementation </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>MISRA C++ 2023 compliant implementation </dd>
+<dd>
+DIP compliant - depends on IMessageSocket abstraction </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d0/d00/IAdapter_8hpp.html" title="Base interface for all adapters in the hexagonal architecture.">IAdapter.hpp</a> </dd>
 <dd>
-<a class="el" href="../../d1/d03/ITrackDataIncomingPort_8hpp.html">ITrackDataIncomingPort.hpp</a> </dd></dl>
+<a class="el" href="../../d1/d03/ITrackDataIncomingPort_8hpp.html" title="Input port interface for TrackData processing.">ITrackDataIncomingPort.hpp</a> </dd>
+<dd>
+<a class="el" href="../../d1/d03/IMessageSocket_8hpp.html" title="Abstract messaging socket interface for DIP compliance.">IMessageSocket.hpp</a> </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="../../da/d03/TrackDataZeroMQIncomingAdapter_8hpp_source.html">TrackDataZeroMQIncomingAdapter.hpp</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ad7847aff3e15f1fa8862ffad9385a827" name="ad7847aff3e15f1fa8862ffad9385a827"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7847aff3e15f1fa8862ffad9385a827">&#9670;&#160;</a></span>ZMQ_DISH</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define ZMQ_DISH&#160;&#160;&#160;15</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../da/d03/TrackDataZeroMQIncomingAdapter_8hpp_source.html#l00044">44</a> of file <a class="el" href="../../da/d03/TrackDataZeroMQIncomingAdapter_8hpp_source.html">TrackDataZeroMQIncomingAdapter.hpp</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5fed3e74346fe99d77e8db841376dd26.html">a_hexagon</a></li><li class="navelem"><a class="el" href="../../dir_cf59ac64f48ce70ec5c7000366e18fd6.html">adapters</a></li><li class="navelem"><a class="el" href="../../dir_c5f5854ff1b10f1f7c7af3b731a8843e.html">incoming</a></li><li class="navelem"><a class="el" href="../../dir_d16e06047cf1e22329aa3b221e07f704.html">zeromq</a></li><li class="navelem"><a class="el" href="../../da/d03/TrackDataZeroMQIncomingAdapter_8hpp.html">TrackDataZeroMQIncomingAdapter.hpp</a></li>
-    <li class="footer">Generated on Mon Dec 1 2025 13:08:48 for a_hexagon by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

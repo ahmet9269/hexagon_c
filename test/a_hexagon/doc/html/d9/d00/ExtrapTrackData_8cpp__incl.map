@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title=" " alt="" coords="177,5,367,45"/>
 <area shape="rect" id="Node000002" href="$d7/d00/model_2ExtrapTrackData_8hpp.html" title="Redirect header for ExtrapTrackData model." alt="" coords="174,93,370,133"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="275,46,275,79,269,79,269,46"/>
-<area shape="rect" id="Node000003" href="$d3/d02/ports_2ExtrapTrackData_8hpp.html" title=" " alt="" coords="178,181,366,221"/>
+<area shape="rect" id="Node000003" href="$d3/d02/ports_2ExtrapTrackData_8hpp.html" title="Header file for ExtrapTrackData model class." alt="" coords="178,181,366,221"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="275,134,275,167,269,167,269,134"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="5,269,64,295"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="216,224,78,269,76,264,214,219"/>

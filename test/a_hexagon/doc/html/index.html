@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>a_hexagon: a_hexagon Unit Tests</title>
+<title>a_hexagon: a_hexagon - Track Data Extrapolation System</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,9 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">a_hexagon<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">a_hexagon<span id="projectnumber">&#160;2.1.0</span>
    </div>
-   <div id="projectbrief">Hexagonal Architecture Track Data Processing Application</div>
+   <div id="projectbrief">Hexagonal Architecture Track Data Extrapolation System - Thread-per-Type Pattern with DIP Compliant Socket Abstraction</div>
   </td>
  </tr>
  </tbody>
@@ -90,149 +90,293 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">a_hexagon Unit Tests </div></div>
+  <div class="headertitle"><div class="title"><a class="el" href="db/d00/namespacea__hexagon.html">a_hexagon</a> - Track Data Extrapolation System </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md__2workspaces_2hexagon__c_2test_2a__hexagon_2test_2a__hexagon_2README"></a> GTest based unit test suite for a_hexagon project.</p>
-<h1><a class="anchor" id="autotoc_md1"></a>
-Directory Structure</h1>
-<div class="fragment"><div class="line">test/a_hexagon/</div>
-<div class="line">├── CMakeLists.txt              # CMake build configuration</div>
-<div class="line">├── Makefile                    # Make build configuration</div>
-<div class="line">├── main_test.cpp               # GTest entry point</div>
-<div class="line">├── adapters/</div>
-<div class="line">│   └── common/</div>
-<div class="line">│       └── AdapterManagerTest.cpp</div>
-<div class="line">├── domain/</div>
-<div class="line">│   ├── logic/</div>
-<div class="line">│   │   └── TrackDataExtrapolatorTest.cpp</div>
-<div class="line">│   └── model/</div>
-<div class="line">│       ├── TrackDataTest.cpp</div>
-<div class="line">│       └── ExtrapTrackDataTest.cpp</div>
-<div class="line">└── utils/</div>
-<div class="line">    └── LoggerTest.cpp</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md2"></a>
-Prerequisites</h1>
-<div class="fragment"><div class="line"># Install GTest and GMock</div>
-<div class="line">sudo apt-get update</div>
-<div class="line">sudo apt-get install -y libgtest-dev libgmock-dev cmake</div>
-<div class="line"> </div>
-<div class="line"># Build GTest libraries (if needed)</div>
-<div class="line">cd /usr/src/gtest</div>
-<div class="line">sudo cmake .</div>
-<div class="line">sudo make</div>
-<div class="line">sudo cp lib/*.a /usr/lib/</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md3"></a>
-Building Tests</h1>
-<h2><a class="anchor" id="autotoc_md4"></a>
-Using Make</h2>
+<div class="toc"><h3>Table of Contents</h3>
+<ul><li class="level1"><a href="#autotoc_md18">Overview</a><ul><li class="level2"><a href="#autotoc_md19">Key Features</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#autotoc_md21">Architecture</a><ul><li class="level2"><a href="#autotoc_md22">Hexagonal Architecture</a></li>
+<li class="level2"><a href="#autotoc_md23">Thread-per-Type Pattern</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#autotoc_md25">Core Components</a><ul><li class="level2"><a href="#autotoc_md26">Adapters</a></li>
+<li class="level2"><a href="#autotoc_md27">Domain</a></li>
+<li class="level2"><a href="#autotoc_md28">Ports</a></li>
+<li class="level2"><a href="#autotoc_md29">Utilities</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#autotoc_md31">Performance Characteristics</a><ul><li class="level2"><a href="#autotoc_md32">Latency Budget</a></li>
+<li class="level2"><a href="#autotoc_md33">Thread Configuration</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#autotoc_md35">Build &amp; Run</a><ul><li class="level2"><a href="#autotoc_md36">Prerequisites</a></li>
+<li class="level2"><a href="#autotoc_md37">Build</a></li>
+<li class="level2"><a href="#autotoc_md38">Run</a></li>
+<li class="level2"><a href="#autotoc_md39">Test</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#autotoc_md41">SOLID Compliance</a></li>
+<li class="level1"><a href="#autotoc_md43">Related Projects</a></li>
+<li class="level1"><a href="#autotoc_md45">Version History</a></li>
+<li class="level1"><a href="#autotoc_md47">Documentation</a><ul><li class="level2"><a href="#autotoc_md48">Doxygen Comments</a></li>
+<li class="level2"><a href="#autotoc_md49">Generate Documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="textblock"><p><a class="anchor" id="mainpage"></a></p>
+<h1><a class="anchor" id="autotoc_md18"></a>
+Overview</h1>
+<p><b><a class="el" href="db/d00/namespacea__hexagon.html">a_hexagon</a></b> is a high-performance track data extrapolation system built using Hexagonal Architecture (Ports and Adapters pattern). It receives track data at 8Hz via ZeroMQ DISH sockets, performs linear extrapolation, and outputs at 100Hz via RADIO sockets.</p>
+<h2><a class="anchor" id="autotoc_md19"></a>
+Key Features</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Feature   </th><th class="markdownTableHeadNone">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>Thread-per-Type</b>   </td><td class="markdownTableBodyNone">Each message type processed in dedicated thread with CPU affinity    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b>Non-blocking I/O</b>   </td><td class="markdownTableBodyNone">Background worker threads with ~20ns enqueue latency    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>Async Logging</b>   </td><td class="markdownTableBodyNone">spdlog async logger with overrun_oldest policy    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b>DIP Compliant</b>   </td><td class="markdownTableBodyNone">All adapters depend on IMessageSocket abstraction    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>MISRA C++ 2023</b>   </td><td class="markdownTableBodyNone">Safety-critical coding standards   </td></tr>
+</table>
+<hr  />
+<h1><a class="anchor" id="autotoc_md21"></a>
+Architecture</h1>
+<h2><a class="anchor" id="autotoc_md22"></a>
+Hexagonal Architecture</h2>
+<div class="fragment"><div class="line">┌─────────────────────────────────────────────────────────────────────────┐</div>
+<div class="line">│                        a_hexagon Application                             │</div>
+<div class="line">├─────────────────────────────────────────────────────────────────────────┤</div>
+<div class="line">│                                                                          │</div>
+<div class="line">│   ┌───────────────────┐                        ┌───────────────────┐    │</div>
+<div class="line">│   │   PRIMARY ADAPTER │                        │ SECONDARY ADAPTER │    │</div>
+<div class="line">│   │    (Incoming)     │                        │    (Outgoing)     │    │</div>
+<div class="line">│   ├───────────────────┤                        ├───────────────────┤    │</div>
+<div class="line">│   │ TrackDataZeroMQ   │                        │ ExtrapTrackData   │    │</div>
+<div class="line">│   │ IncomingAdapter   │    ┌──────────────┐    │ ZeroMQOutgoing    │    │</div>
+<div class="line">│   │                   │───▶│   DOMAIN     │───▶│ Adapter           │    │</div>
+<div class="line">│   │ - DISH Socket     │    │              │    │                   │    │</div>
+<div class="line">│   │ - Real-time Thread│    │ TrackData    │    │ - RADIO Socket    │    │</div>
+<div class="line">│   │ - CPU Affinity    │    │ Extrapolator │    │ - Worker Thread   │    │</div>
+<div class="line">│   └───────────────────┘    │              │    │ - Message Queue   │    │</div>
+<div class="line">│           │                │ 8Hz → 100Hz  │    └───────────────────┘    │</div>
+<div class="line">│           │                └──────────────┘            │                │</div>
+<div class="line">│           │                       │                    │                │</div>
+<div class="line">│   ┌───────▼───────┐       ┌───────▼───────┐   ┌───────▼───────┐        │</div>
+<div class="line">│   │ ITrackData    │       │ ExtrapTrack   │   │ IMessageSocket│        │</div>
+<div class="line">│   │ IncomingPort  │       │ Data Model    │   │ (Abstraction) │        │</div>
+<div class="line">│   └───────────────┘       └───────────────┘   └───────────────┘        │</div>
+<div class="line">│                                                                          │</div>
+<div class="line">└─────────────────────────────────────────────────────────────────────────┘</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md23"></a>
+Thread-per-Type Pattern</h2>
+<div class="fragment"><div class="line">┌─────────────────────────────────────────────────────────────────────┐</div>
+<div class="line">│                    THREAD-PER-TYPE ARCHITECTURE                      │</div>
+<div class="line">├─────────────────────────────────────────────────────────────────────┤</div>
+<div class="line">│                                                                      │</div>
+<div class="line">│  ┌─────────────────────────────────────────────────────────────┐    │</div>
+<div class="line">│  │                  TrackData Pipeline                          │    │</div>
+<div class="line">│  ├─────────────────────────────────────────────────────────────┤    │</div>
+<div class="line">│  │  TrackDataZeroMQIncomingAdapter (Thread T1, CPU 1)          │    │</div>
+<div class="line">│  │           │ SCHED_FIFO priority 95                          │    │</div>
+<div class="line">│  │           ▼                                                  │    │</div>
+<div class="line">│  │  TrackDataExtrapolator (Domain Service)                     │    │</div>
+<div class="line">│  │           │                                                  │    │</div>
+<div class="line">│  │           ▼                                                  │    │</div>
+<div class="line">│  │  ExtrapTrackDataZeroMQOutgoingAdapter                       │    │</div>
+<div class="line">│  │           │ Worker Thread (CPU 2, priority 80)              │    │</div>
+<div class="line">│  │           ▼                                                  │    │</div>
+<div class="line">│  │  Background Publisher (~20ns enqueue)                       │    │</div>
+<div class="line">│  └─────────────────────────────────────────────────────────────┘    │</div>
+<div class="line">│                                                                      │</div>
+<div class="line">│  Each pipeline operates in COMPLETE ISOLATION - zero contention!    │</div>
+<div class="line">│                                                                      │</div>
+<div class="line">└─────────────────────────────────────────────────────────────────────┘</div>
+</div><!-- fragment --><hr  />
+<h1><a class="anchor" id="autotoc_md25"></a>
+Core Components</h1>
+<h2><a class="anchor" id="autotoc_md26"></a>
+Adapters</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Class   </th><th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html" title="Receives TrackData via IMessageSocket abstraction.">adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter</a>   </td><td class="markdownTableBodyNone">Primary   </td><td class="markdownTableBodyNone">ZeroMQ DISH receiver with real-time thread    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html" title="Sends ExtrapTrackData via ZeroMQ RADIO socket (UDP multicast)">adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter</a>   </td><td class="markdownTableBodyNone">Secondary   </td><td class="markdownTableBodyNone">ZeroMQ RADIO sender with background worker    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="d1/d02/classadapters_1_1AdapterManager.html" title="Manages all message pipelines with thread-per-type isolation.">adapters::AdapterManager</a>   </td><td class="markdownTableBodyNone">Infrastructure   </td><td class="markdownTableBodyNone">Pipeline lifecycle management with shared_mutex    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="dd/d00/classadapters_1_1MessagePipeline.html" title="Encapsulates a complete message processing pipeline.">adapters::MessagePipeline</a>   </td><td class="markdownTableBodyNone">Infrastructure   </td><td class="markdownTableBodyNone">Groups incoming/outgoing adapters   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md27"></a>
+Domain</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Class   </th><th class="markdownTableHeadNone">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html" title="Domain service for extrapolating track data.">domain::logic::TrackDataExtrapolator</a>   </td><td class="markdownTableBodyNone">Core extrapolation logic (8Hz → 100Hz)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="dc/d00/classdomain_1_1model_1_1TrackData.html" title="Input data model for track information.">domain::model::TrackData</a>   </td><td class="markdownTableBodyNone">Input track data model with binary serialization    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="df/d02/classdomain_1_1model_1_1ExtrapTrackData.html" title="Extrapolated track data model for output.">domain::model::ExtrapTrackData</a>   </td><td class="markdownTableBodyNone">Output extrapolated data model   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md28"></a>
+Ports</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Interface   </th><th class="markdownTableHeadNone">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="da/d03/classdomain_1_1ports_1_1incoming_1_1ITrackDataIncomingPort.html" title="Abstract interface for track data input port (primary port)">domain::ports::incoming::ITrackDataIncomingPort</a>   </td><td class="markdownTableBodyNone">Input port for track data processing    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html" title="Abstract interface for extrapolated track data output port (secondary port)">domain::ports::outgoing::IExtrapTrackDataOutgoingPort</a>   </td><td class="markdownTableBodyNone">Output port for extrapolated data    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html" title="Abstract interface for messaging socket operations.">adapters::common::messaging::IMessageSocket</a>   </td><td class="markdownTableBodyNone">Socket abstraction (DIP)   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md29"></a>
+Utilities</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Class   </th><th class="markdownTableHeadNone">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="d2/d02/classutils_1_1Logger.html" title="Thread-safe async logger wrapper using spdlog.">utils::Logger</a>   </td><td class="markdownTableBodyNone">Async spdlog wrapper with ~20ns latency   </td></tr>
+</table>
+<hr  />
+<h1><a class="anchor" id="autotoc_md31"></a>
+Performance Characteristics</h1>
+<h2><a class="anchor" id="autotoc_md32"></a>
+Latency Budget</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Operation   </th><th class="markdownTableHeadNone">Target   </th><th class="markdownTableHeadNone">Actual    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Message Enqueue   </td><td class="markdownTableBodyNone">&lt;50ns   </td><td class="markdownTableBodyNone">~20ns    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Log Statement   </td><td class="markdownTableBodyNone">&lt;100ns   </td><td class="markdownTableBodyNone">~20ns (async)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Extrapolation   </td><td class="markdownTableBodyNone">&lt;100µs   </td><td class="markdownTableBodyNone">~50µs    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">ZMQ Send   </td><td class="markdownTableBodyNone">&lt;200µs   </td><td class="markdownTableBodyNone">~100µs   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md33"></a>
+Thread Configuration</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Thread   </th><th class="markdownTableHeadNone">Priority   </th><th class="markdownTableHeadNone">CPU Core   </th><th class="markdownTableHeadNone">Policy    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Incoming Adapter   </td><td class="markdownTableBodyNone">95   </td><td class="markdownTableBodyNone">1   </td><td class="markdownTableBodyNone">SCHED_FIFO    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Outgoing Worker   </td><td class="markdownTableBodyNone">80   </td><td class="markdownTableBodyNone">2   </td><td class="markdownTableBodyNone">SCHED_FIFO    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Async <a class="el" href="db/d03/classLogger.html">Logger</a>   </td><td class="markdownTableBodyNone">10   </td><td class="markdownTableBodyNone">Any   </td><td class="markdownTableBodyNone">SCHED_OTHER   </td></tr>
+</table>
+<hr  />
+<h1><a class="anchor" id="autotoc_md35"></a>
+Build &amp; Run</h1>
+<h2><a class="anchor" id="autotoc_md36"></a>
+Prerequisites</h2>
+<ul>
+<li>GCC 8.5+ with C++17 support</li>
+<li>ZeroMQ 4.3+ (with DRAFT API enabled via zmq_config.hpp)</li>
+<li>spdlog 1.12+</li>
+<li>Google Test (for unit tests)</li>
+<li>Doxygen + Graphviz (for documentation)</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md37"></a>
+Build</h2>
 <div class="fragment"><div class="line">cd test/a_hexagon</div>
-<div class="line">make all</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md5"></a>
-Using CMake</h2>
+<div class="line">make clean &amp;&amp; make</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md38"></a>
+Run</h2>
 <div class="fragment"><div class="line">cd test/a_hexagon</div>
-<div class="line">mkdir build &amp;&amp; cd build</div>
-<div class="line">cmake ..</div>
-<div class="line">make</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
-Running Tests</h1>
-<h2><a class="anchor" id="autotoc_md7"></a>
-Run All Tests</h2>
-<div class="fragment"><div class="line">make test</div>
-<div class="line"># or</div>
-<div class="line">./build/a_hexagon_tests</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
-Run Specific Test Suite</h2>
-<div class="fragment"><div class="line">./build/a_hexagon_tests --gtest_filter=TrackDataTest.*</div>
-<div class="line">./build/a_hexagon_tests --gtest_filter=LoggerTest.*</div>
-<div class="line">./build/a_hexagon_tests --gtest_filter=AdapterManagerTest.*</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md9"></a>
-Run with Verbose Output</h2>
-<div class="fragment"><div class="line">./build/a_hexagon_tests --gtest_output=xml:results.xml</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md10"></a>
-Test Categories</h1>
-<h2><a class="anchor" id="autotoc_md11"></a>
-Domain Model Tests</h2>
+<div class="line">./run.sh</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md39"></a>
+Test</h2>
+<div class="fragment"><div class="line">cd test/a_hexagon/test/a_hexagon</div>
+<div class="line">make clean &amp;&amp; make test</div>
+</div><!-- fragment --><hr  />
+<h1><a class="anchor" id="autotoc_md41"></a>
+SOLID Compliance</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Principle   </th><th class="markdownTableHeadNone">Implementation    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">**S**ingle Responsibility   </td><td class="markdownTableBodyNone">Each adapter handles one message type    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">**O**pen/Closed   </td><td class="markdownTableBodyNone">IMessageSocket allows new socket implementations    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">**L**iskov Substitution   </td><td class="markdownTableBodyNone">MockMessageSocket substitutes ZeroMQSocket    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">**I**nterface Segregation   </td><td class="markdownTableBodyNone">Focused port interfaces    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">**D**ependency Inversion   </td><td class="markdownTableBodyNone">Adapters depend on IMessageSocket abstraction   </td></tr>
+</table>
+<hr  />
+<h1><a class="anchor" id="autotoc_md43"></a>
+Related Projects</h1>
 <ul>
-<li><b><a class="el" href="d0/d00/classTrackDataTest.html" title="Test fixture for TrackData tests.">TrackDataTest</a></b>: Tests for TrackData model class<ul>
-<li>Constructor tests</li>
-<li>Getter/Setter tests</li>
-<li>Serialization/Deserialization tests</li>
-<li>Validation tests</li>
-<li>Boundary value tests</li>
+<li><b>b_hexagon</b> - Delay calculation processor (receives from <a class="el" href="db/d00/namespacea__hexagon.html">a_hexagon</a>)</li>
+<li><b>c_hexagon</b> - Final calculation processor (receives from b_hexagon)</li>
 </ul>
-</li>
-<li><b><a class="el" href="db/d00/classExtrapTrackDataTest.html" title="Test fixture for ExtrapTrackData tests.">ExtrapTrackDataTest</a></b>: Tests for ExtrapTrackData model class<ul>
-<li>Timing field tests</li>
-<li>Position/Velocity tests</li>
-<li>Serialization round-trip tests</li>
-</ul>
-</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md12"></a>
-Domain Logic Tests</h2>
-<ul>
-<li><b><a class="el" href="d2/d01/classTrackDataExtrapolatorTest.html" title="Test fixture for TrackDataExtrapolator tests.">TrackDataExtrapolatorTest</a></b>: Tests for extrapolation service<ul>
-<li>Constructor tests (smart pointer, move semantics)</li>
-<li>Extrapolation calculation tests</li>
-<li>Frequency calculation tests</li>
-<li>Mock integration tests</li>
-</ul>
-</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md13"></a>
-Adapter Tests</h2>
-<ul>
-<li><b><a class="el" href="d4/d01/classAdapterManagerTest.html" title="Test fixture for AdapterManager tests.">AdapterManagerTest</a></b>: Tests for adapter lifecycle management<ul>
-<li>Add/Remove adapter tests</li>
-<li>Start/Stop tests</li>
-<li>Thread safety tests</li>
-<li>State management tests</li>
-</ul>
-</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md14"></a>
-Utility Tests</h2>
-<ul>
-<li><b><a class="el" href="d2/d03/classLoggerTest.html" title="Test fixture for Logger tests.">LoggerTest</a></b>: Tests for async logging utility<ul>
-<li>Initialization tests</li>
-<li>Log level tests</li>
-<li>Thread safety tests</li>
-<li>Performance tests</li>
-<li>Macro tests</li>
-</ul>
-</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md15"></a>
-MISRA C++ 2023 Compliance</h1>
-<p>All tests follow MISRA C++ 2023 guidelines:</p><ul>
-<li>Fixed-width integers (<code>int32_t</code>, <code>int64_t</code>)</li>
-<li><code>[[nodiscard]]</code> attributes</li>
-<li><code>noexcept</code> specifications</li>
-<li>Brace initialization</li>
-<li>Smart pointer usage</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md16"></a>
-Coverage</h1>
-<p>To generate coverage report: </p><div class="fragment"><div class="line"># Build with coverage flags</div>
-<div class="line">make CXXFLAGS=&quot;-std=c++17 -g -O0 --coverage&quot;</div>
-<div class="line"> </div>
-<div class="line"># Run tests</div>
-<div class="line">make test</div>
-<div class="line"> </div>
-<div class="line"># Generate report</div>
-<div class="line">lcov --capture --directory . --output-file coverage.info</div>
-<div class="line">genhtml coverage.info --output-directory coverage_report</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md17"></a>
-Author</h1>
-<p>a_hexagon Team - 2025 </p>
-</div></div><!-- PageDoc -->
+<hr  />
+<h1><a class="anchor" id="autotoc_md45"></a>
+Version History</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Version   </th><th class="markdownTableHeadNone">Date   </th><th class="markdownTableHeadNone">Changes    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">2.1.0   </td><td class="markdownTableBodyNone">2025-12   </td><td class="markdownTableBodyNone">Improved Doxygen documentation, DIP socket abstraction    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">2.0.0   </td><td class="markdownTableBodyNone">2025-12   </td><td class="markdownTableBodyNone">Background worker thread, shared_mutex, async logger    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">1.0.0   </td><td class="markdownTableBodyNone">2025-11   </td><td class="markdownTableBodyNone">Initial hexagonal architecture   </td></tr>
+</table>
+<hr  />
+<h1><a class="anchor" id="autotoc_md47"></a>
+Documentation</h1>
+<h2><a class="anchor" id="autotoc_md48"></a>
+Doxygen Comments</h2>
+<p>This project uses comprehensive Doxygen comments following these conventions:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Tag   </th><th class="markdownTableHeadNone">Usage    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>@file</code>   </td><td class="markdownTableBodyNone">File-level documentation    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>@class</code>   </td><td class="markdownTableBodyNone">Class-level documentation    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>@brief</code>   </td><td class="markdownTableBodyNone">Short description    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>@details</code>   </td><td class="markdownTableBodyNone">Extended description    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>@param</code>   </td><td class="markdownTableBodyNone">Parameter documentation    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>@return</code>   </td><td class="markdownTableBodyNone">Return value documentation    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>@pre</code>   </td><td class="markdownTableBodyNone">Preconditions    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>@post</code>   </td><td class="markdownTableBodyNone">Postconditions   </td></tr>
+</table>
+<p>| <code>@par Class Invariants:\ilinebr</code> | Class invariants | | <code>@note</code> | Important notes | | <code>@see</code> | Cross-references | | <code>@par Thread Safety:\ilinebr</code> | Thread safety information | | <code>@par Latency:\ilinebr</code> | Latency characteristics |</p>
+<h2><a class="anchor" id="autotoc_md49"></a>
+Generate Documentation</h2>
+<div class="fragment"><div class="line">cd test/a_hexagon</div>
+<div class="line">doxygen Doxyfile</div>
+<div class="line"># Open doc/html/index.html in browser</div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Dec 1 2025 13:08:49 for a_hexagon by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

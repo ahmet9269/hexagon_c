@@ -1,3 +1,17 @@
+/**
+ * @file ExtrapTrackData.hpp
+ * @brief Header file for ExtrapTrackData model class
+ * @details Contains extrapolated track state in ECEF coordinate system
+ *          with detailed timing information for latency analysis.
+ *          Auto-generated MISRA C++ 2023 compliant implementation.
+ * 
+ * @author A Hexagon Team
+ * @version 2.0
+ * @date 2025
+ * 
+ * Direction: outgoing
+ */
+
 #pragma once
 
 // MISRA C++ 2023 compliant includes
@@ -12,10 +26,19 @@ namespace domain {
 namespace model {
 
 /**
- * @brief Bir izin ECEF koordinat sistemindeki extrapolation yapılmış kinematik durumunu ve detaylı zamanlama bilgilerini içerir.
- * Auto-generated from ExtrapTrackData.json
- * MISRA C++ 2023 compliant implementation
- * Direction: outgoing
+ * @class ExtrapTrackData
+ * @brief Extrapolated track data model for output
+ * @details Contains extrapolated kinematic state in ECEF coordinate system
+ *          with detailed timing information. Used for measuring hop latencies
+ *          across the hexagon pipeline (a_hexagon → b_hexagon → c_hexagon).
+ * 
+ * @invariant trackId_ is unique per track
+ * @invariant All timestamps are in microseconds
+ * @invariant Position values are in meters (ECEF)
+ * @invariant Velocity values are in m/s (ECEF)
+ * 
+ * @note MISRA C++ 2023 compliant implementation
+ * @note Direction: outgoing
  */
 class ExtrapTrackData final {
 public:

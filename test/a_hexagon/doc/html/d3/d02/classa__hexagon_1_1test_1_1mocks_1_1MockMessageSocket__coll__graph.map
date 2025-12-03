@@ -1,0 +1,29 @@
+<map id="a_hexagon::test::mocks::MockMessageSocket" name="a_hexagon::test::mocks::MockMessageSocket">
+<area shape="rect" id="Node000001" title="Mock socket for unit testing without network." alt="" coords="267,944,465,1364"/>
+<area shape="rect" id="Node000002" href="$d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html" title="Abstract interface for messaging socket operations." alt="" coords="5,561,220,881"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,892,270,984,265,986,211,894"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="244,689,328,754"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="286,754,284,830,291,920,293,927,287,928,286,920,279,830,281,754"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="356,276,435,341"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="397,341,394,419,376,928,371,928,389,419,391,341"/>
+<area shape="rect" id="Node000012" href="$db/d02/structa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket_1_1SentMessage.html" title="Message sent via send()" alt="" coords="403,419,657,499"/>
+<area shape="poly" id="edge14_Node000012_Node000004" title=" " alt="" coords="426,340,485,404,481,408,422,343"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="330,133,461,213"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="398,227,398,276,393,276,393,227"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="681,419,848,499"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="766,499,758,574,742,672,712,780,691,833,666,883,626,940,579,992,529,1039,480,1079,476,1075,525,1035,575,988,622,936,661,880,686,831,707,778,737,671,753,573,760,499"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="527,276,685,341"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="628,340,647,367,671,393,687,407,684,411,667,397,643,370,623,343"/>
+<area shape="poly" id="edge13_Node000012_Node000007" title=" " alt="" coords="570,344,552,367,539,404,534,402,548,364,565,340"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="565,141,687,206"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="622,220,613,276,608,275,617,219"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="683,5,705,71"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="685,63,652,127,647,125,680,61"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="710,276,830,341"/>
+<area shape="poly" id="edge10_Node000010_Node000009" title=" " alt="" coords="707,47,728,67,746,93,760,136,769,180,775,259,769,260,764,180,755,137,741,96,724,70,704,50"/>
+<area shape="poly" id="edge9_Node000006_Node000010" title=" " alt="" coords="757,356,755,366,754,392,757,418,752,419,749,392,750,365,752,354"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="409,674,651,769"/>
+<area shape="poly" id="edge15_Node000011_Node000010" title=" " alt="" coords="845,326,871,341,892,364,903,394,901,429,887,466,863,500,843,518,824,529,787,539,747,545,726,552,703,564,667,589,632,618,573,676,569,672,628,614,664,585,701,559,724,547,746,540,786,533,822,524,840,514,859,497,882,463,895,428,898,395,888,367,868,346,842,331"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="515,770,454,930,449,928,510,768"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="533,499,533,657,527,657,527,499"/>
+</map>

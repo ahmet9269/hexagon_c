@@ -1,3 +1,18 @@
+/**
+ * @file DelayCalcTrackData.hpp
+ * @brief Domain model for delay calculation track data
+ * @details Contains track state in ECEF coordinate system and multi-hop delay 
+ *          calculation information. Auto-generated from DelayCalcTrackData.json.
+ * 
+ * @author c_hexagon Team
+ * @version 1.0
+ * @date 2025
+ * 
+ * @note MISRA C++ 2023 compliant implementation
+ * @note Auto-generated from JSON schema
+ * @see FinalCalcTrackData
+ */
+
 #pragma once
 
 // MISRA C++ 2023 compliant includes

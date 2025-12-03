@@ -1,10 +1,25 @@
 var searchData=
 [
-  ['unit_20tests_0',['a_hexagon Unit Tests',['../index.html',1,'']]],
-  ['unit_20tests_20115_20tests_1',['Unit Tests (115 tests)',['..//workspaces/hexagon_c/test/a_hexagon/README.md#autotoc_md33',1,'']]],
-  ['updatetime_5f_2',['updateTime_',['../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a57ee3ddd51a17cd1274aa748d755fe2f',1,'domain::model::ExtrapTrackData']]],
-  ['using_20cmake_3',['Using CMake',['../index.html#autotoc_md5',1,'']]],
-  ['using_20make_4',['Using Make',['../index.html#autotoc_md4',1,'']]],
-  ['utility_20tests_5',['Utility Tests',['../index.html#autotoc_md14',1,'']]],
-  ['utils_6',['utils',['../d6/d00/namespaceutils.html',1,'']]]
+  ['radio_0',['RADIO',['../db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html#a503cf095325bb589f8e2d899eeedc9ceaf46d45b52139dc3fa782c53f701ada0d',1,'adapters::common::messaging::ZeroMQSocket']]],
+  ['rawoutgoingport_5f_1',['rawOutgoingPort_',['../db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html#af95aff3a299858b5abb9e9a27f199def',1,'domain::logic::TrackDataExtrapolator']]],
+  ['readme_2emd_2',['readme.md',['../d5/d01/test_2a__hexagon_2README_8md.html',1,'(Global Namespace)'],['../da/d01/README_8md.html',1,'(Global Namespace)']]],
+  ['ready_5f_3',['ready_',['../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a08e1bd7adf3a567bda04f59847ac1943',1,'adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter']]],
+  ['realtime_5fthread_5fpriority_4',['realtime_thread_priority',['../d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a667f61fbc12e1fe64c187efc3d53f3d4',1,'adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter::REALTIME_THREAD_PRIORITY'],['../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a44bdbdaf513243d8f77a1137a07508bb',1,'adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::REALTIME_THREAD_PRIORITY']]],
+  ['receive_5',['receive',['../d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html#ac53d1aa1d939269beaf2f0497566e8b1',1,'adapters::common::messaging::IMessageSocket::receive()'],['../db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html#a8584e9a1393d72c3a91b87daf25226d8',1,'adapters::common::messaging::ZeroMQSocket::receive()'],['../d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html#a324106da31fdf236c77d3b8c1687a21c',1,'a_hexagon::test::mocks::MockMessageSocket::receive(int32_t timeoutMs) override']]],
+  ['receivecallcount_5f_6',['receiveCallCount_',['../d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html#a109371d8eeb0cf0fe96e6a00e7e9da32',1,'a_hexagon::test::mocks::MockMessageSocket']]],
+  ['receivedtrackdata_5f_7',['receivedTrackData_',['../d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html#a0521e45c16431301a3030d0331ce68e1',1,'a_hexagon::test::mocks::MockIncomingPort']]],
+  ['receiveloop_8',['receiveLoop',['../d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a5f1c5efb3c8c5a7bfd2f59affacb92cb',1,'adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter']]],
+  ['receivethread_5f_9',['receiveThread_',['../d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#ab90f81261279021a83d1b6eed1860875',1,'adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter']]],
+  ['receivetimeout_5f_10',['receiveTimeout_',['../d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#ae68be7aec51dad9978a14dbc3ecdf8b3',1,'adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter']]],
+  ['registerpipeline_11',['registerPipeline',['../d1/d02/classadapters_1_1AdapterManager.html#ab0d33febc0c6ebf1f8214629aa667699',1,'adapters::AdapterManager']]],
+  ['related_20projects_12',['Related Projects',['../index.html#autotoc_md43',1,'']]],
+  ['reset_13',['reset',['../d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html#a022365a08f3df6f94457b8e4cf1a5a27',1,'a_hexagon::test::mocks::MockIncomingPort::reset()'],['../d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html#ae70f1176400115a2c5c3a77d9e332a74',1,'a_hexagon::test::mocks::MockMessageSocket::reset()'],['../de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html#a98b04a7b892bc2ad11a88c1e571d0279',1,'a_hexagon::test::mocks::MockOutgoingPort::reset()']]],
+  ['run_14',['run',['../index.html#autotoc_md35',1,'Build &amp; Run'],['../index.html#autotoc_md38',1,'Run']]],
+  ['run_20all_20tests_15',['Run All Tests',['../d4/d00/md__2workspaces_2hexagon__c_2test_2a__hexagon_2test_2a__hexagon_2README.html#autotoc_md7',1,'']]],
+  ['run_20specific_20test_16',['Run Specific Test',['../d4/d00/md__2workspaces_2hexagon__c_2test_2a__hexagon_2README.html#autotoc_md66',1,'']]],
+  ['run_20specific_20test_20suite_17',['Run Specific Test Suite',['../d4/d00/md__2workspaces_2hexagon__c_2test_2a__hexagon_2test_2a__hexagon_2README.html#autotoc_md8',1,'']]],
+  ['run_20with_20verbose_20output_18',['Run with Verbose Output',['../d4/d00/md__2workspaces_2hexagon__c_2test_2a__hexagon_2test_2a__hexagon_2README.html#autotoc_md9',1,'']]],
+  ['running_19',['Running',['../d4/d00/md__2workspaces_2hexagon__c_2test_2a__hexagon_2README.html#autotoc_md60',1,'']]],
+  ['running_20tests_20',['Running Tests',['../d4/d00/md__2workspaces_2hexagon__c_2test_2a__hexagon_2test_2a__hexagon_2README.html#autotoc_md6',1,'']]],
+  ['running_5f_21',['running_',['../d1/d02/classadapters_1_1AdapterManager.html#a44cf3995f05d26a02cd8ba3df71bc7d2',1,'adapters::AdapterManager::running_'],['../d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#ab7e0ffb84323633bb55340a7c3e34364',1,'adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter::running_'],['../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a2fd694e6546154856f3edc434b8e007b',1,'adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::running_']]]
 ];

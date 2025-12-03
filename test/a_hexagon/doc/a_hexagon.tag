@@ -1,6 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
 <tagfile doxygen_version="1.9.8">
   <compound kind="file">
+    <name>mainpage.md</name>
+    <path>/workspaces/hexagon_c/test/a_hexagon/doc/</path>
+    <filename>dc/d02/mainpage_8md.html</filename>
+  </compound>
+  <compound kind="file">
     <name>AdapterManager.hpp</name>
     <path>a_hexagon/adapters/common/</path>
     <filename>d5/d00/AdapterManager_8hpp.html</filename>
@@ -24,10 +29,55 @@
     <namespace>adapters</namespace>
   </compound>
   <compound kind="file">
+    <name>IMessageSocket.hpp</name>
+    <path>a_hexagon/adapters/common/messaging/</path>
+    <filename>d1/d03/IMessageSocket_8hpp.html</filename>
+    <class kind="class">adapters::common::messaging::IMessageSocket</class>
+    <namespace>adapters</namespace>
+    <namespace>adapters::common</namespace>
+    <namespace>adapters::common::messaging</namespace>
+  </compound>
+  <compound kind="file">
+    <name>ZeroMQSocket.cpp</name>
+    <path>a_hexagon/adapters/common/messaging/</path>
+    <filename>d6/d02/ZeroMQSocket_8cpp.html</filename>
+    <includes id="d4/d03/ZeroMQSocket_8hpp" name="ZeroMQSocket.hpp" local="yes" import="no" module="no" objc="no">ZeroMQSocket.hpp</includes>
+    <includes id="d9/d01/Logger_8hpp" name="Logger.hpp" local="yes" import="no" module="no" objc="no">utils/Logger.hpp</includes>
+    <namespace>adapters</namespace>
+    <namespace>adapters::common</namespace>
+    <namespace>adapters::common::messaging</namespace>
+    <namespace>adapters::common::messaging::anonymous_namespace{ZeroMQSocket.cpp}</namespace>
+  </compound>
+  <compound kind="file">
+    <name>ZeroMQSocket.hpp</name>
+    <path>a_hexagon/adapters/common/messaging/</path>
+    <filename>d4/d03/ZeroMQSocket_8hpp.html</filename>
+    <includes id="d1/d03/IMessageSocket_8hpp" name="IMessageSocket.hpp" local="yes" import="no" module="no" objc="no">IMessageSocket.hpp</includes>
+    <class kind="class">adapters::common::messaging::ZeroMQSocket</class>
+    <namespace>adapters</namespace>
+    <namespace>adapters::common</namespace>
+    <namespace>adapters::common::messaging</namespace>
+    <member kind="define">
+      <type>#define</type>
+      <name>ZMQ_DISH</name>
+      <anchorfile>d4/d03/ZeroMQSocket_8hpp.html</anchorfile>
+      <anchor>ad7847aff3e15f1fa8862ffad9385a827</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>ZMQ_RADIO</name>
+      <anchorfile>d4/d03/ZeroMQSocket_8hpp.html</anchorfile>
+      <anchor>aa6eb91d89c3dc2108352335def5f322f</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>TrackDataZeroMQIncomingAdapter.cpp</name>
     <path>a_hexagon/adapters/incoming/zeromq/</path>
     <filename>d5/d00/TrackDataZeroMQIncomingAdapter_8cpp.html</filename>
     <includes id="da/d03/TrackDataZeroMQIncomingAdapter_8hpp" name="TrackDataZeroMQIncomingAdapter.hpp" local="yes" import="no" module="no" objc="no">adapters/incoming/zeromq/TrackDataZeroMQIncomingAdapter.hpp</includes>
+    <includes id="d4/d03/ZeroMQSocket_8hpp" name="ZeroMQSocket.hpp" local="yes" import="no" module="no" objc="no">adapters/common/messaging/ZeroMQSocket.hpp</includes>
     <includes id="d9/d01/Logger_8hpp" name="Logger.hpp" local="yes" import="no" module="no" objc="no">utils/Logger.hpp</includes>
     <namespace>adapters</namespace>
     <namespace>adapters::incoming</namespace>
@@ -38,25 +88,20 @@
     <path>a_hexagon/adapters/incoming/zeromq/</path>
     <filename>da/d03/TrackDataZeroMQIncomingAdapter_8hpp.html</filename>
     <includes id="d0/d00/IAdapter_8hpp" name="IAdapter.hpp" local="yes" import="no" module="no" objc="no">adapters/common/IAdapter.hpp</includes>
+    <includes id="d1/d03/IMessageSocket_8hpp" name="IMessageSocket.hpp" local="yes" import="no" module="no" objc="no">adapters/common/messaging/IMessageSocket.hpp</includes>
     <includes id="d1/d03/ITrackDataIncomingPort_8hpp" name="ITrackDataIncomingPort.hpp" local="yes" import="no" module="no" objc="no">domain/ports/incoming/ITrackDataIncomingPort.hpp</includes>
     <includes id="df/d03/ports_2TrackData_8hpp" name="TrackData.hpp" local="yes" import="no" module="no" objc="no">domain/ports/TrackData.hpp</includes>
     <class kind="class">adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter</class>
     <namespace>adapters</namespace>
     <namespace>adapters::incoming</namespace>
     <namespace>adapters::incoming::zeromq</namespace>
-    <member kind="define">
-      <type>#define</type>
-      <name>ZMQ_DISH</name>
-      <anchorfile>da/d03/TrackDataZeroMQIncomingAdapter_8hpp.html</anchorfile>
-      <anchor>ad7847aff3e15f1fa8862ffad9385a827</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>ExtrapTrackDataZeroMQOutgoingAdapter.cpp</name>
     <path>a_hexagon/adapters/outgoing/zeromq/</path>
     <filename>d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp.html</filename>
     <includes id="d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp" name="ExtrapTrackDataZeroMQOutgoingAdapter.hpp" local="yes" import="no" module="no" objc="no">adapters/outgoing/zeromq/ExtrapTrackDataZeroMQOutgoingAdapter.hpp</includes>
+    <includes id="d4/d03/ZeroMQSocket_8hpp" name="ZeroMQSocket.hpp" local="yes" import="no" module="no" objc="no">adapters/common/messaging/ZeroMQSocket.hpp</includes>
     <includes id="d9/d01/Logger_8hpp" name="Logger.hpp" local="yes" import="no" module="no" objc="no">utils/Logger.hpp</includes>
     <namespace>adapters</namespace>
     <namespace>adapters::outgoing</namespace>
@@ -67,7 +112,8 @@
     <path>a_hexagon/adapters/outgoing/zeromq/</path>
     <filename>d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp.html</filename>
     <includes id="d0/d00/IAdapter_8hpp" name="IAdapter.hpp" local="yes" import="no" module="no" objc="no">adapters/common/IAdapter.hpp</includes>
-    <includes id="d6/d01/ExtrapTrackDataOutgoingPort_8hpp" name="ExtrapTrackDataOutgoingPort.hpp" local="yes" import="no" module="no" objc="no">domain/ports/outgoing/ExtrapTrackDataOutgoingPort.hpp</includes>
+    <includes id="d1/d03/IMessageSocket_8hpp" name="IMessageSocket.hpp" local="yes" import="no" module="no" objc="no">adapters/common/messaging/IMessageSocket.hpp</includes>
+    <includes id="d7/d01/IExtrapTrackDataOutgoingPort_8hpp" name="IExtrapTrackDataOutgoingPort.hpp" local="yes" import="no" module="no" objc="no">domain/ports/outgoing/IExtrapTrackDataOutgoingPort.hpp</includes>
     <includes id="d7/d00/model_2ExtrapTrackData_8hpp" name="ExtrapTrackData.hpp" local="yes" import="no" module="no" objc="no">domain/model/ExtrapTrackData.hpp</includes>
     <class kind="class">adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter</class>
     <namespace>adapters</namespace>
@@ -76,13 +122,6 @@
     <namespace>domain</namespace>
     <namespace>domain::adapters</namespace>
     <namespace>domain::adapters::outgoing</namespace>
-    <member kind="define">
-      <type>#define</type>
-      <name>ZMQ_RADIO</name>
-      <anchorfile>d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp.html</anchorfile>
-      <anchor>aa6eb91d89c3dc2108352335def5f322f</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>TrackDataExtrapolator.cpp</name>
@@ -96,8 +135,8 @@
     <name>TrackDataExtrapolator.hpp</name>
     <path>a_hexagon/domain/logic/</path>
     <filename>d7/d03/TrackDataExtrapolator_8hpp.html</filename>
-    <includes id="d6/d01/ExtrapTrackDataOutgoingPort_8hpp" name="ExtrapTrackDataOutgoingPort.hpp" local="no" import="no" module="no" objc="no">domain/ports/outgoing/ExtrapTrackDataOutgoingPort.hpp</includes>
-    <includes id="dc/d01/TrackDataIncomingPort_8h" name="TrackDataIncomingPort.h" local="yes" import="no" module="no" objc="no">domain/ports/incoming/TrackDataIncomingPort.h</includes>
+    <includes id="d7/d01/IExtrapTrackDataOutgoingPort_8hpp" name="IExtrapTrackDataOutgoingPort.hpp" local="no" import="no" module="no" objc="no">domain/ports/outgoing/IExtrapTrackDataOutgoingPort.hpp</includes>
+    <includes id="d1/d03/ITrackDataIncomingPort_8hpp" name="ITrackDataIncomingPort.hpp" local="yes" import="no" module="no" objc="no">domain/ports/incoming/ITrackDataIncomingPort.hpp</includes>
     <includes id="d9/d03/model_2TrackData_8hpp" name="TrackData.hpp" local="yes" import="no" module="no" objc="no">domain/model/TrackData.hpp</includes>
     <includes id="d7/d00/model_2ExtrapTrackData_8hpp" name="ExtrapTrackData.hpp" local="yes" import="no" module="no" objc="no">domain/model/ExtrapTrackData.hpp</includes>
     <class kind="class">domain::logic::TrackDataExtrapolator</class>
@@ -159,29 +198,11 @@
     <namespace>domain::ports::incoming</namespace>
   </compound>
   <compound kind="file">
-    <name>TrackDataIncomingPort.h</name>
-    <path>a_hexagon/domain/ports/incoming/</path>
-    <filename>dc/d01/TrackDataIncomingPort_8h.html</filename>
-    <includes id="d1/d03/ITrackDataIncomingPort_8hpp" name="ITrackDataIncomingPort.hpp" local="yes" import="no" module="no" objc="no">ITrackDataIncomingPort.hpp</includes>
-    <namespace>domain</namespace>
-    <namespace>domain::ports</namespace>
-    <namespace>domain::ports::incoming</namespace>
-  </compound>
-  <compound kind="file">
-    <name>ExtrapTrackDataOutgoingPort.cpp</name>
+    <name>IExtrapTrackDataOutgoingPort.hpp</name>
     <path>a_hexagon/domain/ports/outgoing/</path>
-    <filename>d7/d00/ExtrapTrackDataOutgoingPort_8cpp.html</filename>
-    <includes id="d6/d01/ExtrapTrackDataOutgoingPort_8hpp" name="ExtrapTrackDataOutgoingPort.hpp" local="no" import="no" module="no" objc="no">domain/ports/outgoing/ExtrapTrackDataOutgoingPort.hpp</includes>
-    <namespace>domain</namespace>
-    <namespace>domain::ports</namespace>
-    <namespace>domain::ports::outgoing</namespace>
-  </compound>
-  <compound kind="file">
-    <name>ExtrapTrackDataOutgoingPort.hpp</name>
-    <path>a_hexagon/domain/ports/outgoing/</path>
-    <filename>d6/d01/ExtrapTrackDataOutgoingPort_8hpp.html</filename>
+    <filename>d7/d01/IExtrapTrackDataOutgoingPort_8hpp.html</filename>
     <includes id="d7/d00/model_2ExtrapTrackData_8hpp" name="ExtrapTrackData.hpp" local="yes" import="no" module="no" objc="no">domain/model/ExtrapTrackData.hpp</includes>
-    <class kind="class">domain::ports::outgoing::ExtrapTrackDataOutgoingPort</class>
+    <class kind="class">domain::ports::outgoing::IExtrapTrackDataOutgoingPort</class>
     <namespace>domain</namespace>
     <namespace>domain::ports</namespace>
     <namespace>domain::ports::outgoing</namespace>
@@ -193,15 +214,32 @@
     <includes id="d9/d01/Logger_8hpp" name="Logger.hpp" local="yes" import="no" module="no" objc="no">utils/Logger.hpp</includes>
     <includes id="d5/d00/AdapterManager_8hpp" name="AdapterManager.hpp" local="yes" import="no" module="no" objc="no">adapters/common/AdapterManager.hpp</includes>
     <includes id="d4/d01/MessagePipeline_8hpp" name="MessagePipeline.hpp" local="yes" import="no" module="no" objc="no">adapters/common/MessagePipeline.hpp</includes>
+    <includes id="d1/d03/IMessageSocket_8hpp" name="IMessageSocket.hpp" local="yes" import="no" module="no" objc="no">adapters/common/messaging/IMessageSocket.hpp</includes>
+    <includes id="d4/d03/ZeroMQSocket_8hpp" name="ZeroMQSocket.hpp" local="yes" import="no" module="no" objc="no">adapters/common/messaging/ZeroMQSocket.hpp</includes>
     <includes id="da/d03/TrackDataZeroMQIncomingAdapter_8hpp" name="TrackDataZeroMQIncomingAdapter.hpp" local="yes" import="no" module="no" objc="no">adapters/incoming/zeromq/TrackDataZeroMQIncomingAdapter.hpp</includes>
     <includes id="d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp" name="ExtrapTrackDataZeroMQOutgoingAdapter.hpp" local="yes" import="no" module="no" objc="no">adapters/outgoing/zeromq/ExtrapTrackDataZeroMQOutgoingAdapter.hpp</includes>
     <includes id="d7/d03/TrackDataExtrapolator_8hpp" name="TrackDataExtrapolator.hpp" local="yes" import="no" module="no" objc="no">domain/logic/TrackDataExtrapolator.hpp</includes>
+    <namespace>config</namespace>
     <member kind="function">
       <type>void</type>
       <name>signalHandler</name>
       <anchorfile>df/d02/main_8cpp.html</anchorfile>
       <anchor>a8ee3282bc313e547dbbb8d4f4010db61</anchor>
       <arglist>(int signum)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; adapters::common::messaging::IMessageSocket &gt;</type>
+      <name>createIncomingSocket</name>
+      <anchorfile>df/d02/main_8cpp.html</anchorfile>
+      <anchor>ada6cf0fc84b2c5041e61d433ec3804d0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; adapters::common::messaging::IMessageSocket &gt;</type>
+      <name>createOutgoingSocket</name>
+      <anchorfile>df/d02/main_8cpp.html</anchorfile>
+      <anchor>acce2b6a123257effa76401b012f6efd2</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -226,8 +264,8 @@
       <type>void</type>
       <name>signalHandler</name>
       <anchorfile>d0/d00/main_8hpp.html</anchorfile>
-      <anchor>ad2e59c7203b3bddc1bc9a2224b52e8e7</anchor>
-      <arglist>(int signal)</arglist>
+      <anchor>a8ee3282bc313e547dbbb8d4f4010db61</anchor>
+      <arglist>(int signum)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -424,147 +462,431 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>TrackDataZeroMQIncomingAdapterTest.cpp</name>
+    <path>/workspaces/hexagon_c/test/a_hexagon/test/a_hexagon/adapters/incoming/</path>
+    <filename>d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html</filename>
+    <includes id="da/d03/TrackDataZeroMQIncomingAdapter_8hpp" name="TrackDataZeroMQIncomingAdapter.hpp" local="yes" import="no" module="no" objc="no">adapters/incoming/zeromq/TrackDataZeroMQIncomingAdapter.hpp</includes>
+    <includes id="db/d03/MockMessageSocket_8hpp" name="MockMessageSocket.hpp" local="yes" import="no" module="no" objc="no">../../mocks/MockMessageSocket.hpp</includes>
+    <includes id="d8/d00/MockIncomingPort_8hpp" name="MockIncomingPort.hpp" local="yes" import="no" module="no" objc="no">../../mocks/MockIncomingPort.hpp</includes>
+    <includes id="df/d03/ports_2TrackData_8hpp" name="TrackData.hpp" local="yes" import="no" module="no" objc="no">domain/ports/TrackData.hpp</includes>
+    <class kind="class">TrackDataZeroMQIncomingAdapterTest</class>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html</anchorfile>
+      <anchor>aa86f9bef69a5802c0009a9cfe42053e8</anchor>
+      <arglist>(TrackDataZeroMQIncomingAdapterTest, Constructor_WithValidDependencies_CreatesAdapter)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html</anchorfile>
+      <anchor>aa4c6240337f4f1702198fe92ec46dc9a</anchor>
+      <arglist>(TrackDataZeroMQIncomingAdapterTest, Start_WithConnectedSocket_StartsSuccessfully)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a08661ff6cd06b5d94d5bc805867146ea</anchor>
+      <arglist>(TrackDataZeroMQIncomingAdapterTest, Start_WhenAlreadyRunning_ReturnsTrue)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html</anchorfile>
+      <anchor>ae4b31434ef86770aef1ea4055daa00a3</anchor>
+      <arglist>(TrackDataZeroMQIncomingAdapterTest, Stop_WhenRunning_StopsAdapter)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a899c7bb7a06ea6b727d02eea1b4a796e</anchor>
+      <arglist>(TrackDataZeroMQIncomingAdapterTest, Stop_WhenNotRunning_DoesNothing)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a3f20d8f2a816d047d35ce620efde8c3c</anchor>
+      <arglist>(TrackDataZeroMQIncomingAdapterTest, Destructor_WhenRunning_StopsGracefully)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html</anchorfile>
+      <anchor>afb00c59f086ab130a2d3b44f8177fab4</anchor>
+      <arglist>(TrackDataZeroMQIncomingAdapterTest, ReceiveLoop_WithValidMessage_ForwardsToPort)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a9bea26ff90dd3899e7b12db4ed910e4e</anchor>
+      <arglist>(TrackDataZeroMQIncomingAdapterTest, ReceiveLoop_WithMultipleMessages_ForwardsAllToPort)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html</anchorfile>
+      <anchor>adbb46186c06c1ec455b7076ff8a143a5</anchor>
+      <arglist>(TrackDataZeroMQIncomingAdapterTest, ReceiveLoop_WithInvalidMessage_SkipsAndContinues)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a0b7e693535b03bfc2db9224c5d62f51c</anchor>
+      <arglist>(TrackDataZeroMQIncomingAdapterTest, ReceiveLoop_WithEmptyMessage_HandlesGracefully)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html</anchorfile>
+      <anchor>ad97d5b44f9e7788fc37b218726ee338a</anchor>
+      <arglist>(TrackDataZeroMQIncomingAdapterTest, Start_WithFailedConnect_HandlesError)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a9e03f70bc58737723eff8b39005bb617</anchor>
+      <arglist>(TrackDataZeroMQIncomingAdapterTest, ReceiveLoop_WhenSocketDisconnects_StopsGracefully)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a75289ccfb5c303877384aa562bc0faa3</anchor>
+      <arglist>(TrackDataZeroMQIncomingAdapterTest, ReceiveLoop_PreservesTrackId)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a0b731deefd314167a7dd5c82e93704c3</anchor>
+      <arglist>(TrackDataZeroMQIncomingAdapterTest, ReceiveLoop_PreservesPosition)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a56f5740d13aecf5ad7681295eea80c65</anchor>
+      <arglist>(TrackDataZeroMQIncomingAdapterTest, ReceiveLoop_PreservesVelocity)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html</anchorfile>
+      <anchor>ab897da00308cd13ae98eb54468ac99b8</anchor>
+      <arglist>(TrackDataZeroMQIncomingAdapterTest, HighThroughput_ProcessesMessagesQuickly)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html</anchorfile>
+      <anchor>aaf7c6dc9ea385f3049b4ba1ff02bee38</anchor>
+      <arglist>(TrackDataZeroMQIncomingAdapterTest, ConcurrentStartStop_IsThreadSafe)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html</anchorfile>
+      <anchor>ac348f8492c366a0851705e871fd6ac8a</anchor>
+      <arglist>(TrackDataZeroMQIncomingAdapterTest, ReceiveLoop_VerifySocketReceiveCalls)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a7659b437734601e014d925bd9b2acfca</anchor>
+      <arglist>(TrackDataZeroMQIncomingAdapterTest, ReceiveLoop_VerifyPortProcessCalls)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>ExtrapTrackDataZeroMQOutgoingAdapterTest.cpp</name>
+    <path>/workspaces/hexagon_c/test/a_hexagon/test/a_hexagon/adapters/outgoing/</path>
+    <filename>d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html</filename>
+    <includes id="d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp" name="ExtrapTrackDataZeroMQOutgoingAdapter.hpp" local="yes" import="no" module="no" objc="no">adapters/outgoing/zeromq/ExtrapTrackDataZeroMQOutgoingAdapter.hpp</includes>
+    <includes id="db/d03/MockMessageSocket_8hpp" name="MockMessageSocket.hpp" local="yes" import="no" module="no" objc="no">../../mocks/MockMessageSocket.hpp</includes>
+    <includes id="d3/d02/ports_2ExtrapTrackData_8hpp" name="ExtrapTrackData.hpp" local="yes" import="no" module="no" objc="no">domain/ports/ExtrapTrackData.hpp</includes>
+    <class kind="class">ExtrapTrackDataZeroMQOutgoingAdapterTest</class>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a5c0deb840eabcfb1b8cdb3851ce127d3</anchor>
+      <arglist>(ExtrapTrackDataZeroMQOutgoingAdapterTest, Constructor_WithValidSocket_CreatesAdapter)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a300459f049b5efd5ca58039241001ad2</anchor>
+      <arglist>(ExtrapTrackDataZeroMQOutgoingAdapterTest, Start_WithConnectedSocket_StartsSuccessfully)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a04f4b7dc51035ee89c0aa07deaebcaa2</anchor>
+      <arglist>(ExtrapTrackDataZeroMQOutgoingAdapterTest, Start_WhenAlreadyRunning_ReturnsTrue)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html</anchorfile>
+      <anchor>af66fc14c2b761f07898b566783dcf8e9</anchor>
+      <arglist>(ExtrapTrackDataZeroMQOutgoingAdapterTest, Stop_WhenRunning_StopsAdapter)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a09a47abadb189c63d6d9e0e18f9ab44a</anchor>
+      <arglist>(ExtrapTrackDataZeroMQOutgoingAdapterTest, Stop_WhenNotRunning_DoesNothing)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a8ef8f1148230e58abca2b8cec5844b1b</anchor>
+      <arglist>(ExtrapTrackDataZeroMQOutgoingAdapterTest, Destructor_WhenRunning_StopsGracefully)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html</anchorfile>
+      <anchor>aa93c017a85b69f800850f98f950ab789</anchor>
+      <arglist>(ExtrapTrackDataZeroMQOutgoingAdapterTest, SendExtrapTrackData_SingleMessage_SendsSuccessfully)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html</anchorfile>
+      <anchor>ad754533ba35a58caf51a51b23219dbd8</anchor>
+      <arglist>(ExtrapTrackDataZeroMQOutgoingAdapterTest, SendExtrapTrackData_Vector_SendsAllMessages)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a52362be79b99c3b0c102b192400f3ac7</anchor>
+      <arglist>(ExtrapTrackDataZeroMQOutgoingAdapterTest, SendExtrapTrackData_EmptyVector_SendsNothing)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a6f320a31e6d098c632073a918aa58564</anchor>
+      <arglist>(ExtrapTrackDataZeroMQOutgoingAdapterTest, SendExtrapTrackData_WhenNotRunning_DoesNotSend)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a63f64945a9cb31814cf4461dee162f4a</anchor>
+      <arglist>(ExtrapTrackDataZeroMQOutgoingAdapterTest, SendExtrapTrackData_AfterStop_DoesNotSend)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a08f997807fc25c79b224013fc1cb8759</anchor>
+      <arglist>(ExtrapTrackDataZeroMQOutgoingAdapterTest, SendExtrapTrackData_PreservesTrackId)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html</anchorfile>
+      <anchor>aaa0e7f79a37ea6490302188d8e7e1fb0</anchor>
+      <arglist>(ExtrapTrackDataZeroMQOutgoingAdapterTest, SendExtrapTrackData_PreservesPosition)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a0dc51f2e92d71bbdaeabf479df7bf04b</anchor>
+      <arglist>(ExtrapTrackDataZeroMQOutgoingAdapterTest, SendExtrapTrackData_PreservesVelocity)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a4cec407e1fd4cc71fd6415c2129f762b</anchor>
+      <arglist>(ExtrapTrackDataZeroMQOutgoingAdapterTest, SendExtrapTrackData_PreservesTimestamps)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a54286ee005d0ea7a5cab1e8f6b3a196b</anchor>
+      <arglist>(ExtrapTrackDataZeroMQOutgoingAdapterTest, SendExtrapTrackData_WhenSocketFails_HandlesGracefully)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a5518698a77743b6a05ddf3cd2309298b</anchor>
+      <arglist>(ExtrapTrackDataZeroMQOutgoingAdapterTest, SendExtrapTrackData_SetsGroupName)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a3c21a89d85400a5d67867e403d378060</anchor>
+      <arglist>(ExtrapTrackDataZeroMQOutgoingAdapterTest, HighThroughput_SendsMessagesQuickly)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html</anchorfile>
+      <anchor>a7157765e7228fda229923150af5554b8</anchor>
+      <arglist>(ExtrapTrackDataZeroMQOutgoingAdapterTest, ConcurrentSends_AreThreadSafe)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TEST_F</name>
+      <anchorfile>d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html</anchorfile>
+      <anchor>aaf38f537d84a3c2b19e4b345c90cfa89</anchor>
+      <arglist>(ExtrapTrackDataZeroMQOutgoingAdapterTest, ConcurrentStartStop_IsThreadSafe)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>TrackDataExtrapolatorTest.cpp</name>
     <path>/workspaces/hexagon_c/test/a_hexagon/test/a_hexagon/domain/logic/</path>
     <filename>d3/d00/TrackDataExtrapolatorTest_8cpp.html</filename>
     <includes id="d7/d03/TrackDataExtrapolator_8hpp" name="TrackDataExtrapolator.hpp" local="yes" import="no" module="no" objc="no">domain/logic/TrackDataExtrapolator.hpp</includes>
-    <includes id="d6/d01/ExtrapTrackDataOutgoingPort_8hpp" name="ExtrapTrackDataOutgoingPort.hpp" local="yes" import="no" module="no" objc="no">domain/ports/outgoing/ExtrapTrackDataOutgoingPort.hpp</includes>
-    <includes id="d9/d03/model_2TrackData_8hpp" name="TrackData.hpp" local="yes" import="no" module="no" objc="no">domain/model/TrackData.hpp</includes>
-    <includes id="d7/d00/model_2ExtrapTrackData_8hpp" name="ExtrapTrackData.hpp" local="yes" import="no" module="no" objc="no">domain/model/ExtrapTrackData.hpp</includes>
-    <class kind="class">MockExtrapTrackDataOutgoingPort</class>
+    <includes id="d1/d00/MockOutgoingPort_8hpp" name="MockOutgoingPort.hpp" local="yes" import="no" module="no" objc="no">../../mocks/MockOutgoingPort.hpp</includes>
+    <includes id="df/d03/ports_2TrackData_8hpp" name="TrackData.hpp" local="yes" import="no" module="no" objc="no">domain/ports/TrackData.hpp</includes>
+    <includes id="d3/d02/ports_2ExtrapTrackData_8hpp" name="ExtrapTrackData.hpp" local="yes" import="no" module="no" objc="no">domain/ports/ExtrapTrackData.hpp</includes>
     <class kind="class">TrackDataExtrapolatorTest</class>
     <member kind="function">
       <type></type>
       <name>TEST_F</name>
       <anchorfile>d3/d00/TrackDataExtrapolatorTest_8cpp.html</anchorfile>
-      <anchor>aae0fad515bfc6ef8afb3fd58b1b203d0</anchor>
-      <arglist>(TrackDataExtrapolatorTest, ConstructWithUniquePtr_Success)</arglist>
+      <anchor>a795a1c1cd7dc4bf67e681d9063fbddbb</anchor>
+      <arglist>(TrackDataExtrapolatorTest, Constructor_WithValidPort_CreatesExtrapolator)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>TEST_F</name>
       <anchorfile>d3/d00/TrackDataExtrapolatorTest_8cpp.html</anchorfile>
-      <anchor>a0aa6b2edbd7ef7ea1c44385e211c79cb</anchor>
-      <arglist>(TrackDataExtrapolatorTest, ConstructWithNullptr_NoThrow)</arglist>
+      <anchor>aea69c88a68b45388458a9f84681718b4</anchor>
+      <arglist>(TrackDataExtrapolatorTest, Constructor_WithNullPort_DoesNotCrash)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>TEST_F</name>
       <anchorfile>d3/d00/TrackDataExtrapolatorTest_8cpp.html</anchorfile>
-      <anchor>a43d93fc9c41822d76f98566a2650ef60</anchor>
-      <arglist>(TrackDataExtrapolatorTest, MoveConstructor_TransfersOwnership)</arglist>
+      <anchor>a20ace6c1ebfcf0fbe93e9acc38f6c77b</anchor>
+      <arglist>(TrackDataExtrapolatorTest, ProcessAndForwardTrackData_GeneratesMultipleOutputs)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>TEST_F</name>
       <anchorfile>d3/d00/TrackDataExtrapolatorTest_8cpp.html</anchorfile>
-      <anchor>aa32030adfe9fab421350bb45d767527a</anchor>
-      <arglist>(TrackDataExtrapolatorTest, MoveAssignment_TransfersOwnership)</arglist>
+      <anchor>aa42b48b29bb1fe56f55a802882c4bafd</anchor>
+      <arglist>(TrackDataExtrapolatorTest, ProcessAndForwardTrackData_PreservesTrackId)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>TEST_F</name>
       <anchorfile>d3/d00/TrackDataExtrapolatorTest_8cpp.html</anchorfile>
-      <anchor>a8073ebf73a0af90f9155a5ad529d0d32</anchor>
-      <arglist>(TrackDataExtrapolatorTest, ExtrapolatePosition_LinearInterpolation)</arglist>
+      <anchor>a8d1a4129956c560527b4c5a55292f7c4</anchor>
+      <arglist>(TrackDataExtrapolatorTest, ProcessAndForwardTrackData_PreservesVelocity)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>TEST_F</name>
       <anchorfile>d3/d00/TrackDataExtrapolatorTest_8cpp.html</anchorfile>
-      <anchor>a5d1b4ba469e9e9d065355d7466acfd7c</anchor>
-      <arglist>(TrackDataExtrapolatorTest, ExtrapolatePosition_NegativeVelocity)</arglist>
+      <anchor>a7747782ada7b8edc5fd1147fb8462aab</anchor>
+      <arglist>(TrackDataExtrapolatorTest, ProcessAndForwardTrackData_PreservesOriginalUpdateTime)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>TEST_F</name>
       <anchorfile>d3/d00/TrackDataExtrapolatorTest_8cpp.html</anchorfile>
-      <anchor>af835a77a7d03848a7bf27870c1cad917</anchor>
-      <arglist>(TrackDataExtrapolatorTest, ExtrapolatePosition_ZeroVelocity)</arglist>
+      <anchor>aed2f049f8f5f58fc7f02bd6198c45863</anchor>
+      <arglist>(TrackDataExtrapolatorTest, ExtrapolateTrackData_CalculatesPositionCorrectly)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>TEST_F</name>
       <anchorfile>d3/d00/TrackDataExtrapolatorTest_8cpp.html</anchorfile>
-      <anchor>a6313573e8a1ad8de3b214800346e2fa5</anchor>
-      <arglist>(TrackDataExtrapolatorTest, FrequencyInterval_8HzInput)</arglist>
+      <anchor>a797a0811e37858a67da17a9b019240cf</anchor>
+      <arglist>(TrackDataExtrapolatorTest, ExtrapolateTrackData_IncrementsUpdateTime)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>TEST_F</name>
       <anchorfile>d3/d00/TrackDataExtrapolatorTest_8cpp.html</anchorfile>
-      <anchor>a2c867d173c0f7c414d547542552697fe</anchor>
-      <arglist>(TrackDataExtrapolatorTest, FrequencyInterval_100HzOutput)</arglist>
+      <anchor>a0a3f76200444b80c25236f603590c3b5</anchor>
+      <arglist>(TrackDataExtrapolatorTest, ExtrapolateTrackData_SetsFirstHopSentTime)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>TEST_F</name>
       <anchorfile>d3/d00/TrackDataExtrapolatorTest_8cpp.html</anchorfile>
-      <anchor>ade00d69c5a436157c933d106d1be952c</anchor>
-      <arglist>(TrackDataExtrapolatorTest, ExtrapolationCount_8HzTo100Hz)</arglist>
+      <anchor>a2bef81623c770275d18bace48747d023</anchor>
+      <arglist>(TrackDataExtrapolatorTest, FrequencyInterval_8HzInput_125msInterval)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>TEST_F</name>
       <anchorfile>d3/d00/TrackDataExtrapolatorTest_8cpp.html</anchorfile>
-      <anchor>af5afeb9a9e9d98894446783d513b8cb6</anchor>
-      <arglist>(TrackDataExtrapolatorTest, TrackIdPreserved_AfterExtrapolation)</arglist>
+      <anchor>ad346f492467cfb14b66e4eb3bbfed56d</anchor>
+      <arglist>(TrackDataExtrapolatorTest, FrequencyInterval_100HzOutput_10msInterval)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>TEST_F</name>
       <anchorfile>d3/d00/TrackDataExtrapolatorTest_8cpp.html</anchorfile>
-      <anchor>a158fb2ef563fa5fa58ed11af9b60c995</anchor>
-      <arglist>(TrackDataExtrapolatorTest, VelocityPreserved_AfterExtrapolation)</arglist>
+      <anchor>a7090d32804548ea1026cd84bd4eb22f1</anchor>
+      <arglist>(TrackDataExtrapolatorTest, ExtrapolationCount_8HzTo100Hz_Approximately12Outputs)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>TEST_F</name>
       <anchorfile>d3/d00/TrackDataExtrapolatorTest_8cpp.html</anchorfile>
-      <anchor>a630c0a67ba7d547ccac61a07b7134f2b</anchor>
-      <arglist>(TrackDataExtrapolatorTest, UpdateTime_CalculatedCorrectly)</arglist>
+      <anchor>abdcecce3933aa17b0b7eeefad3b760d3</anchor>
+      <arglist>(TrackDataExtrapolatorTest, ProcessAndForwardTrackData_WithZeroVelocity_PositionUnchanged)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>TEST_F</name>
       <anchorfile>d3/d00/TrackDataExtrapolatorTest_8cpp.html</anchorfile>
-      <anchor>a472ce7830ac50c681680c58316d6ecc3</anchor>
-      <arglist>(TrackDataExtrapolatorTest, OriginalUpdateTime_Preserved)</arglist>
+      <anchor>adaab8c43f2634e5c3b6147e7d0566e2a</anchor>
+      <arglist>(TrackDataExtrapolatorTest, ProcessAndForwardTrackData_WithNegativeVelocity_DecrementsPosition)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>TEST_F</name>
       <anchorfile>d3/d00/TrackDataExtrapolatorTest_8cpp.html</anchorfile>
-      <anchor>a4ec9d8c379c1b906a888dd3d98bab3ea</anchor>
-      <arglist>(TrackDataExtrapolatorTest, ZeroFrequency_Handled)</arglist>
+      <anchor>ad7d11cab535c5599b07845ee94e9aff2</anchor>
+      <arglist>(TrackDataExtrapolatorTest, ProcessAndForwardTrackData_WithLargeVelocity_HandlesCorrectly)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>TEST_F</name>
       <anchorfile>d3/d00/TrackDataExtrapolatorTest_8cpp.html</anchorfile>
-      <anchor>a3797a689afd34e8bb1cf828622f83784</anchor>
-      <arglist>(TrackDataExtrapolatorTest, VeryHighFrequency_Handled)</arglist>
+      <anchor>a80a8e79b6b4d77d814223ef359378516</anchor>
+      <arglist>(TrackDataExtrapolatorTest, ProcessAndForwardTrackData_CallsSendForEachOutput)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>TEST_F</name>
       <anchorfile>d3/d00/TrackDataExtrapolatorTest_8cpp.html</anchorfile>
-      <anchor>aadac011ad2ada059c755d472818b1f6e</anchor>
-      <arglist>(TrackDataExtrapolatorTest, SendExtrapTrackData_CalledOnValidPort)</arglist>
+      <anchor>a36eea4e579fd1967209f212844df80d0</anchor>
+      <arglist>(TrackDataExtrapolatorTest, ProcessAndForwardTrackData_MultipleInputs_ProcessesAll)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>TEST_F</name>
       <anchorfile>d3/d00/TrackDataExtrapolatorTest_8cpp.html</anchorfile>
-      <anchor>a1bcfc8d83e3448d734e4831c0d0c8eeb</anchor>
-      <arglist>(TrackDataExtrapolatorTest, CopyConstructor_Deleted)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>TEST_F</name>
-      <anchorfile>d3/d00/TrackDataExtrapolatorTest_8cpp.html</anchorfile>
-      <anchor>a22bfbbc0f8b28e3fdc4eeb4b2a67e48b</anchor>
-      <arglist>(TrackDataExtrapolatorTest, CopyAssignment_Deleted)</arglist>
+      <anchor>a574c1bc0fb9c06483d95b373f104924c</anchor>
+      <arglist>(TrackDataExtrapolatorTest, ProcessAndForwardTrackData_WhenPortFails_HandlesGracefully)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -684,34 +1006,6 @@
       <anchorfile>de/d00/ExtrapTrackDataTest_8cpp.html</anchorfile>
       <anchor>ab2279eb7dff12ef3ed6bb383895b9583</anchor>
       <arglist>(ExtrapTrackDataTest, TimingFields_MaxInt64_ThrowsException)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>TEST_F</name>
-      <anchorfile>de/d00/ExtrapTrackDataTest_8cpp.html</anchorfile>
-      <anchor>ad328cf891c07fa6d66e7ba00bccec532</anchor>
-      <arglist>(ExtrapTrackDataTest, MulticastAddress_CorrectValue)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>TEST_F</name>
-      <anchorfile>de/d00/ExtrapTrackDataTest_8cpp.html</anchorfile>
-      <anchor>ae1b254f0c41753046208af5707555851</anchor>
-      <arglist>(ExtrapTrackDataTest, Port_CorrectValue)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>TEST_F</name>
-      <anchorfile>de/d00/ExtrapTrackDataTest_8cpp.html</anchorfile>
-      <anchor>a7369613326d65866dd5340eb90ba27e2</anchor>
-      <arglist>(ExtrapTrackDataTest, SocketType_IsRADIO)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>TEST_F</name>
-      <anchorfile>de/d00/ExtrapTrackDataTest_8cpp.html</anchorfile>
-      <anchor>ad5e57493bd77d48652dde88b2fb4a960</anchor>
-      <arglist>(ExtrapTrackDataTest, IsPublisher_True)</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -874,34 +1168,6 @@
       <anchor>a12224e530b1a1ac5621060210e5ecbfa</anchor>
       <arglist>(TrackDataTest, MoveAssignment_MovesAllFields)</arglist>
     </member>
-    <member kind="function">
-      <type></type>
-      <name>TEST_F</name>
-      <anchorfile>dd/d03/TrackDataTest_8cpp.html</anchorfile>
-      <anchor>aab8871f8e8196306ac782aed47c6978b</anchor>
-      <arglist>(TrackDataTest, MulticastAddress_CorrectValue)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>TEST_F</name>
-      <anchorfile>dd/d03/TrackDataTest_8cpp.html</anchorfile>
-      <anchor>a21495d8888ba5bbb164ed36eaf4f24d4</anchor>
-      <arglist>(TrackDataTest, Port_CorrectValue)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>TEST_F</name>
-      <anchorfile>dd/d03/TrackDataTest_8cpp.html</anchorfile>
-      <anchor>a9c7249f5d551f8cd961e3730957c3472</anchor>
-      <arglist>(TrackDataTest, SocketType_IsDISH)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>TEST_F</name>
-      <anchorfile>dd/d03/TrackDataTest_8cpp.html</anchorfile>
-      <anchor>ae494858ca14c9fc02f16dad669360019</anchor>
-      <arglist>(TrackDataTest, IsSubscriber_True)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>main_test.cpp</name>
@@ -914,6 +1180,40 @@
       <anchor>a3c04138a5bfe5d72780bb7e82a18e627</anchor>
       <arglist>(int argc, char **argv)</arglist>
     </member>
+  </compound>
+  <compound kind="file">
+    <name>MockIncomingPort.hpp</name>
+    <path>/workspaces/hexagon_c/test/a_hexagon/test/a_hexagon/mocks/</path>
+    <filename>d8/d00/MockIncomingPort_8hpp.html</filename>
+    <includes id="d1/d03/ITrackDataIncomingPort_8hpp" name="ITrackDataIncomingPort.hpp" local="yes" import="no" module="no" objc="no">domain/ports/incoming/ITrackDataIncomingPort.hpp</includes>
+    <includes id="df/d03/ports_2TrackData_8hpp" name="TrackData.hpp" local="yes" import="no" module="no" objc="no">domain/ports/TrackData.hpp</includes>
+    <class kind="class">a_hexagon::test::mocks::MockIncomingPort</class>
+    <namespace>a_hexagon</namespace>
+    <namespace>a_hexagon::test</namespace>
+    <namespace>a_hexagon::test::mocks</namespace>
+  </compound>
+  <compound kind="file">
+    <name>MockMessageSocket.hpp</name>
+    <path>/workspaces/hexagon_c/test/a_hexagon/test/a_hexagon/mocks/</path>
+    <filename>db/d03/MockMessageSocket_8hpp.html</filename>
+    <includes id="d1/d03/IMessageSocket_8hpp" name="IMessageSocket.hpp" local="yes" import="no" module="no" objc="no">adapters/common/messaging/IMessageSocket.hpp</includes>
+    <class kind="class">a_hexagon::test::mocks::MockMessageSocket</class>
+    <class kind="struct">a_hexagon::test::mocks::MockMessageSocket::SentMessage</class>
+    <namespace>a_hexagon</namespace>
+    <namespace>a_hexagon::test</namespace>
+    <namespace>a_hexagon::test::mocks</namespace>
+  </compound>
+  <compound kind="file">
+    <name>MockOutgoingPort.hpp</name>
+    <path>/workspaces/hexagon_c/test/a_hexagon/test/a_hexagon/mocks/</path>
+    <filename>d1/d00/MockOutgoingPort_8hpp.html</filename>
+    <includes id="d7/d01/IExtrapTrackDataOutgoingPort_8hpp" name="IExtrapTrackDataOutgoingPort.hpp" local="yes" import="no" module="no" objc="no">domain/ports/outgoing/IExtrapTrackDataOutgoingPort.hpp</includes>
+    <includes id="d7/d00/model_2ExtrapTrackData_8hpp" name="ExtrapTrackData.hpp" local="yes" import="no" module="no" objc="no">domain/model/ExtrapTrackData.hpp</includes>
+    <class kind="class">a_hexagon::test::mocks::MockOutgoingPort</class>
+    <class kind="struct">a_hexagon::test::mocks::MockOutgoingPort::SentRecord</class>
+    <namespace>a_hexagon</namespace>
+    <namespace>a_hexagon::test</namespace>
+    <namespace>a_hexagon::test::mocks</namespace>
   </compound>
   <compound kind="file">
     <name>README.md</name>
@@ -1265,6 +1565,13 @@
       <arglist>(const std::string &amp;name) const noexcept</arglist>
     </member>
     <member kind="variable" protection="private">
+      <type>std::shared_mutex</type>
+      <name>pipelines_mutex_</name>
+      <anchorfile>d1/d02/classadapters_1_1AdapterManager.html</anchorfile>
+      <anchor>a9950df3adbb11be2609e224ac7baef0a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
       <type>std::vector&lt; MessagePipeline &gt;</type>
       <name>pipelines_</name>
       <anchorfile>d1/d02/classadapters_1_1AdapterManager.html</anchorfile>
@@ -1517,34 +1824,6 @@
       <anchor>ac1745d984bc6563070d82c0030674d3e</anchor>
       <arglist>() const noexcept</arglist>
     </member>
-    <member kind="variable" static="yes">
-      <type>static constexpr const char *</type>
-      <name>MULTICAST_ADDRESS</name>
-      <anchorfile>df/d02/classdomain_1_1model_1_1ExtrapTrackData.html</anchorfile>
-      <anchor>a36c5b8887b19ffe998ab6a8c3854d567</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static constexpr int</type>
-      <name>PORT</name>
-      <anchorfile>df/d02/classdomain_1_1model_1_1ExtrapTrackData.html</anchorfile>
-      <anchor>ac9ee5e9b76091a79e812c549cadffa7c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static constexpr const char *</type>
-      <name>ZMQ_SOCKET_TYPE</name>
-      <anchorfile>df/d02/classdomain_1_1model_1_1ExtrapTrackData.html</anchorfile>
-      <anchor>ace79bd9ef1367e4bbd66fe3b88cf5c5c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static constexpr bool</type>
-      <name>IS_PUBLISHER</name>
-      <anchorfile>df/d02/classdomain_1_1model_1_1ExtrapTrackData.html</anchorfile>
-      <anchor>ac5a75144ae5bb2a62e052c83b70979d8</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="function" protection="private">
       <type>void</type>
       <name>validateTrackId</name>
@@ -1687,31 +1966,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>domain::ports::outgoing::ExtrapTrackDataOutgoingPort</name>
-    <filename>d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~ExtrapTrackDataOutgoingPort</name>
-      <anchorfile>d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html</anchorfile>
-      <anchor>a7612f271387f15abd06d69d65e44a686</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>sendExtrapTrackData</name>
-      <anchorfile>d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html</anchorfile>
-      <anchor>ab300edf81ea52561362d46fae9cee53a</anchor>
-      <arglist>(const std::vector&lt; model::ExtrapTrackData &gt; &amp;data)=0</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>sendExtrapTrackData</name>
-      <anchorfile>d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html</anchorfile>
-      <anchor>a6f81d79d45f3ee7817c84b4c8d1176d8</anchor>
-      <arglist>(const model::ExtrapTrackData &amp;data)=0</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>ExtrapTrackDataTest</name>
     <filename>db/d00/classExtrapTrackDataTest.html</filename>
     <member kind="function" protection="protected">
@@ -1733,7 +1987,14 @@
     <name>adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter</name>
     <filename>d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html</filename>
     <base>adapters::IAdapter</base>
-    <base>domain::ports::outgoing::ExtrapTrackDataOutgoingPort</base>
+    <base>domain::ports::outgoing::IExtrapTrackDataOutgoingPort</base>
+    <member kind="function">
+      <type></type>
+      <name>ExtrapTrackDataZeroMQOutgoingAdapter</name>
+      <anchorfile>d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html</anchorfile>
+      <anchor>a7eaa0003b6e491825cd62ecea79c8d72</anchor>
+      <arglist>(std::unique_ptr&lt; adapters::common::messaging::IMessageSocket &gt; socket)</arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>ExtrapTrackDataZeroMQOutgoingAdapter</name>
@@ -1791,6 +2052,13 @@
       <arglist>(const domain::model::ExtrapTrackData &amp;data) override</arglist>
     </member>
     <member kind="function">
+      <type>bool</type>
+      <name>isReady</name>
+      <anchorfile>d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html</anchorfile>
+      <anchor>a2f4fe7750f60012d6aafe63c55f967c8</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
       <type></type>
       <name>ExtrapTrackDataZeroMQOutgoingAdapter</name>
       <anchorfile>d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html</anchorfile>
@@ -1832,12 +2100,19 @@
       <anchor>a97f6bac15d665323c6e0e6dc7df0cff9</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="variable" protection="private">
-      <type>std::string</type>
-      <name>protocol_</name>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>publisherWorker</name>
       <anchorfile>d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html</anchorfile>
-      <anchor>aa43b162d03e983633e74a4e683507842</anchor>
-      <arglist></arglist>
+      <anchor>a2adbc0eddc1492bc43081cdbc9168c1b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>void</type>
+      <name>enqueueMessage</name>
+      <anchorfile>d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html</anchorfile>
+      <anchor>acc73e629cd936f68637dde5c68a59734</anchor>
+      <arglist>(const domain::model::ExtrapTrackData &amp;data)</arglist>
     </member>
     <member kind="variable" protection="private">
       <type>std::string</type>
@@ -1848,30 +2123,16 @@
     </member>
     <member kind="variable" protection="private">
       <type>std::string</type>
-      <name>groupName_</name>
+      <name>group_</name>
       <anchorfile>d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html</anchorfile>
-      <anchor>a19492763b7d8465a732ec3f92cc89444</anchor>
+      <anchor>abbe8b250e23d263c8a825c9d864bb5f8</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
-      <type>int32_t</type>
-      <name>socketType_</name>
-      <anchorfile>d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html</anchorfile>
-      <anchor>a728d5d67068ed2d9c15db1058d4c40fb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>zmq::context_t</type>
-      <name>context_</name>
-      <anchorfile>d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html</anchorfile>
-      <anchor>aadb348a347508a817be1ba2c6f67d21d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>std::unique_ptr&lt; zmq::socket_t &gt;</type>
+      <type>std::unique_ptr&lt; adapters::common::messaging::IMessageSocket &gt;</type>
       <name>socket_</name>
       <anchorfile>d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html</anchorfile>
-      <anchor>a6520f3320b6857f3c26458f047747ed0</anchor>
+      <anchor>aa03ff668e9e563f09b4fe8cee99bf502</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -1881,11 +2142,134 @@
       <anchor>a2fd694e6546154856f3edc434b8e007b</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable" protection="private">
+      <type>std::atomic&lt; bool &gt;</type>
+      <name>ready_</name>
+      <anchorfile>d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html</anchorfile>
+      <anchor>a08e1bd7adf3a567bda04f59847ac1943</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>ownsSocket_</name>
+      <anchorfile>d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html</anchorfile>
+      <anchor>afc43d10177da088dfcde93eec08eb689</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::thread</type>
+      <name>publisherThread_</name>
+      <anchorfile>d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html</anchorfile>
+      <anchor>a8c4afd4885ddef3c373c447172e5091d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::queue&lt; domain::model::ExtrapTrackData &gt;</type>
+      <name>messageQueue_</name>
+      <anchorfile>d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html</anchorfile>
+      <anchor>a803d7940a4df8ffae9c65beef79bacb9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::mutex</type>
+      <name>queueMutex_</name>
+      <anchorfile>d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html</anchorfile>
+      <anchor>a39f4475c0e20b2150d034e141afa4387</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::condition_variable</type>
+      <name>queueCV_</name>
+      <anchorfile>d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html</anchorfile>
+      <anchor>acd380f46e2069a768ea91db9984cecb1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private" static="yes">
+      <type>static constexpr int32_t</type>
+      <name>REALTIME_THREAD_PRIORITY</name>
+      <anchorfile>d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html</anchorfile>
+      <anchor>a44bdbdaf513243d8f77a1137a07508bb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private" static="yes">
+      <type>static constexpr int32_t</type>
+      <name>DEDICATED_CPU_CORE</name>
+      <anchorfile>d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html</anchorfile>
+      <anchor>a4cc4fadd12d48c883e0ee5a5600c07d0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private" static="yes">
+      <type>static constexpr std::size_t</type>
+      <name>MAX_QUEUE_SIZE</name>
+      <anchorfile>d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html</anchorfile>
+      <anchor>ab40bb0d907a2976cf06fc87b6db8e054</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private" static="yes">
+      <type>static constexpr const char *</type>
+      <name>DEFAULT_ENDPOINT</name>
+      <anchorfile>d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html</anchorfile>
+      <anchor>a5cfe2fefec8d0e32919eec36887906a7</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="variable" protection="private" static="yes">
       <type>static constexpr const char *</type>
       <name>DEFAULT_GROUP</name>
       <anchorfile>d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html</anchorfile>
       <anchor>abf474d2ef3ebf7344bbefeabd6491ea1</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>ExtrapTrackDataZeroMQOutgoingAdapterTest</name>
+    <filename>d4/d01/classExtrapTrackDataZeroMQOutgoingAdapterTest.html</filename>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>SetUp</name>
+      <anchorfile>d4/d01/classExtrapTrackDataZeroMQOutgoingAdapterTest.html</anchorfile>
+      <anchor>aa2d61efe69655772d0bc9836ccf02abb</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>TearDown</name>
+      <anchorfile>d4/d01/classExtrapTrackDataZeroMQOutgoingAdapterTest.html</anchorfile>
+      <anchor>a5bae7c740bdbfa5d661127a045d563f5</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>createAdapter</name>
+      <anchorfile>d4/d01/classExtrapTrackDataZeroMQOutgoingAdapterTest.html</anchorfile>
+      <anchor>a6a147f9da1d72953ae2851dd4bbc42e1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>ExtrapTrackData</type>
+      <name>createTestExtrapTrackData</name>
+      <anchorfile>d4/d01/classExtrapTrackDataZeroMQOutgoingAdapterTest.html</anchorfile>
+      <anchor>a60936fdd0cf2548d89f98785439c1fc5</anchor>
+      <arglist>(int32_t trackId)</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::unique_ptr&lt; MockMessageSocket &gt;</type>
+      <name>mockSocket_</name>
+      <anchorfile>d4/d01/classExtrapTrackDataZeroMQOutgoingAdapterTest.html</anchorfile>
+      <anchor>a3eca7f702603f513f02643f29e758db9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>MockMessageSocket *</type>
+      <name>mockSocketPtr_</name>
+      <anchorfile>d4/d01/classExtrapTrackDataZeroMQOutgoingAdapterTest.html</anchorfile>
+      <anchor>a53157105aa818f9faed4e4e33734235b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::unique_ptr&lt; ExtrapTrackDataZeroMQOutgoingAdapter &gt;</type>
+      <name>adapter_</name>
+      <anchorfile>d4/d01/classExtrapTrackDataZeroMQOutgoingAdapterTest.html</anchorfile>
+      <anchor>a6d21ed61c7f4026f6821661ad29b53c4</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -1961,6 +2345,161 @@
       <anchorfile>dd/d03/classadapters_1_1IAdapter.html</anchorfile>
       <anchor>ae767c48deb2cd8638a219299989fb056</anchor>
       <arglist>(IAdapter &amp;&amp;)=default</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>domain::ports::outgoing::IExtrapTrackDataOutgoingPort</name>
+    <filename>d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~IExtrapTrackDataOutgoingPort</name>
+      <anchorfile>d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html</anchorfile>
+      <anchor>a95dc65852b2166484bb9b4616c0af27f</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>sendExtrapTrackData</name>
+      <anchorfile>d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html</anchorfile>
+      <anchor>aee7f718e0d21bc505acbd1473d803711</anchor>
+      <arglist>(const std::vector&lt; model::ExtrapTrackData &gt; &amp;data)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>sendExtrapTrackData</name>
+      <anchorfile>d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html</anchorfile>
+      <anchor>ab1685af3583c4ba9e50bd39deb6daea7</anchor>
+      <arglist>(const model::ExtrapTrackData &amp;data)=0</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type></type>
+      <name>IExtrapTrackDataOutgoingPort</name>
+      <anchorfile>d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html</anchorfile>
+      <anchor>ac56b076555f6db990a2bb79cde43d644</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type></type>
+      <name>IExtrapTrackDataOutgoingPort</name>
+      <anchorfile>d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html</anchorfile>
+      <anchor>a0f9cac13b922f641c8075d9f202ad78c</anchor>
+      <arglist>(const IExtrapTrackDataOutgoingPort &amp;)=default</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type></type>
+      <name>IExtrapTrackDataOutgoingPort</name>
+      <anchorfile>d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html</anchorfile>
+      <anchor>a7ce354e4abf1e0e576c9acc164d3d129</anchor>
+      <arglist>(IExtrapTrackDataOutgoingPort &amp;&amp;)=default</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>IExtrapTrackDataOutgoingPort &amp;</type>
+      <name>operator=</name>
+      <anchorfile>d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html</anchorfile>
+      <anchor>ae0a5c51cb16455e61c366b860da31244</anchor>
+      <arglist>(const IExtrapTrackDataOutgoingPort &amp;)=default</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>IExtrapTrackDataOutgoingPort &amp;</type>
+      <name>operator=</name>
+      <anchorfile>d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html</anchorfile>
+      <anchor>a4e46335465ef23706927efdad7b5e1d3</anchor>
+      <arglist>(IExtrapTrackDataOutgoingPort &amp;&amp;)=default</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>adapters::common::messaging::IMessageSocket</name>
+    <filename>d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~IMessageSocket</name>
+      <anchorfile>d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html</anchorfile>
+      <anchor>a2de0b98aa21970b141214f9e36eea91c</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual bool</type>
+      <name>connect</name>
+      <anchorfile>d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html</anchorfile>
+      <anchor>a2e0991fc5bd0d9f8ac4c67e4dfdeb3a9</anchor>
+      <arglist>(const std::string &amp;endpoint)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual bool</type>
+      <name>send</name>
+      <anchorfile>d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html</anchorfile>
+      <anchor>a01c590d5a84b5411a46a2085a54ad600</anchor>
+      <arglist>(const std::vector&lt; uint8_t &gt; &amp;data)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual bool</type>
+      <name>send</name>
+      <anchorfile>d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html</anchorfile>
+      <anchor>a1628f518bd96050431676c5cb8ef69b3</anchor>
+      <arglist>(const std::vector&lt; uint8_t &gt; &amp;data, const std::string &amp;group)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual std::optional&lt; std::vector&lt; uint8_t &gt; &gt;</type>
+      <name>receive</name>
+      <anchorfile>d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html</anchorfile>
+      <anchor>ac53d1aa1d939269beaf2f0497566e8b1</anchor>
+      <arglist>(int32_t timeoutMs)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>close</name>
+      <anchorfile>d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html</anchorfile>
+      <anchor>afa635a41ea22407e42f56d3b4951e420</anchor>
+      <arglist>() noexcept=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual bool</type>
+      <name>isConnected</name>
+      <anchorfile>d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html</anchorfile>
+      <anchor>ac738b8c92f09c76cdcee59ce020c686c</anchor>
+      <arglist>() const noexcept=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual std::string</type>
+      <name>getSocketType</name>
+      <anchorfile>d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html</anchorfile>
+      <anchor>a0702ab897b91019c7387e9b6f7010253</anchor>
+      <arglist>() const noexcept=0</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type></type>
+      <name>IMessageSocket</name>
+      <anchorfile>d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html</anchorfile>
+      <anchor>a8096cc503f6ce8d7eeb1a0ac5e11601c</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type></type>
+      <name>IMessageSocket</name>
+      <anchorfile>d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html</anchorfile>
+      <anchor>a0a780b5291d0e8a35ea98ff1ca644b6e</anchor>
+      <arglist>(const IMessageSocket &amp;)=default</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type></type>
+      <name>IMessageSocket</name>
+      <anchorfile>d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html</anchorfile>
+      <anchor>a273737081a27fcaf8d3becf6ca458992</anchor>
+      <arglist>(IMessageSocket &amp;&amp;)=default</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>IMessageSocket &amp;</type>
+      <name>operator=</name>
+      <anchorfile>d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html</anchorfile>
+      <anchor>a9d8e2849058fe245581743c4c75f6ea9</anchor>
+      <arglist>(const IMessageSocket &amp;)=default</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>IMessageSocket &amp;</type>
+      <name>operator=</name>
+      <anchorfile>d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html</anchorfile>
+      <anchor>a478b39d89d1f33ab07d70ca459b4fae7</anchor>
+      <arglist>(IMessageSocket &amp;&amp;)=default</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -2444,22 +2983,714 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>MockExtrapTrackDataOutgoingPort</name>
-    <filename>d7/d01/classMockExtrapTrackDataOutgoingPort.html</filename>
-    <base>domain::ports::outgoing::ExtrapTrackDataOutgoingPort</base>
+    <name>a_hexagon::test::mocks::MockIncomingPort</name>
+    <filename>d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html</filename>
+    <base>domain::ports::incoming::ITrackDataIncomingPort</base>
     <member kind="function">
       <type></type>
-      <name>MOCK_METHOD</name>
-      <anchorfile>d7/d01/classMockExtrapTrackDataOutgoingPort.html</anchorfile>
-      <anchor>a8535dd0b952f92f682582a53a5a222f6</anchor>
-      <arglist>(void, sendExtrapTrackData,(const ExtrapTrackData &amp;data),(override))</arglist>
+      <name>MockIncomingPort</name>
+      <anchorfile>d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html</anchorfile>
+      <anchor>a84cc357b5ce6cc014d31526e63ff9e60</anchor>
+      <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type></type>
-      <name>MOCK_METHOD</name>
-      <anchorfile>d7/d01/classMockExtrapTrackDataOutgoingPort.html</anchorfile>
-      <anchor>a20bfecc8ebeb6f786f390a205164d62c</anchor>
-      <arglist>(void, sendExtrapTrackData,(const std::vector&lt; ExtrapTrackData &gt; &amp;data),(override))</arglist>
+      <name>~MockIncomingPort</name>
+      <anchorfile>d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html</anchorfile>
+      <anchor>a186fa2a0ac8b194b803c7be853555c79</anchor>
+      <arglist>() override=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>processAndForwardTrackData</name>
+      <anchorfile>d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html</anchorfile>
+      <anchor>a1cc1977c06a0debc27c039303d42a8ee</anchor>
+      <arglist>(const domain::model::TrackData &amp;trackData) override</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getReceivedTrackDataCount</name>
+      <anchorfile>d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html</anchorfile>
+      <anchor>a72d946b09f4209c6ffcaae283a4b571b</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>std::optional&lt; domain::model::TrackData &gt;</type>
+      <name>getLastReceivedTrackData</name>
+      <anchorfile>d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html</anchorfile>
+      <anchor>a2737ed04088c8724e9939fe8b94044ce</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>std::vector&lt; domain::model::TrackData &gt;</type>
+      <name>getAllReceivedTrackData</name>
+      <anchorfile>d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html</anchorfile>
+      <anchor>aea62302d3ff9e7ba5fc0d78cdedb3726</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>std::optional&lt; domain::model::TrackData &gt;</type>
+      <name>getReceivedTrackDataAt</name>
+      <anchorfile>d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html</anchorfile>
+      <anchor>ae28706b61883ad6caf657b166f80c1ac</anchor>
+      <arglist>(size_t index) const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getProcessCallCount</name>
+      <anchorfile>d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html</anchorfile>
+      <anchor>a5d628644bb8c7933ad6d591c89f099d5</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html</anchorfile>
+      <anchor>a022365a08f3df6f94457b8e4cf1a5a27</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>waitForMessages</name>
+      <anchorfile>d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html</anchorfile>
+      <anchor>a213829e9222b17b1f2cea33ffc79ea22</anchor>
+      <arglist>(int expectedCount, int timeoutMs) const</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>MockIncomingPort</name>
+      <anchorfile>d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html</anchorfile>
+      <anchor>a8a1bd0b719cd4713160789f5e311550f</anchor>
+      <arglist>(const MockIncomingPort &amp;)=delete</arglist>
+    </member>
+    <member kind="function">
+      <type>MockIncomingPort &amp;</type>
+      <name>operator=</name>
+      <anchorfile>d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html</anchorfile>
+      <anchor>acb08940d5e9bdb39b4e5e3339cd02884</anchor>
+      <arglist>(const MockIncomingPort &amp;)=delete</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>MockIncomingPort</name>
+      <anchorfile>d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html</anchorfile>
+      <anchor>ad19554be7cb3fced55e0d3d22d9af803</anchor>
+      <arglist>(MockIncomingPort &amp;&amp;)=delete</arglist>
+    </member>
+    <member kind="function">
+      <type>MockIncomingPort &amp;</type>
+      <name>operator=</name>
+      <anchorfile>d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html</anchorfile>
+      <anchor>a43d1b534b1b8996b2fb2463eb008ce7d</anchor>
+      <arglist>(MockIncomingPort &amp;&amp;)=delete</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::mutex</type>
+      <name>mutex_</name>
+      <anchorfile>d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html</anchorfile>
+      <anchor>aa388509903db6c1ca4e2197f4c242beb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; domain::model::TrackData &gt;</type>
+      <name>receivedTrackData_</name>
+      <anchorfile>d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html</anchorfile>
+      <anchor>a0521e45c16431301a3030d0331ce68e1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int</type>
+      <name>processCallCount_</name>
+      <anchorfile>d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html</anchorfile>
+      <anchor>a13cea1cfa192408d0b103bb3de53edde</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>a_hexagon::test::mocks::MockMessageSocket</name>
+    <filename>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</filename>
+    <base>adapters::common::messaging::IMessageSocket</base>
+    <class kind="struct">a_hexagon::test::mocks::MockMessageSocket::SentMessage</class>
+    <member kind="function">
+      <type></type>
+      <name>MockMessageSocket</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>acac83e4973749ea708a44f5243821ab8</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~MockMessageSocket</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>afa768baced8358a17ece479063b0aa66</anchor>
+      <arglist>() override=default</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>connect</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a008d90bd179232d6f32b35ae528a0c8e</anchor>
+      <arglist>(const std::string &amp;endpoint) override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>send</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a6fbd9e9879921d3a3b4ef6fd76692e10</anchor>
+      <arglist>(const std::vector&lt; uint8_t &gt; &amp;data) override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>send</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>aa8113213d6a472a6cb228e726c964eea</anchor>
+      <arglist>(const std::vector&lt; uint8_t &gt; &amp;data, const std::string &amp;group) override</arglist>
+    </member>
+    <member kind="function">
+      <type>std::optional&lt; std::vector&lt; uint8_t &gt; &gt;</type>
+      <name>receive</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a324106da31fdf236c77d3b8c1687a21c</anchor>
+      <arglist>(int32_t timeoutMs) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>close</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a78650c0620392865d94ba4b598ba5a40</anchor>
+      <arglist>() noexcept override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isConnected</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>ad09ec4a8f5de86c9283c21c839ad80f8</anchor>
+      <arglist>() const noexcept override</arglist>
+    </member>
+    <member kind="function">
+      <type>std::string</type>
+      <name>getSocketType</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a08388c2a6826afdbc2df88760edff6d1</anchor>
+      <arglist>() const noexcept override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>queueIncomingMessage</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a3dbf97d0186d41c5c8bc79eb97cce71c</anchor>
+      <arglist>(const std::vector&lt; uint8_t &gt; &amp;data)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>queueIncomingMessages</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>ab0afcac4e45b3c5cb6cd68cfd132a1c7</anchor>
+      <arglist>(const std::vector&lt; std::vector&lt; uint8_t &gt; &gt; &amp;messages)</arglist>
+    </member>
+    <member kind="function">
+      <type>size_t</type>
+      <name>getIncomingMessageCount</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a0ba26a2544ac45af479343cc14589320</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>std::queue&lt; SentMessage &gt;</type>
+      <name>getSentMessages</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>aac120e23065843037709635d0ee95f74</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>size_t</type>
+      <name>getSentMessageCount</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>ace282d80adecdd827d2695a717c175ca</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>std::optional&lt; SentMessage &gt;</type>
+      <name>getLastSentMessage</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a1bbc98103ed4300c7150a075f297e12a</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>ae70f1176400115a2c5c3a77d9e332a74</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getSendCallCount</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>ad6b53a708b6310da229c51dd565a4f37</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getReceiveCallCount</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a398bb62970f68011e676e50a34dc6c86</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getConnectCallCount</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>afbd98d5beddd1d8a9694a04cbfe0ef53</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getCloseCallCount</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>ad8a29fb7cc4aa6bfa88d5d5a43acb366</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>std::string</type>
+      <name>getEndpoint</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a14bb1997d477f958a420fde584bf98cd</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFailConnect</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a871cc8e5ca670d34c363f81355bbb5fe</anchor>
+      <arglist>(bool fail)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFailSend</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a2edaa1060907b9a6e911e463d3622d06</anchor>
+      <arglist>(bool fail)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>simulateDisconnect</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a710e46e131906cb6405f183a8a7494da</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>MockMessageSocket</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a6b19edeb30bf19e1003c942d5fa3a8f0</anchor>
+      <arglist>(const MockMessageSocket &amp;)=delete</arglist>
+    </member>
+    <member kind="function">
+      <type>MockMessageSocket &amp;</type>
+      <name>operator=</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a0293c0ec0e2ca8c392cc70c02648d397</anchor>
+      <arglist>(const MockMessageSocket &amp;)=delete</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>MockMessageSocket</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a2d7d945b0b0d4d65cf059083a994de1d</anchor>
+      <arglist>(MockMessageSocket &amp;&amp;)=delete</arglist>
+    </member>
+    <member kind="function">
+      <type>MockMessageSocket &amp;</type>
+      <name>operator=</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>afc271c1f3f3a6cc6db8d514144b4f79c</anchor>
+      <arglist>(MockMessageSocket &amp;&amp;)=delete</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::mutex</type>
+      <name>mutex_</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a8a1bed612a2a0a970f0d6b1b7a84c1d8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::condition_variable</type>
+      <name>cv_</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a43cccd391712158db1361cd4c114b06b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>connected_</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>aa93af9bf756fa829fc6ae74bee17280b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::string</type>
+      <name>endpoint_</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>aa31000dca349483b84e3e8376762081b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::queue&lt; std::vector&lt; uint8_t &gt; &gt;</type>
+      <name>incomingMessages_</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a9da13544985c86d2589aa9ab2e8f8bb7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::queue&lt; SentMessage &gt;</type>
+      <name>sentMessages_</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>ac6e063ab67ab55ee2b9e09e17e984ca1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int</type>
+      <name>sendCallCount_</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>aa15097ade336932bc4d47be044aed8a3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int</type>
+      <name>receiveCallCount_</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a109371d8eeb0cf0fe96e6a00e7e9da32</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int</type>
+      <name>connectCallCount_</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>ae03883d567cb35673ab83ca9500efdca</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int</type>
+      <name>closeCallCount_</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>adffd0bda93f99a98ffcf10ebd3456843</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>failConnect_</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a182be8c4950dc45dbe643a91a9cb4f41</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>failSend_</name>
+      <anchorfile>d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html</anchorfile>
+      <anchor>a588c09df324fcb7522883508f281c4d9</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>a_hexagon::test::mocks::MockOutgoingPort</name>
+    <filename>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</filename>
+    <base>domain::ports::outgoing::IExtrapTrackDataOutgoingPort</base>
+    <class kind="struct">a_hexagon::test::mocks::MockOutgoingPort::SentRecord</class>
+    <member kind="function">
+      <type></type>
+      <name>MockOutgoingPort</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>acd330c67124f1f691f639c527483f86e</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~MockOutgoingPort</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>ae612e67b2053cd05ed26e7ab27bc53ca</anchor>
+      <arglist>() override=default</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>sendExtrapTrackData</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>aab8a5825c429e5f20666cccf9d2b36e6</anchor>
+      <arglist>(const std::vector&lt; domain::model::ExtrapTrackData &gt; &amp;data) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>sendExtrapTrackData</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>a89fab35459e3433ece02d2d54a84cce7</anchor>
+      <arglist>(const domain::model::ExtrapTrackData &amp;data) override</arglist>
+    </member>
+    <member kind="function">
+      <type>size_t</type>
+      <name>getSentDataCount</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>a438564167354b909bb1395129bab7260</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>std::vector&lt; domain::model::ExtrapTrackData &gt;</type>
+      <name>getAllSentData</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>a1bb446123488d53c7cd23a2324a41211</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>std::vector&lt; SentRecord &gt;</type>
+      <name>getAllSentRecords</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>ae8bf534be594eb0cee42f32ab3f14907</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>std::optional&lt; domain::model::ExtrapTrackData &gt;</type>
+      <name>getSentDataAt</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>a305c0b593be0fb87166761661e9aaa33</anchor>
+      <arglist>(size_t index) const</arglist>
+    </member>
+    <member kind="function">
+      <type>std::optional&lt; domain::model::ExtrapTrackData &gt;</type>
+      <name>getLastSentData</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>ae76dd4ca4352019a519a715695dd2503</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>std::optional&lt; domain::model::ExtrapTrackData &gt;</type>
+      <name>getFirstSentData</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>af3f5809c908c9d362fe75a233b317bf1</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>std::vector&lt; domain::model::ExtrapTrackData &gt;</type>
+      <name>getSentDataByTrackId</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>a41d419eb725a2d76d9cf4b17e4037724</anchor>
+      <arglist>(int32_t trackId) const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getSendSingleCallCount</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>a022289fc4b6586b338db7afb2d52e2e3</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getSendVectorCallCount</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>a34de709dd3a150a7e798f7ed7a3aacc7</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getTotalSendCallCount</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>a983b7310905d74b59093bcfdc1512381</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getFailedSendCount</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>a976cf7b6e4ab9b5cb3424c43a2ba77f3</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>waitForSentData</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>af02618ac13842cf5c537b7513f2d183c</anchor>
+      <arglist>(size_t expectedCount, int timeoutMs) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>waitForAnySentData</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>af7e69eb36e9fb03a8d44d3ec85250708</anchor>
+      <arglist>(int timeoutMs) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFailSend</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>af876f7081cf71a15254d0ad4cb1e97bd</anchor>
+      <arglist>(bool fail)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isFailSendEnabled</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>a96738ce42f2ff396ba8a5913634861f4</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>a98b04a7b892bc2ad11a88c1e571d0279</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clearSentData</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>a389247b8bf37c70835003b276ca6c100</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getAverageSendIntervalUs</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>a8605083a61246ce62a0f289877a495bd</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>verifyLinearExtrapolation</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>a031d6443ba49a5a98bdf1904c9eaee0e</anchor>
+      <arglist>(double originalPosition, double velocity, double tolerance=0.001) const</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>MockOutgoingPort</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>ae8fab026a4fe1cfeab53fb4a10cc9e01</anchor>
+      <arglist>(const MockOutgoingPort &amp;)=delete</arglist>
+    </member>
+    <member kind="function">
+      <type>MockOutgoingPort &amp;</type>
+      <name>operator=</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>afd10668ecb39c2c85de3934793b5a339</anchor>
+      <arglist>(const MockOutgoingPort &amp;)=delete</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>MockOutgoingPort</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>a55d243fa2b8fcf8fd1b5aa08f6ebcf29</anchor>
+      <arglist>(MockOutgoingPort &amp;&amp;)=delete</arglist>
+    </member>
+    <member kind="function">
+      <type>MockOutgoingPort &amp;</type>
+      <name>operator=</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>aeced49dfef0711dedd156a1808a83e10</anchor>
+      <arglist>(MockOutgoingPort &amp;&amp;)=delete</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::mutex</type>
+      <name>mutex_</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>abda23ccf3d5c46b118dfc4e4b9eddd10</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::condition_variable</type>
+      <name>cv_</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>a7bbae6927068292d455b82f15006fa63</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::vector&lt; SentRecord &gt;</type>
+      <name>sentData_</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>a1cd1687a7597cedcb82bfaf3bb846b0a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int</type>
+      <name>sendSingleCallCount_</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>a7ca55d706fb2e65e5d4f0c3b2b6afaeb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int</type>
+      <name>sendVectorCallCount_</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>a4f6104ba9f8c632a15a870d71eca2b2f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int</type>
+      <name>failedSendCount_</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>a41030c767709bfa0159cb190e93703d5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int</type>
+      <name>sequenceCounter_</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>af692243a839a37401cc314fbe35b65a6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>failSend_</name>
+      <anchorfile>de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html</anchorfile>
+      <anchor>ab319267fac956ef0ba702abf45371c1e</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>a_hexagon::test::mocks::MockMessageSocket::SentMessage</name>
+    <filename>db/d02/structa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket_1_1SentMessage.html</filename>
+    <member kind="variable">
+      <type>std::vector&lt; uint8_t &gt;</type>
+      <name>data</name>
+      <anchorfile>db/d02/structa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket_1_1SentMessage.html</anchorfile>
+      <anchor>a1a2ddd5d19c9a5e4ff7aa6fed6472c03</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::string</type>
+      <name>group</name>
+      <anchorfile>db/d02/structa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket_1_1SentMessage.html</anchorfile>
+      <anchor>a50c7e87c5e07627fb0492213da099193</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::chrono::steady_clock::time_point</type>
+      <name>timestamp</name>
+      <anchorfile>db/d02/structa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket_1_1SentMessage.html</anchorfile>
+      <anchor>a24d11928d492bb598e2377e8d53ee624</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>a_hexagon::test::mocks::MockOutgoingPort::SentRecord</name>
+    <filename>db/d03/structa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort_1_1SentRecord.html</filename>
+    <member kind="variable">
+      <type>domain::model::ExtrapTrackData</type>
+      <name>data</name>
+      <anchorfile>db/d03/structa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort_1_1SentRecord.html</anchorfile>
+      <anchor>aef9e9554380068d041378fc2950cc2a9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::chrono::steady_clock::time_point</type>
+      <name>sentTime</name>
+      <anchorfile>db/d03/structa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort_1_1SentRecord.html</anchorfile>
+      <anchor>a127521df9a4f7b7f6b41b505d80395bd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>sequenceNumber</name>
+      <anchorfile>db/d03/structa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort_1_1SentRecord.html</anchorfile>
+      <anchor>a741a0c3f2a500b71383985d991096e0c</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -2647,41 +3878,6 @@
       <anchor>a995a6d40e2a848bf51676fabd3fbc68c</anchor>
       <arglist>() const noexcept</arglist>
     </member>
-    <member kind="variable" static="yes">
-      <type>static constexpr const char *</type>
-      <name>MULTICAST_ADDRESS</name>
-      <anchorfile>dc/d00/classdomain_1_1model_1_1TrackData.html</anchorfile>
-      <anchor>a6eaf6b825a0f874dbefe2f8784342900</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static constexpr int</type>
-      <name>PORT</name>
-      <anchorfile>dc/d00/classdomain_1_1model_1_1TrackData.html</anchorfile>
-      <anchor>af89277392ab766119f83922eaa51ad59</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static constexpr const char *</type>
-      <name>ZMQ_PROTOCOL</name>
-      <anchorfile>dc/d00/classdomain_1_1model_1_1TrackData.html</anchorfile>
-      <anchor>a81e421d0fd2e76df4a704453bd649380</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static constexpr const char *</type>
-      <name>ZMQ_SOCKET_TYPE</name>
-      <anchorfile>dc/d00/classdomain_1_1model_1_1TrackData.html</anchorfile>
-      <anchor>a815e8ed7ed69aaa369ef89c6a805e893</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static constexpr bool</type>
-      <name>IS_SUBSCRIBER</name>
-      <anchorfile>dc/d00/classdomain_1_1model_1_1TrackData.html</anchorfile>
-      <anchor>a94d259858b355939eec77610014cd8df</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="function" protection="private">
       <type>void</type>
       <name>validateTrackId</name>
@@ -2775,15 +3971,15 @@
       <type></type>
       <name>TrackDataExtrapolator</name>
       <anchorfile>db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html</anchorfile>
-      <anchor>af9e0b4c16eea974d60e2bd55f3c1eb89</anchor>
-      <arglist>(std::unique_ptr&lt; domain::ports::outgoing::ExtrapTrackDataOutgoingPort &gt; outgoingPort)</arglist>
+      <anchor>ab693ff76272334b340bdc25b00d669fa</anchor>
+      <arglist>(std::unique_ptr&lt; domain::ports::outgoing::IExtrapTrackDataOutgoingPort &gt; outgoingPort)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>TrackDataExtrapolator</name>
       <anchorfile>db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html</anchorfile>
-      <anchor>a2df7b7e90d7c91456c6ae5e4c47d3dd6</anchor>
-      <arglist>(domain::ports::outgoing::ExtrapTrackDataOutgoingPort *outgoingPort)</arglist>
+      <anchor>aed52ee3df02589ba90f64c1401e7f46f</anchor>
+      <arglist>(domain::ports::outgoing::IExtrapTrackDataOutgoingPort *outgoingPort)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -2835,10 +4031,17 @@
       <arglist>()=default</arglist>
     </member>
     <member kind="variable" protection="private">
-      <type>std::unique_ptr&lt; domain::ports::outgoing::ExtrapTrackDataOutgoingPort &gt;</type>
+      <type>std::unique_ptr&lt; domain::ports::outgoing::IExtrapTrackDataOutgoingPort &gt;</type>
       <name>outgoingPort_</name>
       <anchorfile>db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html</anchorfile>
-      <anchor>aed0103b2c37bc4ae18f1f1bc8712a39d</anchor>
+      <anchor>aa39f583f81caee6a4d88f41b5e74270b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>domain::ports::outgoing::IExtrapTrackDataOutgoingPort *</type>
+      <name>rawOutgoingPort_</name>
+      <anchorfile>db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html</anchorfile>
+      <anchor>af95aff3a299858b5abb9e9a27f199def</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -2852,11 +4055,46 @@
       <anchor>accb4e3d1b0b42544ff9ff6a31219f99f</anchor>
       <arglist>() override</arglist>
     </member>
-    <member kind="variable" protection="protected">
-      <type>TrackData</type>
-      <name>inputTrack_</name>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>TearDown</name>
       <anchorfile>d2/d01/classTrackDataExtrapolatorTest.html</anchorfile>
-      <anchor>a33cbca4c3f21ae2579b0cf7a21cf2d20</anchor>
+      <anchor>acb3742202cf73f582e3c67b69439832a</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>createExtrapolator</name>
+      <anchorfile>d2/d01/classTrackDataExtrapolatorTest.html</anchorfile>
+      <anchor>a87c49a60a95de09be90243eb516274c2</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>TrackData</type>
+      <name>createTestTrackData</name>
+      <anchorfile>d2/d01/classTrackDataExtrapolatorTest.html</anchorfile>
+      <anchor>a7654d81022bfda41650429b5ea3a7b4b</anchor>
+      <arglist>(int32_t trackId)</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::unique_ptr&lt; MockOutgoingPort &gt;</type>
+      <name>mockOutgoingPort_</name>
+      <anchorfile>d2/d01/classTrackDataExtrapolatorTest.html</anchorfile>
+      <anchor>a4f1b377c9f0dc450b4046e602f4bea84</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>MockOutgoingPort *</type>
+      <name>mockOutgoingPortPtr_</name>
+      <anchorfile>d2/d01/classTrackDataExtrapolatorTest.html</anchorfile>
+      <anchor>ab5fb8b37861a7aac04365c2006955cb7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::unique_ptr&lt; TrackDataExtrapolator &gt;</type>
+      <name>extrapolator_</name>
+      <anchorfile>d2/d01/classTrackDataExtrapolatorTest.html</anchorfile>
+      <anchor>a45f98d7427f1d88cda8579781cea1215</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -2882,6 +4120,13 @@
     <name>adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter</name>
     <filename>d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html</filename>
     <base>adapters::IAdapter</base>
+    <member kind="function">
+      <type></type>
+      <name>TrackDataZeroMQIncomingAdapter</name>
+      <anchorfile>d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html</anchorfile>
+      <anchor>a7879541ee08db27604474c96dc0fe44a</anchor>
+      <arglist>(std::shared_ptr&lt; domain::ports::incoming::ITrackDataIncomingPort &gt; incomingPort, std::unique_ptr&lt; adapters::common::messaging::IMessageSocket &gt; socket)</arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>TrackDataZeroMQIncomingAdapter</name>
@@ -2989,30 +4234,9 @@
     </member>
     <member kind="variable" protection="private">
       <type>std::string</type>
-      <name>protocol_</name>
-      <anchorfile>d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html</anchorfile>
-      <anchor>afff4e4d2d84020453497a35707946b29</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>std::string</type>
       <name>endpoint_</name>
       <anchorfile>d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html</anchorfile>
       <anchor>ac5ad1f758b2f8b999b108734f229e68c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>std::string</type>
-      <name>groupName_</name>
-      <anchorfile>d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html</anchorfile>
-      <anchor>a18f5c7a3d9ca562be665f8fff168a5fb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>int32_t</type>
-      <name>socketType_</name>
-      <anchorfile>d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html</anchorfile>
-      <anchor>ad93c6b4e41c66cdabd9db2210d54a196</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -3023,17 +4247,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
-      <type>zmq::context_t</type>
-      <name>context_</name>
-      <anchorfile>d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html</anchorfile>
-      <anchor>a08465ed19cdbaa27d45c4df38d4eab46</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="private">
-      <type>std::unique_ptr&lt; zmq::socket_t &gt;</type>
+      <type>std::unique_ptr&lt; adapters::common::messaging::IMessageSocket &gt;</type>
       <name>socket_</name>
       <anchorfile>d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html</anchorfile>
-      <anchor>a07d0ae71b83cd002cec2694569817f08</anchor>
+      <anchor>a1627acc1cacebcab0d40720fec4b5cdb</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private">
@@ -3071,11 +4288,18 @@
       <anchor>a3e6cf627c06404b3cb220c1fef19d44e</anchor>
       <arglist></arglist>
     </member>
-    <member kind="variable" protection="private" static="yes">
-      <type>static constexpr int32_t</type>
-      <name>DEFAULT_RECEIVE_TIMEOUT</name>
+    <member kind="variable" protection="private">
+      <type>bool</type>
+      <name>ownsSocket_</name>
       <anchorfile>d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html</anchorfile>
-      <anchor>af8e870f48fb569bc7b9ecd5c45ac40e8</anchor>
+      <anchor>a54afa2b864c864a426e938e4d0730ebb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private" static="yes">
+      <type>static constexpr const char *</type>
+      <name>DEFAULT_ENDPOINT</name>
+      <anchorfile>d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html</anchorfile>
+      <anchor>ab3c38a1de81e984e8bbd5da2e424ed92</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="private" static="yes">
@@ -3085,15 +4309,337 @@
       <anchor>a0fa7400c4f108d9cc96ef2257f90f212</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable" protection="private" static="yes">
+      <type>static constexpr int32_t</type>
+      <name>DEFAULT_RECEIVE_TIMEOUT</name>
+      <anchorfile>d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html</anchorfile>
+      <anchor>af8e870f48fb569bc7b9ecd5c45ac40e8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private" static="yes">
+      <type>static constexpr int32_t</type>
+      <name>REALTIME_THREAD_PRIORITY</name>
+      <anchorfile>d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html</anchorfile>
+      <anchor>a667f61fbc12e1fe64c187efc3d53f3d4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private" static="yes">
+      <type>static constexpr int32_t</type>
+      <name>DEDICATED_CPU_CORE</name>
+      <anchorfile>d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html</anchorfile>
+      <anchor>ade07dc52c22dac464cee977ffabb9eb6</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>TrackDataZeroMQIncomingAdapterTest</name>
+    <filename>d1/d03/classTrackDataZeroMQIncomingAdapterTest.html</filename>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>SetUp</name>
+      <anchorfile>d1/d03/classTrackDataZeroMQIncomingAdapterTest.html</anchorfile>
+      <anchor>ab462310811b3ae7956eb07a6d913296c</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>TearDown</name>
+      <anchorfile>d1/d03/classTrackDataZeroMQIncomingAdapterTest.html</anchorfile>
+      <anchor>abb922f6e7e16a444a019242911ee96cd</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>createAdapter</name>
+      <anchorfile>d1/d03/classTrackDataZeroMQIncomingAdapterTest.html</anchorfile>
+      <anchor>abf1a6867ababb589068ae1a457c0c0f4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>TrackData</type>
+      <name>createTestTrackData</name>
+      <anchorfile>d1/d03/classTrackDataZeroMQIncomingAdapterTest.html</anchorfile>
+      <anchor>a892a31fa0c2179897dbc1c4e8b7c1336</anchor>
+      <arglist>(int32_t trackId)</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::unique_ptr&lt; MockMessageSocket &gt;</type>
+      <name>mockSocket_</name>
+      <anchorfile>d1/d03/classTrackDataZeroMQIncomingAdapterTest.html</anchorfile>
+      <anchor>a8c2a9e6491d2f107d1a10e11daa48621</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>MockMessageSocket *</type>
+      <name>mockSocketPtr_</name>
+      <anchorfile>d1/d03/classTrackDataZeroMQIncomingAdapterTest.html</anchorfile>
+      <anchor>a27282a1c554e77aed8263db59f68e358</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::shared_ptr&lt; MockIncomingPort &gt;</type>
+      <name>mockPort_</name>
+      <anchorfile>d1/d03/classTrackDataZeroMQIncomingAdapterTest.html</anchorfile>
+      <anchor>a9528a136ca70237d6012924d9a638d8f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>std::unique_ptr&lt; TrackDataZeroMQIncomingAdapter &gt;</type>
+      <name>adapter_</name>
+      <anchorfile>d1/d03/classTrackDataZeroMQIncomingAdapterTest.html</anchorfile>
+      <anchor>a7b8026400c8059aabce6061793b92997</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>adapters::common::messaging::ZeroMQSocket</name>
+    <filename>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</filename>
+    <base>adapters::common::messaging::IMessageSocket</base>
+    <member kind="enumeration">
+      <type></type>
+      <name>SocketType</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>a503cf095325bb589f8e2d899eeedc9ce</anchor>
+      <arglist></arglist>
+      <enumvalue file="db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html" anchor="a503cf095325bb589f8e2d899eeedc9cea241dd841abade20fcb27b8a9f494e1eb">SUB</enumvalue>
+      <enumvalue file="db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html" anchor="a503cf095325bb589f8e2d899eeedc9cea9aba7127268ef2f384fdc95498c7bb1a">PUB</enumvalue>
+      <enumvalue file="db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html" anchor="a503cf095325bb589f8e2d899eeedc9ceaf712f064807c1b144fbe7d0a950d9f07">DISH</enumvalue>
+      <enumvalue file="db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html" anchor="a503cf095325bb589f8e2d899eeedc9ceaf46d45b52139dc3fa782c53f701ada0d">RADIO</enumvalue>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>ConnectionMode</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>a171ab154f16d21756dcb5b9abde3b791</anchor>
+      <arglist></arglist>
+      <enumvalue file="db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html" anchor="a171ab154f16d21756dcb5b9abde3b791a49ab28040dfa07f53544970c6d147e1e">Connect</enumvalue>
+      <enumvalue file="db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html" anchor="a171ab154f16d21756dcb5b9abde3b791a0b172674284d79079624051d2ae11581">Bind</enumvalue>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>ZeroMQSocket</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>a4013f04d1ebd67d7d0048cb01a0ce950</anchor>
+      <arglist>(SocketType socketType, int ioThreads=1)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>ZeroMQSocket</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>afd9575854897b81b58ffa62476dd68ea</anchor>
+      <arglist>(int socketType, ConnectionMode mode=ConnectionMode::Connect, int ioThreads=1)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~ZeroMQSocket</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>a6e40b3c8d2e8bcdc553c6c9374aafd42</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>connect</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>aea26badae0f421560d7191aec8488388</anchor>
+      <arglist>(const std::string &amp;endpoint) override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>send</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>a3d210a98aa0e70180fec8b69a7c0e5aa</anchor>
+      <arglist>(const std::vector&lt; uint8_t &gt; &amp;data) override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>send</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>af3e09ab5b3ef8b613b7fdf634e03186a</anchor>
+      <arglist>(const std::vector&lt; uint8_t &gt; &amp;data, const std::string &amp;group) override</arglist>
+    </member>
+    <member kind="function">
+      <type>std::optional&lt; std::vector&lt; uint8_t &gt; &gt;</type>
+      <name>receive</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>a8584e9a1393d72c3a91b87daf25226d8</anchor>
+      <arglist>(int32_t timeoutMs) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>close</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>a1c08247330e71bff4ee85b949ada7b7f</anchor>
+      <arglist>() noexcept override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isConnected</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>abc715db00b3dc255eea97a8769099d6c</anchor>
+      <arglist>() const noexcept override</arglist>
+    </member>
+    <member kind="function">
+      <type>std::string</type>
+      <name>getSocketType</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>a981156caff9cdc168ae5715795b2cf73</anchor>
+      <arglist>() const noexcept override</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>connect</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>aea9d10f083cbe31c1d7d716bbb8f6bf3</anchor>
+      <arglist>(const std::string &amp;endpoint, ConnectionMode mode)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>subscribe</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>a558c9f5ca0a5e419a2ea8a769a6a7797</anchor>
+      <arglist>(const std::string &amp;filter=&quot;&quot;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>joinGroup</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>a2f355e65168b4b37e273cea49bd02a26</anchor>
+      <arglist>(const std::string &amp;group)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>ZeroMQSocket</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>aabf2d4112e65ceca9bec709c6a6d7a50</anchor>
+      <arglist>(const ZeroMQSocket &amp;)=delete</arglist>
+    </member>
+    <member kind="function">
+      <type>ZeroMQSocket &amp;</type>
+      <name>operator=</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>ae94110e003a50d745ae41bd419812fea</anchor>
+      <arglist>(const ZeroMQSocket &amp;)=delete</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>ZeroMQSocket</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>a503a6b6d91f6454fcf90adfff2f51144</anchor>
+      <arglist>(ZeroMQSocket &amp;&amp;)=delete</arglist>
+    </member>
+    <member kind="function">
+      <type>ZeroMQSocket &amp;</type>
+      <name>operator=</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>a0f977b546729083dfe16a516fcaf254c</anchor>
+      <arglist>(ZeroMQSocket &amp;&amp;)=delete</arglist>
+    </member>
+    <member kind="function" protection="private">
+      <type>std::string</type>
+      <name>getSocketTypeName</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>ae6df858f5c7201d47418ab8470c41187</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::unique_ptr&lt; zmq::context_t &gt;</type>
+      <name>context_</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>a4fe140aa4e82741db0f9c665abf5c7ff</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::unique_ptr&lt; zmq::socket_t &gt;</type>
+      <name>socket_</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>a6e761efc773ad65863c135d2037961d1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>int</type>
+      <name>socketType_</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>a6c6366a24df8f7a02248f92319d0cdb4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>ConnectionMode</type>
+      <name>mode_</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>aa2e7de350196ab7b21fad3f4e1c531ef</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::atomic&lt; bool &gt;</type>
+      <name>connected_</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>a63f56214cd69c6115643a0bdd83a1721</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::string</type>
+      <name>endpoint_</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>adec3e7535988b74c9af18ed9fe405dbc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="private">
+      <type>std::mutex</type>
+      <name>mutex_</name>
+      <anchorfile>db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html</anchorfile>
+      <anchor>adbd633f0de75e26e84879ddbfb5fa901</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>a_hexagon</name>
+    <filename>db/d00/namespacea__hexagon.html</filename>
+    <namespace>a_hexagon::test</namespace>
+  </compound>
+  <compound kind="namespace">
+    <name>a_hexagon::test</name>
+    <filename>dd/d00/namespacea__hexagon_1_1test.html</filename>
+    <namespace>a_hexagon::test::mocks</namespace>
+  </compound>
+  <compound kind="namespace">
+    <name>a_hexagon::test::mocks</name>
+    <filename>d4/d03/namespacea__hexagon_1_1test_1_1mocks.html</filename>
+    <class kind="class">a_hexagon::test::mocks::MockIncomingPort</class>
+    <class kind="class">a_hexagon::test::mocks::MockMessageSocket</class>
+    <class kind="class">a_hexagon::test::mocks::MockOutgoingPort</class>
   </compound>
   <compound kind="namespace">
     <name>adapters</name>
     <filename>d2/d03/namespaceadapters.html</filename>
+    <namespace>adapters::common</namespace>
     <namespace>adapters::incoming</namespace>
     <namespace>adapters::outgoing</namespace>
     <class kind="class">adapters::AdapterManager</class>
     <class kind="class">adapters::IAdapter</class>
     <class kind="class">adapters::MessagePipeline</class>
+  </compound>
+  <compound kind="namespace">
+    <name>adapters::common</name>
+    <filename>db/d03/namespaceadapters_1_1common.html</filename>
+    <namespace>adapters::common::messaging</namespace>
+  </compound>
+  <compound kind="namespace">
+    <name>adapters::common::messaging</name>
+    <filename>d0/d00/namespaceadapters_1_1common_1_1messaging.html</filename>
+    <namespace>adapters::common::messaging::anonymous_namespace{ZeroMQSocket.cpp}</namespace>
+    <class kind="class">adapters::common::messaging::IMessageSocket</class>
+    <class kind="class">adapters::common::messaging::ZeroMQSocket</class>
+  </compound>
+  <compound kind="namespace">
+    <name>adapters::common::messaging::anonymous_namespace{ZeroMQSocket.cpp}</name>
+    <filename>dc/d01/namespaceadapters_1_1common_1_1messaging_1_1anonymous__namespace_02ZeroMQSocket_8cpp_03.html</filename>
+    <member kind="function">
+      <type>int</type>
+      <name>socketTypeEnumToZmq</name>
+      <anchorfile>dc/d01/namespaceadapters_1_1common_1_1messaging_1_1anonymous__namespace_02ZeroMQSocket_8cpp_03.html</anchorfile>
+      <anchor>a6a2e10d8cbdc50d43d4b406b1607d8b2</anchor>
+      <arglist>(ZeroMQSocket::SocketType type)</arglist>
+    </member>
   </compound>
   <compound kind="namespace">
     <name>adapters::incoming</name>
@@ -3104,20 +4650,6 @@
     <name>adapters::incoming::zeromq</name>
     <filename>dd/d03/namespaceadapters_1_1incoming_1_1zeromq.html</filename>
     <class kind="class">adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter</class>
-    <member kind="variable" static="yes">
-      <type>static constexpr int32_t</type>
-      <name>REALTIME_THREAD_PRIORITY</name>
-      <anchorfile>dd/d03/namespaceadapters_1_1incoming_1_1zeromq.html</anchorfile>
-      <anchor>ac24cbcf90255aa483aced1e22e351a26</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static constexpr int32_t</type>
-      <name>DEDICATED_CPU_CORE</name>
-      <anchorfile>dd/d03/namespaceadapters_1_1incoming_1_1zeromq.html</anchorfile>
-      <anchor>a65240910a7f0f403e8aaa7286ffde61a</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="namespace">
     <name>adapters::outgoing</name>
@@ -3128,6 +4660,38 @@
     <name>adapters::outgoing::zeromq</name>
     <filename>dc/d00/namespaceadapters_1_1outgoing_1_1zeromq.html</filename>
     <class kind="class">adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter</class>
+  </compound>
+  <compound kind="namespace">
+    <name>config</name>
+    <filename>d6/d03/namespaceconfig.html</filename>
+    <member kind="variable" static="yes">
+      <type>static constexpr const char *</type>
+      <name>TRACK_DATA_INCOMING_ENDPOINT</name>
+      <anchorfile>d6/d03/namespaceconfig.html</anchorfile>
+      <anchor>a4ba880f9e451e64a5101dcab10e14755</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr const char *</type>
+      <name>TRACK_DATA_INCOMING_GROUP</name>
+      <anchorfile>d6/d03/namespaceconfig.html</anchorfile>
+      <anchor>ab959b5f176b4c2862fb215ed82b176f2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr const char *</type>
+      <name>EXTRAP_DATA_OUTGOING_ENDPOINT</name>
+      <anchorfile>d6/d03/namespaceconfig.html</anchorfile>
+      <anchor>a4909b2faabc3d31bb2d3a19e6945c301</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr const char *</type>
+      <name>EXTRAP_DATA_OUTGOING_GROUP</name>
+      <anchorfile>d6/d03/namespaceconfig.html</anchorfile>
+      <anchor>afcdc4a84cdf75893324316f724f4885d</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="namespace">
     <name>domain</name>
@@ -3174,18 +4738,11 @@
     <name>domain::ports::incoming</name>
     <filename>d7/d02/namespacedomain_1_1ports_1_1incoming.html</filename>
     <class kind="class">domain::ports::incoming::ITrackDataIncomingPort</class>
-    <member kind="typedef">
-      <type>ITrackDataIncomingPort</type>
-      <name>TrackDataIncomingPort</name>
-      <anchorfile>d7/d02/namespacedomain_1_1ports_1_1incoming.html</anchorfile>
-      <anchor>a56100b10bbea64b0d85a510820f5bd9a</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="namespace">
     <name>domain::ports::outgoing</name>
     <filename>de/d03/namespacedomain_1_1ports_1_1outgoing.html</filename>
-    <class kind="class">domain::ports::outgoing::ExtrapTrackDataOutgoingPort</class>
+    <class kind="class">domain::ports::outgoing::IExtrapTrackDataOutgoingPort</class>
   </compound>
   <compound kind="namespace">
     <name>utils</name>
@@ -3193,9 +4750,19 @@
     <class kind="class">utils::Logger</class>
   </compound>
   <compound kind="page">
-    <name>index</name>
+    <name>md__2workspaces_2hexagon__c_2test_2a__hexagon_2test_2a__hexagon_2README</name>
     <title>a_hexagon Unit Tests</title>
+    <filename>d4/d00/md__2workspaces_2hexagon__c_2test_2a__hexagon_2test_2a__hexagon_2README.html</filename>
+  </compound>
+  <compound kind="page">
+    <name>md__2workspaces_2hexagon__c_2test_2a__hexagon_2README</name>
+    <title>a_hexagon - Hexagonal Architecture Track Data Processing</title>
+    <filename>d4/d00/md__2workspaces_2hexagon__c_2test_2a__hexagon_2README.html</filename>
+  </compound>
+  <compound kind="page">
+    <name>index</name>
+    <title>a_hexagon - Track Data Extrapolation System</title>
     <filename>index.html</filename>
-    <docanchor file="index.html" title="a_hexagon Unit Tests">md__2workspaces_2hexagon__c_2test_2a__hexagon_2test_2a__hexagon_2README</docanchor>
+    <docanchor file="index.html" title="a_hexagon - Track Data Extrapolation System">mainpage</docanchor>
   </compound>
 </tagfile>

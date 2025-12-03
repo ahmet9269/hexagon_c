@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['incomingadapter_5f_0',['incomingAdapter_',['../dd/d00/classadapters_1_1MessagePipeline.html#a71625596346df4a440261574f3b9a7b4',1,'adapters::MessagePipeline']]],
-  ['incomingport_5f_1',['incomingPort_',['../d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a2084086513bb93c28504f3e1a0cd4911',1,'adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter']]],
-  ['incomingportshared_5f_2',['incomingPortShared_',['../d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a3e6cf627c06404b3cb220c1fef19d44e',1,'adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter']]],
-  ['initialized_5f_3',['initialized_',['../d2/d02/classutils_1_1Logger.html#a05d945b4997f85e6ca604476524d8e03',1,'utils::Logger']]],
-  ['inputtrack_5f_4',['inputTrack_',['../d2/d01/classTrackDataExtrapolatorTest.html#a33cbca4c3f21ae2579b0cf7a21cf2d20',1,'TrackDataExtrapolatorTest']]],
-  ['is_5fpublisher_5',['IS_PUBLISHER',['../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#ac5a75144ae5bb2a62e052c83b70979d8',1,'domain::model::ExtrapTrackData']]],
-  ['is_5fsubscriber_6',['IS_SUBSCRIBER',['../dc/d00/classdomain_1_1model_1_1TrackData.html#a94d259858b355939eec77610014cd8df',1,'domain::model::TrackData']]]
+  ['g_5frunning_0',['g_running',['../df/d02/main_8cpp.html#ac1b70aca9df5fb9f04b122b30ef4006e',1,'main.cpp']]],
+  ['g_5fshutdown_5frequested_1',['g_shutdown_requested',['../d0/d00/main_8hpp.html#ad9223bbbed1d71323a789daf88911c4a',1,'main.hpp']]],
+  ['group_2',['group',['../db/d02/structa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket_1_1SentMessage.html#a50c7e87c5e07627fb0492213da099193',1,'a_hexagon::test::mocks::MockMessageSocket::SentMessage']]],
+  ['group_5f_3',['group_',['../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#abbe8b250e23d263c8a825c9d864bb5f8',1,'adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter']]]
 ];

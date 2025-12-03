@@ -25,9 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">a_hexagon<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">a_hexagon<span id="projectnumber">&#160;2.1.0</span>
    </div>
-   <div id="projectbrief">Hexagonal Architecture Track Data Processing Application</div>
+   <div id="projectbrief">Hexagonal Architecture Track Data Extrapolation System - Thread-per-Type Pattern with DIP Compliant Socket Abstraction</div>
   </td>
  </tr>
  </tbody>
@@ -93,24 +93,26 @@ $(document).ready(function(){initNavTree('d1/d01/ExtrapTrackDataZeroMQOutgoingAd
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle"><div class="title">ExtrapTrackDataZeroMQOutgoingAdapter.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>ZeroMQ UDP RADIO Outgoing Adapter for ExtrapTrackData messages.  
+<p>ZeroMQ Outgoing Adapter for ExtrapTrackData messages (DIP compliant)  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="../../d0/d00/IAdapter_8hpp_source.html">adapters/common/IAdapter.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d6/d01/ExtrapTrackDataOutgoingPort_8hpp_source.html">domain/ports/outgoing/ExtrapTrackDataOutgoingPort.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d1/d03/IMessageSocket_8hpp_source.html">adapters/common/messaging/IMessageSocket.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d01/IExtrapTrackDataOutgoingPort_8hpp_source.html">domain/ports/outgoing/IExtrapTrackDataOutgoingPort.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d7/d00/model_2ExtrapTrackData_8hpp_source.html">domain/model/ExtrapTrackData.hpp</a>&quot;</code><br />
-<code>#include &quot;zmq_config.hpp&quot;</code><br />
-<code>#include &lt;zmq.hpp&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;atomic&gt;</code><br />
 <code>#include &lt;memory&gt;</code><br />
 <code>#include &lt;cstdint&gt;</code><br />
+<code>#include &lt;thread&gt;</code><br />
+<code>#include &lt;queue&gt;</code><br />
+<code>#include &lt;mutex&gt;</code><br />
+<code>#include &lt;condition_variable&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ExtrapTrackDataZeroMQOutgoingAdapter.hpp:</div>
 <div class="dyncontent">
@@ -119,7 +121,7 @@ Include dependency graph for ExtrapTrackDataZeroMQOutgoingAdapter.hpp:</div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d03/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp__dep__incl.svg" width="435" height="168"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../de/d03/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp__dep__incl.svg" width="100%" height="448"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -145,53 +147,35 @@ Namespaces</h2></td></tr>
 <tr class="memitem:d2/d02/namespacedomain_1_1adapters_1_1outgoing" id="r_d2/d02/namespacedomain_1_1adapters_1_1outgoing"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d02/namespacedomain_1_1adapters_1_1outgoing.html">domain::adapters::outgoing</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:aa6eb91d89c3dc2108352335def5f322f" id="r_aa6eb91d89c3dc2108352335def5f322f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp.html#aa6eb91d89c3dc2108352335def5f322f">ZMQ_RADIO</a>&#160;&#160;&#160;14</td></tr>
-<tr class="separator:aa6eb91d89c3dc2108352335def5f322f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a0d9df0457303db24bf7784112f7d502f" id="r_a0d9df0457303db24bf7784112f7d502f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d02/namespacedomain_1_1adapters_1_1outgoing.html#a0d9df0457303db24bf7784112f7d502f">domain::adapters::outgoing::ExtrapTrackDataZeroMQOutgoingAdapter</a> = <a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html">::adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter</a></td></tr>
 <tr class="separator:a0d9df0457303db24bf7784112f7d502f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>ZeroMQ UDP RADIO Outgoing Adapter for ExtrapTrackData messages. </p>
-<p>Implements both IAdapter interface and ExtrapTrackDataOutgoingPort for sending extrapolated track data via ZeroMQ RADIO socket.</p>
-<p>Architecture: ┌───────────────────────────────────────────────────────────┐ │ ExtrapTrackDataZeroMQOutgoingAdapter │ ├───────────────────────────────────────────────────────────┤ │ ExtrapTrackData Model │ │ ↓ │ │ Binary Serialization │ │ ↓ │ │ ZeroMQ RADIO Socket (UDP Multicast) │ └───────────────────────────────────────────────────────────┘</p>
-<dl class="section author"><dt>Author</dt><dd>a_hexagon Team </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1.1 </dd></dl>
+<div class="textblock"><p>ZeroMQ Outgoing Adapter for ExtrapTrackData messages (DIP compliant) </p>
+<p>Implements both IAdapter interface and IExtrapTrackDataOutgoingPort for sending extrapolated track data via IMessageSocket abstraction.</p>
+<p>Architecture (DIP Compliant): ┌───────────────────────────────────────────────────────────┐ │ ExtrapTrackDataZeroMQOutgoingAdapter │ ├───────────────────────────────────────────────────────────┤ │ ExtrapTrackData Model │ │ ↓ │ │ Binary Serialization │ │ ↓ │ │ IMessageSocket (Abstraction) ← ZeroMQ/Mock │ └───────────────────────────────────────────────────────────┘</p>
+<dl class="section author"><dt>Author</dt><dd><a class="el" href="../../db/d00/namespacea__hexagon.html">a_hexagon</a> Team </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>2.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2025</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>MISRA C++ 2023 compliant implementation </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>MISRA C++ 2023 compliant implementation </dd>
+<dd>
+DIP compliant - depends on IMessageSocket abstraction </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d0/d00/IAdapter_8hpp.html" title="Base interface for all adapters in the hexagonal architecture.">IAdapter.hpp</a> </dd>
 <dd>
-<a class="el" href="../../d6/d01/ExtrapTrackDataOutgoingPort_8hpp.html">ExtrapTrackDataOutgoingPort.hpp</a> </dd></dl>
+<a class="el" href="../../d7/d01/IExtrapTrackDataOutgoingPort_8hpp.html" title="Output port interface for ExtrapTrackData transmission.">IExtrapTrackDataOutgoingPort.hpp</a> </dd>
+<dd>
+<a class="el" href="../../d1/d03/IMessageSocket_8hpp.html" title="Abstract messaging socket interface for DIP compliance.">IMessageSocket.hpp</a> </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="aa6eb91d89c3dc2108352335def5f322f" name="aa6eb91d89c3dc2108352335def5f322f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6eb91d89c3dc2108352335def5f322f">&#9670;&#160;</a></span>ZMQ_RADIO</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define ZMQ_RADIO&#160;&#160;&#160;14</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00044">44</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5fed3e74346fe99d77e8db841376dd26.html">a_hexagon</a></li><li class="navelem"><a class="el" href="../../dir_cf59ac64f48ce70ec5c7000366e18fd6.html">adapters</a></li><li class="navelem"><a class="el" href="../../dir_f9452a63cbb6263a5e0e241d2fba3b1b.html">outgoing</a></li><li class="navelem"><a class="el" href="../../dir_e205f49dd11ca7ff255f4bc539b6b833.html">zeromq</a></li><li class="navelem"><a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a></li>
-    <li class="footer">Generated on Mon Dec 1 2025 13:08:48 for a_hexagon by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

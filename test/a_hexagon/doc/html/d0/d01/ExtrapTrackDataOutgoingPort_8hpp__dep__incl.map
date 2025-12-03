@@ -1,19 +1,23 @@
 <map id="a_hexagon/domain/ports/outgoing/ExtrapTrackDataOutgoingPort.hpp" name="a_hexagon/domain/ports/outgoing/ExtrapTrackDataOutgoingPort.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="514,5,767,60"/>
-<area shape="rect" id="Node000002" href="$d3/d00/TrackDataExtrapolatorTest_8cpp.html" title="Unit tests for TrackDataExtrapolator domain logic." alt="" coords="674,211,898,280"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="669,70,765,209,761,212,664,73"/>
-<area shape="rect" id="Node000003" href="$d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp.html" title="ZeroMQ UDP RADIO Outgoing Adapter for ExtrapTrackData messages." alt="" coords="206,108,449,163"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="547,67,410,110,408,105,546,62"/>
-<area shape="rect" id="Node000006" href="$d7/d03/TrackDataExtrapolator_8hpp.html" title=" " alt="" coords="473,115,672,155"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="617,73,588,116,583,113,613,70"/>
-<area shape="rect" id="Node000008" href="$d7/d00/ExtrapTrackDataOutgoingPort_8cpp.html" title=" " alt="" coords="746,108,999,163"/>
-<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="714,63,813,105,811,110,712,68"/>
-<area shape="rect" id="Node000004" href="$d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp.html" title="ZeroMQ UDP RADIO Outgoing Adapter implementation." alt="" coords="5,218,247,273"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="267,172,176,220,174,215,265,167"/>
-<area shape="rect" id="Node000005" href="$df/d02/main_8cpp.html" title="Main entry point for A_Hexagon application." alt="" coords="271,233,429,258"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="338,176,350,232,345,233,333,177"/>
-<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="623,159,721,208,718,213,621,164"/>
-<area shape="poly" id="edge8_Node000006_Node000005" title=" " alt="" coords="523,164,375,235,373,230,520,159"/>
-<area shape="rect" id="Node000007" href="$dc/d02/TrackDataExtrapolator_8cpp.html" title=" " alt="" coords="453,225,650,265"/>
-<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="569,169,558,226,552,225,564,168"/>
+<area shape="rect" id="Node000001" title="Output port interface for ExtrapTrackData transmission." alt="" coords="368,5,621,60"/>
+<area shape="rect" id="Node000002" href="$d1/d00/MockOutgoingPort_8hpp.html" title="Mock implementation of ExtrapTrackDataOutgoingPort for unit testing." alt="" coords="5,108,248,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="393,66,242,111,240,105,391,61"/>
+<area shape="rect" id="Node000004" href="$d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp.html" title="ZeroMQ Outgoing Adapter for ExtrapTrackData messages (DIP compliant)" alt="" coords="496,115,739,170"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="537,67,589,113,586,117,533,71"/>
+<area shape="rect" id="Node000008" href="$d7/d03/TrackDataExtrapolator_8hpp.html" title="Domain service for track data extrapolation." alt="" coords="273,123,471,163"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="456,71,395,125,392,121,452,67"/>
+<area shape="rect" id="Node000010" href="$d7/d00/ExtrapTrackDataOutgoingPort_8cpp.html" title=" " alt="" coords="763,115,1016,170"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="604,61,794,113,793,118,603,66"/>
+<area shape="rect" id="Node000003" href="$d3/d00/TrackDataExtrapolatorTest_8cpp.html" title="Unit tests for TrackDataExtrapolator domain logic." alt="" coords="15,233,239,302"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="129,191,129,232,124,232,124,191"/>
+<area shape="rect" id="Node000005" href="$d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html" title="Unit tests for ExtrapTrackDataZeroMQOutgoingAdapter with DIP compliance." alt="" coords="666,225,961,309"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="673,175,749,223,746,227,670,180"/>
+<area shape="rect" id="Node000006" href="$d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp.html" title="ZeroMQ UDP RADIO Outgoing Adapter implementation." alt="" coords="985,240,1226,295"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="734,171,751,175,863,198,974,223,1025,237,1024,243,973,228,862,203,750,180,733,176"/>
+<area shape="rect" id="Node000007" href="$df/d02/main_8cpp.html" title="Main entry point for A_Hexagon application." alt="" coords="484,255,641,280"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="602,184,570,255,565,253,598,182"/>
+<area shape="poly" id="edge8_Node000008_Node000003" title=" " alt="" coords="323,171,195,235,193,230,321,166"/>
+<area shape="poly" id="edge10_Node000008_Node000007" title=" " alt="" coords="414,168,546,252,543,257,411,172"/>
+<area shape="rect" id="Node000009" href="$dc/d02/TrackDataExtrapolator_8cpp.html" title="Implementation of TrackDataExtrapolator domain service." alt="" coords="263,247,460,287"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="372,177,366,247,360,247,366,176"/>
 </map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['🔨_20building_0',['🔨 Building',['../index.html#autotoc_md6',1,'']]]
+  ['📊_20performance_0',['📊 Performance',['..//workspaces/hexagon_c/test/c_hexagon/README.md#autotoc_md35',1,'']]]
 ];

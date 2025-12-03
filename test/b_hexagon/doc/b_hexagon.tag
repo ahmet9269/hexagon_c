@@ -12,7 +12,7 @@
   </compound>
   <compound kind="page">
     <name>architecture</name>
-    <title>B_Hexagon Architecture Documentation</title>
+    <title>B_Hexagon Architecture</title>
     <filename>dc/da6/architecture.html</filename>
   </compound>
   <compound kind="page">

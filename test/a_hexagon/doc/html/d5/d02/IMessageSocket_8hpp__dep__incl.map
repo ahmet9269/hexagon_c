@@ -1,0 +1,30 @@
+<map id="a_hexagon/adapters/common/messaging/IMessageSocket.hpp" name="a_hexagon/adapters/common/messaging/IMessageSocket.hpp">
+<area shape="rect" id="Node000001" title="Abstract messaging socket interface for DIP compliance." alt="" coords="623,5,847,60"/>
+<area shape="rect" id="Node000002" href="$db/d03/MockMessageSocket_8hpp.html" title="Mock implementation of IMessageSocket for unit testing." alt="" coords="221,108,462,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="626,66,463,111,462,106,625,61"/>
+<area shape="rect" id="Node000005" href="$d4/d03/ZeroMQSocket_8hpp.html" title="ZeroMQ concrete implementation of IMessageSocket." alt="" coords="1039,123,1324,163"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="857,61,1104,120,1103,125,856,66"/>
+<area shape="rect" id="Node000009" href="$df/d02/main_8cpp.html" title="Main entry point for A_Hexagon application." alt="" coords="656,255,813,280"/>
+<area shape="poly" id="edge17_Node000001_Node000009" title=" " alt="" coords="737,74,737,254,732,254,732,74"/>
+<area shape="rect" id="Node000010" href="$da/d03/TrackDataZeroMQIncomingAdapter_8hpp.html" title="ZeroMQ UDP DISH Incoming Adapter for TrackData messages." alt="" coords="486,115,698,170"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="691,70,629,117,625,113,687,66"/>
+<area shape="rect" id="Node000011" href="$d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp.html" title="ZeroMQ Outgoing Adapter for ExtrapTrackData messages (DIP compliant)" alt="" coords="772,115,1015,170"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="786,66,856,113,853,117,783,70"/>
+<area shape="rect" id="Node000003" href="$d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html" title="Unit tests for TrackDataZeroMQIncomingAdapter with DIP compliance." alt="" coords="5,233,312,302"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="281,187,211,234,208,230,278,183"/>
+<area shape="rect" id="Node000004" href="$d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html" title="Unit tests for ExtrapTrackDataZeroMQOutgoingAdapter with DIP compliance." alt="" coords="337,225,631,309"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="393,184,438,223,435,227,389,188"/>
+<area shape="rect" id="Node000006" href="$d6/d02/ZeroMQSocket_8cpp.html" title="ZeroMQ concrete implementation of IMessageSocket." alt="" coords="1338,247,1622,287"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1241,165,1435,245,1433,250,1239,170"/>
+<area shape="rect" id="Node000007" href="$d5/d00/TrackDataZeroMQIncomingAdapter_8cpp.html" title="ZeroMQ Incoming Adapter implementation (DIP compliant)" alt="" coords="837,240,1048,295"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="1134,171,995,242,992,238,1131,167"/>
+<area shape="rect" id="Node000008" href="$d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp.html" title="ZeroMQ UDP RADIO Outgoing Adapter implementation." alt="" coords="1073,240,1314,295"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="1187,176,1193,240,1188,240,1182,177"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="1082,168,826,228,758,257,756,252,825,223,1081,163"/>
+<area shape="poly" id="edge10_Node000010_Node000003" title=" " alt="" coords="487,176,278,235,277,230,486,171"/>
+<area shape="poly" id="edge11_Node000010_Node000007" title=" " alt="" coords="680,172,868,237,867,242,679,177"/>
+<area shape="poly" id="edge12_Node000010_Node000009" title=" " alt="" coords="634,177,723,253,720,257,631,181"/>
+<area shape="poly" id="edge14_Node000011_Node000004" title=" " alt="" coords="794,176,621,228,620,223,792,171"/>
+<area shape="poly" id="edge15_Node000011_Node000008" title=" " alt="" coords="971,173,1130,237,1128,242,969,178"/>
+<area shape="poly" id="edge16_Node000011_Node000009" title=" " alt="" coords="850,181,751,257,748,252,847,176"/>
+</map>

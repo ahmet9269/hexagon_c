@@ -25,9 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">a_hexagon<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">a_hexagon<span id="projectnumber">&#160;2.1.0</span>
    </div>
-   <div id="projectbrief">Hexagonal Architecture Track Data Processing Application</div>
+   <div id="projectbrief">Hexagonal Architecture Track Data Extrapolation System - Thread-per-Type Pattern with DIP Compliant Socket Abstraction</div>
   </td>
  </tr>
  </tbody>
@@ -97,6 +97,9 @@ $(document).ready(function(){initNavTree('d8/d01/classdomain_1_1ports_1_1outgoin
 </div><!--header-->
 <div class="contents">
 
+<p>Abstract interface for extrapolated track data output port (secondary port)  
+ <a href="../../d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="../../d6/d01/ExtrapTrackDataOutgoingPort_8hpp_source.html">ExtrapTrackDataOutgoingPort.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for domain::ports::outgoing::ExtrapTrackDataOutgoingPort:</div>
@@ -112,15 +115,29 @@ Collaboration diagram for domain::ports::outgoing::ExtrapTrackDataOutgoingPort:<
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7612f271387f15abd06d69d65e44a686" id="r_a7612f271387f15abd06d69d65e44a686"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html#a7612f271387f15abd06d69d65e44a686">~ExtrapTrackDataOutgoingPort</a> ()=default</td></tr>
+<tr class="memdesc:a7612f271387f15abd06d69d65e44a686"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for proper cleanup.  <br /></td></tr>
 <tr class="separator:a7612f271387f15abd06d69d65e44a686"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab300edf81ea52561362d46fae9cee53a" id="r_ab300edf81ea52561362d46fae9cee53a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html#ab300edf81ea52561362d46fae9cee53a">sendExtrapTrackData</a> (const std::vector&lt; <a class="el" href="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html">model::ExtrapTrackData</a> &gt; &amp;data)=0</td></tr>
+<tr class="memdesc:ab300edf81ea52561362d46fae9cee53a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send batch of extrapolated track data.  <br /></td></tr>
 <tr class="separator:ab300edf81ea52561362d46fae9cee53a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f81d79d45f3ee7817c84b4c8d1176d8" id="r_a6f81d79d45f3ee7817c84b4c8d1176d8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html#a6f81d79d45f3ee7817c84b4c8d1176d8">sendExtrapTrackData</a> (const <a class="el" href="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html">model::ExtrapTrackData</a> &amp;data)=0</td></tr>
+<tr class="memdesc:a6f81d79d45f3ee7817c84b4c8d1176d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send single extrapolated track data (preferred for real-time)  <br /></td></tr>
 <tr class="separator:a6f81d79d45f3ee7817c84b4c8d1176d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../d6/d01/ExtrapTrackDataOutgoingPort_8hpp_source.html#l00008">8</a> of file <a class="el" href="../../d6/d01/ExtrapTrackDataOutgoingPort_8hpp_source.html">ExtrapTrackDataOutgoingPort.hpp</a>.</p>
+<div class="textblock"><p>Abstract interface for extrapolated track data output port (secondary port) </p>
+<p>This interface defines the contract for sending extrapolated TrackData to outgoing adapters. Implements the "Driver" side of the hexagonal architecture.</p>
+<p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">class </span>ZeroMQOutgoingAdapter : <span class="keyword">public</span> <a class="code hl_class" href="../../d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html">ExtrapTrackDataOutgoingPort</a> {</div>
+<div class="line">    <span class="keywordtype">void</span> sendExtrapTrackData(<span class="keyword">const</span> ExtrapTrackData&amp; data)<span class="keyword"> override </span>{</div>
+<div class="line">        <span class="comment">// Serialize and send via ZeroMQ</span></div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="ttc" id="aclassdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort_html"><div class="ttname"><a href="../../d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html">domain::ports::outgoing::ExtrapTrackDataOutgoingPort</a></div><div class="ttdoc">Abstract interface for extrapolated track data output port (secondary port)</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d01/ExtrapTrackDataOutgoingPort_8hpp_source.html#l00045">ExtrapTrackDataOutgoingPort.hpp:45</a></div></div>
+</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Implementations should handle serialization and network transmission. </dd>
+<dd>
+Non-blocking implementations are preferred for real-time performance. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d01/ExtrapTrackDataOutgoingPort_8hpp_source.html#l00045">45</a> of file <a class="el" href="../../d6/d01/ExtrapTrackDataOutgoingPort_8hpp_source.html">ExtrapTrackDataOutgoingPort.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7612f271387f15abd06d69d65e44a686" name="a7612f271387f15abd06d69d65e44a686"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7612f271387f15abd06d69d65e44a686">&#9670;&#160;</a></span>~ExtrapTrackDataOutgoingPort()</h2>
@@ -144,6 +161,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Virtual destructor for proper cleanup. </p>
+<dl class="section note"><dt>Note</dt><dd>MISRA Rule 12-8-1: Base classes shall have virtual destructor </dd></dl>
 
 </div>
 </div>
@@ -172,7 +192,19 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#afecb8b06d636f11abb3f24e5220f2df6">adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter</a>.</p>
+<p>Send single extrapolated track data (preferred for real-time) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Single ExtrapTrackData to transmit </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>data.isValid() returns true </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Data is queued/sent to downstream consumers </dd></dl>
+<dl class="section user"><dt>Latency:</dt><dd>~20ns for queue-based implementations </dd></dl>
+<dl class="section user"><dt>Thread Safety:</dt><dd>Must be thread-safe for concurrent calls </dd></dl>
+
+<p>Implemented in <a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#afecb8b06d636f11abb3f24e5220f2df6">adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter</a>, and <a class="el" href="../../de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html#a89fab35459e3433ece02d2d54a84cce7">a_hexagon::test::mocks::MockOutgoingPort</a>.</p>
 
 </div>
 </div>
@@ -200,7 +232,25 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a7abcaada234a99e2f92eacb11e486fdf">adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter</a>.</p>
+<p>Send batch of extrapolated track data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Vector of ExtrapTrackData to transmit </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>All data items in vector are valid </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Data is queued/sent to downstream consumers </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>May be non-blocking depending on implementation </dd></dl>
+
+<p>Implemented in <a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a7abcaada234a99e2f92eacb11e486fdf">adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter</a>, and <a class="el" href="../../de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html#aab8a5825c429e5f20666cccf9d2b36e6">a_hexagon::test::mocks::MockOutgoingPort</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../dc/d02/TrackDataExtrapolator_8cpp_source.html#l00038">domain::logic::TrackDataExtrapolator::extrapolateTrackData()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort_ab300edf81ea52561362d46fae9cee53a_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -213,7 +263,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../db/d03/namespacedomain.html">domain</a></li><li class="navelem"><a class="el" href="../../d5/d03/namespacedomain_1_1ports.html">ports</a></li><li class="navelem"><a class="el" href="../../de/d03/namespacedomain_1_1ports_1_1outgoing.html">outgoing</a></li><li class="navelem"><a class="el" href="../../d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html">ExtrapTrackDataOutgoingPort</a></li>
-    <li class="footer">Generated on Mon Dec 1 2025 13:08:49 for a_hexagon by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -1,8 +1,16 @@
 /**
- * @file c_hexagon.cpp
+ * @file main.cpp
  * @brief Main entry point for C_Hexagon application
  * @details Initializes the async logger and starts the hexagonal architecture components
- *          using Thread-per-Type architecture for adapter isolation
+ *          using Thread-per-Type architecture for adapter isolation.
+ * 
+ * @author c_hexagon Team
+ * @version 1.0
+ * @date 2025
+ * 
+ * @note MISRA C++ 2023 compliant implementation
+ * @see adapters::AdapterManager
+ * @see domain::logic::FinalCalculationService
  */
 
 #include <iostream>

@@ -1,0 +1,5 @@
+<map id="adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::publisherWorker" name="adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::publisherWorker">
+<area shape="rect" id="Node000001" title="Background worker thread for message transmission." alt="" coords="277,5,544,60"/>
+<area shape="rect" id="Node000002" href="$d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#afb84590a4b7267107faeb27c083231e1" title="Start the adapter." alt="" coords="5,5,229,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="264,35,230,35,230,30,264,30"/>
+</map>

@@ -1,7 +1,9 @@
 <map id="a_hexagon/adapters/incoming/zeromq/TrackDataZeroMQIncomingAdapter.hpp" name="a_hexagon/adapters/incoming/zeromq/TrackDataZeroMQIncomingAdapter.hpp">
-<area shape="rect" id="Node000001" title="ZeroMQ UDP DISH Incoming Adapter for TrackData messages." alt="" coords="109,5,321,60"/>
-<area shape="rect" id="Node000002" href="$d5/d00/TrackDataZeroMQIncomingAdapter_8cpp.html" title="ZeroMQ UDP DISH Incoming Adapter implementation." alt="" coords="5,108,216,163"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,72,140,110,136,106,176,68"/>
-<area shape="rect" id="Node000003" href="$df/d02/main_8cpp.html" title="Main entry point for A_Hexagon application." alt="" coords="240,123,397,148"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="254,68,308,120,305,124,250,72"/>
+<area shape="rect" id="Node000001" title="ZeroMQ UDP DISH Incoming Adapter for TrackData messages." alt="" coords="335,5,547,60"/>
+<area shape="rect" id="Node000002" href="$d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html" title="Unit tests for TrackDataZeroMQIncomingAdapter with DIP compliance." alt="" coords="5,108,312,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="361,67,248,110,246,105,359,62"/>
+<area shape="rect" id="Node000003" href="$d5/d00/TrackDataZeroMQIncomingAdapter_8cpp.html" title="ZeroMQ Incoming Adapter implementation (DIP compliant)" alt="" coords="336,115,547,170"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="444,74,444,115,439,115,439,74"/>
+<area shape="rect" id="Node000004" href="$df/d02/main_8cpp.html" title="Main entry point for A_Hexagon application." alt="" coords="571,130,728,155"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="505,64,628,127,626,132,503,69"/>
 </map>

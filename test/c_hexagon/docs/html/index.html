@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>C_Hexagon: C_Hexagon</title>
+<title>C_Hexagon: C_Hexagon Project Documentation</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">C_Hexagon<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">C_Hexagon<span id="projectnumber">&#160;1.1.0</span>
    </div>
    <div id="projectbrief">Thread-per-Type Hexagonal Architecture ZeroMQ Application</div>
   </td>
@@ -90,24 +90,24 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">C_Hexagon </div></div>
+  <div class="headertitle"><div class="title">C_Hexagon Project Documentation </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md__2workspaces_2hexagon__c_2test_2c__hexagon_2README"></a> High-performance ZeroMQ-based message processing application built with <b>Thread-per-Type Hexagonal Architecture</b>.</p>
+<div class="textblock"><p><a class="anchor" id="mainpage"></a> </p>
+<h1><a class="anchor" id="autotoc_md0"></a>
+Overview</h1>
+<p>C_Hexagon is a high-performance ZeroMQ-based message processing application built with <b>Thread-per-Type Hexagonal Architecture</b>.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
-📋 Table of Contents</h1>
+Key Features</h1>
 <ul>
-<li>Architecture</li>
-<li>Project Structure</li>
-<li>Requirements</li>
-<li>Building</li>
-<li>Running</li>
-<li>Testing</li>
-<li>API Reference</li>
+<li><b>Hexagonal Architecture (Ports &amp; Adapters)</b>: Clean separation of concerns</li>
+<li><b>Thread-per-Type Pattern</b>: Zero contention between message types</li>
+<li><b>ZeroMQ RADIO/DISH Pattern</b>: UDP multicast for low-latency messaging</li>
+<li><b>MISRA C++ 2023 Compliant</b>: Industry-standard safety and reliability</li>
+<li><b>Async Logging</b>: ~20ns latency with spdlog</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md2"></a>
-🏗 Architecture</h1>
-<p>The project combines <b>Hexagonal Architecture (Ports &amp; Adapters)</b> pattern with <b>Thread-per-Type</b> isolation strategy:</p>
+Architecture</h1>
 <div class="fragment"><div class="line">┌─────────────────────────────────────────────────────────────────────┐</div>
 <div class="line">│                    THREAD-PER-TYPE ARCHITECTURE                     │</div>
 <div class="line">├─────────────────────────────────────────────────────────────────────┤</div>
@@ -124,245 +124,84 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="line">│                                                                     │</div>
 <div class="line">│  Each vertical stack is COMPLETELY ISOLATED - zero contention!     │</div>
 <div class="line">└─────────────────────────────────────────────────────────────────────┘</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md3"></a>
-Layers</h2>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md3"></a>
+Layer Structure</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Layer   </th><th class="markdownTableHeadNone">Responsibility   </th><th class="markdownTableHeadNone">Example    </th></tr>
+<th class="markdownTableHeadNone">Layer   </th><th class="markdownTableHeadNone">Responsibility   </th><th class="markdownTableHeadNone">Examples    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>Adapters (Incoming)</b>   </td><td class="markdownTableBodyNone">Receive messages from external world   </td><td class="markdownTableBodyNone"><code>TrackDataZeroMQIncomingAdapter</code>    </td></tr>
+<td class="markdownTableBodyNone"><b>Adapters (Incoming)</b>   </td><td class="markdownTableBodyNone">Receive messages from external world   </td><td class="markdownTableBodyNone">TrackDataZeroMQIncomingAdapter    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>Ports</b>   </td><td class="markdownTableBodyNone">Interface definitions   </td><td class="markdownTableBodyNone"><code>IDelayCalcTrackDataIncomingPort</code>    </td></tr>
+<td class="markdownTableBodyNone"><b>Ports (Primary)</b>   </td><td class="markdownTableBodyNone">Interface definitions for domain entry   </td><td class="markdownTableBodyNone">IDelayCalcTrackDataIncomingPort    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>Domain</b>   </td><td class="markdownTableBodyNone">Business logic   </td><td class="markdownTableBodyNone"><code>FinalCalculationService</code>    </td></tr>
+<td class="markdownTableBodyNone"><b>Domain</b>   </td><td class="markdownTableBodyNone">Business logic   </td><td class="markdownTableBodyNone">FinalCalculationService    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>Adapters (Outgoing)</b>   </td><td class="markdownTableBodyNone">Send messages to external world   </td><td class="markdownTableBodyNone">(Future)   </td></tr>
+<td class="markdownTableBodyNone"><b>Ports (Secondary)</b>   </td><td class="markdownTableBodyNone">Interface definitions for external output   </td><td class="markdownTableBodyNone">ITrackDataStatisticOutgoingPort    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>Adapters (Outgoing)</b>   </td><td class="markdownTableBodyNone">Send messages to external world   </td><td class="markdownTableBodyNone">FinalCalcTrackDataZeroMQOutgoingAdapter   </td></tr>
 </table>
 <h1><a class="anchor" id="autotoc_md4"></a>
-📁 Project Structure</h1>
-<div class="fragment"><div class="line">src/c_hexagon/</div>
-<div class="line">├── main.cpp                          # Application entry point</div>
-<div class="line">├── c_hexagon.hpp                     # Main header</div>
-<div class="line">├── adapters/</div>
-<div class="line">│   ├── common/</div>
-<div class="line">│   │   ├── IAdapter.hpp              # Adapter base interface</div>
-<div class="line">│   │   ├── MessagePipeline.hpp       # Pipeline class</div>
-<div class="line">│   │   └── AdapterManager.hpp        # Pipeline manager</div>
-<div class="line">│   └── incoming/</div>
-<div class="line">│       └── zeromq/</div>
-<div class="line">│           └── TrackDataZeroMQIncomingAdapter.hpp</div>
-<div class="line">├── domain/</div>
-<div class="line">│   ├── logic/</div>
-<div class="line">│   │   ├── FinalCalculationService.hpp</div>
-<div class="line">│   │   └── FinalCalculationService.cpp</div>
-<div class="line">│   └── model/</div>
-<div class="line">│       ├── DelayCalcTrackData.hpp/.cpp</div>
-<div class="line">│       └── FinalCalcTrackData.hpp/.cpp</div>
-<div class="line">├── ports/</div>
-<div class="line">│   └── incoming/</div>
-<div class="line">│       └── IDelayCalcTrackDataIncomingPort.hpp</div>
-<div class="line">└── utils/</div>
-<div class="line">    └── Logger.hpp                    # spdlog async wrapper</div>
-<div class="line"> </div>
-<div class="line">test/c_hexagon/</div>
-<div class="line">├── adapters/common/</div>
-<div class="line">│   └── AdapterManagerTest.cpp</div>
-<div class="line">├── domain/</div>
-<div class="line">│   ├── logic/</div>
-<div class="line">│   │   └── FinalCalculationServiceTest.cpp</div>
-<div class="line">│   └── model/</div>
-<div class="line">│       ├── DelayCalcTrackDataTest.cpp</div>
-<div class="line">│       └── FinalCalcTrackDataTest.cpp</div>
-<div class="line">├── utils/</div>
-<div class="line">│   └── LoggerTest.cpp</div>
-<div class="line">└── main_test.cpp</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md5"></a>
-📦 Requirements</h1>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Dependency   </th><th class="markdownTableHeadNone">Version   </th><th class="markdownTableHeadNone">Description    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">GCC   </td><td class="markdownTableBodyNone">8.5+   </td><td class="markdownTableBodyNone">C++17 support    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">ZeroMQ   </td><td class="markdownTableBodyNone">4.3+   </td><td class="markdownTableBodyNone">Draft API support (<code>ZMQ_BUILD_DRAFT_API=1</code>)    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">spdlog   </td><td class="markdownTableBodyNone">1.12.0   </td><td class="markdownTableBodyNone">Async logging (~20ns latency)    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Google Test   </td><td class="markdownTableBodyNone">1.14.0   </td><td class="markdownTableBodyNone">Unit testing framework   </td></tr>
-</table>
+Namespace Structure</h1>
+<ul>
+<li><b>adapters</b>: All incoming and outgoing adapters<ul>
+<li><b>adapters::common</b>: Common adapter interfaces and utilities</li>
+<li><b>adapters::incoming::zeromq</b>: ZeroMQ incoming adapters</li>
+<li><b>adapters::outgoing::zeromq</b>: ZeroMQ outgoing adapters</li>
+</ul>
+</li>
+<li><b>domain</b>: Business logic layer<ul>
+<li><b>domain::logic</b>: Domain services</li>
+<li><b>domain::ports</b>: Port interfaces and data models</li>
+</ul>
+</li>
+<li><b>utils</b>: Utility classes (logging, etc.)</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md5"></a>
+Data Flow</h1>
+<ol type="1">
+<li><b>B_hexagon</b> sends <code>DelayCalcTrackData</code> via ZeroMQ RADIO socket</li>
+<li><b>TrackDataZeroMQIncomingAdapter</b> (DISH) receives the message</li>
+<li><b>FinalCalculationService</b> processes the data</li>
+<li><b>FinalCalcTrackDataZeroMQOutgoingAdapter</b> (RADIO) sends <code>FinalCalcTrackData</code></li>
+<li><b>D_hexagon/Listener</b> receives the final data</li>
+</ol>
 <h1><a class="anchor" id="autotoc_md6"></a>
-🔨 Building</h1>
+Key Classes</h1>
 <h2><a class="anchor" id="autotoc_md7"></a>
-Main Application</h2>
-<div class="fragment"><div class="line">cd /workspaces/hexagon_c/test/c_hexagon</div>
-<div class="line">make clean &amp;&amp; make</div>
-</div><!-- fragment --><p>Output: <code>bin/c_hexagon</code></p>
+Adapters</h2>
+<ul>
+<li><b>AdapterManager</b>: Manages all message pipelines</li>
+<li><b>MessagePipeline</b>: Encapsulates a complete message flow</li>
+<li><b>IAdapter</b>: Base interface for all adapters</li>
+</ul>
 <h2><a class="anchor" id="autotoc_md8"></a>
-Test Binary</h2>
-<div class="fragment"><div class="line">make -f Makefile.test clean</div>
-<div class="line">make -f Makefile.test test</div>
-</div><!-- fragment --><p>Output: <code>bin/c_hexagon_test</code></p>
+Domain</h2>
+<ul>
+<li><b>FinalCalculationService</b>: Main business logic</li>
+<li><b>DelayCalcTrackData</b>: Input data model</li>
+<li><b>FinalCalcTrackData</b>: Output data model</li>
+</ul>
 <h2><a class="anchor" id="autotoc_md9"></a>
-Build Options</h2>
-<div class="fragment"><div class="line"># Debug build</div>
-<div class="line">make DEBUG=1</div>
-<div class="line"> </div>
-<div class="line"># Release build (default)</div>
-<div class="line">make</div>
-<div class="line"> </div>
-<div class="line"># Verbose output</div>
-<div class="line">make V=1</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md10"></a>
-🚀 Running</h1>
-<div class="fragment"><div class="line"># Start the application</div>
-<div class="line">./bin/c_hexagon</div>
-<div class="line"> </div>
-<div class="line"># Graceful shutdown: Ctrl+C</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md11"></a>
-Environment Variables</h2>
+Utilities</h2>
+<ul>
+<li><b>Logger</b>: High-performance async logging wrapper</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md10"></a>
+Version History</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Variable   </th><th class="markdownTableHeadNone">Default   </th><th class="markdownTableHeadNone">Description    </th></tr>
+<th class="markdownTableHeadNone">Version   </th><th class="markdownTableHeadNone">Date   </th><th class="markdownTableHeadNone">Changes    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>LD_LIBRARY_PATH</code>   </td><td class="markdownTableBodyNone"><code>./lib</code>   </td><td class="markdownTableBodyNone">ZeroMQ and spdlog library path   </td></tr>
+<td class="markdownTableBodyNone">1.1.0   </td><td class="markdownTableBodyNone">2025-12   </td><td class="markdownTableBodyNone">Updated documentation, added mainpage    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">1.0.0   </td><td class="markdownTableBodyNone">2025   </td><td class="markdownTableBodyNone">Initial release   </td></tr>
 </table>
+<h1><a class="anchor" id="autotoc_md11"></a>
+Author</h1>
+<p>c_hexagon Team</p>
 <h1><a class="anchor" id="autotoc_md12"></a>
-🧪 Testing</h1>
-<h2><a class="anchor" id="autotoc_md13"></a>
-Run All Tests</h2>
-<div class="fragment"><div class="line">make -f Makefile.test test</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md14"></a>
-Test Results</h2>
-<div class="fragment"><div class="line">[==========] 106 tests from 7 test suites ran. (12 ms total)</div>
-<div class="line">[  PASSED  ] 106 tests.</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md15"></a>
-Test Suites</h2>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Suite   </th><th class="markdownTableHeadNone">Test Count   </th><th class="markdownTableHeadNone">Description    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>IAdapterTest</code>   </td><td class="markdownTableBodyNone">5   </td><td class="markdownTableBodyNone">Interface contract tests    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>MessagePipelineTest</code>   </td><td class="markdownTableBodyNone">12   </td><td class="markdownTableBodyNone">Pipeline lifecycle tests    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>AdapterManagerTest</code>   </td><td class="markdownTableBodyNone">12   </td><td class="markdownTableBodyNone">Manager orchestration tests    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>FinalCalculationServiceTest</code>   </td><td class="markdownTableBodyNone">25+   </td><td class="markdownTableBodyNone">Domain logic tests    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>DelayCalcTrackDataTest</code>   </td><td class="markdownTableBodyNone">20+   </td><td class="markdownTableBodyNone">Model tests    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>FinalCalcTrackDataTest</code>   </td><td class="markdownTableBodyNone">20+   </td><td class="markdownTableBodyNone">Model tests    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>LoggerTest</code>   </td><td class="markdownTableBodyNone">10+   </td><td class="markdownTableBodyNone">Logging tests   </td></tr>
-</table>
-<h1><a class="anchor" id="autotoc_md16"></a>
-📚 API Reference</h1>
-<h2><a class="anchor" id="autotoc_md17"></a>
-IAdapter Interface</h2>
-<div class="fragment"><div class="line"><span class="keyword">namespace </span>adapters {</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">class </span>IAdapter {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    <span class="keyword">virtual</span> ~IAdapter() = <span class="keywordflow">default</span>;</div>
-<div class="line">    </div>
-<div class="line">    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> start() = 0;           <span class="comment">// Start the adapter</span></div>
-<div class="line">    <span class="keyword">virtual</span> <span class="keywordtype">void</span> stop() = 0;            <span class="comment">// Stop the adapter</span></div>
-<div class="line">    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isRunning() <span class="keyword">const</span> = 0; <span class="comment">// Check if running</span></div>
-<div class="line">    <span class="keyword">virtual</span> std::string getName() <span class="keyword">const</span> = 0; <span class="comment">// Get adapter name</span></div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md18"></a>
-MessagePipeline Class</h2>
-<div class="fragment"><div class="line"><span class="keyword">namespace </span>adapters {</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">class </span>MessagePipeline {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    <span class="keyword">explicit</span> MessagePipeline(std::string name);</div>
-<div class="line">    MessagePipeline(std::string name,</div>
-<div class="line">                    std::shared_ptr&lt;IAdapter&gt; incoming,</div>
-<div class="line">                    std::shared_ptr&lt;IAdapter&gt; outgoing = <span class="keyword">nullptr</span>);</div>
-<div class="line">    </div>
-<div class="line">    <span class="keywordtype">bool</span> start();</div>
-<div class="line">    <span class="keywordtype">void</span> stop() noexcept;</div>
-<div class="line">    <span class="keywordtype">bool</span> isRunning() const noexcept;</div>
-<div class="line">    </div>
-<div class="line">    const std::<span class="keywordtype">string</span>&amp; getName() const noexcept;</div>
-<div class="line">    <span class="keywordtype">void</span> setIncomingAdapter(std::shared_ptr&lt;IAdapter&gt; adapter);</div>
-<div class="line">    <span class="keywordtype">void</span> setOutgoingAdapter(std::shared_ptr&lt;IAdapter&gt; adapter);</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md19"></a>
-AdapterManager Class</h2>
-<div class="fragment"><div class="line"><span class="keyword">namespace </span>adapters {</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">class </span>AdapterManager {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    AdapterManager();</div>
-<div class="line">    ~AdapterManager();</div>
-<div class="line">    </div>
-<div class="line">    <span class="keywordtype">void</span> registerPipeline(MessagePipeline pipeline);</div>
-<div class="line">    <span class="keywordtype">bool</span> startAll();</div>
-<div class="line">    <span class="keywordtype">void</span> stopAll() noexcept;</div>
-<div class="line">    </div>
-<div class="line">    std::<span class="keywordtype">size_t</span> getPipelineCount() const noexcept;</div>
-<div class="line">    <span class="keywordtype">bool</span> isRunning() const noexcept;</div>
-<div class="line">    MessagePipeline* getPipeline(const std::<span class="keywordtype">string</span>&amp; name) noexcept;</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md20"></a>
-Logger Usage</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;utils/Logger.hpp&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Initialize once at startup</span></div>
-<div class="line">utils::Logger::init(<span class="stringliteral">&quot;app_name&quot;</span>);</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Log levels</span></div>
-<div class="line">LOG_TRACE(<span class="stringliteral">&quot;Trace message: {}&quot;</span>, value);</div>
-<div class="line">LOG_DEBUG(<span class="stringliteral">&quot;Debug message: {}&quot;</span>, value);</div>
-<div class="line">LOG_INFO(<span class="stringliteral">&quot;Info message: {}&quot;</span>, value);</div>
-<div class="line">LOG_WARN(<span class="stringliteral">&quot;Warning message: {}&quot;</span>, value);</div>
-<div class="line">LOG_ERROR(<span class="stringliteral">&quot;Error message: {}&quot;</span>, value);</div>
-<div class="line">LOG_CRITICAL(<span class="stringliteral">&quot;Critical message: {}&quot;</span>, value);</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Shutdown gracefully</span></div>
-<div class="line">utils::Logger::shutdown();</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md21"></a>
-📐 MISRA C++ 2023 Compliance</h1>
-<p>The project is developed in compliance with MISRA C++ 2023 standards:</p>
-<ul>
-<li>✅ Rule 3.2: Single Responsibility (one responsibility per file)</li>
-<li>✅ Rule 6.4: <code>[[nodiscard]]</code> attribute usage</li>
-<li>✅ Rule 11.3: <code>noexcept</code> exception specification</li>
-<li>✅ Rule 15.1: Smart pointer usage (no raw pointers)</li>
-<li>✅ Rule 21.6: Type-safe logging (no printf)</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md22"></a>
-📊 Performance</h1>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Metric   </th><th class="markdownTableHeadNone">Value    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Logging latency   </td><td class="markdownTableBodyNone">~20ns (async)    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Message rate   </td><td class="markdownTableBodyNone">200 Hz    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Thread priority   </td><td class="markdownTableBodyNone">SCHED_FIFO 95    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">CPU affinity   </td><td class="markdownTableBodyNone">Core 1   </td></tr>
-</table>
-<h1><a class="anchor" id="autotoc_md23"></a>
-📄 License</h1>
-<p>MIT License</p>
-<h1><a class="anchor" id="autotoc_md24"></a>
-👥 Contributors</h1>
-<ul>
-<li>c_hexagon Team</li>
-</ul>
-<hr  />
-<p><b>Note</b>: For Doxygen documentation, run <code>doxygen Doxyfile</code>. </p>
+License</h1>
+<p>Proprietary - All rights reserved </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

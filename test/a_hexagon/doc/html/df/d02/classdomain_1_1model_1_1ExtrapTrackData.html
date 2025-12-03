@@ -25,9 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">a_hexagon<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">a_hexagon<span id="projectnumber">&#160;2.1.0</span>
    </div>
-   <div id="projectbrief">Hexagonal Architecture Track Data Processing Application</div>
+   <div id="projectbrief">Hexagonal Architecture Track Data Extrapolation System - Thread-per-Type Pattern with DIP Compliant Socket Abstraction</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +92,6 @@ $(document).ready(function(){initNavTree('df/d02/classdomain_1_1model_1_1ExtrapT
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="../../d7/d03/classdomain_1_1model_1_1ExtrapTrackData-members.html">List of all members</a>  </div>
@@ -100,7 +99,7 @@ $(document).ready(function(){initNavTree('df/d02/classdomain_1_1model_1_1ExtrapT
 </div><!--header-->
 <div class="contents">
 
-<p>Bir izin ECEF koordinat sistemindeki extrapolation yapılmış kinematik durumunu ve detaylı zamanlama bilgilerini içerir.  
+<p>Extrapolated track data model for output.  
  <a href="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>&gt;</code></p>
@@ -173,17 +172,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac1745d984bc6563070d82c0030674d3e" id="r_ac1745d984bc6563070d82c0030674d3e"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#ac1745d984bc6563070d82c0030674d3e">getSerializedSize</a> () const noexcept</td></tr>
 <tr class="separator:ac1745d984bc6563070d82c0030674d3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a36c5b8887b19ffe998ab6a8c3854d567" id="r_a36c5b8887b19ffe998ab6a8c3854d567"><td class="memItemLeft" align="right" valign="top">static constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a36c5b8887b19ffe998ab6a8c3854d567">MULTICAST_ADDRESS</a> = &quot;239.1.1.5&quot;</td></tr>
-<tr class="separator:a36c5b8887b19ffe998ab6a8c3854d567"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9ee5e9b76091a79e812c549cadffa7c" id="r_ac9ee5e9b76091a79e812c549cadffa7c"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#ac9ee5e9b76091a79e812c549cadffa7c">PORT</a> = 9596</td></tr>
-<tr class="separator:ac9ee5e9b76091a79e812c549cadffa7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace79bd9ef1367e4bbd66fe3b88cf5c5c" id="r_ace79bd9ef1367e4bbd66fe3b88cf5c5c"><td class="memItemLeft" align="right" valign="top">static constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#ace79bd9ef1367e4bbd66fe3b88cf5c5c">ZMQ_SOCKET_TYPE</a> = &quot;RADIO&quot;</td></tr>
-<tr class="separator:ace79bd9ef1367e4bbd66fe3b88cf5c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5a75144ae5bb2a62e052c83b70979d8" id="r_ac5a75144ae5bb2a62e052c83b70979d8"><td class="memItemLeft" align="right" valign="top">static constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#ac5a75144ae5bb2a62e052c83b70979d8">IS_PUBLISHER</a> = true</td></tr>
-<tr class="separator:ac5a75144ae5bb2a62e052c83b70979d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a813c43696773bddf5f747cd45ae92252" id="r_a813c43696773bddf5f747cd45ae92252"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a813c43696773bddf5f747cd45ae92252">validateTrackId</a> (int32_t value) const</td></tr>
@@ -241,10 +229,17 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a6aa7312121e756c94e4faf4d379e035e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Bir izin ECEF koordinat sistemindeki extrapolation yapılmış kinematik durumunu ve detaylı zamanlama bilgilerini içerir. </p>
-<p>Auto-generated from ExtrapTrackData.json MISRA C++ 2023 compliant implementation Direction: outgoing </p>
+<div class="textblock"><p>Extrapolated track data model for output. </p>
+<p>Contains extrapolated kinematic state in ECEF coordinate system with detailed timing information. Used for measuring hop latencies across the hexagon pipeline (<a class="el" href="../../db/d00/namespacea__hexagon.html">a_hexagon</a> → b_hexagon → c_hexagon).</p>
+<dl class="section user"><dt>Class Invariants:</dt><dd>trackId_ is unique per track </dd></dl>
+<dl class="section user"><dt>Class Invariants:</dt><dd>All timestamps are in microseconds </dd></dl>
+<dl class="section user"><dt>Class Invariants:</dt><dd>Position values are in meters (ECEF) </dd></dl>
+<dl class="section user"><dt>Class Invariants:</dt><dd>Velocity values are in m/s (ECEF)</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>MISRA C++ 2023 compliant implementation </dd>
+<dd>
+Direction: outgoing </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00020">20</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00043">43</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="adbf666dc41d6a0934d79bd0b9a84e0a7" name="adbf666dc41d6a0934d79bd0b9a84e0a7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adbf666dc41d6a0934d79bd0b9a84e0a7">&#9670;&#160;</a></span>ExtrapTrackData() <span class="overload">[1/3]</span></h2>
@@ -271,7 +266,7 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00007">7</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00108">firstHopSentTime_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00104">originalUpdateTime_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00090">trackId_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00106">updateTime_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00098">xPositionECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00092">xVelocityECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00100">yPositionECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00094">yVelocityECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00102">zPositionECEF_</a>, and <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00096">zVelocityECEF_</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00123">firstHopSentTime_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00119">originalUpdateTime_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00105">trackId_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00121">updateTime_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00113">xPositionECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00107">xVelocityECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00115">yPositionECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00109">yVelocityECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00117">zPositionECEF_</a>, and <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00111">zVelocityECEF_</a>.</p>
 
 </div>
 </div>
@@ -379,11 +374,11 @@ Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00256">256</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00198">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00189">TEST_F()</a>, and <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00198">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00189">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00225">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00281">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00205">TEST_F()</a>, and <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00253">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_ab1500da5532c9a6691865abb99eb2e1f_icgraph.svg" width="332" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_ab1500da5532c9a6691865abb99eb2e1f_icgraph.svg" width="332" height="332"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -413,13 +408,13 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00161">161</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00108">firstHopSentTime_</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00123">firstHopSentTime_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00103">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00058">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00043">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00094">TEST_F()</a>, and <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00248">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00103">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00058">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00043">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00094">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00230">TEST_F()</a>, and <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00281">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a61dccec3442ac766a0d44a01d26a7375_icgraph.svg" width="332" height="283"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a61dccec3442ac766a0d44a01d26a7375_icgraph.svg" width="332" height="332"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -449,9 +444,9 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00143">143</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00104">originalUpdateTime_</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00119">originalUpdateTime_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00103">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00058">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00043">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00248">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00239">TEST_F()</a>, and <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00198">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00103">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00058">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00043">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00230">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00221">TEST_F()</a>, and <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00281">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -485,7 +480,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00346">346</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00108">firstHopSentTime_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00104">originalUpdateTime_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00090">trackId_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00106">updateTime_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00098">xPositionECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00092">xVelocityECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00100">yPositionECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00094">yVelocityECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00102">zPositionECEF_</a>, and <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00096">zVelocityECEF_</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00123">firstHopSentTime_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00119">originalUpdateTime_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00105">trackId_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00121">updateTime_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00113">xPositionECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00107">xVelocityECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00115">yPositionECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00109">yVelocityECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00117">zPositionECEF_</a>, and <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00111">zVelocityECEF_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00189">serialize()</a>.</p>
 <div class="dynheader">
@@ -521,13 +516,13 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00080">80</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00090">trackId_</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00105">trackId_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00131">adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::sendExtrapTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00058">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00043">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00070">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>, and <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00168">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00235">adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::publisherWorker()</a>, <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00204">adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::sendExtrapTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00058">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00043">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00070">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>, and <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00205">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a14a680e680316d696bb5bd3d64aa329c_icgraph.svg" width="563" height="312"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a14a680e680316d696bb5bd3d64aa329c_icgraph.svg" width="100%" height="593"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -557,13 +552,13 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00152">152</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00106">updateTime_</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00121">updateTime_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00103">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00058">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00043">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00070">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00085">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00248">TEST_F()</a>, and <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00239">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00103">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00058">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00043">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00070">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00085">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00230">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00221">TEST_F()</a>, and <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00281">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a3c828906e204100530e5458724bb0616_icgraph.svg" width="332" height="382"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a3c828906e204100530e5458724bb0616_icgraph.svg" width="332" height="431"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -593,13 +588,13 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00116">116</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00098">xPositionECEF_</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00113">xPositionECEF_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00058">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00043">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00070">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>, and <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00117">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00058">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00043">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00070">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00117">TEST_F()</a>, and <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00225">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a2a7419c775b5f0a22228964fcf66e0c5_icgraph.svg" width="332" height="234"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a2a7419c775b5f0a22228964fcf66e0c5_icgraph.svg" width="332" height="283"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -629,9 +624,9 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00089">89</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00092">xVelocityECEF_</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00107">xVelocityECEF_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00043">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00129">TEST_F()</a>, and <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00175">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00043">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00129">TEST_F()</a>, and <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00253">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -665,13 +660,13 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00125">125</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00100">yPositionECEF_</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00115">yPositionECEF_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00058">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00043">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>, and <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00117">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00058">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00043">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00117">TEST_F()</a>, and <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00225">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_add17cd7172033014ea272720a33e6066_icgraph.svg" width="332" height="184"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_add17cd7172033014ea272720a33e6066_icgraph.svg" width="332" height="234"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -701,9 +696,9 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00098">98</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00094">yVelocityECEF_</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00109">yVelocityECEF_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00043">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00129">TEST_F()</a>, and <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00175">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00043">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00129">TEST_F()</a>, and <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00253">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -737,13 +732,13 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00134">134</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00102">zPositionECEF_</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00117">zPositionECEF_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00058">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00043">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>, and <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00117">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00058">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00043">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00117">TEST_F()</a>, and <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00225">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a21ed597d72116f9ba12aaa67c1d10b4d_icgraph.svg" width="332" height="184"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a21ed597d72116f9ba12aaa67c1d10b4d_icgraph.svg" width="332" height="234"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -773,9 +768,9 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00107">107</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00096">zVelocityECEF_</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00111">zVelocityECEF_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00043">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00129">TEST_F()</a>, and <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00175">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00043">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00168">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00129">TEST_F()</a>, and <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00253">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -809,7 +804,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00170">170</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00108">firstHopSentTime_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00104">originalUpdateTime_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00090">trackId_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00106">updateTime_</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00074">validateFirstHopSentTime()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00062">validateOriginalUpdateTime()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00020">validateTrackId()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00068">validateUpdateTime()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00044">validateXPositionECEF()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00026">validateXVelocityECEF()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00050">validateYPositionECEF()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00032">validateYVelocityECEF()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00056">validateZPositionECEF()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00038">validateZVelocityECEF()</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00098">xPositionECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00092">xVelocityECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00100">yPositionECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00094">yVelocityECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00102">zPositionECEF_</a>, and <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00096">zVelocityECEF_</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00123">firstHopSentTime_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00119">originalUpdateTime_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00105">trackId_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00121">updateTime_</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00074">validateFirstHopSentTime()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00062">validateOriginalUpdateTime()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00020">validateTrackId()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00068">validateUpdateTime()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00044">validateXPositionECEF()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00026">validateXVelocityECEF()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00050">validateYPositionECEF()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00032">validateYVelocityECEF()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00056">validateZPositionECEF()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00038">validateZVelocityECEF()</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00113">xPositionECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00107">xVelocityECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00115">yPositionECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00109">yVelocityECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00117">zPositionECEF_</a>, and <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00111">zVelocityECEF_</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00147">TEST_F()</a>.</p>
 <div class="dynheader">
@@ -894,9 +889,9 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00189">189</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00108">firstHopSentTime_</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00346">getSerializedSize()</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00104">originalUpdateTime_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00090">trackId_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00106">updateTime_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00098">xPositionECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00092">xVelocityECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00100">yPositionECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00094">yVelocityECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00102">zPositionECEF_</a>, and <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00096">zVelocityECEF_</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00123">firstHopSentTime_</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00346">getSerializedSize()</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00119">originalUpdateTime_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00105">trackId_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00121">updateTime_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00113">xPositionECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00107">xVelocityECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00115">yPositionECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00109">yVelocityECEF_</a>, <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00117">zPositionECEF_</a>, and <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00111">zVelocityECEF_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00131">adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::sendExtrapTrackData()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00235">adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::publisherWorker()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -905,7 +900,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a2675e4b6c0b542ed6b27928ce62dba35_icgraph.svg" width="563" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a2675e4b6c0b542ed6b27928ce62dba35_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -928,9 +923,9 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00165">165</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00108">firstHopSentTime_</a>, and <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00074">validateFirstHopSentTime()</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00123">firstHopSentTime_</a>, and <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00074">validateFirstHopSentTime()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dc/d02/TrackDataExtrapolator_8cpp_source.html#l00025">domain::logic::TrackDataExtrapolator::extrapolateTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00024">ExtrapTrackDataTest::SetUp()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00103">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00094">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00248">TEST_F()</a>, and <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00209">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00060">ExtrapTrackDataZeroMQOutgoingAdapterTest::createTestExtrapTrackData()</a>, <a class="el" href="../../dc/d02/TrackDataExtrapolator_8cpp_source.html#l00038">domain::logic::TrackDataExtrapolator::extrapolateTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00024">ExtrapTrackDataTest::SetUp()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00103">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00094">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00230">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00209">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00225">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00281">TEST_F()</a>, and <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00253">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -939,7 +934,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_ad36a198bb2d40394e6fc1352bb257f47_icgraph.svg" width="100%" height="540"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_ad36a198bb2d40394e6fc1352bb257f47_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -962,9 +957,9 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00147">147</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00104">originalUpdateTime_</a>, and <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00062">validateOriginalUpdateTime()</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00119">originalUpdateTime_</a>, and <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00062">validateOriginalUpdateTime()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dc/d02/TrackDataExtrapolator_8cpp_source.html#l00025">domain::logic::TrackDataExtrapolator::extrapolateTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00024">ExtrapTrackDataTest::SetUp()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00103">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00248">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00239">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00209">TEST_F()</a>, and <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00198">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00060">ExtrapTrackDataZeroMQOutgoingAdapterTest::createTestExtrapTrackData()</a>, <a class="el" href="../../dc/d02/TrackDataExtrapolator_8cpp_source.html#l00038">domain::logic::TrackDataExtrapolator::extrapolateTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00024">ExtrapTrackDataTest::SetUp()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00103">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00230">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00221">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00209">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00225">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00281">TEST_F()</a>, and <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00253">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -973,7 +968,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_af5d4f299d85bf539b9033d8ca7fbe8c7_icgraph.svg" width="100%" height="577"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_af5d4f299d85bf539b9033d8ca7fbe8c7_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -996,9 +991,9 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00084">84</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00090">trackId_</a>, and <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00020">validateTrackId()</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00105">trackId_</a>, and <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00020">validateTrackId()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dc/d02/TrackDataExtrapolator_8cpp_source.html#l00025">domain::logic::TrackDataExtrapolator::extrapolateTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00024">ExtrapTrackDataTest::SetUp()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00070">TEST_F()</a>, and <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00168">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00060">ExtrapTrackDataZeroMQOutgoingAdapterTest::createTestExtrapTrackData()</a>, <a class="el" href="../../dc/d02/TrackDataExtrapolator_8cpp_source.html#l00038">domain::logic::TrackDataExtrapolator::extrapolateTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00024">ExtrapTrackDataTest::SetUp()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00070">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00225">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00281">TEST_F()</a>, and <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00253">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1007,7 +1002,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_ad32e1b75741b42645ac616abe10a8657_icgraph.svg" width="100%" height="466"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_ad32e1b75741b42645ac616abe10a8657_icgraph.svg" width="100%" height="583"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1030,9 +1025,9 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00156">156</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00106">updateTime_</a>, and <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00068">validateUpdateTime()</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00121">updateTime_</a>, and <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00068">validateUpdateTime()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dc/d02/TrackDataExtrapolator_8cpp_source.html#l00025">domain::logic::TrackDataExtrapolator::extrapolateTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00024">ExtrapTrackDataTest::SetUp()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00103">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00070">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00085">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00248">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00239">TEST_F()</a>, and <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00209">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00060">ExtrapTrackDataZeroMQOutgoingAdapterTest::createTestExtrapTrackData()</a>, <a class="el" href="../../dc/d02/TrackDataExtrapolator_8cpp_source.html#l00038">domain::logic::TrackDataExtrapolator::extrapolateTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00024">ExtrapTrackDataTest::SetUp()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00103">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00070">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00085">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00230">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00221">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00209">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00225">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00281">TEST_F()</a>, and <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00253">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1064,9 +1059,9 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00120">120</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00044">validateXPositionECEF()</a>, and <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00098">xPositionECEF_</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00044">validateXPositionECEF()</a>, and <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00113">xPositionECEF_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dc/d02/TrackDataExtrapolator_8cpp_source.html#l00025">domain::logic::TrackDataExtrapolator::extrapolateTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00024">ExtrapTrackDataTest::SetUp()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00070">TEST_F()</a>, and <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00117">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00060">ExtrapTrackDataZeroMQOutgoingAdapterTest::createTestExtrapTrackData()</a>, <a class="el" href="../../dc/d02/TrackDataExtrapolator_8cpp_source.html#l00038">domain::logic::TrackDataExtrapolator::extrapolateTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00024">ExtrapTrackDataTest::SetUp()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00070">TEST_F()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00117">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00225">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00281">TEST_F()</a>, and <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00253">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1075,7 +1070,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a07d65c00cab19d6b4f56fa0314f2626b_icgraph.svg" width="100%" height="466"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a07d65c00cab19d6b4f56fa0314f2626b_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1098,9 +1093,9 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00093">93</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00026">validateXVelocityECEF()</a>, and <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00092">xVelocityECEF_</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00026">validateXVelocityECEF()</a>, and <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00107">xVelocityECEF_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dc/d02/TrackDataExtrapolator_8cpp_source.html#l00025">domain::logic::TrackDataExtrapolator::extrapolateTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00024">ExtrapTrackDataTest::SetUp()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00129">TEST_F()</a>, and <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00175">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00060">ExtrapTrackDataZeroMQOutgoingAdapterTest::createTestExtrapTrackData()</a>, <a class="el" href="../../dc/d02/TrackDataExtrapolator_8cpp_source.html#l00038">domain::logic::TrackDataExtrapolator::extrapolateTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00024">ExtrapTrackDataTest::SetUp()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00129">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00225">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00281">TEST_F()</a>, and <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00253">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1109,7 +1104,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a3b82e8b1cdae8ae8507e7f08d7e6a949_icgraph.svg" width="100%" height="466"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a3b82e8b1cdae8ae8507e7f08d7e6a949_icgraph.svg" width="100%" height="583"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1132,9 +1127,9 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00129">129</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00050">validateYPositionECEF()</a>, and <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00100">yPositionECEF_</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00050">validateYPositionECEF()</a>, and <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00115">yPositionECEF_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dc/d02/TrackDataExtrapolator_8cpp_source.html#l00025">domain::logic::TrackDataExtrapolator::extrapolateTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00024">ExtrapTrackDataTest::SetUp()</a>, and <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00117">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00060">ExtrapTrackDataZeroMQOutgoingAdapterTest::createTestExtrapTrackData()</a>, <a class="el" href="../../dc/d02/TrackDataExtrapolator_8cpp_source.html#l00038">domain::logic::TrackDataExtrapolator::extrapolateTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00024">ExtrapTrackDataTest::SetUp()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00117">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00225">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00281">TEST_F()</a>, and <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00253">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1143,7 +1138,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_ac40bed004b15ba40e435e00cb851292a_icgraph.svg" width="100%" height="429"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_ac40bed004b15ba40e435e00cb851292a_icgraph.svg" width="100%" height="583"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1166,9 +1161,9 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00102">102</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00032">validateYVelocityECEF()</a>, and <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00094">yVelocityECEF_</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00032">validateYVelocityECEF()</a>, and <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00109">yVelocityECEF_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dc/d02/TrackDataExtrapolator_8cpp_source.html#l00025">domain::logic::TrackDataExtrapolator::extrapolateTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00024">ExtrapTrackDataTest::SetUp()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00129">TEST_F()</a>, and <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00175">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00060">ExtrapTrackDataZeroMQOutgoingAdapterTest::createTestExtrapTrackData()</a>, <a class="el" href="../../dc/d02/TrackDataExtrapolator_8cpp_source.html#l00038">domain::logic::TrackDataExtrapolator::extrapolateTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00024">ExtrapTrackDataTest::SetUp()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00129">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00225">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00281">TEST_F()</a>, and <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00253">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1177,7 +1172,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_adf018f42d1e6fe5617c61e14d0e453bb_icgraph.svg" width="100%" height="466"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_adf018f42d1e6fe5617c61e14d0e453bb_icgraph.svg" width="100%" height="583"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1200,9 +1195,9 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00138">138</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00056">validateZPositionECEF()</a>, and <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00102">zPositionECEF_</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00056">validateZPositionECEF()</a>, and <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00117">zPositionECEF_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dc/d02/TrackDataExtrapolator_8cpp_source.html#l00025">domain::logic::TrackDataExtrapolator::extrapolateTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00024">ExtrapTrackDataTest::SetUp()</a>, and <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00117">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00060">ExtrapTrackDataZeroMQOutgoingAdapterTest::createTestExtrapTrackData()</a>, <a class="el" href="../../dc/d02/TrackDataExtrapolator_8cpp_source.html#l00038">domain::logic::TrackDataExtrapolator::extrapolateTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00024">ExtrapTrackDataTest::SetUp()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00117">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00225">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00281">TEST_F()</a>, and <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00253">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1211,7 +1206,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_afd3d082cc93f0d46fa82632405d65adf_icgraph.svg" width="100%" height="429"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_afd3d082cc93f0d46fa82632405d65adf_icgraph.svg" width="100%" height="583"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1234,9 +1229,9 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00111">111</a> of file <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html">ExtrapTrackData.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00038">validateZVelocityECEF()</a>, and <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00096">zVelocityECEF_</a>.</p>
+<p class="reference">References <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00038">validateZVelocityECEF()</a>, and <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00111">zVelocityECEF_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../dc/d02/TrackDataExtrapolator_8cpp_source.html#l00025">domain::logic::TrackDataExtrapolator::extrapolateTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00024">ExtrapTrackDataTest::SetUp()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00129">TEST_F()</a>, and <a class="el" href="../../d3/d00/TrackDataExtrapolatorTest_8cpp_source.html#l00175">TEST_F()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00060">ExtrapTrackDataZeroMQOutgoingAdapterTest::createTestExtrapTrackData()</a>, <a class="el" href="../../dc/d02/TrackDataExtrapolator_8cpp_source.html#l00038">domain::logic::TrackDataExtrapolator::extrapolateTrackData()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00024">ExtrapTrackDataTest::SetUp()</a>, <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00129">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00225">TEST_F()</a>, <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00281">TEST_F()</a>, and <a class="el" href="../../d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp_source.html#l00253">TEST_F()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1245,7 +1240,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_aba3877ce2c6ffc36f046fc1f4c16921d_icgraph.svg" width="100%" height="466"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_aba3877ce2c6ffc36f046fc1f4c16921d_icgraph.svg" width="100%" height="583"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1280,7 +1275,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a2b4fd571dac5d8ea9961efae9cf13f22_icgraph.svg" width="100%" height="572"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a2b4fd571dac5d8ea9961efae9cf13f22_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1350,7 +1345,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a813c43696773bddf5f747cd45ae92252_icgraph.svg" width="100%" height="498"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a813c43696773bddf5f747cd45ae92252_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1420,7 +1415,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_aae44f42340c7a6bd2b59b3641eb0efaa_icgraph.svg" width="100%" height="498"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_aae44f42340c7a6bd2b59b3641eb0efaa_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1455,7 +1450,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a25b7cfba19766f9ea51d85312bf5d5fa_icgraph.svg" width="100%" height="498"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a25b7cfba19766f9ea51d85312bf5d5fa_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1490,7 +1485,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_ada016a73863b14aa07ee088e84f41e2b_icgraph.svg" width="100%" height="461"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_ada016a73863b14aa07ee088e84f41e2b_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1525,7 +1520,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a4f659516f39151d2c13e064dacf3f5e2_icgraph.svg" width="100%" height="498"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a4f659516f39151d2c13e064dacf3f5e2_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1560,7 +1555,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a65c29489550196c3c17cb183b7804bda_icgraph.svg" width="100%" height="461"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a65c29489550196c3c17cb183b7804bda_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1595,7 +1590,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a495d364ce620fe2b7fa253d19a61fe84_icgraph.svg" width="100%" height="498"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData_a495d364ce620fe2b7fa253d19a61fe84_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1623,61 +1618,9 @@ Here is the caller graph for this function:</div>
 
 <p>İlk atlamanın gönderildiği zaman (mikrosaniye) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00108">108</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00123">123</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00007">ExtrapTrackData()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00161">getFirstHopSentTime()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00346">getSerializedSize()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00170">isValid()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00189">serialize()</a>, and <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00165">setFirstHopSentTime()</a>.</p>
-
-</div>
-</div>
-<a id="ac5a75144ae5bb2a62e052c83b70979d8" name="ac5a75144ae5bb2a62e052c83b70979d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5a75144ae5bb2a62e052c83b70979d8">&#9670;&#160;</a></span>IS_PUBLISHER</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool domain::model::ExtrapTrackData::IS_PUBLISHER = true</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00028">28</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00233">TEST_F()</a>.</p>
-
-</div>
-</div>
-<a id="a36c5b8887b19ffe998ab6a8c3854d567" name="a36c5b8887b19ffe998ab6a8c3854d567"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36c5b8887b19ffe998ab6a8c3854d567">&#9670;&#160;</a></span>MULTICAST_ADDRESS</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr const char* domain::model::ExtrapTrackData::MULTICAST_ADDRESS = &quot;239.1.1.5&quot;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00023">23</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00221">TEST_F()</a>.</p>
 
 </div>
 </div>
@@ -1703,35 +1646,9 @@ Here is the caller graph for this function:</div>
 
 <p>Original güncelleme zamanı (mikrosaniye) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00104">104</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00119">119</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00007">ExtrapTrackData()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00143">getOriginalUpdateTime()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00346">getSerializedSize()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00170">isValid()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00189">serialize()</a>, and <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00147">setOriginalUpdateTime()</a>.</p>
-
-</div>
-</div>
-<a id="ac9ee5e9b76091a79e812c549cadffa7c" name="ac9ee5e9b76091a79e812c549cadffa7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9ee5e9b76091a79e812c549cadffa7c">&#9670;&#160;</a></span>PORT</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr int domain::model::ExtrapTrackData::PORT = 9596</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00024">24</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00225">TEST_F()</a>.</p>
 
 </div>
 </div>
@@ -1757,7 +1674,7 @@ Here is the caller graph for this function:</div>
 
 <p>İz için benzersiz tam sayı kimliği. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00090">90</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00105">105</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00007">ExtrapTrackData()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00346">getSerializedSize()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00080">getTrackId()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00170">isValid()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00189">serialize()</a>, and <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00084">setTrackId()</a>.</p>
 
@@ -1785,7 +1702,7 @@ Here is the caller graph for this function:</div>
 
 <p>Son güncelleme zamanı (mikrosaniye) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00106">106</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00121">121</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00007">ExtrapTrackData()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00346">getSerializedSize()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00152">getUpdateTime()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00170">isValid()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00189">serialize()</a>, and <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00156">setUpdateTime()</a>.</p>
 
@@ -1813,7 +1730,7 @@ Here is the caller graph for this function:</div>
 
 <p>ECEF koordinatlarındaki X ekseni konumu (metre) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00098">98</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00113">113</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00007">ExtrapTrackData()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00346">getSerializedSize()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00116">getXPositionECEF()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00170">isValid()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00189">serialize()</a>, and <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00120">setXPositionECEF()</a>.</p>
 
@@ -1841,7 +1758,7 @@ Here is the caller graph for this function:</div>
 
 <p>ECEF koordinatlarındaki X ekseni hızı (m/s) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00092">92</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00107">107</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00007">ExtrapTrackData()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00346">getSerializedSize()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00089">getXVelocityECEF()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00170">isValid()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00189">serialize()</a>, and <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00093">setXVelocityECEF()</a>.</p>
 
@@ -1869,7 +1786,7 @@ Here is the caller graph for this function:</div>
 
 <p>ECEF koordinatlarındaki Y ekseni konumu (metre) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00100">100</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00115">115</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00007">ExtrapTrackData()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00346">getSerializedSize()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00125">getYPositionECEF()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00170">isValid()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00189">serialize()</a>, and <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00129">setYPositionECEF()</a>.</p>
 
@@ -1897,35 +1814,9 @@ Here is the caller graph for this function:</div>
 
 <p>ECEF koordinatlarındaki Y ekseni hızı (m/s) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00094">94</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00109">109</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00007">ExtrapTrackData()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00346">getSerializedSize()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00098">getYVelocityECEF()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00170">isValid()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00189">serialize()</a>, and <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00102">setYVelocityECEF()</a>.</p>
-
-</div>
-</div>
-<a id="ace79bd9ef1367e4bbd66fe3b88cf5c5c" name="ace79bd9ef1367e4bbd66fe3b88cf5c5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace79bd9ef1367e4bbd66fe3b88cf5c5c">&#9670;&#160;</a></span>ZMQ_SOCKET_TYPE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr const char* domain::model::ExtrapTrackData::ZMQ_SOCKET_TYPE = &quot;RADIO&quot;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00027">27</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="../../de/d00/ExtrapTrackDataTest_8cpp_source.html#l00229">TEST_F()</a>.</p>
 
 </div>
 </div>
@@ -1951,7 +1842,7 @@ Here is the caller graph for this function:</div>
 
 <p>ECEF koordinatlarındaki Z ekseni konumu (metre) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00102">102</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00117">117</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00007">ExtrapTrackData()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00346">getSerializedSize()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00134">getZPositionECEF()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00170">isValid()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00189">serialize()</a>, and <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00138">setZPositionECEF()</a>.</p>
 
@@ -1979,7 +1870,7 @@ Here is the caller graph for this function:</div>
 
 <p>ECEF koordinatlarındaki Z ekseni hızı (m/s) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00096">96</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html#l00111">111</a> of file <a class="el" href="../../d3/d02/ports_2ExtrapTrackData_8hpp_source.html">ExtrapTrackData.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00007">ExtrapTrackData()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00346">getSerializedSize()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00107">getZVelocityECEF()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00170">isValid()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00189">serialize()</a>, and <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00111">setZVelocityECEF()</a>.</p>
 
@@ -1995,7 +1886,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../db/d03/namespacedomain.html">domain</a></li><li class="navelem"><a class="el" href="../../dc/d01/namespacedomain_1_1model.html">model</a></li><li class="navelem"><a class="el" href="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html">ExtrapTrackData</a></li>
-    <li class="footer">Generated on Mon Dec 1 2025 13:08:49 for a_hexagon by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

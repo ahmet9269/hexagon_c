@@ -11,8 +11,8 @@
 
 DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = "a_hexagon"
-PROJECT_NUMBER         = "1.0.0"
-PROJECT_BRIEF          = "Hexagonal Architecture Track Data Processing Application"
+PROJECT_NUMBER         = "2.1.0"
+PROJECT_BRIEF          = "Hexagonal Architecture Track Data Extrapolation System - Thread-per-Type Pattern with DIP Compliant Socket Abstraction"
 PROJECT_LOGO           = 
 OUTPUT_DIRECTORY       = doc
 CREATE_SUBDIRS         = YES
@@ -46,10 +46,17 @@ PYTHON_DOCSTRING       = YES
 INHERIT_DOCS           = YES
 SEPARATE_MEMBER_PAGES  = NO
 TAB_SIZE               = 4
-ALIASES                = "misra=\xrefitem misra \"MISRA C++ 2023\" \"MISRA C++ 2023 Compliance\"" \
-                         "thread_safe=\par Thread Safety:\n" \
-                         "realtime=\par Real-time Constraints:\n" \
-                         "hexagonal=\par Hexagonal Architecture:\n"
+ALIASES                = "misra=\\xrefitem misra \"MISRA C++ 2023\" \"MISRA C++ 2023 Compliance\"" \
+                         "thread_safe=@par Thread Safety:^^" \
+                         "realtime=@par Real-time Constraints:^^" \
+                         "hexagonal=@par Hexagonal Architecture:^^" \
+                         "dip=@par Dependency Inversion:^^" \
+                         "solid=@par SOLID Compliance:^^" \
+                         "performance=@par Performance:^^" \
+                         "latency=@par Latency:^^" \
+                         "invariant=@par Class Invariants:^^" \
+                         "precondition=@pre" \
+                         "postcondition=@post"
 OPTIMIZE_OUTPUT_FOR_C  = NO
 OPTIMIZE_OUTPUT_JAVA   = NO
 OPTIMIZE_FOR_FORTRAN   = NO
@@ -132,12 +139,16 @@ WARN_FORMAT            = "$file:$line: $text"
 WARN_LINE_FORMAT       = "at line $line of file $file"
 WARN_LOGFILE           = doc/doxygen_warnings.log
 
+# Extra warning options for documentation quality
+# WARN_IF_UNDOC_ENUM_VAL = YES (already enabled above)
+
 #---------------------------------------------------------------------------
 # Configuration options related to the input files
 #---------------------------------------------------------------------------
 
 INPUT                  = src/ \
                          test/ \
+                         doc/mainpage.md \
                          README.md
 INPUT_ENCODING         = UTF-8
 INPUT_FILE_ENCODING    = 
@@ -156,7 +167,9 @@ FILE_PATTERNS          = *.c \
 RECURSIVE              = YES
 EXCLUDE                = lib/ \
                          build/ \
-                         .obj/
+                         .obj/ \
+                         test/a_hexagon/lib/ \
+                         test/a_hexagon/build/
 EXCLUDE_SYMLINKS       = NO
 EXCLUDE_PATTERNS       = */third_party/* \
                          */.git/* \
@@ -170,7 +183,7 @@ INPUT_FILTER           =
 FILTER_PATTERNS        = 
 FILTER_SOURCE_FILES    = NO
 FILTER_SOURCE_PATTERNS = 
-USE_MDFILE_AS_MAINPAGE = README.md
+USE_MDFILE_AS_MAINPAGE = doc/mainpage.md
 
 #---------------------------------------------------------------------------
 # Configuration options related to source browsing
@@ -210,7 +223,7 @@ HTML_COLORSTYLE        = AUTO_LIGHT
 HTML_COLORSTYLE_HUE    = 220
 HTML_COLORSTYLE_SAT    = 100
 HTML_COLORSTYLE_GAMMA  = 80
-HTML_TIMESTAMP         = YES
+# HTML_TIMESTAMP (obsolete)
 HTML_DYNAMIC_MENUS     = YES
 HTML_DYNAMIC_SECTIONS  = NO
 HTML_INDEX_NUM_ENTRIES = 100
@@ -254,7 +267,7 @@ USE_PDFLATEX           = YES
 LATEX_BATCHMODE        = NO
 LATEX_HIDE_INDICES     = NO
 LATEX_BIB_STYLE        = plain
-LATEX_TIMESTAMP        = NO
+# LATEX_TIMESTAMP (obsolete)
 LATEX_EMOJI_DIRECTORY  = 
 
 #---------------------------------------------------------------------------
@@ -312,7 +325,9 @@ INCLUDE_PATH           = src/ \
 INCLUDE_FILE_PATTERNS  = 
 PREDEFINED             = __cplusplus=201703L \
                          DOXYGEN_SHOULD_SKIP_THIS \
-                         ZMQ_BUILD_DRAFT_API=1
+                         ZMQ_BUILD_DRAFT_API=1 \
+                         SPDLOG_COMPILED_LIB \
+                         __linux__
 EXPAND_AS_DEFINED      = 
 SKIP_FUNCTION_MACROS   = YES
 

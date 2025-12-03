@@ -1,5 +1,13 @@
 <map id="adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::start" name="adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::start">
-<area shape="rect" id="Node000001" title="Start the adapter." alt="" coords="5,5,229,60"/>
-<area shape="rect" id="Node000002" href="$d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a97f6bac15d665323c6e0e6dc7df0cff9" title="Initialize ZeroMQ socket." alt="" coords="277,5,539,60"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,30,264,30,264,35,230,35"/>
+<area shape="rect" id="Node000001" title="Start the adapter." alt="" coords="5,45,229,100"/>
+<area shape="rect" id="Node000002" href="$d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a97f6bac15d665323c6e0e6dc7df0cff9" title="Initialize socket (for legacy constructor)" alt="" coords="280,5,541,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,55,266,50,267,55,230,60"/>
+<area shape="rect" id="Node000003" href="$d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a2adbc0eddc1492bc43081cdbc9168c1b" title="Background worker thread for message transmission." alt="" coords="277,84,544,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="230,85,264,89,263,95,229,90"/>
+<area shape="rect" id="Node000004" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a14a680e680316d696bb5bd3d64aa329c" title=" " alt="" coords="592,59,796,99"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="544,94,578,90,579,95,544,99"/>
+<area shape="rect" id="Node000005" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a2675e4b6c0b542ed6b27928ce62dba35" title=" " alt="" coords="592,123,796,163"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="544,124,579,128,578,133,544,129"/>
+<area shape="rect" id="Node000006" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#ac1745d984bc6563070d82c0030674d3e" title=" " alt="" coords="844,123,1048,163"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="796,141,830,141,830,146,796,146"/>
 </map>

@@ -1,7 +1,9 @@
 <map id="domain::model::ExtrapTrackData::getSerializedSize" name="domain::model::ExtrapTrackData::getSerializedSize">
-<area shape="rect" id="Node000001" title=" " alt="" coords="605,13,809,53"/>
-<area shape="rect" id="Node000002" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a2675e4b6c0b542ed6b27928ce62dba35" title=" " alt="" coords="353,13,557,53"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="592,35,558,35,558,30,592,30"/>
-<area shape="rect" id="Node000003" href="$d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#afecb8b06d636f11abb3f24e5220f2df6" title="Send single ExtrapTrackData." alt="" coords="5,5,305,60"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="339,35,305,35,305,30,339,30"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="844,13,1048,53"/>
+<area shape="rect" id="Node000002" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a2675e4b6c0b542ed6b27928ce62dba35" title=" " alt="" coords="592,13,796,53"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="830,35,796,35,796,30,830,30"/>
+<area shape="rect" id="Node000003" href="$d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a2adbc0eddc1492bc43081cdbc9168c1b" title="Background worker thread for message transmission." alt="" coords="277,5,544,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="578,35,544,35,544,30,578,30"/>
+<area shape="rect" id="Node000004" href="$d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#afb84590a4b7267107faeb27c083231e1" title="Start the adapter." alt="" coords="5,5,229,60"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="264,35,230,35,230,30,264,30"/>
 </map>

@@ -1,0 +1,5 @@
+<map id="/workspaces/hexagon_c/test/a_hexagon/test/a_hexagon/mocks/MockIncomingPort.hpp" name="/workspaces/hexagon_c/test/a_hexagon/test/a_hexagon/mocks/MockIncomingPort.hpp">
+<area shape="rect" id="Node000001" title="Mock implementation of ITrackDataIncomingPort for unit testing." alt="" coords="37,5,280,75"/>
+<area shape="rect" id="Node000002" href="$d6/d03/TrackDataZeroMQIncomingAdapterTest_8cpp.html" title="Unit tests for TrackDataZeroMQIncomingAdapter with DIP compliance." alt="" coords="5,123,312,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,89,161,122,156,122,156,89"/>
+</map>

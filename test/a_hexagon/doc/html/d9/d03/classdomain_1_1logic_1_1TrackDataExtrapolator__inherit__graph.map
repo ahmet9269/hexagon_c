@@ -1,5 +1,5 @@
 <map id="domain::logic::TrackDataExtrapolator" name="domain::logic::TrackDataExtrapolator">
-<area shape="rect" id="Node000001" title="Domain service for extrapolating track data." alt="" coords="5,153,236,393"/>
-<area shape="rect" id="Node000002" href="$da/d03/classdomain_1_1ports_1_1incoming_1_1ITrackDataIncomingPort.html" title=" " alt="" coords="5,5,236,105"/>
+<area shape="rect" id="Node000001" title="Domain service for extrapolating track data." alt="" coords="5,153,236,413"/>
+<area shape="rect" id="Node000002" href="$da/d03/classdomain_1_1ports_1_1incoming_1_1ITrackDataIncomingPort.html" title="Abstract interface for track data input port (primary port)" alt="" coords="5,5,236,105"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,119,123,153,118,153,118,119"/>
 </map>

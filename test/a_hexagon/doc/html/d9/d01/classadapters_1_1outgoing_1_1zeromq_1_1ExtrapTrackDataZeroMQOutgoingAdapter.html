@@ -25,9 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">a_hexagon<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">a_hexagon<span id="projectnumber">&#160;2.1.0</span>
    </div>
-   <div id="projectbrief">Hexagonal Architecture Track Data Processing Application</div>
+   <div id="projectbrief">Hexagonal Architecture Track Data Extrapolation System - Thread-per-Type Pattern with DIP Compliant Socket Abstraction</div>
   </td>
  </tr>
  </tbody>
@@ -117,8 +117,11 @@ Collaboration diagram for adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgo
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a7eaa0003b6e491825cd62ecea79c8d72" id="r_a7eaa0003b6e491825cd62ecea79c8d72"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a7eaa0003b6e491825cd62ecea79c8d72">ExtrapTrackDataZeroMQOutgoingAdapter</a> (std::unique_ptr&lt; <a class="el" href="../../d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html">adapters::common::messaging::IMessageSocket</a> &gt; socket)</td></tr>
+<tr class="memdesc:a7eaa0003b6e491825cd62ecea79c8d72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct adapter with DIP - socket injection (preferred for testing)  <br /></td></tr>
+<tr class="separator:a7eaa0003b6e491825cd62ecea79c8d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe049abd4e66bdd74c1c5445f86d7a85" id="r_afe049abd4e66bdd74c1c5445f86d7a85"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#afe049abd4e66bdd74c1c5445f86d7a85">ExtrapTrackDataZeroMQOutgoingAdapter</a> ()</td></tr>
-<tr class="memdesc:afe049abd4e66bdd74c1c5445f86d7a85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <br /></td></tr>
+<tr class="memdesc:afe049abd4e66bdd74c1c5445f86d7a85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor (legacy - creates ZeroMQ socket internally)  <br /></td></tr>
 <tr class="separator:afe049abd4e66bdd74c1c5445f86d7a85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e945c59c6ab6fd721a669c5b7d8c210" id="r_a9e945c59c6ab6fd721a669c5b7d8c210"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a9e945c59c6ab6fd721a669c5b7d8c210">~ExtrapTrackDataZeroMQOutgoingAdapter</a> () override</td></tr>
 <tr class="memdesc:a9e945c59c6ab6fd721a669c5b7d8c210"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor - ensures graceful shutdown.  <br /></td></tr>
@@ -141,6 +144,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afecb8b06d636f11abb3f24e5220f2df6" id="r_afecb8b06d636f11abb3f24e5220f2df6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#afecb8b06d636f11abb3f24e5220f2df6">sendExtrapTrackData</a> (const <a class="el" href="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html">domain::model::ExtrapTrackData</a> &amp;data) override</td></tr>
 <tr class="memdesc:afecb8b06d636f11abb3f24e5220f2df6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send single ExtrapTrackData.  <br /></td></tr>
 <tr class="separator:afecb8b06d636f11abb3f24e5220f2df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f4fe7750f60012d6aafe63c55f967c8" id="r_a2f4fe7750f60012d6aafe63c55f967c8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a2f4fe7750f60012d6aafe63c55f967c8">isReady</a> () const noexcept</td></tr>
+<tr class="memdesc:a2f4fe7750f60012d6aafe63c55f967c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the outgoing connection is ready.  <br /></td></tr>
+<tr class="separator:a2f4fe7750f60012d6aafe63c55f967c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae601c5a7c7df9f54246cc30577bfbc6a" id="r_ae601c5a7c7df9f54246cc30577bfbc6a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#ae601c5a7c7df9f54246cc30577bfbc6a">ExtrapTrackDataZeroMQOutgoingAdapter</a> (const <a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html">ExtrapTrackDataZeroMQOutgoingAdapter</a> &amp;)=delete</td></tr>
 <tr class="separator:ae601c5a7c7df9f54246cc30577bfbc6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa673fc7d0494ab6a6d88eaf8521f91e7" id="r_aa673fc7d0494ab6a6d88eaf8521f91e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html">ExtrapTrackDataZeroMQOutgoingAdapter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#aa673fc7d0494ab6a6d88eaf8521f91e7">operator=</a> (const <a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html">ExtrapTrackDataZeroMQOutgoingAdapter</a> &amp;)=delete</td></tr>
@@ -153,46 +159,74 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2a8b266a548a0f31dfddba9b8792249d inherit pub_methods_classadapters_1_1IAdapter" id="r_a2a8b266a548a0f31dfddba9b8792249d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d03/classadapters_1_1IAdapter.html#a2a8b266a548a0f31dfddba9b8792249d">~IAdapter</a> ()=default</td></tr>
 <tr class="memdesc:a2a8b266a548a0f31dfddba9b8792249d inherit pub_methods_classadapters_1_1IAdapter"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for proper cleanup.  <br /></td></tr>
 <tr class="separator:a2a8b266a548a0f31dfddba9b8792249d inherit pub_methods_classadapters_1_1IAdapter"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html">domain::ports::outgoing::ExtrapTrackDataOutgoingPort</a></td></tr>
-<tr class="memitem:a7612f271387f15abd06d69d65e44a686 inherit pub_methods_classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort" id="r_a7612f271387f15abd06d69d65e44a686"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html#a7612f271387f15abd06d69d65e44a686">~ExtrapTrackDataOutgoingPort</a> ()=default</td></tr>
-<tr class="separator:a7612f271387f15abd06d69d65e44a686 inherit pub_methods_classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort')"><img src="../../closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="../../d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html">domain::ports::outgoing::IExtrapTrackDataOutgoingPort</a></td></tr>
+<tr class="memitem:a95dc65852b2166484bb9b4616c0af27f inherit pub_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort" id="r_a95dc65852b2166484bb9b4616c0af27f"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html#a95dc65852b2166484bb9b4616c0af27f">~IExtrapTrackDataOutgoingPort</a> ()=default</td></tr>
+<tr class="memdesc:a95dc65852b2166484bb9b4616c0af27f inherit pub_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for proper cleanup.  <br /></td></tr>
+<tr class="separator:a95dc65852b2166484bb9b4616c0af27f inherit pub_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:af4a0e302f3eca40826f3af7a4b594d4d" id="r_af4a0e302f3eca40826f3af7a4b594d4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#af4a0e302f3eca40826f3af7a4b594d4d">loadConfiguration</a> ()</td></tr>
-<tr class="memdesc:af4a0e302f3eca40826f3af7a4b594d4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load ZeroMQ configuration.  <br /></td></tr>
+<tr class="memdesc:af4a0e302f3eca40826f3af7a4b594d4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load configuration (for legacy constructor)  <br /></td></tr>
 <tr class="separator:af4a0e302f3eca40826f3af7a4b594d4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97f6bac15d665323c6e0e6dc7df0cff9" id="r_a97f6bac15d665323c6e0e6dc7df0cff9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a97f6bac15d665323c6e0e6dc7df0cff9">initializeSocket</a> ()</td></tr>
-<tr class="memdesc:a97f6bac15d665323c6e0e6dc7df0cff9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize ZeroMQ socket.  <br /></td></tr>
+<tr class="memdesc:a97f6bac15d665323c6e0e6dc7df0cff9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize socket (for legacy constructor)  <br /></td></tr>
 <tr class="separator:a97f6bac15d665323c6e0e6dc7df0cff9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2adbc0eddc1492bc43081cdbc9168c1b" id="r_a2adbc0eddc1492bc43081cdbc9168c1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a2adbc0eddc1492bc43081cdbc9168c1b">publisherWorker</a> ()</td></tr>
+<tr class="memdesc:a2adbc0eddc1492bc43081cdbc9168c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Background worker thread for message transmission.  <br /></td></tr>
+<tr class="separator:a2adbc0eddc1492bc43081cdbc9168c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc73e629cd936f68637dde5c68a59734" id="r_acc73e629cd936f68637dde5c68a59734"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#acc73e629cd936f68637dde5c68a59734">enqueueMessage</a> (const <a class="el" href="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html">domain::model::ExtrapTrackData</a> &amp;data)</td></tr>
+<tr class="memdesc:acc73e629cd936f68637dde5c68a59734"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueue message for transmission (non-blocking ~20ns)  <br /></td></tr>
+<tr class="separator:acc73e629cd936f68637dde5c68a59734"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:aa43b162d03e983633e74a4e683507842" id="r_aa43b162d03e983633e74a4e683507842"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#aa43b162d03e983633e74a4e683507842">protocol_</a></td></tr>
-<tr class="memdesc:aa43b162d03e983633e74a4e683507842"><td class="mdescLeft">&#160;</td><td class="mdescRight">Network protocol (udp)  <br /></td></tr>
-<tr class="separator:aa43b162d03e983633e74a4e683507842"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a445e4135e585c63f62dc0669799abd55" id="r_a445e4135e585c63f62dc0669799abd55"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a445e4135e585c63f62dc0669799abd55">endpoint_</a></td></tr>
 <tr class="memdesc:a445e4135e585c63f62dc0669799abd55"><td class="mdescLeft">&#160;</td><td class="mdescRight">ZeroMQ endpoint.  <br /></td></tr>
 <tr class="separator:a445e4135e585c63f62dc0669799abd55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19492763b7d8465a732ec3f92cc89444" id="r_a19492763b7d8465a732ec3f92cc89444"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a19492763b7d8465a732ec3f92cc89444">groupName_</a></td></tr>
-<tr class="memdesc:a19492763b7d8465a732ec3f92cc89444"><td class="mdescLeft">&#160;</td><td class="mdescRight">ZeroMQ group name for RADIO.  <br /></td></tr>
-<tr class="separator:a19492763b7d8465a732ec3f92cc89444"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a728d5d67068ed2d9c15db1058d4c40fb" id="r_a728d5d67068ed2d9c15db1058d4c40fb"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a728d5d67068ed2d9c15db1058d4c40fb">socketType_</a></td></tr>
-<tr class="memdesc:a728d5d67068ed2d9c15db1058d4c40fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">ZeroMQ socket type (RADIO) - MISRA Rule 9-3-1.  <br /></td></tr>
-<tr class="separator:a728d5d67068ed2d9c15db1058d4c40fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadb348a347508a817be1ba2c6f67d21d" id="r_aadb348a347508a817be1ba2c6f67d21d"><td class="memItemLeft" align="right" valign="top">zmq::context_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#aadb348a347508a817be1ba2c6f67d21d">context_</a></td></tr>
-<tr class="memdesc:aadb348a347508a817be1ba2c6f67d21d"><td class="mdescLeft">&#160;</td><td class="mdescRight">ZeroMQ context.  <br /></td></tr>
-<tr class="separator:aadb348a347508a817be1ba2c6f67d21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6520f3320b6857f3c26458f047747ed0" id="r_a6520f3320b6857f3c26458f047747ed0"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; zmq::socket_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a6520f3320b6857f3c26458f047747ed0">socket_</a></td></tr>
-<tr class="memdesc:a6520f3320b6857f3c26458f047747ed0"><td class="mdescLeft">&#160;</td><td class="mdescRight">RADIO socket.  <br /></td></tr>
-<tr class="separator:a6520f3320b6857f3c26458f047747ed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbe8b250e23d263c8a825c9d864bb5f8" id="r_abbe8b250e23d263c8a825c9d864bb5f8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#abbe8b250e23d263c8a825c9d864bb5f8">group_</a></td></tr>
+<tr class="memdesc:abbe8b250e23d263c8a825c9d864bb5f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">ZeroMQ group name for RADIO.  <br /></td></tr>
+<tr class="separator:abbe8b250e23d263c8a825c9d864bb5f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa03ff668e9e563f09b4fe8cee99bf502" id="r_aa03ff668e9e563f09b4fe8cee99bf502"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="../../d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html">adapters::common::messaging::IMessageSocket</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#aa03ff668e9e563f09b4fe8cee99bf502">socket_</a></td></tr>
+<tr class="memdesc:aa03ff668e9e563f09b4fe8cee99bf502"><td class="mdescLeft">&#160;</td><td class="mdescRight">Socket abstraction.  <br /></td></tr>
+<tr class="separator:aa03ff668e9e563f09b4fe8cee99bf502"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fd694e6546154856f3edc434b8e007b" id="r_a2fd694e6546154856f3edc434b8e007b"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a2fd694e6546154856f3edc434b8e007b">running_</a></td></tr>
 <tr class="memdesc:a2fd694e6546154856f3edc434b8e007b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Running state flag.  <br /></td></tr>
 <tr class="separator:a2fd694e6546154856f3edc434b8e007b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08e1bd7adf3a567bda04f59847ac1943" id="r_a08e1bd7adf3a567bda04f59847ac1943"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a08e1bd7adf3a567bda04f59847ac1943">ready_</a></td></tr>
+<tr class="memdesc:a08e1bd7adf3a567bda04f59847ac1943"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ready to send flag.  <br /></td></tr>
+<tr class="separator:a08e1bd7adf3a567bda04f59847ac1943"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc43d10177da088dfcde93eec08eb689" id="r_afc43d10177da088dfcde93eec08eb689"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#afc43d10177da088dfcde93eec08eb689">ownsSocket_</a> {false}</td></tr>
+<tr class="memdesc:afc43d10177da088dfcde93eec08eb689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag to track socket ownership.  <br /></td></tr>
+<tr class="separator:afc43d10177da088dfcde93eec08eb689"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c4afd4885ddef3c373c447172e5091d" id="r_a8c4afd4885ddef3c373c447172e5091d"><td class="memItemLeft" align="right" valign="top">std::thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a8c4afd4885ddef3c373c447172e5091d">publisherThread_</a></td></tr>
+<tr class="memdesc:a8c4afd4885ddef3c373c447172e5091d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Background publisher thread.  <br /></td></tr>
+<tr class="separator:a8c4afd4885ddef3c373c447172e5091d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a803d7940a4df8ffae9c65beef79bacb9" id="r_a803d7940a4df8ffae9c65beef79bacb9"><td class="memItemLeft" align="right" valign="top">std::queue&lt; <a class="el" href="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html">domain::model::ExtrapTrackData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a803d7940a4df8ffae9c65beef79bacb9">messageQueue_</a></td></tr>
+<tr class="memdesc:a803d7940a4df8ffae9c65beef79bacb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Message queue.  <br /></td></tr>
+<tr class="separator:a803d7940a4df8ffae9c65beef79bacb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39f4475c0e20b2150d034e141afa4387" id="r_a39f4475c0e20b2150d034e141afa4387"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a39f4475c0e20b2150d034e141afa4387">queueMutex_</a></td></tr>
+<tr class="memdesc:a39f4475c0e20b2150d034e141afa4387"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue protection mutex.  <br /></td></tr>
+<tr class="separator:a39f4475c0e20b2150d034e141afa4387"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd380f46e2069a768ea91db9984cecb1" id="r_acd380f46e2069a768ea91db9984cecb1"><td class="memItemLeft" align="right" valign="top">std::condition_variable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#acd380f46e2069a768ea91db9984cecb1">queueCV_</a></td></tr>
+<tr class="memdesc:acd380f46e2069a768ea91db9984cecb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue notification.  <br /></td></tr>
+<tr class="separator:acd380f46e2069a768ea91db9984cecb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
-<tr class="memitem:abf474d2ef3ebf7344bbefeabd6491ea1" id="r_abf474d2ef3ebf7344bbefeabd6491ea1"><td class="memItemLeft" align="right" valign="top">static constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#abf474d2ef3ebf7344bbefeabd6491ea1">DEFAULT_GROUP</a> = &quot;ExtrapTrackData&quot;</td></tr>
+<tr class="memitem:a44bdbdaf513243d8f77a1137a07508bb" id="r_a44bdbdaf513243d8f77a1137a07508bb"><td class="memItemLeft" align="right" valign="top">static constexpr int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a44bdbdaf513243d8f77a1137a07508bb">REALTIME_THREAD_PRIORITY</a> {80}</td></tr>
+<tr class="memdesc:a44bdbdaf513243d8f77a1137a07508bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">SCHED_FIFO priority.  <br /></td></tr>
+<tr class="separator:a44bdbdaf513243d8f77a1137a07508bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cc4fadd12d48c883e0ee5a5600c07d0" id="r_a4cc4fadd12d48c883e0ee5a5600c07d0"><td class="memItemLeft" align="right" valign="top">static constexpr int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a4cc4fadd12d48c883e0ee5a5600c07d0">DEDICATED_CPU_CORE</a> {2}</td></tr>
+<tr class="memdesc:a4cc4fadd12d48c883e0ee5a5600c07d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">CPU affinity core.  <br /></td></tr>
+<tr class="separator:a4cc4fadd12d48c883e0ee5a5600c07d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab40bb0d907a2976cf06fc87b6db8e054" id="r_ab40bb0d907a2976cf06fc87b6db8e054"><td class="memItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#ab40bb0d907a2976cf06fc87b6db8e054">MAX_QUEUE_SIZE</a> {1000}</td></tr>
+<tr class="memdesc:ab40bb0d907a2976cf06fc87b6db8e054"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max queue size before drop.  <br /></td></tr>
+<tr class="separator:ab40bb0d907a2976cf06fc87b6db8e054"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cfe2fefec8d0e32919eec36887906a7" id="r_a5cfe2fefec8d0e32919eec36887906a7"><td class="memItemLeft" align="right" valign="top">static constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a5cfe2fefec8d0e32919eec36887906a7">DEFAULT_ENDPOINT</a> {&quot;tcp://127.0.0.1:15001&quot;}</td></tr>
+<tr class="separator:a5cfe2fefec8d0e32919eec36887906a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf474d2ef3ebf7344bbefeabd6491ea1" id="r_abf474d2ef3ebf7344bbefeabd6491ea1"><td class="memItemLeft" align="right" valign="top">static constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#abf474d2ef3ebf7344bbefeabd6491ea1">DEFAULT_GROUP</a> {&quot;ExtrapTrackData&quot;}</td></tr>
+<tr class="memdesc:abf474d2ef3ebf7344bbefeabd6491ea1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Group name for RADIO socket.  <br /></td></tr>
 <tr class="separator:abf474d2ef3ebf7344bbefeabd6491ea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
@@ -213,16 +247,77 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:ae767c48deb2cd8638a219299989fb056 inherit pro_methods_classadapters_1_1IAdapter" id="r_ae767c48deb2cd8638a219299989fb056"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d03/classadapters_1_1IAdapter.html">IAdapter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d03/classadapters_1_1IAdapter.html#ae767c48deb2cd8638a219299989fb056">operator=</a> (<a class="el" href="../../dd/d03/classadapters_1_1IAdapter.html">IAdapter</a> &amp;&amp;)=default</td></tr>
 <tr class="memdesc:ae767c48deb2cd8638a219299989fb056 inherit pro_methods_classadapters_1_1IAdapter"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected move assignment.  <br /></td></tr>
 <tr class="separator:ae767c48deb2cd8638a219299989fb056 inherit pro_methods_classadapters_1_1IAdapter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort')"><img src="../../closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="../../d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html">domain::ports::outgoing::IExtrapTrackDataOutgoingPort</a></td></tr>
+<tr class="memitem:ac56b076555f6db990a2bb79cde43d644 inherit pro_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort" id="r_ac56b076555f6db990a2bb79cde43d644"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html#ac56b076555f6db990a2bb79cde43d644">IExtrapTrackDataOutgoingPort</a> ()=default</td></tr>
+<tr class="memdesc:ac56b076555f6db990a2bb79cde43d644 inherit pro_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected default constructor.  <br /></td></tr>
+<tr class="separator:ac56b076555f6db990a2bb79cde43d644 inherit pro_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f9cac13b922f641c8075d9f202ad78c inherit pro_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort" id="r_a0f9cac13b922f641c8075d9f202ad78c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html#a0f9cac13b922f641c8075d9f202ad78c">IExtrapTrackDataOutgoingPort</a> (const <a class="el" href="../../d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html">IExtrapTrackDataOutgoingPort</a> &amp;)=default</td></tr>
+<tr class="memdesc:a0f9cac13b922f641c8075d9f202ad78c inherit pro_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected copy constructor.  <br /></td></tr>
+<tr class="separator:a0f9cac13b922f641c8075d9f202ad78c inherit pro_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ce354e4abf1e0e576c9acc164d3d129 inherit pro_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort" id="r_a7ce354e4abf1e0e576c9acc164d3d129"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html#a7ce354e4abf1e0e576c9acc164d3d129">IExtrapTrackDataOutgoingPort</a> (<a class="el" href="../../d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html">IExtrapTrackDataOutgoingPort</a> &amp;&amp;)=default</td></tr>
+<tr class="memdesc:a7ce354e4abf1e0e576c9acc164d3d129 inherit pro_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected move constructor.  <br /></td></tr>
+<tr class="separator:a7ce354e4abf1e0e576c9acc164d3d129 inherit pro_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0a5c51cb16455e61c366b860da31244 inherit pro_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort" id="r_ae0a5c51cb16455e61c366b860da31244"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html">IExtrapTrackDataOutgoingPort</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html#ae0a5c51cb16455e61c366b860da31244">operator=</a> (const <a class="el" href="../../d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html">IExtrapTrackDataOutgoingPort</a> &amp;)=default</td></tr>
+<tr class="memdesc:ae0a5c51cb16455e61c366b860da31244 inherit pro_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected copy assignment operator.  <br /></td></tr>
+<tr class="separator:ae0a5c51cb16455e61c366b860da31244 inherit pro_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e46335465ef23706927efdad7b5e1d3 inherit pro_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort" id="r_a4e46335465ef23706927efdad7b5e1d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html">IExtrapTrackDataOutgoingPort</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html#a4e46335465ef23706927efdad7b5e1d3">operator=</a> (<a class="el" href="../../d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html">IExtrapTrackDataOutgoingPort</a> &amp;&amp;)=default</td></tr>
+<tr class="memdesc:a4e46335465ef23706927efdad7b5e1d3 inherit pro_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected move assignment operator.  <br /></td></tr>
+<tr class="separator:a4e46335465ef23706927efdad7b5e1d3 inherit pro_methods_classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Sends ExtrapTrackData via ZeroMQ RADIO socket (UDP multicast) </p>
-<p>Implements both <a class="el" href="../../dd/d03/classadapters_1_1IAdapter.html" title="Base interface for all adapters (incoming and outgoing)">IAdapter</a> (for lifecycle management) and ExtrapTrackDataOutgoingPort (for domain service integration).</p>
-<dl class="section invariant"><dt>Invariant</dt><dd>When running_, socket is connected and ready to send </dd></dl>
+<p>Implements both <a class="el" href="../../dd/d03/classadapters_1_1IAdapter.html" title="Base interface for all adapters (incoming and outgoing)">IAdapter</a> (for lifecycle management) and IExtrapTrackDataOutgoingPort (for domain service integration). Uses background worker thread for non-blocking sends (~20ns enqueue).</p>
+<p>Thread Safety:</p><ul>
+<li>Uses mutex-protected queue for thread-safe message passing</li>
+<li>Background worker thread handles actual ZMQ transmission</li>
+<li>Non-blocking <a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a7abcaada234a99e2f92eacb11e486fdf" title="Send vector of ExtrapTrackData.">sendExtrapTrackData()</a> for real-time performance</li>
+</ul>
+<dl class="section user"><dt>Class Invariants:</dt><dd>When running_, socket is connected and ready to send </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00059">59</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00065">65</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7eaa0003b6e491825cd62ecea79c8d72" name="a7eaa0003b6e491825cd62ecea79c8d72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7eaa0003b6e491825cd62ecea79c8d72">&#9670;&#160;</a></span>ExtrapTrackDataZeroMQOutgoingAdapter() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::ExtrapTrackDataZeroMQOutgoingAdapter </td>
+          <td>(</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="../../d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html">adapters::common::messaging::IMessageSocket</a> &gt;&#160;</td>
+          <td class="paramname"><em>socket</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct adapter with DIP - socket injection (preferred for testing) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">socket</td><td>Message socket abstraction (ZeroMQ or Mock) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>socket is not null </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Adapter is configured but not started </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00035">35</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00254">LOG_INFO</a>.</p>
+
+</div>
+</div>
 <a id="afe049abd4e66bdd74c1c5445f86d7a85" name="afe049abd4e66bdd74c1c5445f86d7a85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe049abd4e66bdd74c1c5445f86d7a85">&#9670;&#160;</a></span>ExtrapTrackDataZeroMQOutgoingAdapter() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afe049abd4e66bdd74c1c5445f86d7a85">&#9670;&#160;</a></span>ExtrapTrackDataZeroMQOutgoingAdapter() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -236,12 +331,13 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Default constructor. </p>
+<p>Default constructor (legacy - creates ZeroMQ socket internally) </p>
 <dl class="section post"><dt>Postcondition</dt><dd>Adapter is configured but not started </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d00/deprecated.html#_deprecated000003">Deprecated:</a></b></dt><dd>Use socket injection constructor for new code </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00023">23</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00049">49</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00041">loadConfiguration()</a>, and <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00254">LOG_INFO</a>.</p>
+<p class="reference">References <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00066">loadConfiguration()</a>, and <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00254">LOG_INFO</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -275,9 +371,9 @@ Here is the call graph for this function:</div>
 
 <p>Destructor - ensures graceful shutdown. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00036">36</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00061">61</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00250">LOG_DEBUG</a>, and <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00088">stop()</a>.</p>
+<p class="reference">References <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00250">LOG_DEBUG</a>, and <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00152">stop()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -287,7 +383,7 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <a id="ae601c5a7c7df9f54246cc30577bfbc6a" name="ae601c5a7c7df9f54246cc30577bfbc6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae601c5a7c7df9f54246cc30577bfbc6a">&#9670;&#160;</a></span>ExtrapTrackDataZeroMQOutgoingAdapter() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae601c5a7c7df9f54246cc30577bfbc6a">&#9670;&#160;</a></span>ExtrapTrackDataZeroMQOutgoingAdapter() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,7 +409,7 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <a id="a72496035f4f916afb9fe748b12908cd9" name="a72496035f4f916afb9fe748b12908cd9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72496035f4f916afb9fe748b12908cd9">&#9670;&#160;</a></span>ExtrapTrackDataZeroMQOutgoingAdapter() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a72496035f4f916afb9fe748b12908cd9">&#9670;&#160;</a></span>ExtrapTrackDataZeroMQOutgoingAdapter() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -339,6 +435,51 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="acc73e629cd936f68637dde5c68a59734" name="acc73e629cd936f68637dde5c68a59734"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc73e629cd936f68637dde5c68a59734">&#9670;&#160;</a></span>enqueueMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::enqueueMessage </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html">domain::model::ExtrapTrackData</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Enqueue message for transmission (non-blocking ~20ns) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Track data to send </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00216">216</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00255">LOG_WARN</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00191">MAX_QUEUE_SIZE</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00183">messageQueue_</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00185">queueCV_</a>, and <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00184">queueMutex_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00204">sendExtrapTrackData()</a>, and <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00191">sendExtrapTrackData()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter_acc73e629cd936f68637dde5c68a59734_icgraph.svg" width="635" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="ab30d0da51f15d90486cbaff17dd97d3a" name="ab30d0da51f15d90486cbaff17dd97d3a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab30d0da51f15d90486cbaff17dd97d3a">&#9670;&#160;</a></span>getName()</h2>
 
@@ -368,7 +509,7 @@ Here is the call graph for this function:</div>
 
 <p>Implements <a class="el" href="../../dd/d03/classadapters_1_1IAdapter.html#ae26db19919cfaa158fa4ffb73aae8cc3">adapters::IAdapter</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00114">114</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00185">185</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
 
 </div>
 </div>
@@ -395,18 +536,57 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Initialize ZeroMQ socket. </p>
+<p>Initialize socket (for legacy constructor) </p>
 <dl class="section return"><dt>Returns</dt><dd>true if successful </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00051">51</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00074">74</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00141">context_</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00136">endpoint_</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00137">groupName_</a>, <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00256">LOG_ERROR</a>, <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00254">LOG_INFO</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00142">socket_</a>, and <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00138">socketType_</a>.</p>
+<p class="reference">References <a class="el" href="../../db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html#a171ab154f16d21756dcb5b9abde3b791a49ab28040dfa07f53544970c6d147e1e">adapters::common::messaging::ZeroMQSocket::Connect</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00170">endpoint_</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00171">group_</a>, <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00250">LOG_DEBUG</a>, <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00256">LOG_ERROR</a>, <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00254">LOG_INFO</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00179">ownsSocket_</a>, <a class="el" href="../../db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html#a503cf095325bb589f8e2d899eeedc9cea9aba7127268ef2f384fdc95498c7bb1a">adapters::common::messaging::ZeroMQSocket::PUB</a>, and <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00174">socket_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00072">start()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00110">start()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter_a97f6bac15d665323c6e0e6dc7df0cff9_icgraph.svg" width="544" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2f4fe7750f60012d6aafe63c55f967c8" name="a2f4fe7750f60012d6aafe63c55f967c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f4fe7750f60012d6aafe63c55f967c8">&#9670;&#160;</a></span>isReady()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::isReady </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if the outgoing connection is ready. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if socket is connected and ready to send </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00181">181</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00178">ready_</a>, and <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00177">running_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00204">sendExtrapTrackData()</a>, and <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00191">sendExtrapTrackData()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter_a2f4fe7750f60012d6aafe63c55f967c8_icgraph.svg" width="583" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -439,9 +619,9 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="../../dd/d03/classadapters_1_1IAdapter.html#a7e60830d8497684bca5170789b1ab7b5">adapters::IAdapter</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00110">110</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00177">177</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00145">running_</a>.</p>
+<p class="reference">References <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00177">running_</a>.</p>
 
 </div>
 </div>
@@ -468,13 +648,13 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Load ZeroMQ configuration. </p>
+<p>Load configuration (for legacy constructor) </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00041">41</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00066">66</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00148">DEFAULT_GROUP</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00136">endpoint_</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00137">groupName_</a>, <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00250">LOG_DEBUG</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00135">protocol_</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00138">socketType_</a>, and <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00044">ZMQ_RADIO</a>.</p>
+<p class="reference">References <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00197">DEFAULT_ENDPOINT</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00198">DEFAULT_GROUP</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00170">endpoint_</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00171">group_</a>, and <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00250">LOG_DEBUG</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00023">ExtrapTrackDataZeroMQOutgoingAdapter()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00049">ExtrapTrackDataZeroMQOutgoingAdapter()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -535,6 +715,50 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a2adbc0eddc1492bc43081cdbc9168c1b" name="a2adbc0eddc1492bc43081cdbc9168c1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2adbc0eddc1492bc43081cdbc9168c1b">&#9670;&#160;</a></span>publisherWorker()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::publisherWorker </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Background worker thread for message transmission. </p>
+<p>Runs with real-time priority and CPU affinity </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00235">235</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00080">domain::model::ExtrapTrackData::getTrackId()</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00171">group_</a>, <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00250">LOG_DEBUG</a>, <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00256">LOG_ERROR</a>, <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00255">LOG_WARN</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00183">messageQueue_</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00185">queueCV_</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00184">queueMutex_</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00177">running_</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00189">domain::model::ExtrapTrackData::serialize()</a>, and <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00174">socket_</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00110">start()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter_a2adbc0eddc1492bc43081cdbc9168c1b_cgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter_a2adbc0eddc1492bc43081cdbc9168c1b_icgraph.svg" width="550" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="afecb8b06d636f11abb3f24e5220f2df6" name="afecb8b06d636f11abb3f24e5220f2df6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afecb8b06d636f11abb3f24e5220f2df6">&#9670;&#160;</a></span>sendExtrapTrackData() <span class="overload">[1/2]</span></h2>
 
@@ -562,20 +786,21 @@ Here is the caller graph for this function:</div>
 <p>Send single ExtrapTrackData. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>ExtrapTrackData to send </td></tr>
+    <tr><td class="paramname">data</td><td>ExtrapTrackData to send</td></tr>
   </table>
   </dd>
 </dl>
+<p>Non-blocking - queues message for background transmission (~20ns) </p>
 
-<p>Implements <a class="el" href="../../d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html#a6f81d79d45f3ee7817c84b4c8d1176d8">domain::ports::outgoing::ExtrapTrackDataOutgoingPort</a>.</p>
+<p>Implements <a class="el" href="../../d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html#ab1685af3583c4ba9e50bd39deb6daea7">domain::ports::outgoing::IExtrapTrackDataOutgoingPort</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00131">131</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00204">204</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00080">domain::model::ExtrapTrackData::getTrackId()</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00137">groupName_</a>, <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00256">LOG_ERROR</a>, <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00244">LOG_TRACE</a>, <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00255">LOG_WARN</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00145">running_</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00189">domain::model::ExtrapTrackData::serialize()</a>, and <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00142">socket_</a>.</p>
+<p class="reference">References <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00216">enqueueMessage()</a>, <a class="el" href="../../d3/d00/ExtrapTrackData_8cpp_source.html#l00080">domain::model::ExtrapTrackData::getTrackId()</a>, <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00181">isReady()</a>, and <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00255">LOG_WARN</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter_afecb8b06d636f11abb3f24e5220f2df6_cgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter_afecb8b06d636f11abb3f24e5220f2df6_cgraph.svg" width="635" height="210"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -612,22 +837,15 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="../../d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html#ab300edf81ea52561362d46fae9cee53a">domain::ports::outgoing::ExtrapTrackDataOutgoingPort</a>.</p>
+<p>Implements <a class="el" href="../../d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html#aee7f718e0d21bc505acbd1473d803711">domain::ports::outgoing::IExtrapTrackDataOutgoingPort</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00118">118</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00191">191</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00255">LOG_WARN</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00145">running_</a>, <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00118">sendExtrapTrackData()</a>, and <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00142">socket_</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00118">sendExtrapTrackData()</a>.</p>
+<p class="reference">References <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00216">enqueueMessage()</a>, <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00181">isReady()</a>, and <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00255">LOG_WARN</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter_a7abcaada234a99e2f92eacb11e486fdf_cgraph.svg" width="311" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter_a7abcaada234a99e2f92eacb11e486fdf_icgraph.svg" width="311" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter_a7abcaada234a99e2f92eacb11e486fdf_cgraph.svg" width="635" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -661,13 +879,13 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="../../dd/d03/classadapters_1_1IAdapter.html#adb9f3d05459b8a5811d59e573de32e25">adapters::IAdapter</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00072">72</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00110">110</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00051">initializeSocket()</a>, <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00256">LOG_ERROR</a>, <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00254">LOG_INFO</a>, <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00255">LOG_WARN</a>, and <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00145">running_</a>.</p>
+<p class="reference">References <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00190">DEDICATED_CPU_CORE</a>, <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00074">initializeSocket()</a>, <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00250">LOG_DEBUG</a>, <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00256">LOG_ERROR</a>, <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00254">LOG_INFO</a>, <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00255">LOG_WARN</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00182">publisherThread_</a>, <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00235">publisherWorker()</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00178">ready_</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00189">REALTIME_THREAD_PRIORITY</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00177">running_</a>, and <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00174">socket_</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter_afb84590a4b7267107faeb27c083231e1_cgraph.svg" width="544" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter_afb84590a4b7267107faeb27c083231e1_cgraph.svg" width="100%" height="427"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -700,11 +918,11 @@ Here is the call graph for this function:</div>
 
 <p>Implements <a class="el" href="../../dd/d03/classadapters_1_1IAdapter.html#a56f5f108faf8ed3c2f53411af0646258">adapters::IAdapter</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00088">88</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00152">152</a> of file <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00254">LOG_INFO</a>, <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00255">LOG_WARN</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00145">running_</a>, and <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00142">socket_</a>.</p>
+<p class="reference">References <a class="el" href="../../d9/d01/Logger_8hpp_source.html#l00254">LOG_INFO</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00182">publisherThread_</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00185">queueCV_</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00178">ready_</a>, <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00177">running_</a>, and <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00174">socket_</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00036">~ExtrapTrackDataZeroMQOutgoingAdapter()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00061">~ExtrapTrackDataZeroMQOutgoingAdapter()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -714,8 +932,8 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="aadb348a347508a817be1ba2c6f67d21d" name="aadb348a347508a817be1ba2c6f67d21d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aadb348a347508a817be1ba2c6f67d21d">&#9670;&#160;</a></span>context_</h2>
+<a id="a4cc4fadd12d48c883e0ee5a5600c07d0" name="a4cc4fadd12d48c883e0ee5a5600c07d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cc4fadd12d48c883e0ee5a5600c07d0">&#9670;&#160;</a></span>DEDICATED_CPU_CORE</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -724,21 +942,47 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">zmq::context_t adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::context_</td>
+          <td class="memname">constexpr int32_t adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::DEDICATED_CPU_CORE {2}</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>ZeroMQ context. </p>
+<p>CPU affinity core. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00141">141</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00190">190</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00051">initializeSocket()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00110">start()</a>.</p>
+
+</div>
+</div>
+<a id="a5cfe2fefec8d0e32919eec36887906a7" name="a5cfe2fefec8d0e32919eec36887906a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cfe2fefec8d0e32919eec36887906a7">&#9670;&#160;</a></span>DEFAULT_ENDPOINT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const char* adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::DEFAULT_ENDPOINT {&quot;tcp://127.0.0.1:15001&quot;}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00197">197</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00066">loadConfiguration()</a>.</p>
 
 </div>
 </div>
@@ -752,7 +996,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr const char* adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::DEFAULT_GROUP = &quot;ExtrapTrackData&quot;</td>
+          <td class="memname">constexpr const char* adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::DEFAULT_GROUP {&quot;ExtrapTrackData&quot;}</td>
         </tr>
       </table>
   </td>
@@ -762,9 +1006,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00148">148</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
+<p>Group name for RADIO socket. </p>
 
-<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00041">loadConfiguration()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00198">198</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00066">loadConfiguration()</a>.</p>
 
 </div>
 </div>
@@ -790,14 +1036,14 @@ Here is the caller graph for this function:</div>
 
 <p>ZeroMQ endpoint. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00136">136</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00170">170</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00051">initializeSocket()</a>, and <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00041">loadConfiguration()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00074">initializeSocket()</a>, and <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00066">loadConfiguration()</a>.</p>
 
 </div>
 </div>
-<a id="a19492763b7d8465a732ec3f92cc89444" name="a19492763b7d8465a732ec3f92cc89444"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19492763b7d8465a732ec3f92cc89444">&#9670;&#160;</a></span>groupName_</h2>
+<a id="abbe8b250e23d263c8a825c9d864bb5f8" name="abbe8b250e23d263c8a825c9d864bb5f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbe8b250e23d263c8a825c9d864bb5f8">&#9670;&#160;</a></span>group_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -806,7 +1052,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::groupName_</td>
+          <td class="memname">std::string adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::group_</td>
         </tr>
       </table>
   </td>
@@ -818,14 +1064,14 @@ Here is the caller graph for this function:</div>
 
 <p>ZeroMQ group name for RADIO. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00137">137</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00171">171</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00051">initializeSocket()</a>, <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00041">loadConfiguration()</a>, and <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00131">sendExtrapTrackData()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00074">initializeSocket()</a>, <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00066">loadConfiguration()</a>, and <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00235">publisherWorker()</a>.</p>
 
 </div>
 </div>
-<a id="aa43b162d03e983633e74a4e683507842" name="aa43b162d03e983633e74a4e683507842"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa43b162d03e983633e74a4e683507842">&#9670;&#160;</a></span>protocol_</h2>
+<a id="ab40bb0d907a2976cf06fc87b6db8e054" name="ab40bb0d907a2976cf06fc87b6db8e054"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab40bb0d907a2976cf06fc87b6db8e054">&#9670;&#160;</a></span>MAX_QUEUE_SIZE</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -834,7 +1080,35 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::protocol_</td>
+          <td class="memname">constexpr std::size_t adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::MAX_QUEUE_SIZE {1000}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Max queue size before drop. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00191">191</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00216">enqueueMessage()</a>.</p>
+
+</div>
+</div>
+<a id="a803d7940a4df8ffae9c65beef79bacb9" name="a803d7940a4df8ffae9c65beef79bacb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a803d7940a4df8ffae9c65beef79bacb9">&#9670;&#160;</a></span>messageQueue_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::queue&lt;<a class="el" href="../../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html">domain::model::ExtrapTrackData</a>&gt; adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::messageQueue_</td>
         </tr>
       </table>
   </td>
@@ -844,11 +1118,179 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Network protocol (udp) </p>
+<p>Message queue. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00135">135</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00183">183</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00041">loadConfiguration()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00216">enqueueMessage()</a>, and <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00235">publisherWorker()</a>.</p>
+
+</div>
+</div>
+<a id="afc43d10177da088dfcde93eec08eb689" name="afc43d10177da088dfcde93eec08eb689"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc43d10177da088dfcde93eec08eb689">&#9670;&#160;</a></span>ownsSocket_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::ownsSocket_ {false}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Flag to track socket ownership. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00179">179</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00074">initializeSocket()</a>.</p>
+
+</div>
+</div>
+<a id="a8c4afd4885ddef3c373c447172e5091d" name="a8c4afd4885ddef3c373c447172e5091d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c4afd4885ddef3c373c447172e5091d">&#9670;&#160;</a></span>publisherThread_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::thread adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::publisherThread_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Background publisher thread. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00182">182</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00110">start()</a>, and <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00152">stop()</a>.</p>
+
+</div>
+</div>
+<a id="acd380f46e2069a768ea91db9984cecb1" name="acd380f46e2069a768ea91db9984cecb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd380f46e2069a768ea91db9984cecb1">&#9670;&#160;</a></span>queueCV_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::condition_variable adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::queueCV_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Queue notification. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00185">185</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00216">enqueueMessage()</a>, <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00235">publisherWorker()</a>, and <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00152">stop()</a>.</p>
+
+</div>
+</div>
+<a id="a39f4475c0e20b2150d034e141afa4387" name="a39f4475c0e20b2150d034e141afa4387"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39f4475c0e20b2150d034e141afa4387">&#9670;&#160;</a></span>queueMutex_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::queueMutex_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Queue protection mutex. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00184">184</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00216">enqueueMessage()</a>, and <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00235">publisherWorker()</a>.</p>
+
+</div>
+</div>
+<a id="a08e1bd7adf3a567bda04f59847ac1943" name="a08e1bd7adf3a567bda04f59847ac1943"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08e1bd7adf3a567bda04f59847ac1943">&#9670;&#160;</a></span>ready_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt;bool&gt; adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::ready_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Ready to send flag. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00178">178</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00181">isReady()</a>, <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00110">start()</a>, and <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00152">stop()</a>.</p>
+
+</div>
+</div>
+<a id="a44bdbdaf513243d8f77a1137a07508bb" name="a44bdbdaf513243d8f77a1137a07508bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44bdbdaf513243d8f77a1137a07508bb">&#9670;&#160;</a></span>REALTIME_THREAD_PRIORITY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int32_t adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::REALTIME_THREAD_PRIORITY {80}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>SCHED_FIFO priority. </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00189">189</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00110">start()</a>.</p>
 
 </div>
 </div>
@@ -874,14 +1316,14 @@ Here is the caller graph for this function:</div>
 
 <p>Running state flag. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00145">145</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00177">177</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00110">isRunning()</a>, <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00131">sendExtrapTrackData()</a>, <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00118">sendExtrapTrackData()</a>, <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00072">start()</a>, and <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00088">stop()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00181">isReady()</a>, <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00177">isRunning()</a>, <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00235">publisherWorker()</a>, <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00110">start()</a>, and <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00152">stop()</a>.</p>
 
 </div>
 </div>
-<a id="a6520f3320b6857f3c26458f047747ed0" name="a6520f3320b6857f3c26458f047747ed0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6520f3320b6857f3c26458f047747ed0">&#9670;&#160;</a></span>socket_</h2>
+<a id="aa03ff668e9e563f09b4fe8cee99bf502" name="aa03ff668e9e563f09b4fe8cee99bf502"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa03ff668e9e563f09b4fe8cee99bf502">&#9670;&#160;</a></span>socket_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -890,7 +1332,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;zmq::socket_t&gt; adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::socket_</td>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="../../d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html">adapters::common::messaging::IMessageSocket</a>&gt; adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::socket_</td>
         </tr>
       </table>
   </td>
@@ -900,39 +1342,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>RADIO socket. </p>
+<p>Socket abstraction. </p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00142">142</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00174">174</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00051">initializeSocket()</a>, <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00131">sendExtrapTrackData()</a>, <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00118">sendExtrapTrackData()</a>, and <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00088">stop()</a>.</p>
-
-</div>
-</div>
-<a id="a728d5d67068ed2d9c15db1058d4c40fb" name="a728d5d67068ed2d9c15db1058d4c40fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a728d5d67068ed2d9c15db1058d4c40fb">&#9670;&#160;</a></span>socketType_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int32_t adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::socketType_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>ZeroMQ socket type (RADIO) - MISRA Rule 9-3-1. </p>
-
-<p class="definition">Definition at line <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html#l00138">138</a> of file <a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp_source.html">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00051">initializeSocket()</a>, and <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00041">loadConfiguration()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00074">initializeSocket()</a>, <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00235">publisherWorker()</a>, <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00110">start()</a>, and <a class="el" href="../../d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp_source.html#l00152">stop()</a>.</p>
 
 </div>
 </div>
@@ -946,7 +1360,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d2/d03/namespaceadapters.html">adapters</a></li><li class="navelem"><a class="el" href="../../df/d00/namespaceadapters_1_1outgoing.html">outgoing</a></li><li class="navelem"><a class="el" href="../../dc/d00/namespaceadapters_1_1outgoing_1_1zeromq.html">zeromq</a></li><li class="navelem"><a class="el" href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html">ExtrapTrackDataZeroMQOutgoingAdapter</a></li>
-    <li class="footer">Generated on Mon Dec 1 2025 13:08:49 for a_hexagon by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

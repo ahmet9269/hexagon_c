@@ -1,0 +1,5 @@
+<map id="adapters::common::messaging::ZeroMQSocket" name="adapters::common::messaging::ZeroMQSocket">
+<area shape="rect" id="Node000001" title="ZeroMQ implementation of IMessageSocket interface." alt="" coords="5,373,220,793"/>
+<area shape="rect" id="Node000002" href="$d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html" title="Abstract interface for messaging socket operations." alt="" coords="5,5,220,325"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,339,115,373,110,373,110,339"/>
+</map>

@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$dc/d00/classdomain_1_1model_1_1TrackData.html" title="Input data model for track information." alt="" coords="5,5,199,31"/>
+<area shape="rect" id="Node000000" href="$d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html" title="Abstract interface for messaging socket operations." alt="" coords="5,37,228,77"/>
+<area shape="rect" id="Node000001" href="$d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html" title="Mock socket for unit testing without network." alt="" coords="299,5,476,45"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="241,40,298,33,299,38,242,45"/>
+<area shape="rect" id="Node000002" href="$db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html" title="ZeroMQ implementation of IMessageSocket interface." alt="" coords="276,69,499,109"/>
+<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="242,69,276,74,276,79,241,75"/>
 </map>

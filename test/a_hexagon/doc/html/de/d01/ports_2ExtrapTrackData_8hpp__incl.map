@@ -1,5 +1,5 @@
 <map id="a_hexagon/domain/ports/ExtrapTrackData.hpp" name="a_hexagon/domain/ports/ExtrapTrackData.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="181,5,363,45"/>
+<area shape="rect" id="Node000001" title="Header file for ExtrapTrackData model class." alt="" coords="181,5,363,45"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,93,64,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,48,78,93,76,88,214,43"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="88,93,155,119"/>

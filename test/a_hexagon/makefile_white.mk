@@ -21,8 +21,9 @@ INC_DIRS = -I$(SRC_DIR) -I$(THIRD_PARTY_DIR)/include
 # Wuninitialized: warn about uninitialized variables
 # Wsign-compare: warn about signed-unsigned comparision
 # SPDLOG_COMPILED_LIB: Use spdlog as compiled library (not header-only)
+# Note: ZMQ_BUILD_DRAFT_API is defined in lib/include/zmq_config.hpp
 CXX := g++
-CPPFLAGS = -std=c++17 $(INC_DIRS) -L$(THIRD_PARTY_DIR) -O3 -Wall -Wpedantic -Wextra -Wconversion -Wcast-align -Wunused -Wuninitialized -Wsign-compare -DSPDLOG_COMPILED_LIB
+CPPFLAGS = -std=c++17 $(INC_DIRS) -L$(THIRD_PARTY_DIR) -O3 -Wall -Wpedantic -Wextra -Wconversion -Wcast-align -Wunused -Wuninitialized -Wsign-compare -DSPDLOG_COMPILED_LIB -pthread
 
 # Acquiring external .so files from lib directory (ie. libzmq.so, libspdlog.so)
 SO_FILES = $(notdir $(shell find $(THIRD_PARTY_DIR) -maxdepth 1 -type f -name "*.so" -o -type l -name "*.so"))
@@ -34,7 +35,7 @@ SO_LD_FLAGS = $(shell for lib in $(SO_LIB_NAME); do echo $$lib | cut -d"." -f1 |
 # Add pthread for threading support
 LD_FLAGS = $(SO_LD_FLAGS) -lpthread
 
-RPATH_CONFIG = -Wl,-rpath,'$$ORIGIN/lib'
+RPATH_CONFIG = -Wl,-rpath,'$$ORIGIN/../lib'
 
 # Directories will be checked out by check_dirs target
 CHECK_DIRS = $(SRC_DIR)/adapters $(SRC_DIR)/domain $(SRC_DIR)/utils \

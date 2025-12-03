@@ -1,7 +1,7 @@
 <map id="TrackDataTest" name="TrackDataTest">
-<area shape="rect" id="Node000001" title="Test fixture for TrackData tests." alt="" coords="81,653,186,719"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,265,99,331"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="63,344,113,590,128,652,123,654,108,591,58,345"/>
-<area shape="rect" id="Node000003" href="$dc/d00/classdomain_1_1model_1_1TrackData.html" title="Input data model for track information." alt="" coords="123,5,309,591"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="156,591,146,638,141,637,151,590"/>
+<area shape="rect" id="Node000001" title="Test fixture for TrackData tests." alt="" coords="81,553,186,619"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,215,99,281"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="65,294,128,552,123,554,60,295"/>
+<area shape="rect" id="Node000003" href="$dc/d00/classdomain_1_1model_1_1TrackData.html" title="Input data model for track information." alt="" coords="123,5,309,491"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,491,148,538,142,537,154,490"/>
 </map>

@@ -1,7 +1,9 @@
 <map id="a_hexagon/adapters/outgoing/zeromq/ExtrapTrackDataZeroMQOutgoingAdapter.hpp" name="a_hexagon/adapters/outgoing/zeromq/ExtrapTrackDataZeroMQOutgoingAdapter.hpp">
-<area shape="rect" id="Node000001" title="ZeroMQ UDP RADIO Outgoing Adapter for ExtrapTrackData messages." alt="" coords="117,5,359,60"/>
-<area shape="rect" id="Node000002" href="$d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp.html" title="ZeroMQ UDP RADIO Outgoing Adapter implementation." alt="" coords="5,108,247,163"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,71,157,110,153,106,197,67"/>
-<area shape="rect" id="Node000003" href="$df/d02/main_8cpp.html" title="Main entry point for A_Hexagon application." alt="" coords="271,123,429,148"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="280,68,339,120,335,124,276,72"/>
+<area shape="rect" id="Node000001" title="ZeroMQ Outgoing Adapter for ExtrapTrackData messages (DIP compliant)" alt="" coords="323,5,566,60"/>
+<area shape="rect" id="Node000002" href="$d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html" title="Unit tests for ExtrapTrackDataZeroMQOutgoingAdapter with DIP compliance." alt="" coords="5,108,300,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="367,67,257,110,255,105,365,62"/>
+<area shape="rect" id="Node000003" href="$d4/d00/ExtrapTrackDataZeroMQOutgoingAdapter_8cpp.html" title="ZeroMQ UDP RADIO Outgoing Adapter implementation." alt="" coords="324,123,565,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="447,74,447,122,442,122,442,74"/>
+<area shape="rect" id="Node000004" href="$df/d02/main_8cpp.html" title="Main entry point for A_Hexagon application." alt="" coords="590,137,747,163"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="509,64,647,135,645,139,506,69"/>
 </map>

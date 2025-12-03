@@ -30,17 +30,12 @@ var classdomain_1_1model_1_1TrackData =
     [ "validateTimestamp", "dc/d00/classdomain_1_1model_1_1TrackData.html#a700ffaffc20720424adc5ec36589407a", null ],
     [ "validateTrackId", "dc/d00/classdomain_1_1model_1_1TrackData.html#aa243bbbfe931728e3682f582d16f465e", null ],
     [ "validateVelocity", "dc/d00/classdomain_1_1model_1_1TrackData.html#a6f35effa78946cfb116047a2e0a2bdd0", null ],
-    [ "IS_SUBSCRIBER", "dc/d00/classdomain_1_1model_1_1TrackData.html#a94d259858b355939eec77610014cd8df", null ],
-    [ "MULTICAST_ADDRESS", "dc/d00/classdomain_1_1model_1_1TrackData.html#a6eaf6b825a0f874dbefe2f8784342900", null ],
     [ "originalUpdateTime_", "dc/d00/classdomain_1_1model_1_1TrackData.html#a56ea181dd50afa6929f073166d8bb139", null ],
-    [ "PORT", "dc/d00/classdomain_1_1model_1_1TrackData.html#af89277392ab766119f83922eaa51ad59", null ],
     [ "trackId_", "dc/d00/classdomain_1_1model_1_1TrackData.html#ab183881dd1c728ff1ce94772bb14fd95", null ],
     [ "xPositionECEF_", "dc/d00/classdomain_1_1model_1_1TrackData.html#a21e7db2fdb363aeca6fe43238d1f2c12", null ],
     [ "xVelocityECEF_", "dc/d00/classdomain_1_1model_1_1TrackData.html#a0fb9c546c28d8883dfe481c9126cbc7a", null ],
     [ "yPositionECEF_", "dc/d00/classdomain_1_1model_1_1TrackData.html#ad67162fe90966b82f18150ecd92b5566", null ],
     [ "yVelocityECEF_", "dc/d00/classdomain_1_1model_1_1TrackData.html#a05781cda00466745810e1f853c14298a", null ],
-    [ "ZMQ_PROTOCOL", "dc/d00/classdomain_1_1model_1_1TrackData.html#a81e421d0fd2e76df4a704453bd649380", null ],
-    [ "ZMQ_SOCKET_TYPE", "dc/d00/classdomain_1_1model_1_1TrackData.html#a815e8ed7ed69aaa369ef89c6a805e893", null ],
     [ "zPositionECEF_", "dc/d00/classdomain_1_1model_1_1TrackData.html#ac98d43afda3681099d1e4c5c3f462e93", null ],
     [ "zVelocityECEF_", "dc/d00/classdomain_1_1model_1_1TrackData.html#a3e1127d713081e09f77f704cbe8bc202", null ]
 ];

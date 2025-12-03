@@ -1,14 +1,17 @@
 var searchData=
 [
-  ['_7eadaptermanager_0',['~AdapterManager',['../d1/d02/classadapters_1_1AdapterManager.html#a223f36f9d52ff86467860de118e41fbe',1,'adapters::AdapterManager']]],
-  ['_7eextraptrackdata_1',['~ExtrapTrackData',['../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#acf9703da84330b2d5b613571537203a5',1,'domain::model::ExtrapTrackData']]],
-  ['_7eextraptrackdataoutgoingport_2',['~ExtrapTrackDataOutgoingPort',['../d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html#a7612f271387f15abd06d69d65e44a686',1,'domain::ports::outgoing::ExtrapTrackDataOutgoingPort']]],
-  ['_7eextraptrackdatazeromqoutgoingadapter_3',['~ExtrapTrackDataZeroMQOutgoingAdapter',['../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a9e945c59c6ab6fd721a669c5b7d8c210',1,'adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter']]],
-  ['_7eiadapter_4',['~IAdapter',['../dd/d03/classadapters_1_1IAdapter.html#a2a8b266a548a0f31dfddba9b8792249d',1,'adapters::IAdapter']]],
-  ['_7eitrackdataincomingport_5',['~ITrackDataIncomingPort',['../da/d03/classdomain_1_1ports_1_1incoming_1_1ITrackDataIncomingPort.html#aef64e043c3be8ad1c2b648c79db6d7b5',1,'domain::ports::incoming::ITrackDataIncomingPort']]],
-  ['_7elogger_6',['~logger',['../d2/d02/classutils_1_1Logger.html#a989789e1cd0ecbf3509d581318f0c97e',1,'utils::Logger::~Logger()'],['../db/d03/classLogger.html#a81414467aac1f8740c5bd13624f3aa0b',1,'Logger::~Logger()']]],
-  ['_7emessagepipeline_7',['~MessagePipeline',['../dd/d00/classadapters_1_1MessagePipeline.html#ad685943aba71989ef343d1f809585ba9',1,'adapters::MessagePipeline']]],
-  ['_7etrackdata_8',['~TrackData',['../dc/d00/classdomain_1_1model_1_1TrackData.html#a733ee16cd7cad327d0e75b0b5036ab8c',1,'domain::model::TrackData']]],
-  ['_7etrackdataextrapolator_9',['~TrackDataExtrapolator',['../db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html#a65980457482706670d83a34c7d140535',1,'domain::logic::TrackDataExtrapolator']]],
-  ['_7etrackdatazeromqincomingadapter_10',['~TrackDataZeroMQIncomingAdapter',['../d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a235d2e39df287f3244b9e294ab21f982',1,'adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter']]]
+  ['validatefirsthopsenttime_0',['validateFirstHopSentTime',['../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a2b4fd571dac5d8ea9961efae9cf13f22',1,'domain::model::ExtrapTrackData']]],
+  ['validateoriginalupdatetime_1',['validateOriginalUpdateTime',['../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a677e0098f4733a9c46c33a7354c035f3',1,'domain::model::ExtrapTrackData']]],
+  ['validateposition_2',['validatePosition',['../dc/d00/classdomain_1_1model_1_1TrackData.html#a16bc8d428886863ba37b6289e8090bd2',1,'domain::model::TrackData']]],
+  ['validatetimestamp_3',['validateTimestamp',['../dc/d00/classdomain_1_1model_1_1TrackData.html#a700ffaffc20720424adc5ec36589407a',1,'domain::model::TrackData']]],
+  ['validatetrackid_4',['validatetrackid',['../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a813c43696773bddf5f747cd45ae92252',1,'domain::model::ExtrapTrackData::validateTrackId()'],['../dc/d00/classdomain_1_1model_1_1TrackData.html#aa243bbbfe931728e3682f582d16f465e',1,'domain::model::TrackData::validateTrackId()']]],
+  ['validateupdatetime_5',['validateUpdateTime',['../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a5c082b5475891697c2f743795be065ee',1,'domain::model::ExtrapTrackData']]],
+  ['validatevelocity_6',['validateVelocity',['../dc/d00/classdomain_1_1model_1_1TrackData.html#a6f35effa78946cfb116047a2e0a2bdd0',1,'domain::model::TrackData']]],
+  ['validatexpositionecef_7',['validateXPositionECEF',['../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#aae44f42340c7a6bd2b59b3641eb0efaa',1,'domain::model::ExtrapTrackData']]],
+  ['validatexvelocityecef_8',['validateXVelocityECEF',['../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a25b7cfba19766f9ea51d85312bf5d5fa',1,'domain::model::ExtrapTrackData']]],
+  ['validateypositionecef_9',['validateYPositionECEF',['../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#ada016a73863b14aa07ee088e84f41e2b',1,'domain::model::ExtrapTrackData']]],
+  ['validateyvelocityecef_10',['validateYVelocityECEF',['../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a4f659516f39151d2c13e064dacf3f5e2',1,'domain::model::ExtrapTrackData']]],
+  ['validatezpositionecef_11',['validateZPositionECEF',['../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a65c29489550196c3c17cb183b7804bda',1,'domain::model::ExtrapTrackData']]],
+  ['validatezvelocityecef_12',['validateZVelocityECEF',['../df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a495d364ce620fe2b7fa253d19a61fe84',1,'domain::model::ExtrapTrackData']]],
+  ['verifylinearextrapolation_13',['verifyLinearExtrapolation',['../de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html#a031d6443ba49a5a98bdf1904c9eaee0e',1,'a_hexagon::test::mocks::MockOutgoingPort']]]
 ];

@@ -1,13 +1,19 @@
 <map id="domain::model::ExtrapTrackData::setZVelocityECEF" name="domain::model::ExtrapTrackData::setZVelocityECEF">
-<area shape="rect" id="Node000001" title=" " alt="" coords="589,106,793,146"/>
-<area shape="rect" id="Node000002" href="$db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html#ac273b01129efc99c894080a7134d26a0" title="Extrapolate track data at specified frequencies." alt="" coords="291,13,541,53"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="632,103,540,67,501,55,503,50,542,62,634,98"/>
-<area shape="rect" id="Node000004" href="$db/d00/classExtrapTrackDataTest.html#a5301096f175d663b50012ff97e3e30b5" title=" " alt="" coords="339,77,493,117"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="575,116,493,107,494,102,576,111"/>
-<area shape="rect" id="Node000005" href="$de/d00/ExtrapTrackDataTest_8cpp.html#adfee8d533cef48646df91e370f08774b" title=" " alt="" coords="381,141,451,167"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="576,140,452,153,451,148,575,135"/>
-<area shape="rect" id="Node000006" href="$d3/d00/TrackDataExtrapolatorTest_8cpp.html#a158fb2ef563fa5fa58ed11af9b60c995" title=" " alt="" coords="381,191,451,216"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="626,153,542,181,451,200,450,195,541,175,625,148"/>
-<area shape="rect" id="Node000003" href="$db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html#a4af9555dd108a446e4b16d416fcc7360" title="Process and forward track data." alt="" coords="5,5,243,60"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="277,35,243,35,243,30,277,30"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="620,191,824,231"/>
+<area shape="rect" id="Node000002" href="$d4/d01/classExtrapTrackDataZeroMQOutgoingAdapterTest.html#a60936fdd0cf2548d89f98785439c1fc5" title="Create valid test ExtrapTrackData." alt="" coords="291,5,572,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="697,181,644,118,609,86,571,60,545,48,547,43,573,55,613,82,648,115,701,177"/>
+<area shape="rect" id="Node000003" href="$db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html#ac273b01129efc99c894080a7134d26a0" title="Extrapolate track data at specified frequencies." alt="" coords="306,69,557,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="680,185,630,153,571,124,536,112,537,107,573,119,632,148,683,180"/>
+<area shape="rect" id="Node000005" href="$db/d00/classExtrapTrackDataTest.html#a5301096f175d663b50012ff97e3e30b5" title=" " alt="" coords="354,133,509,173"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="606,191,508,171,509,166,607,185"/>
+<area shape="rect" id="Node000006" href="$de/d00/ExtrapTrackDataTest_8cpp.html#adfee8d533cef48646df91e370f08774b" title=" " alt="" coords="397,198,466,223"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="607,213,466,213,466,208,607,208"/>
+<area shape="rect" id="Node000007" href="$d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html#aaa0e7f79a37ea6490302188d8e7e1fb0" title=" " alt="" coords="397,247,466,273"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="607,233,467,257,466,252,606,228"/>
+<area shape="rect" id="Node000008" href="$d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html#a4cec407e1fd4cc71fd6415c2129f762b" title=" " alt="" coords="397,297,466,322"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="676,240,628,264,573,287,517,301,467,308,466,303,516,295,571,281,625,260,674,235"/>
+<area shape="rect" id="Node000009" href="$d3/d01/ExtrapTrackDataZeroMQOutgoingAdapterTest_8cpp.html#a0dc51f2e92d71bbdaeabf479df7bf04b" title=" " alt="" coords="397,346,466,371"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="695,243,642,291,609,316,573,336,518,353,467,360,466,355,517,348,571,331,606,311,639,287,692,239"/>
+<area shape="rect" id="Node000004" href="$db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html#a4af9555dd108a446e4b16d416fcc7360" title="Process and forward track data." alt="" coords="5,62,243,117"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="292,92,243,92,243,87,292,87"/>
 </map>

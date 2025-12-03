@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="../../d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a0663f13de6bf049d9fc0fc2cf7e95995" target="_top" xlink:title="Load ZeroMQ configuration.">
+<g id="a_Node000002"><a xlink:href="../../d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a0663f13de6bf049d9fc0fc2cf7e95995" target="_top" xlink:title="Load configuration (for legacy constructors)">
 <polygon fill="white" stroke="#666666" points="466,-41 268,-41 268,0 466,0 466,-41"/>
 <text text-anchor="start" x="276" y="-29" font-family="Helvetica,sans-Serif" font-size="10.00">adapters::incoming</text>
 <text text-anchor="start" x="276" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">::zeromq::TrackDataZeroMQIncoming</text>

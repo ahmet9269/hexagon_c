@@ -1,30 +1,32 @@
 <map id="adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter" name="adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter">
-<area shape="rect" id="Node000001" title="Receives TrackData via ZeroMQ DISH socket (UDP multicast)" alt="" coords="386,648,653,1117"/>
-<area shape="rect" id="Node000002" href="$dd/d03/classadapters_1_1IAdapter.html" title="Base interface for all adapters (incoming and outgoing)" alt="" coords="5,311,140,556"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,551,153,554,209,615,269,673,387,776,384,780,265,677,205,619,149,558,147,555"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="164,401,243,466"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="217,465,234,509,258,555,315,640,377,720,373,724,310,643,253,557,229,511,212,467"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="115,143,246,223"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="188,237,203,400,198,401,183,237"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="267,393,422,473"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="362,473,425,632,420,634,357,474"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="270,151,419,216"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="347,230,347,393,342,393,342,230"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="495,5,517,71"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="496,52,394,142,391,138,493,48"/>
-<area shape="rect" id="Node000010" title=" " alt="" coords="443,151,569,216"/>
-<area shape="poly" id="edge10_Node000010_Node000007" title=" " alt="" coords="509,71,509,134,503,134,503,71"/>
-<area shape="rect" id="Node000013" title=" " alt="" coords="593,151,742,216"/>
-<area shape="poly" id="edge15_Node000013_Node000007" title=" " alt="" coords="519,48,621,138,618,142,516,52"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="1009,401,1093,466"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="1042,467,1022,512,992,558,918,634,835,702,749,761,668,810,666,805,746,757,832,698,915,630,988,554,1017,509,1038,465"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="447,401,592,466"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="522,466,522,631,517,631,517,466"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="511,230,520,400,515,400,506,230"/>
-<area shape="rect" id="Node000011" href="$da/d03/classdomain_1_1ports_1_1incoming_1_1ITrackDataIncomingPort.html" title=" " alt="" coords="767,133,997,233"/>
-<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="888,233,889,314,880,416,870,470,855,524,834,577,807,625,776,667,742,706,667,776,664,772,738,702,772,663,802,623,829,575,850,523,864,469,874,415,883,314,883,233"/>
-<area shape="rect" id="Node000012" title=" " alt="" coords="617,386,817,481"/>
-<area shape="poly" id="edge13_Node000012_Node000011" title=" " alt="" coords="849,235,832,259,757,373,753,370,828,256,844,232"/>
-<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="699,482,636,625,633,634,628,632,632,623,694,480"/>
-<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="635,229,623,257,621,272,623,286,647,339,678,384,674,387,642,341,618,287,616,272,618,256,630,227"/>
+<area shape="rect" id="Node000001" title="Receives TrackData via IMessageSocket abstraction." alt="" coords="517,853,783,1383"/>
+<area shape="rect" id="Node000002" href="$dd/d03/classadapters_1_1IAdapter.html" title="Base interface for all adapters (incoming and outgoing)" alt="" coords="5,531,140,776"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,772,153,774,241,854,336,927,431,991,518,1043,515,1048,428,995,333,931,237,858,149,778,147,776"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="164,621,243,686"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,685,231,729,256,774,312,843,375,907,441,964,505,1015,502,1019,438,969,372,911,308,846,252,778,226,732,210,687"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="9,253,139,333"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="95,346,194,620,189,621,90,347"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="267,613,553,693"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="433,692,511,844,507,847,428,695"/>
+<area shape="rect" id="Node000006" href="$d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html" title="Abstract interface for messaging socket operations." alt="" coords="164,133,379,453"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="335,453,392,597,387,599,330,454"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="403,261,553,326"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="467,340,434,478,416,614,411,613,429,477,462,339"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="628,5,651,71"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="630,54,600,90,567,135,532,192,503,247,498,244,527,190,562,132,596,86,626,50"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="577,261,702,326"/>
+<area shape="poly" id="edge11_Node000011_Node000008" title=" " alt="" coords="642,71,642,244,637,244,637,71"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="726,261,875,326"/>
+<area shape="poly" id="edge16_Node000014_Node000008" title=" " alt="" coords="653,50,683,86,716,132,751,190,780,244,776,247,747,192,712,135,678,90,649,54"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="1143,621,1227,686"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="1176,687,1156,732,1125,778,1050,855,966,925,880,987,799,1038,797,1034,877,982,963,921,1046,851,1121,774,1151,729,1171,685"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="577,621,723,686"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="653,686,653,837,647,837,647,686"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="643,340,652,620,646,620,638,340"/>
+<area shape="rect" id="Node000012" href="$da/d03/classdomain_1_1ports_1_1incoming_1_1ITrackDataIncomingPort.html" title="Abstract interface for track data input port (primary port)" alt="" coords="900,243,1131,343"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="1024,343,1029,440,1029,501,1024,567,1014,635,997,704,973,770,939,831,872,917,797,994,794,990,868,913,934,828,968,768,992,702,1009,634,1019,567,1023,501,1024,440,1019,344"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="747,606,947,701"/>
+<area shape="poly" id="edge14_Node000013_Node000012" title=" " alt="" coords="1001,345,972,422,935,508,888,593,883,591,930,505,967,420,996,343"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="830,702,771,839,766,837,825,700"/>
+<area shape="poly" id="edge15_Node000013_Node000014" title=" " alt="" coords="781,340,766,376,755,418,751,462,757,506,780,558,810,604,806,607,775,561,751,507,745,462,750,417,761,374,776,338"/>
 </map>

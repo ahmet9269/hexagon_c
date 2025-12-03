@@ -1,3 +1,17 @@
+/**
+ * @file TrackDataExtrapolator.cpp
+ * @brief Implementation of TrackDataExtrapolator domain service
+ * @details Performs linear extrapolation of track data from input frequency
+ *          (8Hz) to output frequency (100Hz). Uses simple kinematic equations
+ *          for position extrapolation based on constant velocity assumption.
+ * 
+ * @author A Hexagon Team
+ * @version 2.0
+ * @date 2025
+ * 
+ * @note MISRA C++ 2023 compliant implementation
+ */
+
 #include "domain/logic/TrackDataExtrapolator.hpp"
 #include <chrono>
 #include <thread>
@@ -10,13 +24,13 @@ using namespace domain::model;
 
 // Primary constructor with smart pointer (MISRA compliant)
 TrackDataExtrapolator::TrackDataExtrapolator(
-    std::unique_ptr<domain::ports::outgoing::ExtrapTrackDataOutgoingPort> outgoingPort) 
+    std::unique_ptr<domain::ports::outgoing::IExtrapTrackDataOutgoingPort> outgoingPort) 
     : outgoingPort_(std::move(outgoingPort)) {
 }
 
 // Legacy constructor for backward compatibility
 TrackDataExtrapolator::TrackDataExtrapolator(
-    domain::ports::outgoing::ExtrapTrackDataOutgoingPort* outgoingPort) 
+    domain::ports::outgoing::IExtrapTrackDataOutgoingPort* outgoingPort) 
     : rawOutgoingPort_(outgoingPort) {
     // Note: This constructor does NOT take ownership
     // For legacy code compatibility only - use unique_ptr constructor for new code

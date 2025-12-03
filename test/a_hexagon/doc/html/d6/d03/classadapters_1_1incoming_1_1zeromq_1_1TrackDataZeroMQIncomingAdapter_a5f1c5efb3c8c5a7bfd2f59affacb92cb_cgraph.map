@@ -10,6 +10,6 @@
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="270,197,319,203,319,208,269,202"/>
 <area shape="rect" id="Node000006" href="$d2/d02/classutils_1_1Logger.html#a48b0345bdc6715767f0f5fd643af6efb" title="Log track data reception." alt="" coords="317,262,541,287"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="210,210,318,247,354,256,352,261,317,252,208,215"/>
-<area shape="rect" id="Node000007" href="$da/d03/classdomain_1_1ports_1_1incoming_1_1ITrackDataIncomingPort.html#a68caa10cd40d4a198a6be76a108c672c" title=" " alt="" coords="318,311,541,366"/>
+<area shape="rect" id="Node000007" href="$da/d03/classdomain_1_1ports_1_1incoming_1_1ITrackDataIncomingPort.html#a68caa10cd40d4a198a6be76a108c672c" title="Process received track data and forward to output." alt="" coords="318,311,541,366"/>
 <area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="178,211,242,253,319,296,334,303,332,308,316,301,240,258,175,215"/>
 </map>

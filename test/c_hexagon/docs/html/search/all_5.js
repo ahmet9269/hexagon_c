@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['iadapter_20interface_0',['IAdapter Interface',['../index.html#autotoc_md17',1,'']]],
-  ['interface_1',['IAdapter Interface',['../index.html#autotoc_md17',1,'']]]
+  ['key_20classes_0',['Key Classes',['../index.html#autotoc_md6',1,'']]],
+  ['key_20features_1',['Key Features',['../index.html#autotoc_md1',1,'']]]
 ];

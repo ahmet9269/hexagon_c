@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra -Wpedantic -g -O0 -fPIC -DSPDLOG_FMT_EXTERNAL=0 -DZMQ_BUILD_DRAFT_API
 INCLUDES = -I../../src/a_hexagon -I../../src -I../../lib/include -I./lib/include -Imocks
-LDFLAGS = -L./lib -L../../lib -Wl,-rpath,'$$ORIGIN/lib' -Wl,-rpath,'$$ORIGIN/../../lib' -lgtest -lgtest_main -lgmock -lgmock_main -lspdlog -lzmq -lpthread
+LDFLAGS = -L./lib -L../../lib -Wl,-rpath,'$$ORIGIN/../lib' -Wl,-rpath,'$$ORIGIN/../../../lib' -lgtest -lgtest_main -lgmock -lgmock_main -lspdlog -lzmq -lpthread
 TARGET = build/a_hexagon_tests
 
 # Source directories

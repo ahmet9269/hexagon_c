@@ -1,0 +1,7 @@
+<map id="adapters::common::messaging::IMessageSocket" name="adapters::common::messaging::IMessageSocket">
+<area shape="rect" id="Node000001" title="Abstract interface for messaging socket operations." alt="" coords="111,5,326,325"/>
+<area shape="rect" id="Node000002" href="$d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html" title="Mock socket for unit testing without network." alt="" coords="5,373,203,873"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="178,340,169,374,164,372,173,338"/>
+<area shape="rect" id="Node000003" href="$db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html" title="ZeroMQ implementation of IMessageSocket interface." alt="" coords="227,413,442,833"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="265,338,284,413,279,414,260,340"/>
+</map>

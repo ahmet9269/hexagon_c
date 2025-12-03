@@ -25,9 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">a_hexagon<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">a_hexagon<span id="projectnumber">&#160;2.1.0</span>
    </div>
-   <div id="projectbrief">Hexagonal Architecture Track Data Processing Application</div>
+   <div id="projectbrief">Hexagonal Architecture Track Data Extrapolation System - Thread-per-Type Pattern with DIP Compliant Socket Abstraction</div>
   </td>
  </tr>
  </tbody>
@@ -106,17 +106,18 @@ $(document).ready(function(){initNavTree('d1/d02/classadapters_1_1AdapterManager
   <tr class="odd"><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#a27f264f226eb35b970dd968a9750c66d">operator=</a>(const AdapterManager &amp;)=delete</td><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html">adapters::AdapterManager</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#a9823c0bdcfee88b7e51acd66ccf1cff2">operator=</a>(AdapterManager &amp;&amp;)=delete</td><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html">adapters::AdapterManager</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#a041480d4461548ffc80ed66edbb120eb">pipelines_</a></td><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html">adapters::AdapterManager</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#ab0d33febc0c6ebf1f8214629aa667699">registerPipeline</a>(MessagePipeline pipeline)</td><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html">adapters::AdapterManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#a44cf3995f05d26a02cd8ba3df71bc7d2">running_</a></td><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html">adapters::AdapterManager</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#a5c65f1bea8587352914aa1b34cd093b9">startAll</a>()</td><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html">adapters::AdapterManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#a733765e3a1e5b4c99f4f2162dbe96f95">stopAll</a>() noexcept</td><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html">adapters::AdapterManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#a223f36f9d52ff86467860de118e41fbe">~AdapterManager</a>()</td><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html">adapters::AdapterManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#a9950df3adbb11be2609e224ac7baef0a">pipelines_mutex_</a></td><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html">adapters::AdapterManager</a></td><td class="entry"><span class="mlabel">mutable</span><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#ab0d33febc0c6ebf1f8214629aa667699">registerPipeline</a>(MessagePipeline pipeline)</td><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html">adapters::AdapterManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#a44cf3995f05d26a02cd8ba3df71bc7d2">running_</a></td><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html">adapters::AdapterManager</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#a5c65f1bea8587352914aa1b34cd093b9">startAll</a>()</td><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html">adapters::AdapterManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#a733765e3a1e5b4c99f4f2162dbe96f95">stopAll</a>() noexcept</td><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html">adapters::AdapterManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html#a223f36f9d52ff86467860de118e41fbe">~AdapterManager</a>()</td><td class="entry"><a class="el" href="../../d1/d02/classadapters_1_1AdapterManager.html">adapters::AdapterManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Dec 1 2025 13:08:49 for a_hexagon by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

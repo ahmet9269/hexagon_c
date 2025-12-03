@@ -25,9 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">a_hexagon<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">a_hexagon<span id="projectnumber">&#160;2.1.0</span>
    </div>
-   <div id="projectbrief">Hexagonal Architecture Track Data Processing Application</div>
+   <div id="projectbrief">Hexagonal Architecture Track Data Extrapolation System - Thread-per-Type Pattern with DIP Compliant Socket Abstraction</div>
   </td>
  </tr>
  </tbody>
@@ -99,24 +99,24 @@ $(document).ready(function(){initNavTree('d0/d00/main_8hpp_source.html','../../'
 </div><!--header-->
 <div class="contents">
 <a href="../../d0/d00/main_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifndef MAIN_HPP</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define MAIN_HPP</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;csignal&gt;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;atomic&gt;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">extern</span> std::atomic&lt;bool&gt; <a class="code hl_variable" href="../../d0/d00/main_8hpp.html#ad9223bbbed1d71323a789daf88911c4a">g_shutdown_requested</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#ifndef MAIN_HPP</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define MAIN_HPP</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;csignal&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;atomic&gt;</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d00/main_8hpp.html#ad2e59c7203b3bddc1bc9a2224b52e8e7">signalHandler</a>(<span class="keywordtype">int</span> signal);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d0/d00/main_8hpp.html#aa82b7aef5785a968333d6e26b9dc6c7c">   32</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d00/main_8hpp.html#aa82b7aef5785a968333d6e26b9dc6c7c">initializeLogging</a>();</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../d0/d00/main_8hpp.html#aa1fdb229b4728961ef997fae3e98b508">   37</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d00/main_8hpp.html#aa1fdb229b4728961ef997fae3e98b508">setupSignalHandlers</a>();</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#endif </span><span class="comment">//MAIN_HPP</span></div>
-<div class="ttc" id="amain_8hpp_html_aa1fdb229b4728961ef997fae3e98b508"><div class="ttname"><a href="../../d0/d00/main_8hpp.html#aa1fdb229b4728961ef997fae3e98b508">setupSignalHandlers</a></div><div class="ttdeci">void setupSignalHandlers()</div><div class="ttdoc">Setup signal handlers.</div></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">extern</span> std::atomic&lt;bool&gt; <a class="code hl_variable" href="../../d0/d00/main_8hpp.html#ad9223bbbed1d71323a789daf88911c4a">g_shutdown_requested</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d00/main_8hpp.html#a8ee3282bc313e547dbbb8d4f4010db61">signalHandler</a>(<span class="keywordtype">int</span> signum);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../d0/d00/main_8hpp.html#aa82b7aef5785a968333d6e26b9dc6c7c">   45</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d00/main_8hpp.html#aa82b7aef5785a968333d6e26b9dc6c7c">initializeLogging</a>();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../d0/d00/main_8hpp.html#aa1fdb229b4728961ef997fae3e98b508">   53</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d00/main_8hpp.html#aa1fdb229b4728961ef997fae3e98b508">setupSignalHandlers</a>();</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#endif </span><span class="comment">//MAIN_HPP</span></div>
+<div class="ttc" id="amain_8hpp_html_a8ee3282bc313e547dbbb8d4f4010db61"><div class="ttname"><a href="../../d0/d00/main_8hpp.html#a8ee3282bc313e547dbbb8d4f4010db61">signalHandler</a></div><div class="ttdeci">void signalHandler(int signum)</div><div class="ttdoc">Signal handler for graceful shutdown.</div><div class="ttdef"><b>Definition</b> <a href="../../df/d02/main_8cpp_source.html#l00066">main.cpp:66</a></div></div>
+<div class="ttc" id="amain_8hpp_html_aa1fdb229b4728961ef997fae3e98b508"><div class="ttname"><a href="../../d0/d00/main_8hpp.html#aa1fdb229b4728961ef997fae3e98b508">setupSignalHandlers</a></div><div class="ttdeci">void setupSignalHandlers()</div><div class="ttdoc">Setup signal handlers for graceful shutdown.</div></div>
 <div class="ttc" id="amain_8hpp_html_aa82b7aef5785a968333d6e26b9dc6c7c"><div class="ttname"><a href="../../d0/d00/main_8hpp.html#aa82b7aef5785a968333d6e26b9dc6c7c">initializeLogging</a></div><div class="ttdeci">bool initializeLogging()</div><div class="ttdoc">Initialize application logging.</div></div>
-<div class="ttc" id="amain_8hpp_html_ad2e59c7203b3bddc1bc9a2224b52e8e7"><div class="ttname"><a href="../../d0/d00/main_8hpp.html#ad2e59c7203b3bddc1bc9a2224b52e8e7">signalHandler</a></div><div class="ttdeci">void signalHandler(int signal)</div><div class="ttdoc">Signal handler for graceful shutdown.</div><div class="ttdef"><b>Definition</b> <a href="../../df/d02/main_8cpp_source.html#l00061">main.cpp:61</a></div></div>
 <div class="ttc" id="amain_8hpp_html_ad9223bbbed1d71323a789daf88911c4a"><div class="ttname"><a href="../../d0/d00/main_8hpp.html#ad9223bbbed1d71323a789daf88911c4a">g_shutdown_requested</a></div><div class="ttdeci">std::atomic&lt; bool &gt; g_shutdown_requested</div><div class="ttdoc">Global flag for shutdown signaling.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('d0/d00/main_8hpp_source.html','../../'
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5fed3e74346fe99d77e8db841376dd26.html">a_hexagon</a></li><li class="navelem"><a class="el" href="../../d0/d00/main_8hpp.html">main.hpp</a></li>
-    <li class="footer">Generated on Mon Dec 1 2025 13:08:48 for a_hexagon by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

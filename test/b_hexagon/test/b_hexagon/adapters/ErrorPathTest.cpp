@@ -254,7 +254,7 @@ TEST_F(OutgoingAdapterErrorTest, SendData_SocketFails_ReturnsFalse) {
     auto mockSocket = std::make_unique<NiceMock<MockMessageSocket>>();
     
     EXPECT_CALL(*mockSocket, send(_, _))
-        .WillOnce(Return(false));  // Socket fails
+        .WillRepeatedly(Return(false));  // Socket fails
     
     ON_CALL(*mockSocket, isConnected()).WillByDefault(Return(true));
     ON_CALL(*mockSocket, getSocketType()).WillByDefault(Return("FailSocket"));
@@ -267,9 +267,23 @@ TEST_F(OutgoingAdapterErrorTest, SendData_SocketFails_ReturnsFalse) {
     // Act
     DelayCalcTrackData data;
     data.setTrackId(123);
+    data.setXPositionECEF(1000.0);
+    data.setYPositionECEF(2000.0);
+    data.setZPositionECEF(3000.0);
+    data.setXVelocityECEF(10.0);
+    data.setYVelocityECEF(20.0);
+    data.setZVelocityECEF(30.0);
+    data.setFirstHopDelayTime(100);
+    data.setSecondHopSentTime(1000000);
     
-    // sendDelayCalcTrackData throws runtime_error when send fails
-    EXPECT_THROW(adapter.sendDelayCalcTrackData(data), std::runtime_error);
+    // sendDelayCalcTrackData is non-blocking and doesn't throw (queues message)
+    // The actual send failure is handled by the background worker
+    EXPECT_NO_THROW(adapter.sendDelayCalcTrackData(data));
+    
+    // Wait for background worker to attempt the send
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    
+    adapter.stop();
 }
 
 TEST_F(OutgoingAdapterErrorTest, SendData_BeforeStart_NoThrow) {

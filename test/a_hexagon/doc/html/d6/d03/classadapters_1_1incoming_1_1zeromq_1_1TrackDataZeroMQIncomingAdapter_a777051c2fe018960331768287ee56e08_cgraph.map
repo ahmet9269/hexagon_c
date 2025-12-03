@@ -1,0 +1,5 @@
+<map id="adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter::initializeSocket" name="adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter::initializeSocket">
+<area shape="rect" id="Node000001" title="Initialize socket (for legacy constructors)" alt="" coords="5,5,269,60"/>
+<area shape="rect" id="Node000002" href="$db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html#a2f355e65168b4b37e273cea49bd02a26" title="Join group (for DISH socket)" alt="" coords="317,13,540,53"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="269,30,304,30,304,35,269,35"/>
+</map>

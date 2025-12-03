@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['2023_20compliance_0',['📐 MISRA C++ 2023 Compliance',['../index.html#autotoc_md21',1,'']]]
+  ['adapters_0',['Adapters',['../index.html#autotoc_md7',1,'']]],
+  ['architecture_1',['Architecture',['../index.html#autotoc_md2',1,'']]],
+  ['author_2',['Author',['../index.html#autotoc_md11',1,'']]]
 ];

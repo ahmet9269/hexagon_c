@@ -1,0 +1,7 @@
+<map id="adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::enqueueMessage" name="adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::enqueueMessage">
+<area shape="rect" id="Node000001" title="Enqueue message for transmission (non&#45;blocking ~20ns)" alt="" coords="353,45,629,100"/>
+<area shape="rect" id="Node000002" href="$d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#afecb8b06d636f11abb3f24e5220f2df6" title="Send single ExtrapTrackData." alt="" coords="5,5,305,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="339,57,305,53,306,48,340,52"/>
+<area shape="rect" id="Node000003" href="$d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a7abcaada234a99e2f92eacb11e486fdf" title="Send vector of ExtrapTrackData." alt="" coords="5,84,305,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="340,93,306,97,305,91,339,87"/>
+</map>

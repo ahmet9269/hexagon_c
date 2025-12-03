@@ -16,6 +16,7 @@
 #include "adapters/common/IAdapter.hpp"
 #include "domain/ports/outgoing/ITrackDataStatisticOutgoingPort.hpp"
 #include "domain/ports/FinalCalcTrackData.hpp"
+#include <zmq_config.hpp>  // Must be included before zmq.hpp for Draft API
 #include <zmq.hpp>
 #include <zmq_addon.hpp>
 #include <thread>

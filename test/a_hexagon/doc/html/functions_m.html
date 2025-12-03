@@ -25,9 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">a_hexagon<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">a_hexagon<span id="projectnumber">&#160;2.1.0</span>
    </div>
-   <div id="projectbrief">Hexagonal Architecture Track Data Processing Application</div>
+   <div id="projectbrief">Hexagonal Architecture Track Data Extrapolation System - Thread-per-Type Pattern with DIP Compliant Socket Abstraction</div>
   </td>
  </tr>
  </tbody>
@@ -94,16 +94,27 @@ $(document).ready(function(){initNavTree('functions_m.html',''); initResizable()
 
 <h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
 <li>manager_&#160;:&#160;<a class="el" href="d4/d01/classAdapterManagerTest.html#a245bb5e086ff43e9b952e527cd7bbb37">AdapterManagerTest</a></li>
+<li>MAX_QUEUE_SIZE&#160;:&#160;<a class="el" href="d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#ab40bb0d907a2976cf06fc87b6db8e054">adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter</a></li>
 <li>MessagePipeline()&#160;:&#160;<a class="el" href="dd/d00/classadapters_1_1MessagePipeline.html#a68aa08946bb3fbc4c2755e7d1a886cc5">adapters::MessagePipeline</a></li>
-<li>MOCK_METHOD()&#160;:&#160;<a class="el" href="de/d01/classMockAdapter.html#aff793c66733042a35313377b303e7545">MockAdapter</a>, <a class="el" href="d7/d01/classMockExtrapTrackDataOutgoingPort.html#a8535dd0b952f92f682582a53a5a222f6">MockExtrapTrackDataOutgoingPort</a></li>
-<li>MULTICAST_ADDRESS&#160;:&#160;<a class="el" href="df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a36c5b8887b19ffe998ab6a8c3854d567">domain::model::ExtrapTrackData</a>, <a class="el" href="dc/d00/classdomain_1_1model_1_1TrackData.html#a6eaf6b825a0f874dbefe2f8784342900">domain::model::TrackData</a></li>
+<li>messageQueue_&#160;:&#160;<a class="el" href="d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a803d7940a4df8ffae9c65beef79bacb9">adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter</a></li>
+<li>MOCK_METHOD()&#160;:&#160;<a class="el" href="de/d01/classMockAdapter.html#aff793c66733042a35313377b303e7545">MockAdapter</a></li>
+<li>MockIncomingPort()&#160;:&#160;<a class="el" href="d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html#a84cc357b5ce6cc014d31526e63ff9e60">a_hexagon::test::mocks::MockIncomingPort</a></li>
+<li>MockMessageSocket()&#160;:&#160;<a class="el" href="d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html#a2d7d945b0b0d4d65cf059083a994de1d">a_hexagon::test::mocks::MockMessageSocket</a></li>
+<li>MockOutgoingPort()&#160;:&#160;<a class="el" href="de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html#acd330c67124f1f691f639c527483f86e">a_hexagon::test::mocks::MockOutgoingPort</a></li>
+<li>mockOutgoingPort_&#160;:&#160;<a class="el" href="d2/d01/classTrackDataExtrapolatorTest.html#a4f1b377c9f0dc450b4046e602f4bea84">TrackDataExtrapolatorTest</a></li>
+<li>mockOutgoingPortPtr_&#160;:&#160;<a class="el" href="d2/d01/classTrackDataExtrapolatorTest.html#ab5fb8b37861a7aac04365c2006955cb7">TrackDataExtrapolatorTest</a></li>
+<li>mockPort_&#160;:&#160;<a class="el" href="d1/d03/classTrackDataZeroMQIncomingAdapterTest.html#a9528a136ca70237d6012924d9a638d8f">TrackDataZeroMQIncomingAdapterTest</a></li>
+<li>mockSocket_&#160;:&#160;<a class="el" href="d4/d01/classExtrapTrackDataZeroMQOutgoingAdapterTest.html#a3eca7f702603f513f02643f29e758db9">ExtrapTrackDataZeroMQOutgoingAdapterTest</a>, <a class="el" href="d1/d03/classTrackDataZeroMQIncomingAdapterTest.html#a8c2a9e6491d2f107d1a10e11daa48621">TrackDataZeroMQIncomingAdapterTest</a></li>
+<li>mockSocketPtr_&#160;:&#160;<a class="el" href="d4/d01/classExtrapTrackDataZeroMQOutgoingAdapterTest.html#a53157105aa818f9faed4e4e33734235b">ExtrapTrackDataZeroMQOutgoingAdapterTest</a>, <a class="el" href="d1/d03/classTrackDataZeroMQIncomingAdapterTest.html#a27282a1c554e77aed8263db59f68e358">TrackDataZeroMQIncomingAdapterTest</a></li>
+<li>mode_&#160;:&#160;<a class="el" href="db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html#aa2e7de350196ab7b21fad3f4e1c531ef">adapters::common::messaging::ZeroMQSocket</a></li>
+<li>mutex_&#160;:&#160;<a class="el" href="d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html#aa388509903db6c1ca4e2197f4c242beb">a_hexagon::test::mocks::MockIncomingPort</a>, <a class="el" href="d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html#a8a1bed612a2a0a970f0d6b1b7a84c1d8">a_hexagon::test::mocks::MockMessageSocket</a>, <a class="el" href="de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html#abda23ccf3d5c46b118dfc4e4b9eddd10">a_hexagon::test::mocks::MockOutgoingPort</a>, <a class="el" href="db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html#adbd633f0de75e26e84879ddbfb5fa901">adapters::common::messaging::ZeroMQSocket</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Dec 1 2025 13:08:49 for a_hexagon by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

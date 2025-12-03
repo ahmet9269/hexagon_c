@@ -1,7 +1,39 @@
 <map id="TrackDataExtrapolatorTest" name="TrackDataExtrapolatorTest">
-<area shape="rect" id="Node000001" title="Test fixture for TrackDataExtrapolator tests." alt="" coords="41,653,226,719"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,265,99,331"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="63,344,113,590,128,652,123,654,108,591,58,345"/>
-<area shape="rect" id="Node000003" href="$dc/d00/classdomain_1_1model_1_1TrackData.html" title="Input data model for track information." alt="" coords="123,5,309,591"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="156,591,146,638,141,637,151,590"/>
+<area shape="rect" id="Node000001" title="Test fixture for TrackDataExtrapolator." alt="" coords="642,1861,827,1987"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="384,1719,477,1784"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="482,1790,491,1796,567,1841,643,1879,640,1883,565,1845,488,1801,479,1795"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="766,1704,927,1799"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="819,1800,787,1849,782,1846,814,1797"/>
+<area shape="rect" id="Node000004" href="$de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html" title="Mock implementation of IExtrapTrackDataOutgoingPort for unit testing." alt="" coords="887,1261,1065,1641"/>
+<area shape="poly" id="edge13_Node000001_Node000004" title=" " alt="" coords="1004,1642,1001,1693,991,1745,975,1794,949,1839,928,1862,902,1881,845,1906,843,1901,899,1876,924,1858,945,1836,970,1792,986,1743,995,1692,998,1641"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="896,1642,876,1690,871,1688,892,1640"/>
+<area shape="rect" id="Node000005" href="$d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html" title="Abstract interface for extrapolated track data output port (secondary port)" alt="" coords="151,713,369,992"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="384,885,448,908,515,937,583,972,646,1014,685,1056,746,1134,890,1326,885,1329,742,1137,681,1059,642,1018,580,977,513,942,446,913,382,890"/>
+<area shape="rect" id="Node000014" href="$db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html" title="Domain service for extrapolating track data." alt="" coords="253,1331,483,1571"/>
+<area shape="poly" id="edge20_Node000014_Node000005" title=" " alt="" coords="152,926,89,980,61,1011,37,1043,19,1077,10,1112,10,1147,21,1183,40,1216,63,1247,118,1303,179,1350,240,1388,237,1392,176,1354,114,1307,59,1251,36,1219,16,1185,5,1148,5,1111,15,1075,33,1040,57,1007,86,976,149,922"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="156,1087,364,1181"/>
+<area shape="poly" id="edge18_Node000016_Node000005" title=" " alt="" coords="263,992,263,1070,257,1070,257,992"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="991,1101,1075,1167"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="1038,1167,1039,1208,1039,1238,1038,1245,1032,1245,1033,1237,1033,1208,1032,1167"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="1100,1087,1327,1181"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="1181,1183,1077,1321,1073,1318,1177,1180"/>
+<area shape="rect" id="Node000008" href="$db/d03/structa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort_1_1SentRecord.html" title="Sent data record with timing information." alt="" coords="1101,803,1325,903"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1216,903,1216,1070,1211,1070,1211,903"/>
+<area shape="rect" id="Node000009" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html" title="Extrapolated track data model for output." alt="" coords="1100,5,1327,651"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="1216,651,1216,786,1211,786,1211,651"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="883,820,1005,885"/>
+<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="956,898,968,936,985,979,1008,1021,1038,1058,1101,1086,1099,1090,1035,1062,1003,1024,980,981,963,938,951,900"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="809,295,831,361"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="830,360,935,803,930,804,825,361"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="683,820,832,885"/>
+<area shape="poly" id="edge12_Node000012_Node000011" title=" " alt="" coords="819,361,766,804,761,803,814,360"/>
+<area shape="poly" id="edge11_Node000003_Node000012" title=" " alt="" coords="765,899,845,1703,840,1704,759,899"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="501,1711,723,1791"/>
+<area shape="poly" id="edge21_Node000013_Node000012" title=" " alt="" coords="746,899,701,1030,669,1108,633,1185,624,1197,617,1209,600,1278,590,1351,586,1423,586,1493,595,1619,607,1711,602,1711,589,1620,581,1494,581,1423,585,1350,595,1277,612,1207,620,1194,629,1183,665,1106,696,1028,741,897"/>
+<area shape="poly" id="edge19_Node000016_Node000012" title=" " alt="" coords="672,893,550,948,420,1018,368,1053,319,1089,316,1084,364,1048,417,1014,548,944,669,888"/>
+<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="642,1790,683,1846,679,1849,638,1793"/>
+<area shape="poly" id="edge15_Node000013_Node000014" title=" " alt="" coords="464,1570,553,1678,569,1697,565,1700,549,1682,460,1573"/>
+<area shape="rect" id="Node000015" href="$da/d03/classdomain_1_1ports_1_1incoming_1_1ITrackDataIncomingPort.html" title="Abstract interface for track data input port (primary port)" alt="" coords="389,1084,619,1184"/>
+<area shape="poly" id="edge16_Node000014_Node000015" title=" " alt="" coords="480,1198,422,1332,417,1330,475,1196"/>
+<area shape="poly" id="edge17_Node000014_Node000016" title=" " alt="" coords="278,1181,325,1315,319,1316,273,1182"/>
 </map>

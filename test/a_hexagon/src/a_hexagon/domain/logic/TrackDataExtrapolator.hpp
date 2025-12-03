@@ -1,8 +1,23 @@
+/**
+ * @file TrackDataExtrapolator.hpp
+ * @brief Domain service for track data extrapolation
+ * @details Implements the core business logic for extrapolating track data
+ *          from input frequency (8Hz) to output frequency (100Hz).
+ *          Part of the hexagonal architecture domain layer.
+ * 
+ * @author A Hexagon Team
+ * @version 2.0
+ * @date 2025
+ * 
+ * @note MISRA C++ 2023 compliant implementation
+ * @see ITrackDataIncomingPort.hpp
+ * @see IExtrapTrackDataOutgoingPort.hpp
+ */
 
 #ifndef TRACK_DATA_EXTRAPOLATOR_H 
 #define TRACK_DATA_EXTRAPOLATOR_H 
 
-#include <domain/ports/outgoing/ExtrapTrackDataOutgoingPort.hpp>
+#include <domain/ports/outgoing/IExtrapTrackDataOutgoingPort.hpp>
 #include "domain/ports/incoming/ITrackDataIncomingPort.hpp"
 #include <vector>
 #include <memory>
@@ -25,10 +40,10 @@ using std::vector;
 class TrackDataExtrapolator : public domain::ports::incoming::ITrackDataIncomingPort {
 private:
     /// @brief Outgoing port for sending extrapolated data - MISRA compliant smart pointer
-    std::unique_ptr<domain::ports::outgoing::ExtrapTrackDataOutgoingPort> outgoingPort_;
+    std::unique_ptr<domain::ports::outgoing::IExtrapTrackDataOutgoingPort> outgoingPort_;
     
     /// @brief Raw pointer for legacy compatibility (non-owning)
-    domain::ports::outgoing::ExtrapTrackDataOutgoingPort* rawOutgoingPort_ = nullptr;
+    domain::ports::outgoing::IExtrapTrackDataOutgoingPort* rawOutgoingPort_ = nullptr;
 
 public: 
     /**
@@ -36,7 +51,7 @@ public:
      * @param outgoingPort Unique pointer to outgoing port (ownership transferred)
      */
     explicit TrackDataExtrapolator(
-        std::unique_ptr<domain::ports::outgoing::ExtrapTrackDataOutgoingPort> outgoingPort);
+        std::unique_ptr<domain::ports::outgoing::IExtrapTrackDataOutgoingPort> outgoingPort);
     
     /**
      * @brief Legacy constructor for backward compatibility
@@ -44,7 +59,7 @@ public:
      * @deprecated Use unique_ptr constructor instead
      */
     explicit TrackDataExtrapolator(
-        domain::ports::outgoing::ExtrapTrackDataOutgoingPort* outgoingPort);
+        domain::ports::outgoing::IExtrapTrackDataOutgoingPort* outgoingPort);
     
     /**
      * @brief Process and forward track data

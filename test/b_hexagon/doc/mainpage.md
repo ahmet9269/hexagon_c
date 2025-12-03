@@ -1,8 +1,16 @@
 # B_Hexagon Architecture Documentation {#architecture}
 
+@page architecture B_Hexagon Architecture
+
+@tableofcontents
+
 ## Overview
 
 **B_Hexagon** is a high-performance track data processing application built using **Hexagonal Architecture** (Ports & Adapters) with **Thread-per-Type** pattern for scalable concurrent processing.
+
+@version 2.1.0
+@date 2025-12-03
+@author b_hexagon Team
 
 ## Architecture
 
@@ -104,7 +112,27 @@ b_hexagon/
 2. Data deserialized and forwarded to **ProcessTrackUseCase**
 3. **CalculatorService** calculates timing delays
 4. **DelayCalcTrackData** created with computed metrics
-5. Result sent via ZeroMQ RADIO socket (UDP multicast)
+5. Result enqueued to background worker (~20ns latency)
+6. Background thread sends via ZeroMQ RADIO socket
+
+## Performance Characteristics
+
+### Latency Budget
+
+| Operation | Target | Actual |
+|-----------|--------|--------|
+| Message Enqueue | <50ns | ~20ns |
+| Log Statement | <100ns | ~20ns (async) |
+| Delay Calculation | <50µs | ~20µs |
+| ZMQ Send | <200µs | ~100µs |
+
+### Thread Configuration
+
+| Thread | Priority | CPU Core | Policy |
+|--------|----------|----------|--------|
+| Incoming Adapter | 95 | 1 | SCHED_FIFO |
+| Outgoing Worker | 80 | 2 | SCHED_FIFO |
+| Async Logger | 10 | Any | SCHED_OTHER |
 
 ## Building
 
@@ -124,14 +152,26 @@ make
 
 ## Dependencies
 
-- **ZeroMQ** (libzmq with Draft API enabled)
-- **spdlog** (Logging library)
+- **ZeroMQ** (libzmq with Draft API enabled via zmq_config.hpp)
+- **spdlog** (Async logging library)
 - **C++17** or later
+
+## Version History
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 2.1.0 | 2025-12-03 | Doxygen documentation update, namespace fixes |
+| 2.0.0 | 2025-12 | Background worker thread, shared_mutex, async logger, ILogger interface |
+| 1.0.1 | 2025-11 | Initial SOLID compliant implementation |
+
+## Related Pages
+
+- See IAdapter for adapter implementations
+- See domain::logic for domain logic
+- See utils::Logger for logging utilities
 
 ## Author
 
 B_Hexagon Team - 2025
 
-## License
-
-See LICENSE file for details.
+@copyright See LICENSE file for details.

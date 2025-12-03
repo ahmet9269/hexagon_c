@@ -1,23 +1,33 @@
 var index =
 [
-    [ "Directory Structure", "index.html#autotoc_md1", null ],
-    [ "Prerequisites", "index.html#autotoc_md2", null ],
-    [ "Building Tests", "index.html#autotoc_md3", [
-      [ "Using Make", "index.html#autotoc_md4", null ],
-      [ "Using CMake", "index.html#autotoc_md5", null ]
+    [ "Overview", "index.html#autotoc_md18", [
+      [ "Key Features", "index.html#autotoc_md19", null ]
     ] ],
-    [ "Running Tests", "index.html#autotoc_md6", [
-      [ "Run All Tests", "index.html#autotoc_md7", null ],
-      [ "Run Specific Test Suite", "index.html#autotoc_md8", null ],
-      [ "Run with Verbose Output", "index.html#autotoc_md9", null ]
+    [ "Architecture", "index.html#autotoc_md21", [
+      [ "Hexagonal Architecture", "index.html#autotoc_md22", null ],
+      [ "Thread-per-Type Pattern", "index.html#autotoc_md23", null ]
     ] ],
-    [ "Test Categories", "index.html#autotoc_md10", [
-      [ "Domain Model Tests", "index.html#autotoc_md11", null ],
-      [ "Domain Logic Tests", "index.html#autotoc_md12", null ],
-      [ "Adapter Tests", "index.html#autotoc_md13", null ],
-      [ "Utility Tests", "index.html#autotoc_md14", null ]
+    [ "Core Components", "index.html#autotoc_md25", [
+      [ "Adapters", "index.html#autotoc_md26", null ],
+      [ "Domain", "index.html#autotoc_md27", null ],
+      [ "Ports", "index.html#autotoc_md28", null ],
+      [ "Utilities", "index.html#autotoc_md29", null ]
     ] ],
-    [ "MISRA C++ 2023 Compliance", "index.html#autotoc_md15", null ],
-    [ "Coverage", "index.html#autotoc_md16", null ],
-    [ "Author", "index.html#autotoc_md17", null ]
+    [ "Performance Characteristics", "index.html#autotoc_md31", [
+      [ "Latency Budget", "index.html#autotoc_md32", null ],
+      [ "Thread Configuration", "index.html#autotoc_md33", null ]
+    ] ],
+    [ "Build & Run", "index.html#autotoc_md35", [
+      [ "Prerequisites", "index.html#autotoc_md36", null ],
+      [ "Build", "index.html#autotoc_md37", null ],
+      [ "Run", "index.html#autotoc_md38", null ],
+      [ "Test", "index.html#autotoc_md39", null ]
+    ] ],
+    [ "SOLID Compliance", "index.html#autotoc_md41", null ],
+    [ "Related Projects", "index.html#autotoc_md43", null ],
+    [ "Version History", "index.html#autotoc_md45", null ],
+    [ "Documentation", "index.html#autotoc_md47", [
+      [ "Doxygen Comments", "index.html#autotoc_md48", null ],
+      [ "Generate Documentation", "index.html#autotoc_md49", null ]
+    ] ]
 ];

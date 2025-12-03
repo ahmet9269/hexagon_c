@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['📄_20license_0',['📄 License',['../index.html#autotoc_md23',1,'']]]
+  ['usage_0',['Logger Usage',['..//workspaces/hexagon_c/test/c_hexagon/README.md#autotoc_md33',1,'']]],
+  ['utilities_1',['Utilities',['../index.html#autotoc_md9',1,'']]]
 ];

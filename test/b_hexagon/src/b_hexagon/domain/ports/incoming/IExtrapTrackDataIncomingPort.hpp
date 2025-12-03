@@ -1,16 +1,23 @@
 /**
  * @file IExtrapTrackDataIncomingPort.hpp
  * @brief Incoming port interface for handling track data
+ * @details Defines the inbound port for receiving ExtrapTrackData from external
+ *          sources. Part of the Hexagonal Architecture ports layer.
+ * 
+ * @author b_hexagon Team
+ * @version 1.0
+ * @date 2025
+ * 
+ * @see ExtrapTrackDataZeroMQIncomingAdapter
  */
 
 #pragma once
 
 #include "domain/ports/ExtrapTrackData.hpp"
 
-// Using declarations for convenience
-namespace domain{
-namespace ports{
-namespace incoming{
+namespace domain {
+namespace ports {
+namespace incoming {
 
 /**
  * @interface IExtrapTrackDataIncomingPort
@@ -32,4 +39,7 @@ public:
      */
     virtual void onDataReceived(const ExtrapTrackData& data) = 0;
 };
-}}}
+
+} // namespace incoming
+} // namespace ports
+} // namespace domain

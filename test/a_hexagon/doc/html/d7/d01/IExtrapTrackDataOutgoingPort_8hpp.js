@@ -1,0 +1,4 @@
+var IExtrapTrackDataOutgoingPort_8hpp =
+[
+    [ "domain::ports::outgoing::IExtrapTrackDataOutgoingPort", "d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html", "d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort" ]
+];

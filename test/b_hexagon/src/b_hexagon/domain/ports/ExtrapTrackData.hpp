@@ -112,5 +112,5 @@ private:
     void validateFirstHopSentTime(int64_t value) const;
 };
 
-} // namespace model
+} // namespace ports
 } // namespace domain

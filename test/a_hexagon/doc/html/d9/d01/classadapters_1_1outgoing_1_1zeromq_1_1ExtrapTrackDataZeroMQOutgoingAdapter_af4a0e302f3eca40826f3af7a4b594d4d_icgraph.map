@@ -1,5 +1,5 @@
 <map id="adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::loadConfiguration" name="adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::loadConfiguration">
-<area shape="rect" id="Node000001" title="Load ZeroMQ configuration." alt="" coords="323,13,600,67"/>
-<area shape="rect" id="Node000002" href="$d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#afe049abd4e66bdd74c1c5445f86d7a85" title="Default constructor." alt="" coords="5,5,275,75"/>
+<area shape="rect" id="Node000001" title="Load configuration (for legacy constructor)" alt="" coords="323,13,600,67"/>
+<area shape="rect" id="Node000002" href="$d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#afe049abd4e66bdd74c1c5445f86d7a85" title="Default constructor (legacy &#45; creates ZeroMQ socket internally)" alt="" coords="5,5,275,75"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="309,43,275,43,275,37,309,37"/>
 </map>

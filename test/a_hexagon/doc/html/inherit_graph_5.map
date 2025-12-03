@@ -1,13 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html" title=" " alt="" coords="5,30,228,70"/>
-<area shape="rect" id="Node000001" href="$d7/d01/classMockExtrapTrackDataOutgoingPort.html" title="Mock class for ExtrapTrackDataOutgoingPort." alt="" coords="283,5,533,31"/>
-<area shape="poly" id="edge2_Node000000_Node000001" title=" " alt="" coords="241,34,292,28,292,33,242,39"/>
-<area shape="rect" id="Node000002" href="$d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html" title="Sends ExtrapTrackData via ZeroMQ RADIO socket (UDP multicast)" alt="" coords="296,55,520,109"/>
-<area shape="poly" id="edge3_Node000000_Node000002" title=" " alt="" coords="242,61,296,67,296,72,242,66"/>
-<area shape="rect" id="Node000003" href="$dd/d03/classadapters_1_1IAdapter.html" title="Base interface for all adapters (incoming and outgoing)" alt="" coords="45,133,188,159"/>
-<area shape="poly" id="edge6_Node000003_Node000002" title=" " alt="" coords="188,128,295,104,296,109,189,133"/>
-<area shape="rect" id="Node000004" href="$de/d01/classMockAdapter.html" title="Mock class for IAdapter interface." alt="" coords="354,133,462,159"/>
-<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="202,143,354,143,354,149,202,149"/>
-<area shape="rect" id="Node000005" href="$d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html" title="Receives TrackData via ZeroMQ DISH socket (UDP multicast)" alt="" coords="276,183,540,237"/>
-<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="189,159,284,180,283,185,188,164"/>
+<area shape="rect" id="Node000000" href="$dd/d00/classadapters_1_1MessagePipeline.html" title="Encapsulates a complete message processing pipeline." alt="" coords="5,5,203,31"/>
 </map>

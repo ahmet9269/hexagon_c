@@ -1,4 +1,17 @@
-//#include "CalculatorService.hpp"
+/**
+ * @file ProcessTrackUseCase.cpp
+ * @brief Implementation of ProcessTrackUseCase for track data processing
+ * @details Orchestrates the processing flow from incoming ExtrapTrackData to
+ *          outgoing DelayCalcTrackData using SOLID-compliant dependency injection.
+ * 
+ * @author b_hexagon Team
+ * @version 1.0
+ * @date 2025
+ * 
+ * @see ProcessTrackUseCase.hpp
+ * @see ICalculatorService.hpp
+ */
+
 #include "domain/logic/ProcessTrackUseCase.hpp"
 #include "utils/Logger.hpp"
 #include <stdexcept>

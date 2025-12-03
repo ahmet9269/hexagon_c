@@ -1,27 +1,29 @@
 <map id="adapters::AdapterManager" name="adapters::AdapterManager">
-<area shape="rect" id="Node000001" title="Manages all message pipelines with thread&#45;per&#45;type isolation." alt="" coords="380,1156,567,1461"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="295,1013,449,1093"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="390,1093,409,1140,404,1142,385,1095"/>
-<area shape="rect" id="Node000003" href="$dd/d00/classadapters_1_1MessagePipeline.html" title="Encapsulates a complete message processing pipeline." alt="" coords="119,685,308,951"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="254,949,278,988,290,1001,286,1004,274,991,250,952"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="33,499,111,565"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="90,564,143,669,138,671,85,566"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="5,216,136,296"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="74,310,75,499,69,499,68,310"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="137,492,319,572"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="221,573,217,596,213,669,207,669,212,596,216,572"/>
-<area shape="rect" id="Node000007" href="$dd/d03/classadapters_1_1IAdapter.html" title="Base interface for all adapters (incoming and outgoing)" alt="" coords="161,133,295,379"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="231,379,231,475,225,475,225,379"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="324,223,473,289"/>
-<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="369,302,309,380,289,404,276,436,265,469,253,493,248,490,260,467,271,434,284,401,305,377,365,298"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="503,5,526,71"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="505,49,479,68,454,96,427,152,410,208,405,206,422,150,450,93,476,64,502,44"/>
-<area shape="rect" id="Node000010" title=" " alt="" coords="454,403,575,468"/>
-<area shape="poly" id="edge10_Node000010_Node000009" title=" " alt="" coords="517,71,517,386,512,386,512,71"/>
-<area shape="rect" id="Node000012" title=" " alt="" coords="588,223,713,289"/>
-<area shape="poly" id="edge13_Node000012_Node000009" title=" " alt="" coords="527,42,563,61,582,75,599,93,616,120,629,149,646,206,641,208,624,151,612,123,595,96,579,79,560,65,525,46"/>
-<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="463,479,411,531,388,563,370,597,353,653,343,711,339,770,340,828,350,934,365,1013,360,1014,345,934,334,829,334,770,338,711,348,652,366,595,383,560,407,528,459,475"/>
-<area shape="rect" id="Node000011" title=" " alt="" coords="589,596,734,661"/>
-<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="655,662,522,1141,517,1140,650,661"/>
-<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="655,303,663,596,658,596,649,303"/>
+<area shape="rect" id="Node000001" title="Manages all message pipelines with thread&#45;per&#45;type isolation." alt="" coords="279,1156,465,1461"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="135,1021,270,1086"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,1085,244,1131,271,1173,267,1176,239,1133,215,1087"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="295,1013,449,1093"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="375,1094,375,1139,369,1139,369,1094"/>
+<area shape="rect" id="Node000004" href="$dd/d00/classadapters_1_1MessagePipeline.html" title="Encapsulates a complete message processing pipeline." alt="" coords="119,685,308,951"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="254,949,278,988,290,1001,286,1004,274,991,250,952"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="33,499,111,565"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="90,564,143,669,138,671,85,566"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="5,216,136,296"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="74,310,75,499,69,499,68,310"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="137,492,319,572"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="221,573,217,596,213,669,207,669,212,596,216,572"/>
+<area shape="rect" id="Node000008" href="$dd/d03/classadapters_1_1IAdapter.html" title="Base interface for all adapters (incoming and outgoing)" alt="" coords="161,133,295,379"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="231,379,231,475,225,475,225,379"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="324,223,473,289"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="369,302,309,380,289,404,276,436,265,469,253,493,248,490,260,467,271,434,284,401,305,377,365,298"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="503,5,526,71"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="505,49,479,68,454,96,427,152,410,208,405,206,422,150,450,93,476,64,502,44"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="454,403,575,468"/>
+<area shape="poly" id="edge11_Node000011_Node000010" title=" " alt="" coords="517,71,517,386,512,386,512,71"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="577,223,703,289"/>
+<area shape="poly" id="edge14_Node000013_Node000010" title=" " alt="" coords="527,42,563,60,583,75,599,93,615,120,626,150,639,206,634,207,621,151,610,122,595,96,579,79,560,65,525,46"/>
+<area shape="poly" id="edge10_Node000003_Node000011" title=" " alt="" coords="463,478,410,531,387,562,369,597,352,653,342,711,338,770,339,828,350,934,365,1013,359,1014,344,934,333,829,333,770,337,711,347,652,364,595,382,560,406,527,459,475"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="589,596,734,661"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="651,663,571,862,456,1133,452,1142,447,1140,451,1131,566,860,646,661"/>
+<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="645,302,662,596,657,596,640,303"/>
 </map>

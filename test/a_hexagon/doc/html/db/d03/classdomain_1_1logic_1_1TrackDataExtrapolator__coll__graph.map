@@ -1,13 +1,14 @@
 <map id="domain::logic::TrackDataExtrapolator" name="domain::logic::TrackDataExtrapolator">
-<area shape="rect" id="Node000001" title="Domain service for extrapolating track data." alt="" coords="27,508,257,748"/>
-<area shape="rect" id="Node000002" href="$da/d03/classdomain_1_1ports_1_1incoming_1_1ITrackDataIncomingPort.html" title=" " alt="" coords="5,345,236,445"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,459,134,508,128,508,124,459"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="260,348,464,443"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="319,445,269,498,265,494,316,441"/>
-<area shape="rect" id="Node000004" href="$d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html" title=" " alt="" coords="188,133,403,268"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="321,267,343,332,338,333,316,269"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="427,168,577,233"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="473,246,398,349,393,346,469,243"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="491,5,513,71"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="505,71,505,152,499,152,499,71"/>
+<area shape="rect" id="Node000001" title="Domain service for extrapolating track data." alt="" coords="169,652,400,892"/>
+<area shape="rect" id="Node000002" href="$da/d03/classdomain_1_1ports_1_1incoming_1_1ITrackDataIncomingPort.html" title="Abstract interface for track data input port (primary port)" alt="" coords="5,489,236,589"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,599,202,650,198,653,161,602"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="434,492,642,587"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="489,589,414,657,411,653,485,585"/>
+<area shape="rect" id="Node000004" href="$d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html" title="Abstract interface for extrapolated track data output port (secondary port)" alt="" coords="198,133,417,412"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="303,413,299,489,293,636,288,636,294,489,298,412"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="419,398,489,477,485,481,415,401"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="463,240,613,305"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="541,319,541,492,535,492,535,319"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="527,5,549,71"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="541,71,541,224,535,224,535,71"/>
 </map>

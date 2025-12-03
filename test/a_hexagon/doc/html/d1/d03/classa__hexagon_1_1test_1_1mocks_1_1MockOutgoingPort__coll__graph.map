@@ -1,0 +1,17 @@
+<map id="a_hexagon::test::mocks::MockOutgoingPort" name="a_hexagon::test::mocks::MockOutgoingPort">
+<area shape="rect" id="Node000001" title="Mock implementation of IExtrapTrackDataOutgoingPort for unit testing." alt="" coords="202,1247,379,1627"/>
+<area shape="rect" id="Node000002" href="$d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html" title="Abstract interface for extrapolated track data output port (secondary port)" alt="" coords="5,905,224,1184"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,1196,208,1245,203,1247,180,1198"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="249,1012,333,1077"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="293,1078,293,1230,288,1230,288,1078"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="357,997,584,1092"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="452,1093,387,1233,382,1231,447,1091"/>
+<area shape="rect" id="Node000005" href="$db/d03/structa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort_1_1SentRecord.html" title="Sent data record with timing information." alt="" coords="249,713,473,813"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="383,813,449,981,444,983,378,815"/>
+<area shape="rect" id="Node000006" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html" title="Extrapolated track data model for output." alt="" coords="248,5,475,651"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="364,651,364,697,359,697,359,651"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="498,731,619,796"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="547,810,488,998,483,996,542,808"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="547,295,570,361"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="561,361,561,714,556,714,556,361"/>
+</map>

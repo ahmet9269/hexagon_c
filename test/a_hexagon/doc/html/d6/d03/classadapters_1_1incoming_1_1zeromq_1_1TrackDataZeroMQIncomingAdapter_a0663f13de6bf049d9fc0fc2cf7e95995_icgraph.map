@@ -1,7 +1,7 @@
 <map id="adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter::loadConfiguration" name="adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter::loadConfiguration">
-<area shape="rect" id="Node000001" title="Load ZeroMQ configuration." alt="" coords="363,45,627,100"/>
+<area shape="rect" id="Node000001" title="Load configuration (for legacy constructors)" alt="" coords="363,45,627,100"/>
 <area shape="rect" id="Node000002" href="$d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a5c251ed45b50f0e7fc10dc614bab1253" title="Construct adapter with domain port (raw pointer &#45; legacy)" alt="" coords="5,5,315,60"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="349,58,315,54,315,49,350,53"/>
-<area shape="rect" id="Node000003" href="$d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a13af47fb1399618c71d6f434465d6f97" title="Construct adapter with domain port (shared_ptr &#45; preferred)" alt="" coords="5,84,315,139"/>
+<area shape="rect" id="Node000003" href="$d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a13af47fb1399618c71d6f434465d6f97" title="Construct adapter with domain port (shared_ptr &#45; legacy)" alt="" coords="5,84,315,139"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="350,92,315,96,315,91,349,87"/>
 </map>

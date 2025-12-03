@@ -26,7 +26,7 @@ var NAVTREE =
 [
   [ "B_Hexagon", "index.html", [
     [ "B_Hexagon - Track Data Processor", "index.html", "index" ],
-    [ "B_Hexagon Architecture Documentation", "dc/da6/architecture.html", [
+    [ "B_Hexagon Architecture", "dc/da6/architecture.html", [
       [ "Overview", "dc/da6/architecture.html#autotoc_md22", null ],
       [ "Architecture", "dc/da6/architecture.html#autotoc_md23", null ],
       [ "Key Features", "dc/da6/architecture.html#autotoc_md24", null ],
@@ -35,11 +35,16 @@ var NAVTREE =
         [ "Dependency Inversion Principle", "dc/da6/architecture.html#autotoc_md27", null ]
       ] ],
       [ "Data Flow", "dc/da6/architecture.html#autotoc_md28", null ],
-      [ "Building", "dc/da6/architecture.html#autotoc_md29", null ],
-      [ "Running", "dc/da6/architecture.html#autotoc_md30", null ],
-      [ "Dependencies", "dc/da6/architecture.html#autotoc_md31", null ],
-      [ "Author", "dc/da6/architecture.html#autotoc_md32", null ],
-      [ "License", "dc/da6/architecture.html#autotoc_md33", null ]
+      [ "Performance Characteristics", "dc/da6/architecture.html#autotoc_md29", [
+        [ "Latency Budget", "dc/da6/architecture.html#autotoc_md30", null ],
+        [ "Thread Configuration", "dc/da6/architecture.html#autotoc_md31", null ]
+      ] ],
+      [ "Building", "dc/da6/architecture.html#autotoc_md32", null ],
+      [ "Running", "dc/da6/architecture.html#autotoc_md33", null ],
+      [ "Dependencies", "dc/da6/architecture.html#autotoc_md34", null ],
+      [ "Version History", "dc/da6/architecture.html#autotoc_md35", null ],
+      [ "Related Pages", "dc/da6/architecture.html#autotoc_md36", null ],
+      [ "Author", "dc/da6/architecture.html#autotoc_md37", null ]
     ] ]
   ] ]
 ];

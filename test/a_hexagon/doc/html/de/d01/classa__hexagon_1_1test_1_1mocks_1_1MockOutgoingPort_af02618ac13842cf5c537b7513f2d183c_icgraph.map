@@ -1,0 +1,5 @@
+<map id="a_hexagon::test::mocks::MockOutgoingPort::waitForSentData" name="a_hexagon::test::mocks::MockOutgoingPort::waitForSentData">
+<area shape="rect" id="Node000001" title="Wait for expected number of sent data with timeout." alt="" coords="284,13,551,53"/>
+<area shape="rect" id="Node000002" href="$de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html#af7e69eb36e9fb03a8d44d3ec85250708" title="Wait for any data to be sent with timeout." alt="" coords="5,5,236,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="270,35,236,35,236,30,270,30"/>
+</map>

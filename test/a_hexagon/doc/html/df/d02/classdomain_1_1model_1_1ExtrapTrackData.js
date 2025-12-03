@@ -41,17 +41,13 @@ var classdomain_1_1model_1_1ExtrapTrackData =
     [ "validateZPositionECEF", "df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a65c29489550196c3c17cb183b7804bda", null ],
     [ "validateZVelocityECEF", "df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a495d364ce620fe2b7fa253d19a61fe84", null ],
     [ "firstHopSentTime_", "df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a6aa7312121e756c94e4faf4d379e035e", null ],
-    [ "IS_PUBLISHER", "df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#ac5a75144ae5bb2a62e052c83b70979d8", null ],
-    [ "MULTICAST_ADDRESS", "df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a36c5b8887b19ffe998ab6a8c3854d567", null ],
     [ "originalUpdateTime_", "df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a5c341a17395ffa9918af728c7bcdd9d3", null ],
-    [ "PORT", "df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#ac9ee5e9b76091a79e812c549cadffa7c", null ],
     [ "trackId_", "df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a83b38211faf556a04f4b5b5fdfdf37de", null ],
     [ "updateTime_", "df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a57ee3ddd51a17cd1274aa748d755fe2f", null ],
     [ "xPositionECEF_", "df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a0a9e6e7a71593b8b848e60e1705df526", null ],
     [ "xVelocityECEF_", "df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#ac2276699373de83c96906c4bf98badc4", null ],
     [ "yPositionECEF_", "df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a640562f2392d84c0537f90f7efc3eb2a", null ],
     [ "yVelocityECEF_", "df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#ae5edb110cce1fd1d142254c6c8fee38d", null ],
-    [ "ZMQ_SOCKET_TYPE", "df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#ace79bd9ef1367e4bbd66fe3b88cf5c5c", null ],
     [ "zPositionECEF_", "df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a08a4ab0c0e47a2fedc50271681416b94", null ],
     [ "zVelocityECEF_", "df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#abc56490366355a4b6f26297326a87226", null ]
 ];

@@ -1,4 +1,7 @@
 <map id="adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::sendExtrapTrackData" name="adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::sendExtrapTrackData">
-<area shape="rect" id="Node000001" title="Send vector of ExtrapTrackData." alt="" coords="5,29,305,84"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="98,29,98,19,108,10,127,5,155,3,189,6,208,14,206,19,187,11,155,8,128,10,111,15,103,21,103,29"/>
+<area shape="rect" id="Node000001" title="Send vector of ExtrapTrackData." alt="" coords="5,45,305,100"/>
+<area shape="rect" id="Node000002" href="$d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#acc73e629cd936f68637dde5c68a59734" title="Enqueue message for transmission (non&#45;blocking ~20ns)" alt="" coords="353,5,629,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="305,52,340,48,340,53,306,57"/>
+<area shape="rect" id="Node000003" href="$d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a2f4fe7750f60012d6aafe63c55f967c8" title="Check if the outgoing connection is ready." alt="" coords="379,84,603,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="306,87,366,94,365,100,305,93"/>
 </map>

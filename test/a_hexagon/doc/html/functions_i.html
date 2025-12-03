@@ -25,9 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">a_hexagon<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">a_hexagon<span id="projectnumber">&#160;2.1.0</span>
    </div>
-   <div id="projectbrief">Hexagonal Architecture Track Data Processing Application</div>
+   <div id="projectbrief">Hexagonal Architecture Track Data Extrapolation System - Thread-per-Type Pattern with DIP Compliant Socket Abstraction</div>
   </td>
  </tr>
  </tbody>
@@ -94,7 +94,10 @@ $(document).ready(function(){initNavTree('functions_i.html',''); initResizable()
 
 <h3><a id="index_i" name="index_i"></a>- i -</h3><ul>
 <li>IAdapter()&#160;:&#160;<a class="el" href="dd/d03/classadapters_1_1IAdapter.html#acca1bce7fe9af02b14436c4056696737">adapters::IAdapter</a></li>
+<li>IExtrapTrackDataOutgoingPort()&#160;:&#160;<a class="el" href="d4/d00/classdomain_1_1ports_1_1outgoing_1_1IExtrapTrackDataOutgoingPort.html#ac56b076555f6db990a2bb79cde43d644">domain::ports::outgoing::IExtrapTrackDataOutgoingPort</a></li>
+<li>IMessageSocket()&#160;:&#160;<a class="el" href="d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html#a8096cc503f6ce8d7eeb1a0ac5e11601c">adapters::common::messaging::IMessageSocket</a></li>
 <li>incomingAdapter_&#160;:&#160;<a class="el" href="dd/d00/classadapters_1_1MessagePipeline.html#a71625596346df4a440261574f3b9a7b4">adapters::MessagePipeline</a></li>
+<li>incomingMessages_&#160;:&#160;<a class="el" href="d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html#a9da13544985c86d2589aa9ab2e8f8bb7">a_hexagon::test::mocks::MockMessageSocket</a></li>
 <li>incomingPort_&#160;:&#160;<a class="el" href="d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a2084086513bb93c28504f3e1a0cd4911">adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter</a></li>
 <li>incomingPortShared_&#160;:&#160;<a class="el" href="d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a3e6cf627c06404b3cb220c1fef19d44e">adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter</a></li>
 <li>info()&#160;:&#160;<a class="el" href="db/d03/classLogger.html#a1537d6dc2cc75e2787df3c5882e929e6">Logger</a>, <a class="el" href="d2/d02/classutils_1_1Logger.html#ac819da3d70613ec1a7631625892ca404">utils::Logger</a></li>
@@ -103,10 +106,10 @@ $(document).ready(function(){initNavTree('functions_i.html',''); initResizable()
 <li>initialized_&#160;:&#160;<a class="el" href="d2/d02/classutils_1_1Logger.html#a05d945b4997f85e6ca604476524d8e03">utils::Logger</a></li>
 <li>initializeSocket()&#160;:&#160;<a class="el" href="d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a777051c2fe018960331768287ee56e08">adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter</a>, <a class="el" href="d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a97f6bac15d665323c6e0e6dc7df0cff9">adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter</a></li>
 <li>initWithFile()&#160;:&#160;<a class="el" href="d2/d02/classutils_1_1Logger.html#aa1b3a68b450b98a82c1426fb4a0153c3">utils::Logger</a></li>
-<li>inputTrack_&#160;:&#160;<a class="el" href="d2/d01/classTrackDataExtrapolatorTest.html#a33cbca4c3f21ae2579b0cf7a21cf2d20">TrackDataExtrapolatorTest</a></li>
-<li>IS_PUBLISHER&#160;:&#160;<a class="el" href="df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#ac5a75144ae5bb2a62e052c83b70979d8">domain::model::ExtrapTrackData</a></li>
-<li>IS_SUBSCRIBER&#160;:&#160;<a class="el" href="dc/d00/classdomain_1_1model_1_1TrackData.html#a94d259858b355939eec77610014cd8df">domain::model::TrackData</a></li>
+<li>isConnected()&#160;:&#160;<a class="el" href="d5/d00/classa__hexagon_1_1test_1_1mocks_1_1MockMessageSocket.html#ad09ec4a8f5de86c9283c21c839ad80f8">a_hexagon::test::mocks::MockMessageSocket</a>, <a class="el" href="d1/d03/classadapters_1_1common_1_1messaging_1_1IMessageSocket.html#ac738b8c92f09c76cdcee59ce020c686c">adapters::common::messaging::IMessageSocket</a>, <a class="el" href="db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html#abc715db00b3dc255eea97a8769099d6c">adapters::common::messaging::ZeroMQSocket</a></li>
+<li>isFailSendEnabled()&#160;:&#160;<a class="el" href="de/d01/classa__hexagon_1_1test_1_1mocks_1_1MockOutgoingPort.html#a96738ce42f2ff396ba8a5913634861f4">a_hexagon::test::mocks::MockOutgoingPort</a></li>
 <li>isInitialized()&#160;:&#160;<a class="el" href="db/d03/classLogger.html#a4f65d1c1dd95a29513e5cd1d887f376d">Logger</a>, <a class="el" href="d2/d02/classutils_1_1Logger.html#aba4dfb4fa0860d1fe1a2fe68526146c3">utils::Logger</a></li>
+<li>isReady()&#160;:&#160;<a class="el" href="d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#a2f4fe7750f60012d6aafe63c55f967c8">adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter</a></li>
 <li>isRunning()&#160;:&#160;<a class="el" href="d1/d02/classadapters_1_1AdapterManager.html#a063037ae77316ede7b2fc346ce2f3496">adapters::AdapterManager</a>, <a class="el" href="dd/d03/classadapters_1_1IAdapter.html#a7e60830d8497684bca5170789b1ab7b5">adapters::IAdapter</a>, <a class="el" href="d6/d03/classadapters_1_1incoming_1_1zeromq_1_1TrackDataZeroMQIncomingAdapter.html#a3845cc0727d21540fbd38ee84975ca6d">adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter</a>, <a class="el" href="dd/d00/classadapters_1_1MessagePipeline.html#abbf566ff2b15093960437510ee842413">adapters::MessagePipeline</a>, <a class="el" href="d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#ab94a621d25ce5b6b9f9203e5b3ca9801">adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter</a></li>
 <li>isValid()&#160;:&#160;<a class="el" href="df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a1461f9e93b78ec4ecab7b332bb4516af">domain::model::ExtrapTrackData</a>, <a class="el" href="dc/d00/classdomain_1_1model_1_1TrackData.html#abba5bbbdec7116c3af7fd9f15ffe847e">domain::model::TrackData</a></li>
 </ul>
@@ -115,7 +118,7 @@ $(document).ready(function(){initNavTree('functions_i.html',''); initResizable()
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Dec 1 2025 13:08:49 for a_hexagon by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

@@ -1,13 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,104,107,129"/>
-<area shape="rect" id="Node000001" href="$d4/d01/classAdapterManagerTest.html" title="Test fixture for AdapterManager tests." alt="" coords="173,5,329,31"/>
-<area shape="poly" id="edge7_Node000000_Node000001" title=" " alt="" coords="79,92,113,65,153,40,184,28,186,33,156,44,116,69,82,97"/>
-<area shape="rect" id="Node000002" href="$db/d00/classExtrapTrackDataTest.html" title="Test fixture for ExtrapTrackData tests." alt="" coords="174,55,329,80"/>
-<area shape="poly" id="edge8_Node000000_Node000002" title=" " alt="" coords="118,98,154,89,198,78,200,83,155,94,120,103"/>
-<area shape="rect" id="Node000003" href="$d2/d03/classLoggerTest.html" title="Test fixture for Logger tests." alt="" coords="205,104,297,129"/>
-<area shape="poly" id="edge9_Node000000_Node000003" title=" " alt="" coords="121,114,205,114,205,119,121,119"/>
-<area shape="rect" id="Node000004" href="$d2/d01/classTrackDataExtrapolatorTest.html" title="Test fixture for TrackDataExtrapolator tests." alt="" coords="155,153,348,179"/>
-<area shape="poly" id="edge10_Node000000_Node000004" title=" " alt="" coords="121,130,201,151,200,156,119,135"/>
-<area shape="rect" id="Node000005" href="$d0/d00/classTrackDataTest.html" title="Test fixture for TrackData tests." alt="" coords="195,203,308,228"/>
-<area shape="poly" id="edge11_Node000000_Node000005" title=" " alt="" coords="83,137,116,163,156,188,195,202,193,207,154,192,113,168,79,141"/>
+<area shape="rect" id="Node000000" href="$dc/d00/classdomain_1_1model_1_1TrackData.html" title="Input data model for track information." alt="" coords="5,5,199,31"/>
 </map>

@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="Load ZeroMQ configuration.">
+<g id="a_Node000001"><a xlink:title="Load configuration (for legacy constructor)">
 <polygon fill="#999999" stroke="#666666" points="446,-46.5 238,-46.5 238,-5.5 446,-5.5 446,-46.5"/>
 <text text-anchor="start" x="246" y="-34.5" font-family="Helvetica,sans-Serif" font-size="10.00">adapters::outgoing</text>
 <text text-anchor="start" x="246" y="-23.5" font-family="Helvetica,sans-Serif" font-size="10.00">::zeromq::ExtrapTrackDataZero</text>
@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#afe049abd4e66bdd74c1c5445f86d7a85" target="_top" xlink:title="Default constructor.">
+<g id="a_Node000002"><a xlink:href="../../d9/d01/classadapters_1_1outgoing_1_1zeromq_1_1ExtrapTrackDataZeroMQOutgoingAdapter.html#afe049abd4e66bdd74c1c5445f86d7a85" target="_top" xlink:title="Default constructor (legacy &#45; creates ZeroMQ socket internally)">
 <polygon fill="white" stroke="#666666" points="202,-52 0,-52 0,0 202,0 202,-52"/>
 <text text-anchor="start" x="8" y="-40" font-family="Helvetica,sans-Serif" font-size="10.00">adapters::outgoing</text>
 <text text-anchor="start" x="8" y="-29" font-family="Helvetica,sans-Serif" font-size="10.00">::zeromq::ExtrapTrackDataZero</text>

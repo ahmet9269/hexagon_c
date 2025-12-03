@@ -1,5 +1,7 @@
 <map id="domain::ports::incoming::ITrackDataIncomingPort" name="domain::ports::incoming::ITrackDataIncomingPort">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,236,105"/>
-<area shape="rect" id="Node000002" href="$db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html" title="Domain service for extrapolating track data." alt="" coords="5,153,236,393"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,119,123,153,118,153,118,119"/>
+<area shape="rect" id="Node000001" title="Abstract interface for track data input port (primary port)" alt="" coords="132,5,363,105"/>
+<area shape="rect" id="Node000002" href="$d4/d02/classa__hexagon_1_1test_1_1mocks_1_1MockIncomingPort.html" title="Mock implementation for unit testing." alt="" coords="5,153,236,533"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,119,207,154,202,152,218,117"/>
+<area shape="rect" id="Node000003" href="$db/d00/classdomain_1_1logic_1_1TrackDataExtrapolator.html" title="Domain service for extrapolating track data." alt="" coords="260,213,491,473"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="277,117,320,212,315,214,272,119"/>
 </map>

@@ -1,0 +1,9 @@
+<map id="adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::publisherWorker" name="adapters::outgoing::zeromq::ExtrapTrackDataZeroMQOutgoingAdapter::publisherWorker">
+<area shape="rect" id="Node000001" title="Background worker thread for message transmission." alt="" coords="5,30,272,85"/>
+<area shape="rect" id="Node000002" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a14a680e680316d696bb5bd3d64aa329c" title=" " alt="" coords="320,5,524,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="272,40,306,36,307,41,272,45"/>
+<area shape="rect" id="Node000003" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#a2675e4b6c0b542ed6b27928ce62dba35" title=" " alt="" coords="320,69,524,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="272,70,307,74,306,79,272,75"/>
+<area shape="rect" id="Node000004" href="$df/d02/classdomain_1_1model_1_1ExtrapTrackData.html#ac1745d984bc6563070d82c0030674d3e" title=" " alt="" coords="572,69,776,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="524,87,558,87,558,92,524,92"/>
+</map>

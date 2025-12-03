@@ -25,9 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">a_hexagon<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">a_hexagon<span id="projectnumber">&#160;2.1.0</span>
    </div>
-   <div id="projectbrief">Hexagonal Architecture Track Data Processing Application</div>
+   <div id="projectbrief">Hexagonal Architecture Track Data Extrapolation System - Thread-per-Type Pattern with DIP Compliant Socket Abstraction</div>
   </td>
  </tr>
  </tbody>
@@ -96,6 +96,9 @@ $(document).ready(function(){initNavTree('d6/d01/ExtrapTrackDataOutgoingPort_8hp
   <div class="headertitle"><div class="title">ExtrapTrackDataOutgoingPort.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Output port interface for ExtrapTrackData transmission.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="../../d7/d00/model_2ExtrapTrackData_8hpp_source.html">domain/model/ExtrapTrackData.hpp</a>&quot;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -106,7 +109,7 @@ Include dependency graph for ExtrapTrackDataOutgoingPort.hpp:</div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d0/d01/ExtrapTrackDataOutgoingPort_8hpp__dep__incl.svg" width="100%" height="514"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="../../d0/d01/ExtrapTrackDataOutgoingPort_8hpp__dep__incl.svg" width="100%" height="536"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="../../d6/d01/ExtrapTrackDataOutgoingPort_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -114,6 +117,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html">domain::ports::outgoing::ExtrapTrackDataOutgoingPort</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract interface for extrapolated track data output port (secondary port)  <a href="../../d8/d01/classdomain_1_1ports_1_1outgoing_1_1ExtrapTrackDataOutgoingPort.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -125,13 +129,25 @@ Namespaces</h2></td></tr>
 <tr class="memitem:de/d03/namespacedomain_1_1ports_1_1outgoing" id="r_de/d03/namespacedomain_1_1ports_1_1outgoing"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d03/namespacedomain_1_1ports_1_1outgoing.html">domain::ports::outgoing</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Output port interface for ExtrapTrackData transmission. </p>
+<p>Defines the contract between domain services and outgoing adapters. Part of the hexagonal architecture's secondary ports.</p>
+<dl class="section author"><dt>Author</dt><dd>A Hexagon Team </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>2.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2025</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>MISRA C++ 2023 compliant implementation </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d1/d01/ExtrapTrackDataZeroMQOutgoingAdapter_8hpp.html" title="ZeroMQ Outgoing Adapter for ExtrapTrackData messages (DIP compliant)">ExtrapTrackDataZeroMQOutgoingAdapter.hpp</a> </dd>
+<dd>
+<a class="el" href="../../d7/d03/TrackDataExtrapolator_8hpp.html" title="Domain service for track data extrapolation.">TrackDataExtrapolator.hpp</a> </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="../../d6/d01/ExtrapTrackDataOutgoingPort_8hpp_source.html">ExtrapTrackDataOutgoingPort.hpp</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_5fed3e74346fe99d77e8db841376dd26.html">a_hexagon</a></li><li class="navelem"><a class="el" href="../../dir_b8b2bc0bff423e8d006ee89c34e8851c.html">domain</a></li><li class="navelem"><a class="el" href="../../dir_9002dc5654a6f4d52aa597c9e8fccf38.html">ports</a></li><li class="navelem"><a class="el" href="../../dir_abbd81416cf7d4780469748ea01a6c25.html">outgoing</a></li><li class="navelem"><a class="el" href="../../d6/d01/ExtrapTrackDataOutgoingPort_8hpp.html">ExtrapTrackDataOutgoingPort.hpp</a></li>
-    <li class="footer">Generated on Mon Dec 1 2025 13:08:48 for a_hexagon by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>
 </body>

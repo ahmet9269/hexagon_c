@@ -1,6 +1,16 @@
 /**
  * @file ITrackDataStatisticOutgoingPort.hpp
- * @brief Interface for outgoing final track data communication
+ * @brief Secondary port interface for outgoing final track data transmission
+ * @details Defines the hexagonal architecture secondary port that outgoing adapters implement.
+ *          This interface enables decoupling between domain services and external systems.
+ * 
+ * @author c_hexagon Team
+ * @version 1.0
+ * @date 2025
+ * 
+ * @note MISRA C++ 2023 compliant implementation
+ * @see FinalCalcTrackData
+ * @see FinalCalcTrackDataZeroMQOutgoingAdapter
  */
 
 #ifndef FINAL_TRACK_DATA_OUTGOING_PORT_HPP
@@ -13,11 +23,32 @@ namespace ports {
 namespace outgoing {
 
 /**
- * @brief Abstract interface for outgoing final track data transmission
+ * @class ITrackDataStatisticOutgoingPort
+ * @brief Secondary Port interface for outgoing final track data transmission
+ * @details Abstract interface that defines the contract for sending processed final 
+ *          track data to external systems. This is a secondary port in hexagonal 
+ *          architecture - implemented by outgoing adapters.
  * 
- * This port defines the contract for sending processed final track data
- * to external systems. Implementations can use any technology (ZeroMQ, 
- * HTTP, TCP, File, Database, etc.)
+ * @par Hexagonal Architecture Role
+ * Secondary Port - defines the boundary between domain logic and external world.
+ * Implemented by outgoing adapters (e.g., FinalCalcTrackDataZeroMQOutgoingAdapter).
+ * 
+ * @par Supported Implementations
+ * - ZeroMQ RADIO socket (FinalCalcTrackDataZeroMQOutgoingAdapter)
+ * - HTTP REST client (potential future implementation)
+ * - File writer (potential future implementation)
+ * - Mock implementation (for testing)
+ * 
+ * @par Usage Example
+ * @code
+ * class MyOutgoingAdapter : public ITrackDataStatisticOutgoingPort {
+ * public:
+ *     void sendFinalTrackData(const FinalCalcTrackData& data) override {
+ *         // Transmit data to external system
+ *     }
+ *     bool isReady() const override { return true; }
+ * };
+ * @endcode
  */
 class ITrackDataStatisticOutgoingPort {
 public:

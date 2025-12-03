@@ -1,0 +1,26 @@
+<map id="a_hexagon/adapters/common/messaging/ZeroMQSocket.hpp" name="a_hexagon/adapters/common/messaging/ZeroMQSocket.hpp">
+<area shape="rect" id="Node000001" title="ZeroMQ concrete implementation of IMessageSocket." alt="" coords="474,5,759,45"/>
+<area shape="rect" id="Node000002" href="$d1/d03/IMessageSocket_8hpp.html" title="Abstract messaging socket interface for DIP compliance." alt="" coords="183,93,338,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="532,48,327,93,325,88,531,43"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="378,167,437,192"/>
+<area shape="poly" id="edge11_Node000001_Node000007" title=" " alt="" coords="493,48,453,67,420,95,412,108,408,123,407,152,401,152,403,122,408,106,416,92,450,62,491,43"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="429,93,553,119"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="588,48,523,88,520,84,585,43"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="577,93,656,119"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="619,46,619,79,614,79,614,46"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="681,93,758,119"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="643,43,695,83,692,87,640,48"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="782,93,849,119"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="665,43,775,86,773,91,663,48"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="873,93,937,119"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="686,43,860,90,859,95,685,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,76,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="226,121,90,165,88,160,225,116"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="101,167,167,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="242,121,168,162,165,157,239,116"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="191,167,266,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="258,120,242,155,237,153,253,118"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="291,167,353,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="273,117,305,154,301,158,269,121"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="285,116,372,158,370,163,283,121"/>
+</map>

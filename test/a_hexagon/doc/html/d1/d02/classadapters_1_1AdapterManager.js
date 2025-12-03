@@ -14,5 +14,6 @@ var classadapters_1_1AdapterManager =
     [ "startAll", "d1/d02/classadapters_1_1AdapterManager.html#a5c65f1bea8587352914aa1b34cd093b9", null ],
     [ "stopAll", "d1/d02/classadapters_1_1AdapterManager.html#a733765e3a1e5b4c99f4f2162dbe96f95", null ],
     [ "pipelines_", "d1/d02/classadapters_1_1AdapterManager.html#a041480d4461548ffc80ed66edbb120eb", null ],
+    [ "pipelines_mutex_", "d1/d02/classadapters_1_1AdapterManager.html#a9950df3adbb11be2609e224ac7baef0a", null ],
     [ "running_", "d1/d02/classadapters_1_1AdapterManager.html#a44cf3995f05d26a02cd8ba3df71bc7d2", null ]
 ];

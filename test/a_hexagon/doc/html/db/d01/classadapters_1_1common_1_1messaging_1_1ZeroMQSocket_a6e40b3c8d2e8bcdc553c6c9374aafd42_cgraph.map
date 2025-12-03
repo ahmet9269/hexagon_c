@@ -1,0 +1,5 @@
+<map id="adapters::common::messaging::ZeroMQSocket::~ZeroMQSocket" name="adapters::common::messaging::ZeroMQSocket::~ZeroMQSocket">
+<area shape="rect" id="Node000001" title="Destructor &#45; closes socket and releases resources." alt="" coords="5,5,244,45"/>
+<area shape="rect" id="Node000002" href="$db/d01/classadapters_1_1common_1_1messaging_1_1ZeroMQSocket.html#a1c08247330e71bff4ee85b949ada7b7f" title="Close socket." alt="" coords="292,5,515,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,23,278,23,278,28,244,28"/>
+</map>

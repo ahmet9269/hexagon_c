@@ -62,10 +62,7 @@
 // Global flag for graceful shutdown - MISRA Rule 8-5-2: Brace initialization
 static std::atomic<bool> g_running{true};
 
-/**
- * @brief Signal handler for graceful shutdown
- * @param signum Signal number received
- */
+// Implementation - see main.hpp for documentation
 void signalHandler(int signum) {
     LOG_INFO("Received signal {}, initiating graceful shutdown...", signum);
     g_running.store(false);

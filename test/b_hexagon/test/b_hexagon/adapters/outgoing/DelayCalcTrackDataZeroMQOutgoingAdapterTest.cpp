@@ -158,6 +158,9 @@ TEST_F(DelayCalcTrackDataZeroMQOutgoingAdapterTest, SendData_WithMockSocket_Call
     auto data = createValidData();
     adapter.sendDelayCalcTrackData(data);
     
+    // Wait for background worker to process the message
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    
     adapter.stop();
 }
 
@@ -180,6 +183,9 @@ TEST_F(DelayCalcTrackDataZeroMQOutgoingAdapterTest, SendData_MultipleTimes_Calls
         data.setTrackId(i + 1);
         adapter.sendDelayCalcTrackData(data);
     }
+    
+    // Wait for background worker to process all messages
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
     
     adapter.stop();
 }
@@ -225,6 +231,9 @@ TEST_F(DelayCalcTrackDataZeroMQOutgoingAdapterTest, ConcurrentSend_ThreadSafe) {
     for (auto& t : threads) {
         t.join();
     }
+    
+    // Wait for background worker to process all messages
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
     
     adapter.stop();
     
