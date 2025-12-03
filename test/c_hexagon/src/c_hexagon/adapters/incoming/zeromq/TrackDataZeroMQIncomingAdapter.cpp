@@ -7,14 +7,25 @@
 #include "TrackDataZeroMQIncomingAdapter.hpp"
 #include "utils/Logger.hpp"
 #include <zmq.hpp>
+#include <sstream>
 
 namespace adapters {
 namespace incoming {
 namespace zeromq {
 
-// MISRA C++ 2023 compliant named constants
-static constexpr int REALTIME_THREAD_PRIORITY = 95;
-static constexpr int DEDICATED_CPU_CORE = 1;
+namespace {
+    /**
+     * @brief Constructs UDP multicast endpoint string
+     * @param address Multicast address (e.g., "239.1.1.5")
+     * @param port Port number
+     * @return Formatted endpoint string (e.g., "udp://239.1.1.5:9595")
+     */
+    std::string buildEndpoint(const char* address, int port) {
+        std::ostringstream oss;
+        oss << "udp://" << address << ":" << port;
+        return oss.str();
+    }
+}
 
 /**
  * @brief Default constructor with standard multicast configuration
@@ -23,11 +34,8 @@ static constexpr int DEDICATED_CPU_CORE = 1;
 TrackDataZeroMQIncomingAdapter::TrackDataZeroMQIncomingAdapter(
     std::shared_ptr<domain::ports::incoming::IDelayCalcTrackDataIncomingPort> track_data_submission)
     : track_data_submission_(track_data_submission)
-    // Original UDP multicast endpoint (for production environment)
-    // , multicast_endpoint_("udp://udn;239.1.1.1:9002")
-    // TCP localhost endpoint (for development/container environment)
-    , multicast_endpoint_("tcp://127.0.0.1:15002")
-    , group_name_("DelayCalcTrackData")
+    , endpoint_(buildEndpoint(DEFAULT_MULTICAST_ADDRESS, DEFAULT_PORT))
+    , group_(DEFAULT_GROUP)
     , adapter_name_("DelayCalcTrackData-InAdapter")
     , zmq_context_(1)
     , dish_socket_(nullptr)
@@ -47,8 +55,8 @@ TrackDataZeroMQIncomingAdapter::TrackDataZeroMQIncomingAdapter(
     const std::string& multicast_endpoint,
     const std::string& group_name)
     : track_data_submission_(track_data_submission)
-    , multicast_endpoint_(multicast_endpoint)
-    , group_name_(group_name)
+    , endpoint_(multicast_endpoint)
+    , group_(group_name)
     , adapter_name_(group_name + "-InAdapter")
     , zmq_context_(1)
     , dish_socket_(nullptr)
@@ -72,24 +80,24 @@ TrackDataZeroMQIncomingAdapter::~TrackDataZeroMQIncomingAdapter() {
  */
 void TrackDataZeroMQIncomingAdapter::initializeDishSocket() {
     try {
-        LOG_INFO("Socket Configuration - Endpoint: {}, Group: {}", multicast_endpoint_, group_name_);
+        LOG_INFO("Socket Configuration - Endpoint: {}, Group: {}", endpoint_, group_);
         
         // RADIO/DISH pattern
         dish_socket_ = std::make_unique<zmq::socket_t>(zmq_context_, zmq::socket_type::dish);
         
         // Configure socket options for optimal performance
-        dish_socket_->set(zmq::sockopt::rcvhwm, 0);       // Unlimited receive buffer
-        dish_socket_->set(zmq::sockopt::rcvtimeo, 100);   // 100ms timeout for graceful shutdown
-        dish_socket_->set(zmq::sockopt::linger, 0);       // No linger on close
+        dish_socket_->set(zmq::sockopt::rcvhwm, HIGH_WATER_MARK);
+        dish_socket_->set(zmq::sockopt::rcvtimeo, RECEIVE_TIMEOUT_MS);
+        dish_socket_->set(zmq::sockopt::linger, LINGER_MS);
         dish_socket_->set(zmq::sockopt::immediate, 1);    // Process messages immediately
         
         // DISH binds (listens for RADIO connections)
         LOG_DEBUG("Binding DISH socket to endpoint");
-        dish_socket_->bind(multicast_endpoint_);
+        dish_socket_->bind(endpoint_);
         
         // Join group for RADIO/DISH pattern
-        LOG_DEBUG("Joining group: {}", group_name_);
-        dish_socket_->join(group_name_.c_str());
+        LOG_DEBUG("Joining group: {}", group_);
+        dish_socket_->join(group_.c_str());
         
         LOG_INFO("DISH socket initialized successfully");
 

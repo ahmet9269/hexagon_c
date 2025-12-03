@@ -28,13 +28,23 @@ FinalCalculationService::FinalCalculationService()
 }
 
 /**
- * @brief Constructor with outgoing port injection
+ * @brief Constructor with outgoing port injection (unique_ptr)
  * @param outgoing_port Unique pointer to the outgoing port adapter
  */
 FinalCalculationService::FinalCalculationService(
     std::unique_ptr<ports::outgoing::ITrackDataStatisticOutgoingPort> outgoing_port)
     : outgoing_port_(std::move(outgoing_port)) {
-    LOG_DEBUG("FinalCalculationService initialized with outgoing adapter");
+    LOG_DEBUG("FinalCalculationService initialized with outgoing adapter (unique_ptr)");
+}
+
+/**
+ * @brief Constructor with outgoing port injection (shared_ptr)
+ * @param outgoing_port Shared pointer to the outgoing port adapter
+ */
+FinalCalculationService::FinalCalculationService(
+    std::shared_ptr<ports::outgoing::ITrackDataStatisticOutgoingPort> outgoing_port)
+    : outgoing_port_(std::move(outgoing_port)) {
+    LOG_DEBUG("FinalCalculationService initialized with outgoing adapter (shared_ptr)");
 }
 
 /**

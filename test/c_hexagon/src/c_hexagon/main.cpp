@@ -48,38 +48,33 @@ int main() {
         // ========================================
         LOG_INFO("Creating DelayCalcTrackData pipeline...");
         
-        // Create outgoing adapter first (implements ITrackDataStatisticOutgoingPort)
+        // Create outgoing adapter (implements both IAdapter and ITrackDataStatisticOutgoingPort)
+        // Using shared_ptr to allow multiple ownership (pipeline and service)
         auto final_calc_outgoing = std::make_shared<adapters::outgoing::zeromq::FinalCalcTrackDataZeroMQOutgoingAdapter>(
-            // TCP localhost endpoint (for development/container environment)
             "tcp://127.0.0.1:15003",
             "FinalCalcTrackData"
         );
         
         // Create domain service with outgoing port injection (Dependency Inversion)
-        // FinalCalculationService needs unique_ptr, but we also need shared_ptr for adapter
-        // So we create a separate unique_ptr wrapping the same interface
+        // Service takes shared_ptr to ITrackDataStatisticOutgoingPort interface
+        // This avoids creating duplicate adapters
         auto delay_calc_service = std::make_shared<domain::logic::FinalCalculationService>(
-            std::make_unique<adapters::outgoing::zeromq::FinalCalcTrackDataZeroMQOutgoingAdapter>(
-                "tcp://127.0.0.1:15003",
-                "FinalCalcTrackData"
-            )
+            final_calc_outgoing  // Inject the same adapter instance
         );
         
-        // Create incoming adapter
+        // Create incoming adapter with domain service (implements IDelayCalcTrackDataIncomingPort)
         auto delay_calc_adapter = std::make_shared<adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter>(
-            delay_calc_service,
-            // Original UDP multicast endpoint (for production environment)
-            // "udp://udn;239.1.1.1:9002",
-            // TCP localhost endpoint (for development/container environment)
+            delay_calc_service,  // Inject domain port interface
             "tcp://127.0.0.1:15002",
             "DelayCalcTrackData"
         );
         
         // Create pipeline and register with manager
+        // Pipeline manages both incoming and outgoing adapters lifecycle
         adapters::MessagePipeline delay_calc_pipeline(
             "DelayCalcTrackData",
             delay_calc_adapter,
-            final_calc_outgoing  // Now includes outgoing adapter
+            final_calc_outgoing
         );
         
         adapter_manager.registerPipeline(std::move(delay_calc_pipeline));

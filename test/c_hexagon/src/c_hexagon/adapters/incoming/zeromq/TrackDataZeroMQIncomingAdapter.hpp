@@ -22,18 +22,42 @@ namespace incoming {
 namespace zeromq {
 
 /**
- * @brief ZeroMQ Subscriber Adapter using DISH pattern
+ * @brief ZeroMQ DISH Adapter for receiving DelayCalcTrackData via UDP multicast
+ * @details Thread-per-Type architecture compliant - runs in dedicated thread.
+ *          Uses RADIO/DISH pattern for group-based UDP multicast messaging.
+ * 
+ * Network Flow:
+ * - B_hexagon (RADIO) --[UDP Multicast]--> C_hexagon (DISH)
+ * 
+ * @note MISRA C++ 2023 compliant implementation
  * @details Provides group-based message reception over UDP multicast.
  *          Integrates the DISH pattern into hexagonal architecture.
  *          Implements IAdapter for AdapterManager compatibility.
  */
 class TrackDataZeroMQIncomingAdapter : public adapters::IAdapter {
 private:
+    // ==================== Configuration Constants ====================
+    // Real-time thread configuration
+    static constexpr int REALTIME_THREAD_PRIORITY = 95;
+    static constexpr int DEDICATED_CPU_CORE = 2;  // Different from b_hexagon
+    static constexpr int RECEIVE_TIMEOUT_MS = 100;
+    
+    // Network configuration constants (UDP RADIO/DISH pattern)
+    static constexpr const char* DEFAULT_MULTICAST_ADDRESS = "239.1.1.5";
+    static constexpr int DEFAULT_PORT = 9595;  // Receives from b_hexagon port 9595
+    static constexpr const char* DEFAULT_PROTOCOL = "udp";
+    static constexpr const char* DEFAULT_GROUP = "DelayCalcTrackData";
+    
+    // Socket configuration
+    static constexpr int LINGER_MS = 0;
+    static constexpr int HIGH_WATER_MARK = 0;  // Unlimited
+    
+    // ==================== Member Variables ====================
     std::shared_ptr<domain::ports::incoming::IDelayCalcTrackDataIncomingPort> track_data_submission_;
     
     // Configuration (initialized first for logging)
-    std::string multicast_endpoint_;  // UDP multicast address (e.g., udp://239.1.1.1:9001)
-    std::string group_name_;          // Group name to subscribe (e.g., "SOURCE_DATA")
+    std::string endpoint_;            // UDP multicast endpoint
+    std::string group_;               // Group name for DISH subscription
     std::string adapter_name_;        // Adapter identifier for logging
     
     // ZeroMQ C++ context and socket
@@ -43,14 +67,6 @@ private:
     // Thread management
     std::thread subscriber_thread_;
     std::atomic<bool> running_;
-    
-    // Latency measurement
-    struct LatencyMeasurement {
-        std::chrono::steady_clock::time_point receive_time;
-        long long send_timestamp_us;  // microseconds
-        long long latency_us;         // microseconds
-        std::string original_data;
-    };
 
 public:
     /**

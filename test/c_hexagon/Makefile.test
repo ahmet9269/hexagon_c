@@ -9,8 +9,8 @@ OBJ_DIR := .obj/test
 BIN_DIR := bin
 LIB_DIR := lib
 
-# Include paths
-INC_DIRS := -I$(SRC_DIR) -I$(LIB_DIR)/include -I/usr/include
+# Include paths (added test directory for mock classes)
+INC_DIRS := -I$(SRC_DIR) -I$(TEST_DIR) -I. -I$(LIB_DIR)/include -I/usr/include
 
 # Compiler settings
 CXX := g++

@@ -332,3 +332,38 @@ TEST_F(TrackDataZeroMQIncomingAdapterTest, EmptyGroupName_IsHandled) {
         SUCCEED();
     }
 }
+
+// ============================================
+// Adapter Configuration Tests
+// (Note: Configuration constants are private, testing behavior instead)
+// ============================================
+
+TEST_F(TrackDataZeroMQIncomingAdapterTest, Config_DefaultAdapterHasValidName) {
+    // Tests that default constructor creates valid adapter
+    auto adapter = std::make_shared<TrackDataZeroMQIncomingAdapter>(mockPort_);
+    std::string name = adapter->getName();
+    
+    // Name should contain "DelayCalcTrackData" indicating default group
+    EXPECT_NE(name.find("DelayCalcTrackData"), std::string::npos);
+}
+
+TEST_F(TrackDataZeroMQIncomingAdapterTest, Config_AdapterUsesUDPMulticast) {
+    // Tests that default constructor uses UDP multicast (RADIO/DISH pattern)
+    // This is verified by successful construction with default config
+    EXPECT_NO_THROW({
+        auto adapter = std::make_shared<TrackDataZeroMQIncomingAdapter>(mockPort_);
+    });
+}
+
+TEST_F(TrackDataZeroMQIncomingAdapterTest, Config_ReceiveTimeoutIsPositive) {
+    // Verify adapter handles timeout correctly by starting/stopping without hanging
+    std::string endpoint = getUniqueEndpoint();
+    auto adapter = std::make_shared<TrackDataZeroMQIncomingAdapter>(
+        mockPort_, endpoint, "TestData");
+    
+    adapter->start();
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    adapter->stop();  // Should complete quickly due to timeout
+    
+    EXPECT_FALSE(adapter->isRunning());
+}

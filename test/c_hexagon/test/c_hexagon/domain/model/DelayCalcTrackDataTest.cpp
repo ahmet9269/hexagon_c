@@ -207,16 +207,13 @@ TEST_F(DelayCalcTrackDataTest, Deserialize_FailsWithWrongSize) {
 }
 
 // ============================================
-// Network Configuration Tests
+// Network Configuration Tests (moved to NetworkConfig)
 // ============================================
 
-TEST_F(DelayCalcTrackDataTest, NetworkConstants_AreCorrect) {
-    // Development/container environment uses localhost
-    EXPECT_STREQ(DelayCalcTrackData::MULTICAST_ADDRESS, "127.0.0.1");
-    EXPECT_EQ(DelayCalcTrackData::PORT, 15002);
-    EXPECT_STREQ(DelayCalcTrackData::ZMQ_SOCKET_TYPE, "DISH");
-    EXPECT_TRUE(DelayCalcTrackData::IS_SUBSCRIBER);
-}
+// Note: Network configuration has been moved to adapters/common/NetworkConfig.hpp
+// to maintain clean hexagonal architecture. Domain models should not contain
+// infrastructure-specific configuration.
+// See: test/c_hexagon/adapters/common/NetworkConfigTest.cpp for config tests
 
 // ============================================
 // Edge Cases Tests

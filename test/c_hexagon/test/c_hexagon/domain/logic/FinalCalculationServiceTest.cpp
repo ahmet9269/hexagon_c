@@ -83,7 +83,8 @@ TEST_F(FinalCalculationServiceTest, DefaultConstructor_CreatesServiceWithoutPort
 
 TEST_F(FinalCalculationServiceTest, ConstructorWithPort_AcceptsOutgoingPort) {
     auto mockPort = std::make_unique<MockOutgoingPort>();
-    FinalCalculationService service(std::move(mockPort));
+    // Explicit conversion to interface type to avoid ambiguity
+    FinalCalculationService service(std::unique_ptr<outgoing::ITrackDataStatisticOutgoingPort>(std::move(mockPort)));
     // Should not throw
     SUCCEED();
 }
@@ -95,7 +96,7 @@ TEST_F(FinalCalculationServiceTest, ConstructorWithPort_AcceptsOutgoingPort) {
 TEST_F(FinalCalculationServiceTest, SubmitDelayCalcTrackData_ProcessesData) {
     auto mockPort = std::make_unique<MockOutgoingPort>();
     MockOutgoingPort* mockPortPtr = mockPort.get();
-    FinalCalculationService service(std::move(mockPort));
+    FinalCalculationService service(std::unique_ptr<outgoing::ITrackDataStatisticOutgoingPort>(std::move(mockPort)));
     
     service.submitDelayCalcTrackData(inputData_);
     
@@ -105,7 +106,7 @@ TEST_F(FinalCalculationServiceTest, SubmitDelayCalcTrackData_ProcessesData) {
 TEST_F(FinalCalculationServiceTest, SubmitDelayCalcTrackData_PreservesTrackId) {
     auto mockPort = std::make_unique<MockOutgoingPort>();
     MockOutgoingPort* mockPortPtr = mockPort.get();
-    FinalCalculationService service(std::move(mockPort));
+    FinalCalculationService service(std::unique_ptr<outgoing::ITrackDataStatisticOutgoingPort>(std::move(mockPort)));
     
     service.submitDelayCalcTrackData(inputData_);
     
@@ -115,7 +116,7 @@ TEST_F(FinalCalculationServiceTest, SubmitDelayCalcTrackData_PreservesTrackId) {
 TEST_F(FinalCalculationServiceTest, SubmitDelayCalcTrackData_CopiesPositions) {
     auto mockPort = std::make_unique<MockOutgoingPort>();
     MockOutgoingPort* mockPortPtr = mockPort.get();
-    FinalCalculationService service(std::move(mockPort));
+    FinalCalculationService service(std::unique_ptr<outgoing::ITrackDataStatisticOutgoingPort>(std::move(mockPort)));
     
     service.submitDelayCalcTrackData(inputData_);
     
@@ -128,7 +129,7 @@ TEST_F(FinalCalculationServiceTest, SubmitDelayCalcTrackData_CopiesPositions) {
 TEST_F(FinalCalculationServiceTest, SubmitDelayCalcTrackData_CopiesVelocities) {
     auto mockPort = std::make_unique<MockOutgoingPort>();
     MockOutgoingPort* mockPortPtr = mockPort.get();
-    FinalCalculationService service(std::move(mockPort));
+    FinalCalculationService service(std::unique_ptr<outgoing::ITrackDataStatisticOutgoingPort>(std::move(mockPort)));
     
     service.submitDelayCalcTrackData(inputData_);
     
@@ -145,7 +146,7 @@ TEST_F(FinalCalculationServiceTest, SubmitDelayCalcTrackData_CopiesVelocities) {
 TEST_F(FinalCalculationServiceTest, ProcessData_CopiesFirstHopDelayTime) {
     auto mockPort = std::make_unique<MockOutgoingPort>();
     MockOutgoingPort* mockPortPtr = mockPort.get();
-    FinalCalculationService service(std::move(mockPort));
+    FinalCalculationService service(std::unique_ptr<outgoing::ITrackDataStatisticOutgoingPort>(std::move(mockPort)));
     
     service.submitDelayCalcTrackData(inputData_);
     
@@ -156,7 +157,7 @@ TEST_F(FinalCalculationServiceTest, ProcessData_CopiesFirstHopDelayTime) {
 TEST_F(FinalCalculationServiceTest, ProcessData_CalculatesSecondHopDelay) {
     auto mockPort = std::make_unique<MockOutgoingPort>();
     MockOutgoingPort* mockPortPtr = mockPort.get();
-    FinalCalculationService service(std::move(mockPort));
+    FinalCalculationService service(std::unique_ptr<outgoing::ITrackDataStatisticOutgoingPort>(std::move(mockPort)));
     
     service.submitDelayCalcTrackData(inputData_);
     
@@ -168,7 +169,7 @@ TEST_F(FinalCalculationServiceTest, ProcessData_CalculatesSecondHopDelay) {
 TEST_F(FinalCalculationServiceTest, ProcessData_SetsThirdHopSentTime) {
     auto mockPort = std::make_unique<MockOutgoingPort>();
     MockOutgoingPort* mockPortPtr = mockPort.get();
-    FinalCalculationService service(std::move(mockPort));
+    FinalCalculationService service(std::unique_ptr<outgoing::ITrackDataStatisticOutgoingPort>(std::move(mockPort)));
     
     service.submitDelayCalcTrackData(inputData_);
     
@@ -179,7 +180,7 @@ TEST_F(FinalCalculationServiceTest, ProcessData_SetsThirdHopSentTime) {
 TEST_F(FinalCalculationServiceTest, ProcessData_CalculatesTotalDelay) {
     auto mockPort = std::make_unique<MockOutgoingPort>();
     MockOutgoingPort* mockPortPtr = mockPort.get();
-    FinalCalculationService service(std::move(mockPort));
+    FinalCalculationService service(std::unique_ptr<outgoing::ITrackDataStatisticOutgoingPort>(std::move(mockPort)));
     
     service.submitDelayCalcTrackData(inputData_);
     
@@ -205,7 +206,7 @@ TEST_F(FinalCalculationServiceTest, ProcessData_WithNotReadyPort_DoesNotSend) {
     auto mockPort = std::make_unique<MockOutgoingPort>();
     MockOutgoingPort* mockPortPtr = mockPort.get();
     mockPortPtr->setReady(false);
-    FinalCalculationService service(std::move(mockPort));
+    FinalCalculationService service(std::unique_ptr<outgoing::ITrackDataStatisticOutgoingPort>(std::move(mockPort)));
     
     service.submitDelayCalcTrackData(inputData_);
     
@@ -215,7 +216,7 @@ TEST_F(FinalCalculationServiceTest, ProcessData_WithNotReadyPort_DoesNotSend) {
 TEST_F(FinalCalculationServiceTest, ProcessMultipleData_AllAreSent) {
     auto mockPort = std::make_unique<MockOutgoingPort>();
     MockOutgoingPort* mockPortPtr = mockPort.get();
-    FinalCalculationService service(std::move(mockPort));
+    FinalCalculationService service(std::unique_ptr<outgoing::ITrackDataStatisticOutgoingPort>(std::move(mockPort)));
     
     DelayCalcTrackData data1, data2, data3;
     data1.setTrackId(1);
@@ -233,7 +234,7 @@ TEST_F(FinalCalculationServiceTest, ProcessMultipleData_AllAreSent) {
 TEST_F(FinalCalculationServiceTest, ProcessData_WithZeroDelays_Works) {
     auto mockPort = std::make_unique<MockOutgoingPort>();
     MockOutgoingPort* mockPortPtr = mockPort.get();
-    FinalCalculationService service(std::move(mockPort));
+    FinalCalculationService service(std::unique_ptr<outgoing::ITrackDataStatisticOutgoingPort>(std::move(mockPort)));
     
     DelayCalcTrackData zeroDelayData;
     zeroDelayData.setTrackId(999);
@@ -252,7 +253,7 @@ TEST_F(FinalCalculationServiceTest, ProcessData_WithZeroDelays_Works) {
 TEST_F(FinalCalculationServiceTest, ProcessDelayCalcData_WorksSameAsSubmit) {
     auto mockPort = std::make_unique<MockOutgoingPort>();
     MockOutgoingPort* mockPortPtr = mockPort.get();
-    FinalCalculationService service(std::move(mockPort));
+    FinalCalculationService service(std::unique_ptr<outgoing::ITrackDataStatisticOutgoingPort>(std::move(mockPort)));
     
     service.processDelayCalcData(inputData_);
     

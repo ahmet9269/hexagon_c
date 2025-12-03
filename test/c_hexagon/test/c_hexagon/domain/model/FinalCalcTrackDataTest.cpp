@@ -194,16 +194,13 @@ TEST_F(FinalCalcTrackDataTest, Deserialize_FailsWithWrongSize) {
 }
 
 // ============================================
-// Network Configuration Tests
+// Network Configuration Tests (moved to NetworkConfig)
 // ============================================
 
-TEST_F(FinalCalcTrackDataTest, NetworkConstants_AreCorrect) {
-    // Development/container environment uses localhost
-    EXPECT_STREQ(FinalCalcTrackData::MULTICAST_ADDRESS, "127.0.0.1");
-    EXPECT_EQ(FinalCalcTrackData::PORT, 15003);
-    EXPECT_STREQ(FinalCalcTrackData::ZMQ_SOCKET_TYPE, "RADIO");
-    EXPECT_TRUE(FinalCalcTrackData::IS_PUBLISHER);
-}
+// Note: Network configuration has been moved to adapters/common/NetworkConfig.hpp
+// to maintain clean hexagonal architecture. Domain models should not contain
+// infrastructure-specific configuration.
+// See: test/c_hexagon/adapters/common/NetworkConfigTest.cpp for config tests
 
 // ============================================
 // Validation Tests

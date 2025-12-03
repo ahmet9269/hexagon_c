@@ -31,6 +31,15 @@ namespace outgoing {
 namespace zeromq {
 
 /**
+ * @brief ZeroMQ RADIO Adapter for FinalCalcTrackData transmission via UDP multicast
+ * @details Thread-per-Type architecture compliant - runs in dedicated thread.
+ *          Uses RADIO/DISH pattern for group-based UDP multicast messaging.
+ * 
+ * Network Flow:
+ * - C_hexagon (RADIO) --[UDP Multicast]--> D_hexagon/Listener (DISH)
+ * 
+ * @note MISRA C++ 2023 compliant implementation
+ * 
  * @brief ZeroMQ RADIO Adapter for FinalCalcTrackData transmission
  * @details Provides group-based message transmission using RADIO/DISH pattern.
  *          Implements both IAdapter (for lifecycle) and ITrackDataStatisticOutgoingPort
@@ -133,9 +142,27 @@ private:
     void enqueueMessage(const domain::ports::FinalCalcTrackData& data);
 
 private:
+    // ==================== Configuration Constants ====================
+    // Real-time thread configuration
+    static constexpr int REALTIME_THREAD_PRIORITY = 95;
+    static constexpr int DEDICATED_CPU_CORE = 3;  // Different core for outgoing
+    static constexpr int SEND_TIMEOUT_MS = 100;
+    
+    // Network configuration constants (UDP RADIO/DISH pattern)
+    static constexpr const char* DEFAULT_MULTICAST_ADDRESS = "239.1.1.5";
+    static constexpr int DEFAULT_PORT = 9597;  // Output port for FinalCalcTrackData
+    static constexpr const char* DEFAULT_PROTOCOL = "udp";
+    static constexpr const char* DEFAULT_GROUP = "FinalCalcTrackData";
+    
+    // Socket configuration
+    static constexpr int LINGER_MS = 0;
+    static constexpr int HIGH_WATER_MARK = 0;  // Unlimited
+    static constexpr std::size_t MAX_QUEUE_SIZE = 1000;  ///< Prevent unbounded growth
+    
+    // ==================== Member Variables ====================
     // Configuration
     std::string endpoint_;          ///< ZeroMQ endpoint
-    std::string group_name_;        ///< Multicast group name
+    std::string group_;             ///< Multicast group name
     std::string adapter_name_;      ///< Adapter identifier
 
     // ZeroMQ components
@@ -151,7 +178,6 @@ private:
     mutable std::mutex queue_mutex_;
     std::condition_variable queue_cv_;
     std::queue<domain::ports::FinalCalcTrackData> message_queue_;
-    static constexpr std::size_t MAX_QUEUE_SIZE = 1000;  ///< Prevent unbounded growth
 };
 
 } // namespace zeromq

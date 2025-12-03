@@ -14,21 +14,32 @@
 #include "FinalCalcTrackDataZeroMQOutgoingAdapter.hpp"
 #include "utils/Logger.hpp"
 #include <chrono>
+#include <sstream>
 
 namespace adapters {
 namespace outgoing {
 namespace zeromq {
 
-// MISRA C++ 2023 compliant named constants
-static constexpr int ZMQ_SEND_TIMEOUT_MS = 100;
-static constexpr int ZMQ_LINGER_MS = 0;
+namespace {
+    /**
+     * @brief Constructs UDP multicast endpoint string
+     * @param address Multicast address (e.g., "239.1.1.5")
+     * @param port Port number
+     * @return Formatted endpoint string (e.g., "udp://239.1.1.5:9597")
+     */
+    std::string buildEndpoint(const char* address, int port) {
+        std::ostringstream oss;
+        oss << "udp://" << address << ":" << port;
+        return oss.str();
+    }
+}
 
 /**
- * @brief Default constructor with localhost configuration
+ * @brief Default constructor with UDP multicast configuration
  */
 FinalCalcTrackDataZeroMQOutgoingAdapter::FinalCalcTrackDataZeroMQOutgoingAdapter()
-    : endpoint_("tcp://127.0.0.1:15003")
-    , group_name_("FinalCalcTrackData")
+    : endpoint_(buildEndpoint(DEFAULT_MULTICAST_ADDRESS, DEFAULT_PORT))
+    , group_(DEFAULT_GROUP)
     , adapter_name_("FinalCalcTrackData-OutAdapter")
     , zmq_context_(1)
     , radio_socket_(nullptr)
@@ -47,7 +58,7 @@ FinalCalcTrackDataZeroMQOutgoingAdapter::FinalCalcTrackDataZeroMQOutgoingAdapter
     const std::string& endpoint,
     const std::string& group_name)
     : endpoint_(endpoint)
-    , group_name_(group_name)
+    , group_(group_name)
     , adapter_name_(group_name + "-OutAdapter")
     , zmq_context_(1)
     , radio_socket_(nullptr)
@@ -71,15 +82,15 @@ FinalCalcTrackDataZeroMQOutgoingAdapter::~FinalCalcTrackDataZeroMQOutgoingAdapte
 void FinalCalcTrackDataZeroMQOutgoingAdapter::initializeRadioSocket() {
     try {
         LOG_INFO("Initializing RADIO socket - Endpoint: {}, Group: {}", 
-                 endpoint_, group_name_);
+                 endpoint_, group_);
 
         // Create RADIO socket (publisher for RADIO/DISH pattern)
         radio_socket_ = std::make_unique<zmq::socket_t>(zmq_context_, zmq::socket_type::radio);
 
         // Configure socket options for optimal performance
-        radio_socket_->set(zmq::sockopt::sndhwm, 0);           // Unlimited send buffer
-        radio_socket_->set(zmq::sockopt::sndtimeo, ZMQ_SEND_TIMEOUT_MS);
-        radio_socket_->set(zmq::sockopt::linger, ZMQ_LINGER_MS);
+        radio_socket_->set(zmq::sockopt::sndhwm, HIGH_WATER_MARK);
+        radio_socket_->set(zmq::sockopt::sndtimeo, SEND_TIMEOUT_MS);
+        radio_socket_->set(zmq::sockopt::linger, LINGER_MS);
         radio_socket_->set(zmq::sockopt::immediate, 1);        // Process immediately
 
         // RADIO connects to endpoints (opposite of DISH which binds)
@@ -243,7 +254,7 @@ void FinalCalcTrackDataZeroMQOutgoingAdapter::publisherWorker() {
             
             // Create ZMQ message with group
             zmq::message_t msg(serialized.data(), serialized.size());
-            msg.set_group(group_name_.c_str());
+            msg.set_group(group_.c_str());
             
             auto result = radio_socket_->send(msg, zmq::send_flags::dontwait);
             

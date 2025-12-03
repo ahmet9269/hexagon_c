@@ -16,22 +16,12 @@ namespace ports {
  * Auto-generated from FinalCalcTrackData.json
  * MISRA C++ 2023 compliant implementation
  * Direction: outgoing
+ * 
+ * @note Network configuration has been moved to adapters/common/NetworkConfig.hpp
+ *       to maintain clean hexagonal architecture (domain should not know about infrastructure)
  */
 class FinalCalcTrackData final {
 public:
-    // Network configuration constants
-    // Original UDP Multicast configuration (for production environment)
-    // static constexpr const char* MULTICAST_ADDRESS = "239.1.1.5";
-    // static constexpr int PORT = 9597;
-    
-    // TCP localhost configuration (for development/container environment)
-    static constexpr const char* MULTICAST_ADDRESS = "127.0.0.1";
-    static constexpr int PORT = 15003;
-    
-    // ZeroMQ RADIO socket configuration (outgoing)
-    static constexpr const char* ZMQ_SOCKET_TYPE = "RADIO";
-    static constexpr bool IS_PUBLISHER = true;
-
     // MISRA C++ 2023 compliant constructors
     explicit FinalCalcTrackData() noexcept;
     

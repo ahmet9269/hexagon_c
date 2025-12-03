@@ -14,7 +14,7 @@ using domain::ports::FinalCalcTrackData;
 
 class FinalCalculationService : public ports::incoming::IDelayCalcTrackDataIncomingPort {
 private:
-    std::unique_ptr<ports::outgoing::ITrackDataStatisticOutgoingPort> outgoing_port_;
+    std::shared_ptr<ports::outgoing::ITrackDataStatisticOutgoingPort> outgoing_port_;
     
 public:
     /**
@@ -23,11 +23,18 @@ public:
     FinalCalculationService();
     
     /**
-     * @brief Constructor with outgoing port
+     * @brief Constructor with outgoing port (unique_ptr - takes ownership)
      * @param outgoing_port Port for sending processed data
      */
     explicit FinalCalculationService(
         std::unique_ptr<ports::outgoing::ITrackDataStatisticOutgoingPort> outgoing_port);
+    
+    /**
+     * @brief Constructor with outgoing port (shared_ptr - shared ownership)
+     * @param outgoing_port Port for sending processed data
+     */
+    explicit FinalCalculationService(
+        std::shared_ptr<ports::outgoing::ITrackDataStatisticOutgoingPort> outgoing_port);
     
     // Primary Port Implementation
     void submitDelayCalcTrackData(const DelayCalcTrackData& delayCalcData) override;
