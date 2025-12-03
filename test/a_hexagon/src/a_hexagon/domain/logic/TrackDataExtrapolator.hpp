@@ -3,7 +3,7 @@
 #define TRACK_DATA_EXTRAPOLATOR_H 
 
 #include <domain/ports/outgoing/ExtrapTrackDataOutgoingPort.hpp>
-#include "domain/ports/incoming/TrackDataIncomingPort.h"
+#include "domain/ports/incoming/ITrackDataIncomingPort.hpp"
 #include <vector>
 #include <memory>
 #include "domain/model/TrackData.hpp"
@@ -19,10 +19,10 @@ using std::vector;
 /**
  * @class TrackDataExtrapolator
  * @brief Domain service for extrapolating track data
- * @details Implements TrackDataIncomingPort for hexagonal architecture
+ * @details Implements ITrackDataIncomingPort for hexagonal architecture
  * @note MISRA C++ 2023 compliant implementation
  */
-class TrackDataExtrapolator : public domain::ports::incoming::TrackDataIncomingPort {
+class TrackDataExtrapolator : public domain::ports::incoming::ITrackDataIncomingPort {
 private:
     /// @brief Outgoing port for sending extrapolated data - MISRA compliant smart pointer
     std::unique_ptr<domain::ports::outgoing::ExtrapTrackDataOutgoingPort> outgoingPort_;

@@ -17,7 +17,8 @@
 
 #include "IMessageSocket.hpp"
 
-// ZMQ Draft API is enabled via -DZMQ_BUILD_DRAFT_API compiler flag in Makefile
+// ZMQ Draft API must be enabled before including zmq.hpp
+#include "zmq_config.hpp"
 #include <zmq.hpp>
 #include <memory>
 #include <atomic>

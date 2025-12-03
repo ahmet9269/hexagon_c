@@ -27,7 +27,7 @@ namespace zeromq {
 ExtrapTrackDataZeroMQOutgoingAdapter::ExtrapTrackDataZeroMQOutgoingAdapter(
     std::unique_ptr<adapters::common::messaging::IMessageSocket> socket)
     : endpoint_("")
-    , groupName_(DEFAULT_GROUP)
+    , group_(DEFAULT_GROUP)
     , socket_(std::move(socket))
     , running_(false)
     , ownsSocket_(false) {  // Socket is already configured externally
@@ -39,7 +39,7 @@ ExtrapTrackDataZeroMQOutgoingAdapter::ExtrapTrackDataZeroMQOutgoingAdapter(
 
 ExtrapTrackDataZeroMQOutgoingAdapter::ExtrapTrackDataZeroMQOutgoingAdapter()
     : endpoint_("")
-    , groupName_(DEFAULT_GROUP)
+    , group_(DEFAULT_GROUP)
     , socket_(nullptr)
     , running_(false)
     , ownsSocket_(true) {  // We own the socket, need to initialize it
@@ -56,9 +56,9 @@ ExtrapTrackDataZeroMQOutgoingAdapter::~ExtrapTrackDataZeroMQOutgoingAdapter() {
 void ExtrapTrackDataZeroMQOutgoingAdapter::loadConfiguration() {
     // Load socket configuration from class constants
     endpoint_ = DEFAULT_ENDPOINT;
-    groupName_ = DEFAULT_GROUP;
+    group_ = DEFAULT_GROUP;
     
-    LOG_DEBUG("Configuration loaded - endpoint: {}, group: {}", endpoint_, groupName_);
+    LOG_DEBUG("Configuration loaded - endpoint: {}, group: {}", endpoint_, group_);
 }
 
 bool ExtrapTrackDataZeroMQOutgoingAdapter::initializeSocket() {
@@ -87,7 +87,7 @@ bool ExtrapTrackDataZeroMQOutgoingAdapter::initializeSocket() {
         socket_ = std::move(zmqSocket);
         
         LOG_INFO("ZeroMQ socket initialized - endpoint: {}, group: {}", 
-                 endpoint_, groupName_);
+                 endpoint_, group_);
         return true;
         
     } catch (const std::exception& e) {
@@ -172,7 +172,7 @@ void ExtrapTrackDataZeroMQOutgoingAdapter::sendExtrapTrackData(
         std::vector<uint8_t> binaryData = data.serialize();
         
         // Send via IMessageSocket abstraction
-        if (socket_->send(binaryData, groupName_)) {
+        if (socket_->send(binaryData, group_)) {
             LOG_INFO("[a_hexagon] ExtrapTrackData sent - TrackID: {}, Size: {} bytes", 
                      data.getTrackId(), binaryData.size());
         } else {

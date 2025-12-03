@@ -139,7 +139,7 @@ private:
 
     // Configuration
     std::string endpoint_;          ///< ZeroMQ endpoint
-    std::string groupName_;         ///< ZeroMQ group name for RADIO
+    std::string group_;             ///< ZeroMQ group name for RADIO
 
     // Socket abstraction (DIP compliant)
     std::unique_ptr<adapters::common::messaging::IMessageSocket> socket_;  ///< Socket abstraction

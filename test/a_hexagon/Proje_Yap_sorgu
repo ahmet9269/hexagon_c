@@ -1,0 +1,159 @@
+Sen bir C++ uzmanısın. [PROJE_YOLU] projesini aşağıdaki kriterlere göre detaylı analiz et ve her kategori için 1-5 arası puan ver:
+
+## 1. SOLID PRENSİPLERİ ANALİZİ
+
+### Single Responsibility Principle (SRP)
+- Her sınıf tek bir sorumluluğa mı sahip?
+- Sınıfların değişmesi için tek bir sebep var mı?
+- God class anti-pattern var mı?
+
+### Open/Closed Principle (OCP)
+- Sınıflar genişletmeye açık, değişikliğe kapalı mı?
+- Yeni özellik eklemek mevcut kodu değiştirmeyi gerektiriyor mu?
+- Strategy/Template pattern kullanılmış mı?
+
+### Liskov Substitution Principle (LSP)
+- Alt sınıflar, üst sınıfların yerine geçebiliyor mu?
+- Virtual destructor'lar tanımlı mı?
+- Override edilen metodlar kontratı bozuyor mu?
+
+### Interface Segregation Principle (ISP)
+- Arayüzler minimal ve odaklı mı?
+- Fat interface anti-pattern var mı?
+- İstemciler kullanmadıkları metodlara bağımlı mı?
+
+### Dependency Inversion Principle (DIP)
+- Yüksek seviye modüller düşük seviye modüllere bağımlı mı?
+- Soyutlamalar (interface/abstract class) kullanılmış mı?
+- Dependency injection uygulanmış mı?
+
+## 2. MİMARİ YAPI ANALİZİ
+
+### Hexagonal/Clean/Onion Architecture
+- Domain layer izole mi?
+- Adapter/Port ayrımı var mı?
+- Infrastructure ve business logic ayrı mı?
+- Bağımlılıklar içe doğru mu akıyor?
+
+### Katman Yapısı
+- Klasör/namespace organizasyonu anlamlı mı?
+- Döngüsel bağımlılık var mı?
+- Layer'lar arası iletişim nasıl?
+
+## 3. THREAD SAFETY VE CONCURRENCY
+
+### Thread-per-Type / Thread Safety
+- Her iş parçacığı izole mi çalışıyor?
+- Shared state minimize edilmiş mi?
+- Mutex/lock kullanımı doğru mu?
+- std::atomic kullanımı var mı?
+- Race condition riski var mı?
+- Deadlock potansiyeli var mı?
+
+### Real-time Özellikler
+- Thread priority yönetimi var mı?
+- CPU affinity ayarlanmış mı?
+- Lock-free veri yapıları kullanılmış mı?
+
+## 4. TEST EDİLEBİLİRLİK
+
+### Mock/Stub Desteği
+- Bağımlılıklar interface üzerinden mi inject ediliyor?
+- Constructor injection kullanılmış mı?
+- Tüm external bağımlılıklar mock'lanabilir mi?
+
+### Test Altyapısı
+- Unit test framework (GTest, Catch2, etc.) kullanılmış mı?
+- Mock framework (GMock, FakeIt, etc.) kullanılmış mı?
+- Test coverage yeterli mi?
+- Integration testler var mı?
+
+### Test Organizasyonu
+- Test dosyaları ayrı klasörde mi?
+- Test fixture'lar kullanılmış mı?
+- Edge case'ler test edilmiş mi?
+- Error path'ler test edilmiş mi?
+
+## 5. MODERN C++ STANDARTLARI
+
+### C++17/20/23 Özellikleri
+- Smart pointer kullanımı (unique_ptr, shared_ptr)
+- std::optional, std::variant, std::any kullanımı
+- [[nodiscard]], [[maybe_unused]] attribute'ları
+- constexpr ve compile-time hesaplamalar
+- Structured bindings
+- Range-based for loops
+- auto type deduction (uygun kullanım)
+- noexcept specifier'lar
+- Lambda expressions
+- Move semantics
+
+### RAII Prensibi
+- Kaynaklar constructor'da mı alınıyor?
+- Destructor'da otomatik cleanup var mı?
+- Raw pointer yerine smart pointer kullanılmış mı?
+
+### Exception Safety
+- Strong/Basic exception guarantee sağlanmış mı?
+- noexcept doğru kullanılmış mı?
+- RAII ile kaynak güvenliği sağlanmış mı?
+
+## 6. KOD KALİTESİ
+
+### Naming Conventions
+- Sınıf, metod, değişken isimleri anlamlı mı?
+- Tutarlı naming convention kullanılmış mı?
+- Hungarian notation gibi eski pratikler var mı?
+
+### Documentation
+- Doxygen/Javadoc style yorumlar var mı?
+- README.md dosyası yeterli mi?
+- API dokümantasyonu var mı?
+- Mimari dökümanlar var mı?
+
+### Code Organization
+- Header/Source ayrımı doğru mu?
+- Include guard veya #pragma once kullanılmış mı?
+- Forward declaration kullanılmış mı?
+- Circular dependency var mı?
+
+## 7. MISRA/AUTOSAR UYUMLULUK (Opsiyonel)
+
+- MISRA C++ 2023 kurallarına uyum
+- AUTOSAR C++14 guidelines uyumu
+- Static analysis tool kullanımı
+
+## 8. BUILD VE CI/CD
+
+### Build System
+- CMake/Makefile/Bazel kullanılmış mı?
+- Out-of-source build destekleniyor mu?
+- Cross-compilation desteği var mı?
+
+### Continuous Integration
+- CI pipeline tanımlı mı?
+- Otomatik test çalıştırma var mı?
+- Static analysis entegrasyonu var mı?
+- Code coverage raporlama var mı?
+
+---
+
+## ÇIKTI FORMATI
+
+Her kategori için:
+1. Puan (1-5 arası, ⭐ ile göster)
+2. Güçlü yönler (✅ ile listele)
+3. Zayıf yönler (❌ ile listele)
+4. İyileştirme önerileri (🔧 ile listele)
+5. Kod örnekleri (mevcut vs önerilen)
+
+Sonuç tablosu:
+| Kategori | Puan | Özet |
+|----------|------|------|
+| SOLID | X/5 | ... |
+| Mimari | X/5 | ... |
+| Thread Safety | X/5 | ... |
+| Test Edilebilirlik | X/5 | ... |
+| Modern C++ | X/5 | ... |
+| Kod Kalitesi | X/5 | ... |
+| **TOPLAM** | **X/5** | ... |
