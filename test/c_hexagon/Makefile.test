@@ -16,8 +16,8 @@ INC_DIRS := -I$(SRC_DIR) -I$(LIB_DIR)/include -I/usr/include
 CXX := g++
 CPPFLAGS := -std=c++17 $(INC_DIRS) -O2 -g -Wall -Wpedantic -Wextra -DZMQ_BUILD_DRAFT_API=1 -pthread
 
-# Libraries
-LDFLAGS := -L$(LIB_DIR) -L/usr/lib/x86_64-linux-gnu -lgtest -lgtest_main -lpthread -lspdlog
+# Libraries (added ZeroMQ)
+LDFLAGS := -L$(LIB_DIR) -L/usr/lib/x86_64-linux-gnu -lgtest -lgtest_main -lpthread -lspdlog -lzmq
 
 # Runtime library path
 RPATH_CONFIG := -Wl,-rpath,'$$ORIGIN/../lib'
@@ -26,10 +26,12 @@ RPATH_CONFIG := -Wl,-rpath,'$$ORIGIN/../lib'
 TEST_SRCS := $(shell find $(TEST_DIR) -name "*.cpp" -not -name "main_test.cpp")
 TEST_OBJS := $(patsubst $(TEST_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(TEST_SRCS))
 
-# Find required source files (models and services)
+# Find required source files (models, services, and adapters)
 SRC_SRCS := $(SRC_DIR)/domain/model/DelayCalcTrackData.cpp \
             $(SRC_DIR)/domain/model/FinalCalcTrackData.cpp \
-            $(SRC_DIR)/domain/logic/FinalCalculationService.cpp
+            $(SRC_DIR)/domain/logic/FinalCalculationService.cpp \
+            $(SRC_DIR)/adapters/incoming/zeromq/TrackDataZeroMQIncomingAdapter.cpp \
+            $(SRC_DIR)/adapters/outgoing/zeromq/FinalCalcTrackDataZeroMQOutgoingAdapter.cpp
 SRC_OBJS := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/src/%.o,$(SRC_SRCS))
 
 # Main test runner

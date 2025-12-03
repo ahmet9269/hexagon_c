@@ -30,6 +30,11 @@ public:
     // GMock method declaration - matches ICalculatorService signature
     MOCK_METHOD(domain::ports::DelayCalcTrackData, calculateDelay, 
                 (const domain::ports::ExtrapTrackData& trackData), (const, override));
+    
+    // Alias for compatibility with tests using 'calculate'
+    domain::ports::DelayCalcTrackData calculate(const domain::ports::ExtrapTrackData& data) const {
+        return calculateDelay(data);
+    }
 };
 
 }  // namespace mocks

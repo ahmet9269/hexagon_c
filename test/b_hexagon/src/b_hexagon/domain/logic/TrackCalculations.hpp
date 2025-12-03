@@ -1,9 +1,24 @@
+/**
+ * @file TrackCalculations.hpp
+ * @brief Pure stateless calculation utilities for track timing metrics
+ * @details Provides static methods for calculating first hop delays and
+ *          second hop sent times for ExtrapTrackData processing.
+ * 
+ * @author b_hexagon Team
+ * @version 1.0
+ * @date 2025
+ */
+
 #pragma once
 #include "domain/model/ExtrapTrackData.hpp"   // Input data structure
 #include <chrono>                        // Time utilities for nanosecond precision
 
 /**
  * @brief Pure stateless calculation utilities for `ExtrapTrackData` timing metrics.
+ * @details Centralizes arithmetic logic to keep the application service (orchestrator) 
+ *          lightweight and focused on workflow. Facilitates targeted unit testing of 
+ *          business rules. All returned / consumed time values are expressed as 
+ *          nanoseconds since epoch, represented as `long` for convenience.
  *
  * @dot
  * digraph timing_flow {
@@ -24,10 +39,6 @@
  *   {rank=same; calc1; calc2;}
  * }
  * @enddot
- *
- * Centralizes arithmetic logic to keep the application service (orchestrator) lightweight and
- * focused on workflow. Facilitates targeted unit testing of business rules. All returned / consumed
- * time values are expressed as nanoseconds since epoch, represented as `double` for convenience.
  */
 class TrackCalculations {
 public:

@@ -1,8 +1,14 @@
 /**
  * @file IMessageSocket.hpp
  * @brief Abstract messaging socket interface for Dependency Inversion Principle
- * @details Provides abstraction layer for messaging systems (ZeroMQ, MQTT, Kafka, etc.)
+ * @details Provides abstraction layer for messaging systems.
+ *          Designed for ZeroMQ RADIO/DISH pattern (UDP multicast with group filtering).
  *          Enables dependency injection and mock testing without real network connections.
+ * 
+ * ZeroMQ Pattern Reference:
+ * - RADIO socket: Sends messages with group identifier (UDP multicast publisher)
+ * - DISH socket: Receives messages filtered by group (UDP multicast subscriber)
+ * - Note: This is NOT PUB/SUB pattern. RADIO/DISH uses UDP and group-based filtering.
  * 
  * Design Rationale (SOLID - Dependency Inversion Principle):
  * ┌─────────────────────────────────────────────────────────────────────┐
@@ -90,10 +96,12 @@ public:
     [[nodiscard]] virtual bool connect(const std::string& endpoint) = 0;
 
     /**
-     * @brief Subscribe to a group/topic (for DISH/SUB sockets)
-     * @param group Group name to subscribe to
+     * @brief Join a message group (for DISH socket - group-based filtering)
+     * @param group Group name to join/subscribe (max 16 characters in ZeroMQ DISH)
      * @return true on success, false on failure
      * @pre isConnected() == true for some implementations
+     * @note For ZeroMQ DISH socket, this calls zmq_join() internally
+     * @note Method named "subscribe" for interface consistency, but internally uses zmq_join()
      */
     [[nodiscard]] virtual bool subscribe(const std::string& group) = 0;
 
@@ -107,12 +115,13 @@ public:
     [[nodiscard]] virtual bool send(const std::vector<uint8_t>& data) = 0;
 
     /**
-     * @brief Send binary message with group/topic
+     * @brief Send binary message with group identifier
      * @param data Raw bytes to send
-     * @param group Group/topic name for pub-sub patterns
+     * @param group Group name for RADIO/DISH pattern (max 16 characters in ZeroMQ)
      * @return true on successful send, false on failure
      * @pre isConnected() == true
      * @thread_safe Implementation-dependent
+     * @note For ZeroMQ RADIO socket, this sets the message group via zmq_msg_set_group()
      */
     [[nodiscard]] virtual bool send(const std::vector<uint8_t>& data, const std::string& group) = 0;
 
@@ -121,7 +130,13 @@ public:
      * @param timeoutMs Timeout in milliseconds (0 = non-blocking, -1 = infinite)
      * @return Received data if available, std::nullopt on timeout or error
      * @pre isConnected() == true
-     * @thread_safe No - single consumer pattern recommended
+     * @thread_safe NO - Single consumer pattern REQUIRED.
+     *              This method is NOT thread-safe by design.
+     *              Only ONE thread should call receive() on a socket instance.
+     *              In Thread-per-Type architecture, this is guaranteed by
+     *              having a dedicated worker thread per incoming adapter.
+     * @warning Calling receive() from multiple threads simultaneously
+     *          will result in undefined behavior.
      */
     [[nodiscard]] virtual std::optional<std::vector<uint8_t>> receive(int32_t timeoutMs) = 0;
 

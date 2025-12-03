@@ -1,3 +1,14 @@
+/**
+ * @file ProcessTrackUseCase.hpp
+ * @brief Domain use case for processing track data with delay calculations
+ * @details SOLID compliant use case that orchestrates the processing flow
+ *          from incoming ExtrapTrackData to outgoing DelayCalcTrackData.
+ * 
+ * @author b_hexagon Team
+ * @version 1.0
+ * @date 2025
+ */
+
 #pragma once
 
 #include "domain/logic/ICalculatorService.hpp"

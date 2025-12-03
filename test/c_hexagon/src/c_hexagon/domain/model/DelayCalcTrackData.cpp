@@ -510,5 +510,5 @@ std::size_t DelayCalcTrackData::getSerializedSize() const noexcept {
     return size;
 }
 
-} // namespace model
+} // namespace ports
 } // namespace domain

@@ -11,6 +11,7 @@
 #include "utils/Logger.hpp"
 #include "adapters/common/AdapterManager.hpp"
 #include "adapters/incoming/zeromq/TrackDataZeroMQIncomingAdapter.hpp"
+#include "adapters/outgoing/zeromq/FinalCalcTrackDataZeroMQOutgoingAdapter.hpp"
 #include "domain/logic/FinalCalculationService.hpp"
 
 // Global flag for graceful shutdown
@@ -47,8 +48,22 @@ int main() {
         // ========================================
         LOG_INFO("Creating DelayCalcTrackData pipeline...");
         
-        // Create domain service (implements IDelayCalcTrackDataIncomingPort)
-        auto delay_calc_service = std::make_shared<domain::logic::FinalCalculationService>();
+        // Create outgoing adapter first (implements ITrackDataStatisticOutgoingPort)
+        auto final_calc_outgoing = std::make_shared<adapters::outgoing::zeromq::FinalCalcTrackDataZeroMQOutgoingAdapter>(
+            // TCP localhost endpoint (for development/container environment)
+            "tcp://127.0.0.1:15003",
+            "FinalCalcTrackData"
+        );
+        
+        // Create domain service with outgoing port injection (Dependency Inversion)
+        // FinalCalculationService needs unique_ptr, but we also need shared_ptr for adapter
+        // So we create a separate unique_ptr wrapping the same interface
+        auto delay_calc_service = std::make_shared<domain::logic::FinalCalculationService>(
+            std::make_unique<adapters::outgoing::zeromq::FinalCalcTrackDataZeroMQOutgoingAdapter>(
+                "tcp://127.0.0.1:15003",
+                "FinalCalcTrackData"
+            )
+        );
         
         // Create incoming adapter
         auto delay_calc_adapter = std::make_shared<adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter>(
@@ -63,8 +78,8 @@ int main() {
         // Create pipeline and register with manager
         adapters::MessagePipeline delay_calc_pipeline(
             "DelayCalcTrackData",
-            delay_calc_adapter
-            // TODO: delay_calc_outgoing as third parameter
+            delay_calc_adapter,
+            final_calc_outgoing  // Now includes outgoing adapter
         );
         
         adapter_manager.registerPipeline(std::move(delay_calc_pipeline));

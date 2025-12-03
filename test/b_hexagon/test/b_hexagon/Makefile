@@ -1,7 +1,20 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra -Wpedantic -g -O0 -fPIC -DSPDLOG_FMT_EXTERNAL=0 -DZMQ_BUILD_DRAFT_API
-INCLUDES = -I../../src/b_hexagon -I../../src -I/usr/include -I../../lib/include -I. -I../..
-LDFLAGS = -L../../lib -Wl,-rpath,../../lib -lspdlog -lgtest -lgtest_main -lgmock -lpthread -lzmq
+
+# Library directories
+APP_LIB_DIR = ../../lib
+TEST_LIB_DIR = lib
+
+# Include paths - project headers + test framework headers
+INCLUDES = -I../../src/b_hexagon -I../../src -I$(APP_LIB_DIR)/include -I$(TEST_LIB_DIR)/include -I. -I../..
+
+# Link flags - application libs from ../../lib, test libs from ./lib
+LDFLAGS = -L$(APP_LIB_DIR) -L$(TEST_LIB_DIR) \
+          -Wl,-rpath,'$$ORIGIN/../../lib' -Wl,-rpath,'$$ORIGIN/lib' \
+          -lspdlog -lzmq \
+          -lgtest -lgtest_main -lgmock \
+          -lpthread
+
 TARGET = build/b_hexagon_tests
 
 # Source directories
@@ -22,9 +35,13 @@ TEST_SOURCES = main_test.cpp \
                domain/logic/CalculatorServiceTest.cpp \
                domain/model/ExtrapTrackDataTest.cpp \
                domain/model/DelayCalcTrackDataTest.cpp \
+               domain/model/SerializationEdgeCaseTest.cpp \
                adapters/common/AdapterManagerTest.cpp \
+               adapters/common/ZeroMQSocketTest.cpp \
                adapters/incoming/ExtrapTrackDataZeroMQIncomingAdapterTest.cpp \
-               adapters/outgoing/DelayCalcTrackDataZeroMQOutgoingAdapterTest.cpp
+               adapters/outgoing/DelayCalcTrackDataZeroMQOutgoingAdapterTest.cpp \
+               adapters/ErrorPathTest.cpp \
+               utils/LoggerTest.cpp
 
 # Object files
 DOMAIN_OBJS = $(DOMAIN_SOURCES:.cpp=.o)
@@ -42,7 +59,7 @@ $(TARGET): $(TEST_OBJS) $(DOMAIN_OBJS)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
 test: $(TARGET)
-	LD_LIBRARY_PATH=../../lib:$(LD_LIBRARY_PATH) ./$(TARGET)
+	LD_LIBRARY_PATH=$(APP_LIB_DIR):$(TEST_LIB_DIR):$(LD_LIBRARY_PATH) ./$(TARGET)
 
 run: test
 

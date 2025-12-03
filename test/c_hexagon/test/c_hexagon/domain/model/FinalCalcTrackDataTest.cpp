@@ -198,8 +198,9 @@ TEST_F(FinalCalcTrackDataTest, Deserialize_FailsWithWrongSize) {
 // ============================================
 
 TEST_F(FinalCalcTrackDataTest, NetworkConstants_AreCorrect) {
-    EXPECT_STREQ(FinalCalcTrackData::MULTICAST_ADDRESS, "239.1.1.5");
-    EXPECT_EQ(FinalCalcTrackData::PORT, 9597);
+    // Development/container environment uses localhost
+    EXPECT_STREQ(FinalCalcTrackData::MULTICAST_ADDRESS, "127.0.0.1");
+    EXPECT_EQ(FinalCalcTrackData::PORT, 15003);
     EXPECT_STREQ(FinalCalcTrackData::ZMQ_SOCKET_TYPE, "RADIO");
     EXPECT_TRUE(FinalCalcTrackData::IS_PUBLISHER);
 }

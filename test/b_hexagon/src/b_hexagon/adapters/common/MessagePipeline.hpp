@@ -29,6 +29,7 @@
 #include "IAdapter.hpp"
 #include <memory>
 #include <string>
+#include <mutex>
 
 namespace adapters {
 
@@ -78,21 +79,39 @@ public:
      */
     ~MessagePipeline() = default;
 
-    // Allow move semantics for container storage
-    MessagePipeline(MessagePipeline&&) = default;
-    MessagePipeline& operator=(MessagePipeline&&) = default;
+    // Move semantics - mutex requires custom implementation
+    MessagePipeline(MessagePipeline&& other) noexcept
+        : name_(std::move(other.name_))
+        , incomingAdapter_(std::move(other.incomingAdapter_))
+        , outgoingAdapter_(std::move(other.outgoingAdapter_))
+        // mutex_ is default constructed (not moved)
+    {}
+    
+    MessagePipeline& operator=(MessagePipeline&& other) noexcept {
+        if (this != &other) {
+            std::lock_guard<std::mutex> lock(mutex_);
+            std::lock_guard<std::mutex> otherLock(other.mutex_);
+            name_ = std::move(other.name_);
+            incomingAdapter_ = std::move(other.incomingAdapter_);
+            outgoingAdapter_ = std::move(other.outgoingAdapter_);
+        }
+        return *this;
+    }
 
-    // Allow copy for flexibility
-    MessagePipeline(const MessagePipeline&) = default;
-    MessagePipeline& operator=(const MessagePipeline&) = default;
+    // Disable copy - mutex is not copyable
+    MessagePipeline(const MessagePipeline&) = delete;
+    MessagePipeline& operator=(const MessagePipeline&) = delete;
 
     /**
      * @brief Start the entire pipeline
      * @details Starts outgoing adapter first (if present), then incoming adapter
      * @return true if all components started successfully
      * @post isRunning() returns true if successful
+     * @thread_safe Yes - protected by mutex
      */
     [[nodiscard]] bool start() {
+        std::lock_guard<std::mutex> lock(mutex_);
+        
         bool success = true;
         
         // Start outgoing first (so it's ready to receive)
@@ -113,8 +132,11 @@ public:
      * @details Stops incoming adapter first, then outgoing adapter
      *          (reverse order of data flow)
      * @post isRunning() returns false
+     * @thread_safe Yes - protected by mutex
      */
     void stop() noexcept {
+        std::lock_guard<std::mutex> lock(mutex_);
+        
         // Stop incoming first (stop receiving new data)
         if (incomingAdapter_) {
             incomingAdapter_->stop();
@@ -129,8 +151,11 @@ public:
     /**
      * @brief Check if pipeline is running
      * @return true if all configured components are running
+     * @thread_safe Yes - protected by mutex
      */
     [[nodiscard]] bool isRunning() const noexcept {
+        std::lock_guard<std::mutex> lock(mutex_);
+        
         bool running = true;
         if (incomingAdapter_) {
             running = incomingAdapter_->isRunning();
@@ -209,6 +234,7 @@ private:
     std::string name_;                            ///< Pipeline identifier
     std::shared_ptr<IAdapter> incomingAdapter_;   ///< Incoming adapter (receives messages)
     std::shared_ptr<IAdapter> outgoingAdapter_;   ///< Outgoing adapter (sends messages, optional)
+    mutable std::mutex mutex_;                    ///< Thread safety mutex for lifecycle operations
 };
 
 } // namespace adapters

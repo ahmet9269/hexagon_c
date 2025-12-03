@@ -113,11 +113,11 @@ std::string DelayCalcTrackDataZeroMQOutgoingAdapter::getName() const noexcept {
     return adapterName_;
 }
 
-// ==================== Send Operation (Thread-Safe) ====================
+// ==================== Send Operation (Thread-Safe via IMessageSocket) ====================
 
 void DelayCalcTrackDataZeroMQOutgoingAdapter::sendDelayCalcTrackData(const DelayCalcTrackData& data) {
-    // Thread-safe send with mutex
-    std::lock_guard<std::mutex> lock(sendMutex_);
+    // Thread-safety is guaranteed by IMessageSocket::send() which has internal mutex.
+    // No adapter-level mutex needed - avoids double-locking overhead.
     
     if (!running_.load()) {
         Logger::warn("Adapter not running, dropping message for track: ", data.getTrackId());

@@ -28,6 +28,12 @@ public:
 
     // GMock method declaration
     MOCK_METHOD(void, sendDelayCalcTrackData, (const domain::ports::DelayCalcTrackData& data), (override));
+    
+    // Alias for compatibility with tests using 'send'
+    bool send(const domain::ports::DelayCalcTrackData& data) {
+        sendDelayCalcTrackData(data);
+        return true;  // Mock always succeeds by default
+    }
 };
 
 }  // namespace mocks

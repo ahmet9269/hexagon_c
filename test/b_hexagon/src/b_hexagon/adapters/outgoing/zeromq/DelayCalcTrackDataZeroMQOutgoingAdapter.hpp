@@ -86,6 +86,9 @@ public:
     /**
      * @brief Send data via RADIO socket (thread-safe)
      * @param data Data to send
+     * @thread_safe Yes - IMessageSocket::send() is internally synchronized.
+     *              Adapter-level mutex removed to avoid double-locking overhead.
+     *              Multiple threads can safely call this method concurrently.
      */
     void sendDelayCalcTrackData(const DelayCalcTrackData& data) override;
 
@@ -111,5 +114,6 @@ private:
     
     // Thread safety
     std::atomic<bool> running_{false}; // Running state
-    mutable std::mutex sendMutex_;     // Mutex for thread-safe send
+    // Note: sendMutex_ removed - IMessageSocket::send() is internally thread-safe
+    //       This eliminates double-locking overhead (adapter mutex + socket mutex)
 };

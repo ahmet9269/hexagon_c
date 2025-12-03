@@ -211,8 +211,9 @@ TEST_F(DelayCalcTrackDataTest, Deserialize_FailsWithWrongSize) {
 // ============================================
 
 TEST_F(DelayCalcTrackDataTest, NetworkConstants_AreCorrect) {
-    EXPECT_STREQ(DelayCalcTrackData::MULTICAST_ADDRESS, "239.1.1.5");
-    EXPECT_EQ(DelayCalcTrackData::PORT, 9595);
+    // Development/container environment uses localhost
+    EXPECT_STREQ(DelayCalcTrackData::MULTICAST_ADDRESS, "127.0.0.1");
+    EXPECT_EQ(DelayCalcTrackData::PORT, 15002);
     EXPECT_STREQ(DelayCalcTrackData::ZMQ_SOCKET_TYPE, "DISH");
     EXPECT_TRUE(DelayCalcTrackData::IS_SUBSCRIBER);
 }

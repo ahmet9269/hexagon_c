@@ -126,7 +126,14 @@ bool ZeroMQSocket::send(const std::vector<uint8_t>& data, const std::string& gro
 }
 
 std::optional<std::vector<uint8_t>> ZeroMQSocket::receive(int32_t timeoutMs) {
-    // Note: No mutex lock here - receive should be called from single thread
+    // IMPORTANT: This method is intentionally NOT protected by mutex.
+    // Single-consumer pattern is REQUIRED - only one thread should call receive().
+    // This is guaranteed by Thread-per-Type architecture where each incoming
+    // adapter has a dedicated worker thread.
+    // 
+    // Rationale: ZeroMQ sockets are not thread-safe for concurrent recv() calls.
+    // Adding mutex here would create lock contention with send() which is
+    // unnecessary if the single-consumer contract is followed.
     
     if (!connected_.load()) {
         return std::nullopt;
