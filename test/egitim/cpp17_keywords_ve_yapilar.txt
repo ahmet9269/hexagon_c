@@ -1,0 +1,621 @@
+================================================================================
+             C++17 ANAHTAR KELİMELER VE YAPILAR EĞİTİM DOKÜMANI
+                    (c_hexagon Projesi Kaynak Kodlarından)
+================================================================================
+
+Bu doküman, c_hexagon projesinde kullanılan C++17 anahtar kelimeleri, operatörleri,
+pointer tiplerini ve modern C++ yapılarını örneklerle açıklamaktadır.
+
+================================================================================
+                            1. POINTER TİPLERİ
+================================================================================
+
+C++'da pointer (işaretçi), bellekteki bir adresi tutan değişkendir.
+Modern C++17'de 3 ana pointer tipi kullanılır:
+
+--------------------------------------------------------------------------------
+1.1 RAW POINTER (Ham İşaretçi) - T*
+--------------------------------------------------------------------------------
+
+Tanım: Bellek adresini doğrudan tutan temel pointer tipidir.
+       Bellek yönetimi programcının sorumluluğundadır.
+
+Kullanım: 
+  int* ptr;           // int tipine işaret eden pointer
+  MyClass* objPtr;    // MyClass tipine işaret eden pointer
+
+Projeden Örnek (FinalCalculationService.hpp):
+  domain::ports::outgoing::ITrackDataStatisticOutgoingPort* rawOutgoingPort_;
+
+Dikkat: Modern C++'da raw pointer yerine smart pointer tercih edilir.
+        Raw pointer sadece "sahiplik almadan gözlemleme" için kullanılır.
+
+--------------------------------------------------------------------------------
+1.2 std::unique_ptr<T> (Benzersiz Akıllı İşaretçi)
+--------------------------------------------------------------------------------
+
+Tanım: Bir nesneye TEK BİR pointer sahip olabilir.
+       Kapsam dışına çıkınca otomatik olarak belleği temizler (RAII).
+
+Kullanım:
+  std::unique_ptr<MyClass> ptr = std::make_unique<MyClass>();
+
+Projeden Örnek (main.cpp):
+  std::unique_ptr<ICalculatorService> calculatorService = std::make_unique<CalculatorService>();
+
+Özellikler:
+  - Kopyalanamaz (copy constructor delete edilmiş)
+  - Taşınabilir (move semantics ile)
+  - Bellek sızıntısını önler
+  - Performans kaybı yoktur (zero overhead)
+
+Taşıma Örneği:
+  auto ptr1 = std::make_unique<int>(42);
+  auto ptr2 = std::move(ptr1);  // ptr1 artık nullptr, ptr2 sahip
+
+--------------------------------------------------------------------------------
+1.3 std::shared_ptr<T> (Paylaşımlı Akıllı İşaretçi)
+--------------------------------------------------------------------------------
+
+Tanım: Birden fazla pointer aynı nesneyi paylaşabilir.
+       Referans sayacı (reference count) ile çalışır.
+       Son pointer kapsam dışına çıkınca bellek temizlenir.
+
+Projeden Örnek (main.cpp):
+  auto final_calc_outgoing = std::make_shared<FinalCalcTrackDataZeroMQOutgoingAdapter>(
+      "tcp://127.0.0.1:15003",
+      "FinalCalcTrackData"
+  );
+  
+  auto delay_calc_service = std::make_shared<FinalCalculationService>(
+      final_calc_outgoing  // Aynı adapter instance'ı paylaşılıyor
+  );
+
+Özellikler:
+  - Birden fazla sahip olabilir
+  - Thread-safe referans sayacı
+  - Biraz overhead (referans sayacı için)
+
+--------------------------------------------------------------------------------
+1.4 std::weak_ptr<T> (Zayıf İşaretçi)
+--------------------------------------------------------------------------------
+
+Tanım: shared_ptr'ın işaret ettiği nesneyi gözlemler ama sahiplik almaz.
+       Referans sayacını artırmaz.
+       Döngüsel referansları (circular reference) önlemek için kullanılır.
+
+Kullanım:
+  std::weak_ptr<MyClass> weakPtr = sharedPtr;
+  if (auto locked = weakPtr.lock()) {
+      // Nesne hala yaşıyor, güvenle kullanılabilir
+  }
+
+
+================================================================================
+                         2. ANAHTAR KELİMELER (KEYWORDS)
+================================================================================
+
+--------------------------------------------------------------------------------
+2.1 namespace
+--------------------------------------------------------------------------------
+
+Tanım: İsim çakışmalarını önlemek için kod organizasyonu sağlar.
+
+Projeden Örnek:
+  namespace domain {
+  namespace logic {
+      class FinalCalculationService { ... };
+  } // namespace logic
+  } // namespace domain
+
+Kullanım:
+  domain::logic::FinalCalculationService service;
+
+--------------------------------------------------------------------------------
+2.2 class ve struct
+--------------------------------------------------------------------------------
+
+class: Varsayılan olarak private erişime sahiptir.
+struct: Varsayılan olarak public erişime sahiptir.
+
+Projeden Örnek (FinalCalculationService.hpp):
+  class FinalCalculationService : public ports::incoming::IDelayCalcTrackDataIncomingPort {
+  private:
+      std::shared_ptr<ports::outgoing::ITrackDataStatisticOutgoingPort> outgoing_port_;
+      
+  public:
+      FinalCalculationService();
+      void processDelayCalcData(const DelayCalcTrackData& data);
+  };
+
+--------------------------------------------------------------------------------
+2.3 virtual ve override
+--------------------------------------------------------------------------------
+
+virtual: Türetilmiş sınıflarda geçersiz kılınabilecek (override) fonksiyon.
+override: Türetilmiş sınıfta taban sınıf fonksiyonunu geçersiz kıldığını belirtir.
+
+Projeden Örnek (IAdapter.hpp ve TrackDataZeroMQIncomingAdapter):
+  // Taban sınıf (Interface)
+  class IAdapter {
+  public:
+      virtual ~IAdapter() = default;           // Sanal yıkıcı
+      [[nodiscard]] virtual bool start() = 0;  // Saf sanal fonksiyon
+      virtual void stop() = 0;
+  };
+  
+  // Türetilmiş sınıf
+  class TrackDataZeroMQIncomingAdapter : public IAdapter {
+  public:
+      bool start() override;   // Geçersiz kılma
+      void stop() override;    // Geçersiz kılma
+  };
+
+--------------------------------------------------------------------------------
+2.4 explicit
+--------------------------------------------------------------------------------
+
+Tanım: Tek parametreli kurucularda örtülü (implicit) tür dönüşümünü engeller.
+       MISRA C++ standartlarında zorunludur.
+
+Projeden Örnek (FinalCalculationService.hpp):
+  explicit FinalCalculationService(
+      std::unique_ptr<ports::outgoing::ITrackDataStatisticOutgoingPort> outgoing_port);
+
+Neden Önemli:
+  Explicit OLMADAN:
+    FinalCalculationService service = somePort;  // Tehlikeli örtülü dönüşüm
+  
+  Explicit İLE:
+    FinalCalculationService service(somePort);   // Açık kurucu çağrısı (OK)
+    FinalCalculationService service = somePort;  // DERLEME HATASI (Güvenli)
+
+--------------------------------------------------------------------------------
+2.5 const ve constexpr
+--------------------------------------------------------------------------------
+
+const: Değişkenin değiştirilemeyeceğini belirtir.
+constexpr: Derleme zamanında hesaplanabilen sabit.
+
+Projeden Örnek (TrackDataZeroMQIncomingAdapter.hpp):
+  static constexpr int REALTIME_THREAD_PRIORITY = 95;
+  static constexpr int DEDICATED_CPU_CORE = 2;
+  static constexpr const char* DEFAULT_PROTOCOL = "udp";
+
+Fonksiyonlarda const:
+  int32_t getTrackId() const noexcept;  // Bu fonksiyon nesneyi değiştirmez
+
+--------------------------------------------------------------------------------
+2.6 noexcept
+--------------------------------------------------------------------------------
+
+Tanım: Fonksiyonun istisna (exception) fırlatmayacağını garanti eder.
+       Derleyici optimizasyonlarına olanak sağlar.
+
+Projeden Örnek (DelayCalcTrackData.hpp):
+  int32_t getTrackId() const noexcept;
+  [[nodiscard]] bool isValid() const noexcept;
+  ~DelayCalcTrackData() = default;  // noexcept varsayılan olarak
+
+--------------------------------------------------------------------------------
+2.7 static
+--------------------------------------------------------------------------------
+
+Tanım: 
+  - Sınıf üyesi: Tüm nesneler arasında paylaşılır
+  - Fonksiyon içi: Fonksiyon çağrıları arasında değer korunur
+  - Global: Dosya kapsamıyla sınırlandırır
+
+Projeden Örnek (main.cpp):
+  static std::atomic<bool> g_running{true};  // Global, dosya kapsamında
+
+Sınıf İçi Örnek:
+  class Adapter {
+      static constexpr int TIMEOUT_MS = 100;  // Tüm nesnelerde aynı değer
+  };
+
+--------------------------------------------------------------------------------
+2.8 final
+--------------------------------------------------------------------------------
+
+Tanım: Sınıfın türetilmesini veya fonksiyonun geçersiz kılınmasını engeller.
+
+Projeden Örnek (DelayCalcTrackData.hpp):
+  class DelayCalcTrackData final {  // Bu sınıftan türetme yapılamaz
+      ...
+  };
+
+--------------------------------------------------------------------------------
+2.9 default ve delete
+--------------------------------------------------------------------------------
+
+default: Derleyicinin varsayılan uygulamasını kullan.
+delete: Bu fonksiyonun kullanımını yasakla.
+
+Projeden Örnek (AdapterManager.hpp):
+  // Varsayılan kurucu
+  AdapterManager() : running_(false) {}
+  
+  // Varsayılan yıkıcı
+  ~AdapterManager() = default;
+  
+  // Kopyalamayı yasakla (Singleton veya kaynak yönetimi için)
+  AdapterManager(const AdapterManager&) = delete;
+  AdapterManager& operator=(const AdapterManager&) = delete;
+  
+  // Taşımayı da yasakla
+  AdapterManager(AdapterManager&&) = delete;
+  AdapterManager& operator=(AdapterManager&&) = delete;
+
+--------------------------------------------------------------------------------
+2.10 auto
+--------------------------------------------------------------------------------
+
+Tanım: Derleyici değişken tipini otomatik çıkarır.
+       Kod okunabilirliğini artırır, hata riskini azaltır.
+
+Projeden Örnek (main.cpp):
+  auto final_calc_outgoing = std::make_shared<FinalCalcTrackDataZeroMQOutgoingAdapter>(...);
+  
+  auto currentTime = std::chrono::duration_cast<std::chrono::microseconds>(
+      std::chrono::high_resolution_clock::now().time_since_epoch()).count();
+
+--------------------------------------------------------------------------------
+2.11 using (Type Alias)
+--------------------------------------------------------------------------------
+
+Tanım: Tip takma adı oluşturur. typedef'in modern versiyonu.
+
+Projeden Örnek (FinalCalculationService.hpp):
+  using domain::ports::DelayCalcTrackData;
+  using domain::ports::FinalCalcTrackData;
+
+Template Örneği:
+  using StringVector = std::vector<std::string>;
+  using SharedAdapterPtr = std::shared_ptr<IAdapter>;
+
+--------------------------------------------------------------------------------
+2.12 try-catch (İstisna Yönetimi)
+--------------------------------------------------------------------------------
+
+Tanım: Çalışma zamanı hatalarını yakalar ve yönetir.
+
+Projeden Örnek (main.cpp):
+  try {
+      utils::Logger::init("c_hexagon");
+      // ... uygulama kodu
+  } catch (const std::exception& e) {
+      LOG_CRITICAL("Application error: {}", e.what());
+      return 1;
+  }
+
+
+================================================================================
+                            3. OPERATÖRLER
+================================================================================
+
+--------------------------------------------------------------------------------
+3.1 :: (Scope Resolution Operator - Kapsam Çözünürlük Operatörü)
+--------------------------------------------------------------------------------
+
+Kullanım:
+  - Namespace erişimi: std::cout
+  - Sınıf üyelerine erişim: MyClass::staticMember
+  - Global değişkene erişim: ::globalVar
+
+Projeden Örnek:
+  domain::ports::incoming::IDelayCalcTrackDataIncomingPort
+  std::chrono::high_resolution_clock::now()
+
+--------------------------------------------------------------------------------
+3.2 -> (Arrow Operator - Ok Operatörü)
+--------------------------------------------------------------------------------
+
+Tanım: Pointer üzerinden üye erişimi sağlar.
+       ptr->member, (*ptr).member ile eşdeğerdir.
+
+Projeden Örnek:
+  if (outgoing_port_ && outgoing_port_->isReady()) {
+      outgoing_port_->sendFinalTrackData(finalData);
+  }
+
+--------------------------------------------------------------------------------
+3.3 . (Dot Operator - Nokta Operatörü)
+--------------------------------------------------------------------------------
+
+Tanım: Nesne üzerinden üye erişimi sağlar.
+
+Projeden Örnek:
+  finalData.setTrackId(delayCalcData.getTrackId());
+  finalData.getFirstHopDelayTime();
+
+--------------------------------------------------------------------------------
+3.4 && ve || (Logical Operators)
+--------------------------------------------------------------------------------
+
+&& (ve): Her iki koşul da true ise true
+|| (veya): En az biri true ise true
+
+Projeden Örnek:
+  if (outgoing_port_ && outgoing_port_->isReady()) {
+      // outgoing_port_ null değilse VE hazırsa
+  }
+
+--------------------------------------------------------------------------------
+3.5 = 0 (Saf Sanal Fonksiyon)
+--------------------------------------------------------------------------------
+
+Tanım: Fonksiyonun uygulaması olmadığını, türetilmiş sınıfta
+       ZORUNLU olarak uygulanması gerektiğini belirtir.
+
+Projeden Örnek (IAdapter.hpp):
+  virtual bool start() = 0;   // Türetilmiş sınıf MUTLAKA uygulamalı
+  virtual void stop() = 0;    // Türetilmiş sınıf MUTLAKA uygulamalı
+
+
+================================================================================
+                         4. MODERN C++17 ÖZELLİKLERİ
+================================================================================
+
+--------------------------------------------------------------------------------
+4.1 [[nodiscard]] Attribute
+--------------------------------------------------------------------------------
+
+Tanım: Fonksiyonun dönüş değerinin göz ardı edilmemesi gerektiğini belirtir.
+       Değer kullanılmazsa derleyici uyarı verir.
+
+Projeden Örnek (IAdapter.hpp):
+  [[nodiscard]] virtual bool start() = 0;
+  [[nodiscard]] virtual bool isRunning() const = 0;
+
+Kullanım:
+  adapter.start();       // UYARI: Dönüş değeri yok sayıldı
+  bool ok = adapter.start();  // OK: Değer kullanıldı
+
+--------------------------------------------------------------------------------
+4.2 std::optional<T> (C++17)
+--------------------------------------------------------------------------------
+
+Tanım: Bir değer olabilir veya olmayabilir (nullable type).
+       Null pointer kullanmadan "değer yok" durumunu ifade eder.
+
+Projeden Örnek (TrackDataZeroMQIncomingAdapter.hpp):
+  std::optional<domain::ports::DelayCalcTrackData> deserializeDelayCalcTrackData(
+      const std::vector<uint8_t>& binary_data);
+
+Kullanım:
+  auto result = deserialize(data);
+  if (result.has_value()) {
+      processData(result.value());
+  }
+  // veya
+  if (result) {
+      processData(*result);
+  }
+
+--------------------------------------------------------------------------------
+4.3 std::atomic<T>
+--------------------------------------------------------------------------------
+
+Tanım: Thread-safe atomik değişken. Mutex olmadan güvenli erişim sağlar.
+
+Projeden Örnek (main.cpp):
+  static std::atomic<bool> g_running{true};
+  
+  // Thread 1
+  g_running.store(false);
+  
+  // Thread 2
+  while (g_running.load()) {
+      // İş yap
+  }
+
+--------------------------------------------------------------------------------
+4.4 std::thread
+--------------------------------------------------------------------------------
+
+Tanım: Paralel çalışan iş parçacığı (thread) oluşturur.
+
+Projeden Örnek (TrackDataZeroMQIncomingAdapter.cpp):
+  subscriber_thread_ = std::thread([this]() {
+      subscriberWorker();
+  });
+
+Thread Bekleme:
+  if (subscriber_thread_.joinable()) {
+      subscriber_thread_.join();  // Thread'in bitmesini bekle
+  }
+
+--------------------------------------------------------------------------------
+4.5 Lambda Expressions (Lambda İfadeleri)
+--------------------------------------------------------------------------------
+
+Tanım: Anonim (isimsiz) fonksiyon tanımlar.
+
+Sözdizimi:
+  [capture](parameters) -> return_type { body }
+
+Projeden Örnek:
+  subscriber_thread_ = std::thread([this]() {
+      // this pointer'ı yakala ve kullan
+      subscriberWorker();
+  });
+
+Capture Modları:
+  [=]    : Tüm değişkenleri değer olarak yakala
+  [&]    : Tüm değişkenleri referans olarak yakala
+  [this] : Sınıf pointer'ını yakala
+  [x, &y]: x'i değer, y'yi referans olarak yakala
+
+--------------------------------------------------------------------------------
+4.6 std::move
+--------------------------------------------------------------------------------
+
+Tanım: Değeri kopyalamak yerine taşır (move semantics).
+       Gereksiz bellek kopyalamalarını önler.
+
+Projeden Örnek (FinalCalculationService.cpp):
+  FinalCalculationService::FinalCalculationService(
+      std::unique_ptr<ITrackDataStatisticOutgoingPort> outgoing_port)
+      : outgoing_port_(std::move(outgoing_port)) {  // Sahiplik aktarıldı
+  }
+
+--------------------------------------------------------------------------------
+4.7 Initializer List (Başlatıcı Listesi)
+--------------------------------------------------------------------------------
+
+Tanım: Nesne oluşturulurken üye değişkenleri verimli şekilde başlatır.
+       Kurucu gövdesinden önce çalışır.
+
+Projeden Örnek:
+  TrackDataZeroMQIncomingAdapter::TrackDataZeroMQIncomingAdapter(...)
+      : track_data_submission_(track_data_submission)  // Başlatıcı listesi
+      , endpoint_(buildEndpoint(DEFAULT_MULTICAST_ADDRESS, DEFAULT_PORT))
+      , group_(DEFAULT_GROUP)
+      , zmq_context_(1)
+      , running_(false) {
+      // Kurucu gövdesi
+  }
+
+--------------------------------------------------------------------------------
+4.8 Brace Initialization (Küme Parantezi ile Başlatma)
+--------------------------------------------------------------------------------
+
+Tanım: C++11'den beri önerilen başlatma yöntemi.
+       Narrowing (daraltma) dönüşümlerini engeller.
+
+Projeden Örnek:
+  static std::atomic<bool> g_running{true};
+  std::vector<uint8_t> data{1, 2, 3, 4};
+
+Narrowing Engelleme:
+  int x = 3.14;    // OK (ama veri kaybı)
+  int x{3.14};     // HATA! Narrowing yasak
+
+
+================================================================================
+                      5. BELLEK YÖNETİMİ KAVRAMLARI
+================================================================================
+
+--------------------------------------------------------------------------------
+5.1 RAII (Resource Acquisition Is Initialization)
+--------------------------------------------------------------------------------
+
+Tanım: Kaynaklar (bellek, dosya, soket) nesne oluşturulurken alınır,
+       nesne yok edilirken otomatik serbest bırakılır.
+
+Projeden Örnek:
+  {
+      std::unique_ptr<Socket> socket = std::make_unique<Socket>();
+      // Socket kullanımı
+  }  // Kapsam dışına çıkınca socket otomatik kapatılır
+
+--------------------------------------------------------------------------------
+5.2 Rule of Five (Beş Kuralı)
+--------------------------------------------------------------------------------
+
+Tanım: Aşağıdakilerden birini özel olarak tanımlarsanız, hepsini tanımlayın:
+  1. Destructor (Yıkıcı)
+  2. Copy Constructor (Kopyalama Kurucusu)
+  3. Copy Assignment Operator (Kopyalama Atama Operatörü)
+  4. Move Constructor (Taşıma Kurucusu)
+  5. Move Assignment Operator (Taşıma Atama Operatörü)
+
+Projeden Örnek (DelayCalcTrackData.hpp):
+  class DelayCalcTrackData final {
+  public:
+      explicit DelayCalcTrackData() noexcept;
+      DelayCalcTrackData(const DelayCalcTrackData& other) = default;      // Copy ctor
+      DelayCalcTrackData(DelayCalcTrackData&& other) noexcept = default;  // Move ctor
+      DelayCalcTrackData& operator=(const DelayCalcTrackData& other) = default;      // Copy assign
+      DelayCalcTrackData& operator=(DelayCalcTrackData&& other) noexcept = default;  // Move assign
+      ~DelayCalcTrackData() = default;                                     // Destructor
+  };
+
+
+================================================================================
+                      6. MİMARİ KAVRAMLAR
+================================================================================
+
+--------------------------------------------------------------------------------
+6.1 Interface (Soyut Sınıf)
+--------------------------------------------------------------------------------
+
+Tanım: Sadece saf sanal fonksiyonlar içeren sınıf.
+       Polimorfizm ve gevşek bağlantı (loose coupling) sağlar.
+
+Projeden Örnek (IAdapter.hpp):
+  class IAdapter {
+  public:
+      virtual ~IAdapter() = default;
+      virtual bool start() = 0;
+      virtual void stop() = 0;
+  };
+
+--------------------------------------------------------------------------------
+6.2 Dependency Injection (Bağımlılık Enjeksiyonu)
+--------------------------------------------------------------------------------
+
+Tanım: Bağımlılıklar sınıf içinde oluşturulmaz, dışarıdan verilir.
+       Test edilebilirliği ve esnekliği artırır.
+
+Projeden Örnek (main.cpp):
+  // Bağımlılık dışarıda oluşturuluyor
+  auto outgoing_adapter = std::make_shared<FinalCalcTrackDataZeroMQOutgoingAdapter>(...);
+  
+  // Servise enjekte ediliyor
+  auto service = std::make_shared<FinalCalculationService>(outgoing_adapter);
+  
+  // Adaptöre enjekte ediliyor
+  auto incoming_adapter = std::make_shared<TrackDataZeroMQIncomingAdapter>(service, ...);
+
+--------------------------------------------------------------------------------
+6.3 Thread-per-Type Pattern
+--------------------------------------------------------------------------------
+
+Tanım: Her mesaj tipi kendi thread'inde çalışır.
+       Thread'ler arası yarış durumu (race condition) sıfırdır.
+
+Projeden Örnek (AdapterManager.hpp ASCII Art):
+  ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+  │ MessageType A   │    │ MessageType B   │    │ MessageType C   │
+  ├─────────────────┤    ├─────────────────┤    ├─────────────────┤
+  │ InAdapter (T1)  │    │ InAdapter (T2)  │    │ InAdapter (T3)  │
+  │       ↓         │    │       ↓         │    │       ↓         │
+  │ DomainService   │    │ DomainService   │    │ DomainService   │
+  │       ↓         │    │       ↓         │    │       ↓         │
+  │ OutAdapter (T1) │    │ OutAdapter (T2) │    │ OutAdapter (T3) │
+  └─────────────────┘    └─────────────────┘    └─────────────────┘
+
+
+================================================================================
+                           7. ÖZET TABLO
+================================================================================
+
+| Anahtar Kelime  | Açıklama                                      |
+|-----------------|-----------------------------------------------|
+| namespace       | İsim alanı, çakışmayı önler                   |
+| class           | Sınıf tanımı (varsayılan private)             |
+| struct          | Yapı tanımı (varsayılan public)               |
+| virtual         | Geçersiz kılınabilir fonksiyon                |
+| override        | Geçersiz kılmayı belirtir                     |
+| final           | Türetmeyi veya geçersiz kılmayı engeller      |
+| explicit        | Örtülü dönüşümü engeller                      |
+| const           | Değiştirilemez değer                          |
+| constexpr       | Derleme zamanı sabiti                         |
+| noexcept        | İstisna fırlatmayacağını garanti eder         |
+| static          | Sınıf/dosya kapsamında paylaşımlı             |
+| auto            | Otomatik tip çıkarımı                         |
+| default         | Varsayılan uygulama                           |
+| delete          | Fonksiyonu yasakla                            |
+| [[nodiscard]]   | Dönüş değeri zorunlu                          |
+
+| Smart Pointer   | Açıklama                                      |
+|-----------------|-----------------------------------------------|
+| unique_ptr      | Tek sahip, kopyalanamaz                       |
+| shared_ptr      | Çoklu sahip, referans sayaçlı                 |
+| weak_ptr        | Gözlemci, sahiplik almaz                      |
+
+================================================================================
+                              SON
+================================================================================
