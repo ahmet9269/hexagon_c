@@ -21,6 +21,15 @@ namespace adapters {
  * @brief Base interface for all adapters (incoming and outgoing)
  * @details All adapters must implement this interface to be managed
  *          by the AdapterManager. Provides lifecycle control and identification.
+ *          
+ * Lifecycle Methods:
+ * - start(): Initialize resources and begin operation
+ * - stop(): Gracefully shutdown and release resources
+ * - isRunning(): Query operational state
+ * 
+ * Thread Safety:
+ * All methods must be thread-safe as they may be called from
+ * different threads (main thread for lifecycle, worker threads for operation)
  */
 class IAdapter {
 public:
@@ -57,6 +66,7 @@ protected:
     /**
      * @brief Protected default constructor
      * @details Prevents direct instantiation of interface
+     *          Only derived classes can be constructed
      */
     IAdapter() = default;
     

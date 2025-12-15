@@ -1,4 +1,4 @@
-#include "domain/ports/DelayCalcTrackData.hpp"
+#include "domain/ports/outgoing/DelayCalcTrackData.hpp"
 #include <stdexcept>
 #include <cmath>
 
@@ -6,6 +6,10 @@ namespace domain {
 namespace ports {
 
 // MISRA C++ 2023 compliant constructor implementation
+// Initializes all fields to safe default values (zero)
+// DelayCalcTrackData extends ExtrapTrackData with additional timing fields:
+//   - firstHopDelayTime_: Delay from data generation to first reception
+//   - secondHopSentTime_: Timestamp when forwarding processed data
 DelayCalcTrackData::DelayCalcTrackData() noexcept {
     trackId_ = static_cast<int32_t>(0);
     xVelocityECEF_ = static_cast<double>(0);
@@ -82,6 +86,10 @@ DelayCalcTrackData::DelayCalcTrackData() noexcept {
     }
 
     void DelayCalcTrackData::validateFirstHopDelayTime(int64_t value) const {
+        // Delay validation: 0 to max reasonable delay
+        // Range: 0 to ~2.5 million seconds (~29 days)
+        // Delays beyond this indicate clock issues or stale data
+        // Negative delays are invalid (indicate clock skew)
         if (value < 0LL || value > 9223372036854775LL) {
             throw std::out_of_range("FirstHopDelayTime value is out of valid range: " + std::to_string(value));
         }
@@ -203,6 +211,9 @@ void DelayCalcTrackData::setSecondHopSentTime(const int64_t& value) {
 
 bool DelayCalcTrackData::isValid() const noexcept {
     try {
+        // Validate all fields (12 total)
+        // Returns true only if ALL validations pass
+        // Catches exceptions from any validation failure
         validateTrackId(trackId_);
         validateXVelocityECEF(xVelocityECEF_);
         validateYVelocityECEF(yVelocityECEF_);
@@ -215,16 +226,22 @@ bool DelayCalcTrackData::isValid() const noexcept {
         validateFirstHopSentTime(firstHopSentTime_);
         validateFirstHopDelayTime(firstHopDelayTime_);
         validateSecondHopSentTime(secondHopSentTime_);
-        return true;
+        return true;  // All validations passed
     } catch (const std::exception&) {
-        return false;
+        return false;  // At least one validation failed
     }
 }
 
 // MISRA C++ 2023 compliant Binary Serialization Implementation
+// Format: Little-endian packed binary (no padding, no alignment)
+// Total size: 96 bytes (extends ExtrapTrackData by 16 bytes)
+// Layout: [int32(4)] [double(8)]x6 [int64(8)]x5
+//   All ExtrapTrackData fields (76 bytes)
+//   + firstHopDelayTime_: 8 bytes
+//   + secondHopSentTime_: 8 bytes
 std::vector<uint8_t> DelayCalcTrackData::serialize() const {
     std::vector<uint8_t> buffer;
-    buffer.reserve(getSerializedSize());
+    buffer.reserve(getSerializedSize());  // 96 bytes pre-allocated
     
     // Serialize trackId_
     {
@@ -410,18 +427,20 @@ bool DelayCalcTrackData::deserialize(const std::vector<uint8_t>& data) noexcept 
 std::size_t DelayCalcTrackData::getSerializedSize() const noexcept {
     std::size_t size = 0U;
     
-    size += sizeof(trackId_);  // int32_t
-    size += sizeof(xVelocityECEF_);  // double
-    size += sizeof(yVelocityECEF_);  // double
-    size += sizeof(zVelocityECEF_);  // double
-    size += sizeof(xPositionECEF_);  // double
-    size += sizeof(yPositionECEF_);  // double
-    size += sizeof(zPositionECEF_);  // double
-    size += sizeof(originalUpdateTime_);  // int64_t
-    size += sizeof(updateTime_);  // int64_t
-    size += sizeof(firstHopSentTime_);  // int64_t
-    size += sizeof(firstHopDelayTime_);  // int64_t
-    size += sizeof(secondHopSentTime_);  // int64_t
+    // Calculate total size: sum of all field sizes
+    // Total: 96 bytes = 4 + (6*8) + (5*8) = 4 + 48 + 40 + 16
+    size += sizeof(trackId_);  // int32_t = 4 bytes
+    size += sizeof(xVelocityECEF_);  // double = 8 bytes
+    size += sizeof(yVelocityECEF_);  // double = 8 bytes
+    size += sizeof(zVelocityECEF_);  // double = 8 bytes
+    size += sizeof(xPositionECEF_);  // double = 8 bytes
+    size += sizeof(yPositionECEF_);  // double = 8 bytes
+    size += sizeof(zPositionECEF_);  // double = 8 bytes
+    size += sizeof(originalUpdateTime_);  // int64_t = 8 bytes
+    size += sizeof(updateTime_);  // int64_t = 8 bytes
+    size += sizeof(firstHopSentTime_);  // int64_t = 8 bytes
+    size += sizeof(firstHopDelayTime_);  // int64_t = 8 bytes (new field)
+    size += sizeof(secondHopSentTime_);  // int64_t = 8 bytes (new field)
     
     return size;
 }

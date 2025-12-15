@@ -23,13 +23,13 @@ SRC_DIR = ../../src/c_hexagon
 # Domain model source files (need to be linked)
 DOMAIN_SOURCES = $(SRC_DIR)/domain/model/DelayCalcTrackData.cpp \
                  $(SRC_DIR)/domain/model/FinalCalcTrackData.cpp \
-                 $(SRC_DIR)/domain/logic/FinalCalculationService.cpp \
+                 $(SRC_DIR)/domain/logic/TargetStatisticService.cpp \
                  $(SRC_DIR)/adapters/incoming/zeromq/TrackDataZeroMQIncomingAdapter.cpp \
                  $(SRC_DIR)/adapters/outgoing/zeromq/FinalCalcTrackDataZeroMQOutgoingAdapter.cpp
 
 # Test source files
 TEST_SOURCES = main_test.cpp \
-               domain/logic/FinalCalculationServiceTest.cpp \
+               domain/logic/TargetStatisticServiceTest.cpp \
                domain/model/FinalCalcTrackDataTest.cpp \
                domain/model/DelayCalcTrackDataTest.cpp \
                domain/ports/MockPortsTest.cpp \

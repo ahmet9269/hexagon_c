@@ -1,4 +1,4 @@
-#include "domain/ports/ExtrapTrackData.hpp"
+#include "domain/ports/incoming/ExtrapTrackData.hpp"
 #include <stdexcept>
 #include <cmath>
 
@@ -20,12 +20,19 @@ ExtrapTrackData::ExtrapTrackData() noexcept {
 }
 
     void ExtrapTrackData::validateTrackId(int32_t value) const {
+        // Track ID range: 1-4294967295 (positive int32 values)
+        // Range allows for large number of concurrent tracks
+        // Zero reserved as invalid/uninitialized marker
         if (value < 1LL || value > 4294967295LL) {
             throw std::out_of_range("TrackId value is out of valid range: " + std::to_string(value));
         }
     }
 
     void ExtrapTrackData::validateXVelocityECEF(double value) const {
+        // ECEF Velocity validation: ±1,000,000 m/s
+        // ECEF = Earth-Centered, Earth-Fixed coordinate system
+        // Range covers hypersonic velocities (Mach 2900+)
+        // NaN check prevents undefined behavior in calculations
         if (std::isnan(value) || value < -1.0E+6 || value > 1.0E+6) {
             throw std::out_of_range("XVelocityECEF value is out of valid range: " + std::to_string(value));
         }
@@ -44,6 +51,12 @@ ExtrapTrackData::ExtrapTrackData() noexcept {
     }
 
     void ExtrapTrackData::validateXPositionECEF(double value) const {
+        // ECEF Position validation: ±99,000,000,000 meters (99 million km)
+        // Range covers Earth orbit and beyond:
+        // - Earth radius: ~6,371 km
+        // - LEO: 200-2000 km altitude
+        // - GEO: ~35,786 km altitude
+        // Range: ~15x Earth-Moon distance (sufficient for all practical cases)
         if (std::isnan(value) || value < -9.9E+10 || value > 9.9E+10) {
             throw std::out_of_range("XPositionECEF value is out of valid range: " + std::to_string(value));
         }
@@ -62,7 +75,11 @@ ExtrapTrackData::ExtrapTrackData() noexcept {
     }
 
     void ExtrapTrackData::validateOriginalUpdateTime(int64_t value) const {
-        if (value < 0LL || value > 9223372036854775807LL) {  // Maksimum int64_t değeri - microsecond epoch time için yeterli
+        // Timestamp validation: 0 to max int64 (microseconds since Unix epoch)
+        // Range: 1970-01-01 to ~290,000 years in the future
+        // Max value: 9,223,372,036,854,775,807 microseconds (~292,471 years)
+        // Sufficient for all practical applications
+        if (value < 0LL || value > 9223372036854775807LL) {  // Max int64_t value
             throw std::out_of_range("OriginalUpdateTime value is out of valid range: " + std::to_string(value));
         }
     }
@@ -188,11 +205,20 @@ bool ExtrapTrackData::isValid() const noexcept {
 }
 
 // MISRA C++ 2023 compliant Binary Serialization Implementation
+// Format: Little-endian packed binary (no padding, no alignment)
+// Total size: 76 bytes
+// Layout: [int32(4)] [double(8)]x6 [int64(8)]x3
+//   trackId_: 4 bytes
+//   xVelocityECEF_, yVelocityECEF_, zVelocityECEF_: 24 bytes (3x8)
+//   xPositionECEF_, yPositionECEF_, zPositionECEF_: 24 bytes (3x8)
+//   originalUpdateTime_, updateTime_, firstHopSentTime_: 24 bytes (3x8)
 std::vector<uint8_t> ExtrapTrackData::serialize() const {
     std::vector<uint8_t> buffer;
-    buffer.reserve(getSerializedSize());
+    buffer.reserve(getSerializedSize());  // Pre-allocate to avoid reallocations
     
     // Serialize trackId_
+    // reinterpret_cast used for type-punning (MISRA compliant for POD types)
+    // Copies 4 bytes representing int32_t to buffer
     {
         const uint8_t* ptr = reinterpret_cast<const uint8_t*>(&trackId_);
         buffer.insert(buffer.end(), ptr, ptr + sizeof(trackId_));
@@ -256,18 +282,21 @@ std::vector<uint8_t> ExtrapTrackData::serialize() const {
 }
 
 bool ExtrapTrackData::deserialize(const std::vector<uint8_t>& data) noexcept {
+    // Validate buffer size before deserialization (prevents buffer overflow)
     if (data.size() < getSerializedSize()) {
-        return false;
+        return false;  // Insufficient data
     }
     
-    std::size_t offset = 0U;
+    std::size_t offset = 0U;  // Track current position in buffer
     
     // Deserialize trackId_
+    // Double-check bounds before memcpy (defense in depth)
+    // memcpy used for type-safe byte copying (MISRA compliant)
     if (offset + sizeof(trackId_) <= data.size()) {
         std::memcpy(&trackId_, &data[offset], sizeof(trackId_));
         offset += sizeof(trackId_);
     } else {
-        return false;
+        return false;  // Buffer overflow protection
     }
     
     // Deserialize xVelocityECEF_

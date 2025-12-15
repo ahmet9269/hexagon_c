@@ -13,7 +13,7 @@
 
 #pragma once
 
-#include "domain/ports/DelayCalcTrackData.hpp"
+#include "domain/ports/outgoing/DelayCalcTrackData.hpp"
 
 namespace domain {
 namespace ports {
@@ -22,16 +22,27 @@ namespace outgoing {
 /**
  * @interface IDelayCalcTrackDataOutgoingPort
  * @brief Outbound port for writing processed DelayCalcTrackData
- * @details This interface is called by application services and implemented by
- *          outgoing adapters (ZeroMQ, file, console, etc.) to send processed data.
- *          Enables dependency injection and mock testing.
+ * @details This interface defines the "right side" port (outgoing/driven port)
+ *          in the Hexagonal Architecture pattern.
+ *          
+ * Hexagonal Architecture Pattern:
+ * - Implemented by: Outgoing adapters (ZeroMQ, file, database, etc.)
+ * - Called by: Domain services (ProcessTrackUseCase)
  * 
+ * Flow: Domain → IDelayCalcTrackDataOutgoingPort → Outgoing Adapter → External System
+ * 
+ * Benefits:
+ * - Decouples domain from infrastructure (ZeroMQ, DDS, Kafka, etc.)
+ * - Enables testing with mock adapters (verify send calls without network)
+ * - Allows multiple adapter implementations (ZeroMQ + Custom analytics)
+ * - Supports composite pattern (one port, multiple adapters)
+ *          
  * Usage:
  * @code
  * class MyAdapter : public IDelayCalcTrackDataOutgoingPort {
  * public:
  *     void sendDelayCalcTrackData(const DelayCalcTrackData& data) override {
- *         // Send data to external system
+ *         // Send data to external system (ZeroMQ, file, etc.)
  *     }
  * };
  * @endcode

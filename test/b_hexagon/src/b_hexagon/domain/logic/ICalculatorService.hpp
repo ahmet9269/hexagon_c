@@ -38,8 +38,8 @@
 #ifndef B_HEXAGON_DOMAIN_LOGIC_ICALCULATOR_SERVICE_HPP
 #define B_HEXAGON_DOMAIN_LOGIC_ICALCULATOR_SERVICE_HPP
 
-#include "domain/ports/ExtrapTrackData.hpp"
-#include "domain/ports/DelayCalcTrackData.hpp"
+#include "domain/ports/incoming/ExtrapTrackData.hpp"
+#include "domain/ports/outgoing/DelayCalcTrackData.hpp"
 
 namespace domain {
 namespace logic {

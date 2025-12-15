@@ -9,6 +9,10 @@
 #include <zmq_config.hpp>  // Must be included before zmq.hpp for Draft API
 #include <zmq.hpp>
 #include <sstream>
+#ifdef __linux__
+#include <cerrno>
+#include <cstring>
+#endif
 
 namespace adapters {
 namespace incoming {
@@ -129,15 +133,25 @@ bool TrackDataZeroMQIncomingAdapter::start() {
         #ifdef __linux__
         struct sched_param param;
         param.sched_priority = REALTIME_THREAD_PRIORITY;
-        pthread_setschedparam(pthread_self(), SCHED_FIFO, &param);
-        
+        int ret = pthread_setschedparam(pthread_self(), SCHED_FIFO, &param);
+        if (ret != 0) {
+            LOG_DEBUG("RT scheduling not available (priority {}): {} - running with default scheduling", REALTIME_THREAD_PRIORITY, std::strerror(ret));
+        } else {
+            LOG_DEBUG("Incoming adapter thread RT priority set to {}", REALTIME_THREAD_PRIORITY);
+        }
+
         // Set CPU affinity to dedicated core
         cpu_set_t cpuset;
         CPU_ZERO(&cpuset);
         CPU_SET(DEDICATED_CPU_CORE, &cpuset);
-        pthread_setaffinity_np(pthread_self(), sizeof(cpu_set_t), &cpuset);
+        ret = pthread_setaffinity_np(pthread_self(), sizeof(cpu_set_t), &cpuset);
+        if (ret != 0) {
+            LOG_DEBUG("CPU affinity not set (core {}): {} - running on any available core", DEDICATED_CPU_CORE, std::strerror(ret));
+        } else {
+            LOG_DEBUG("Incoming adapter thread pinned to CPU core {}", DEDICATED_CPU_CORE);
+        }
         #endif
-        
+
         subscriberWorker();
     });
 

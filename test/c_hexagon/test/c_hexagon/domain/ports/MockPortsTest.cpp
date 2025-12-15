@@ -11,7 +11,7 @@
 #include <gtest/gtest.h>
 #include "test/c_hexagon/domain/ports/MockOutgoingPort.hpp"
 #include "test/c_hexagon/domain/ports/MockIncomingPort.hpp"
-#include "domain/ports/DelayCalcTrackData.hpp"
+#include "domain/ports/incoming/DelayCalcTrackData.hpp"
 #include "domain/ports/FinalCalcTrackData.hpp"
 
 using namespace domain::ports;

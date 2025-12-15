@@ -15,9 +15,9 @@
 
 #pragma once
 
-#include "adapters/common/AdapterManager.hpp"
+#include "adapters/common/IAdapter.hpp"
 #include "domain/ports/incoming/IDelayCalcTrackDataIncomingPort.hpp"
-#include "domain/ports/DelayCalcTrackData.hpp"
+#include "domain/ports/incoming/DelayCalcTrackData.hpp"
 #include <zmq_config.hpp>  // Must be included before zmq.hpp for Draft API
 #include <zmq.hpp>
 #include <zmq_addon.hpp>
@@ -59,8 +59,8 @@ private:
     static constexpr int RECEIVE_TIMEOUT_MS = 100;
     
     // Network configuration constants (UDP RADIO/DISH pattern)
-    static constexpr const char* DEFAULT_MULTICAST_ADDRESS = "239.1.1.5";
-    static constexpr int DEFAULT_PORT = 9595;  // Receives from b_hexagon port 9595
+    static constexpr const char* DEFAULT_MULTICAST_ADDRESS = "127.0.0.1";
+    static constexpr int DEFAULT_PORT = 15002;  // Receives from b_hexagon port 15002
     static constexpr const char* DEFAULT_PROTOCOL = "udp";
     static constexpr const char* DEFAULT_GROUP = "DelayCalcTrackData";
     

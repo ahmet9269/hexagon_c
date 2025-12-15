@@ -15,6 +15,12 @@
 #include "utils/Logger.hpp"
 #include <chrono>
 #include <sstream>
+#ifdef __linux__
+#include <pthread.h>
+#include <sched.h>
+#include <cerrno>
+#include <cstring>
+#endif
 
 namespace adapters {
 namespace outgoing {
@@ -125,6 +131,29 @@ bool FinalCalcTrackDataZeroMQOutgoingAdapter::start() {
 
     // Start background publisher thread
     publisher_thread_ = std::thread([this]() {
+        #ifdef __linux__
+        // Set real-time scheduling priority
+        struct sched_param param;
+        param.sched_priority = REALTIME_THREAD_PRIORITY;
+        int ret = pthread_setschedparam(pthread_self(), SCHED_FIFO, &param);
+        if (ret != 0) {
+            LOG_DEBUG("RT scheduling not available (priority {}): {} - running with default scheduling", REALTIME_THREAD_PRIORITY, std::strerror(ret));
+        } else {
+            LOG_DEBUG("Outgoing adapter thread RT priority set to {}", REALTIME_THREAD_PRIORITY);
+        }
+
+        // Set CPU affinity
+        cpu_set_t cpuset;
+        CPU_ZERO(&cpuset);
+        CPU_SET(DEDICATED_CPU_CORE, &cpuset);
+        ret = pthread_setaffinity_np(pthread_self(), sizeof(cpu_set_t), &cpuset);
+        if (ret != 0) {
+            LOG_DEBUG("CPU affinity not set (core {}): {} - running on any available core", DEDICATED_CPU_CORE, std::strerror(ret));
+        } else {
+            LOG_DEBUG("Outgoing adapter thread pinned to CPU core {}", DEDICATED_CPU_CORE);
+        }
+        #endif
+
         publisherWorker();
     });
 

@@ -1,138 +1,185 @@
 /**
  * @file main.cpp
- * @brief Main entry point for C_Hexagon application
- * @details Initializes the async logger and starts the hexagonal architecture components
- *          using Thread-per-Type architecture for adapter isolation.
- * 
- * @author c_hexagon Team
- * @version 1.0
- * @date 2025
- * 
- * @note MISRA C++ 2023 compliant implementation
- * @see adapters::AdapterManager
- * @see domain::logic::FinalCalculationService
+ * @brief Application entry point for C_Hexagon with Thread-per-Type Architecture
+ * @details Each component runs in dedicated thread with background worker threads.
+ *          SOLID compliant - uses domain port abstractions for dependency inversion.
+ * @version 2.0 - Thread-per-Type Pattern with isolated threads
  */
 
-#include <iostream>
-#include <csignal>
-#include <atomic>
-#include "utils/Logger.hpp"
-#include "adapters/common/AdapterManager.hpp"
+#include "domain/logic/TargetStatisticService.hpp"
 #include "adapters/incoming/zeromq/TrackDataZeroMQIncomingAdapter.hpp"
 #include "adapters/outgoing/zeromq/FinalCalcTrackDataZeroMQOutgoingAdapter.hpp"
-#include "domain/logic/FinalCalculationService.hpp"
+#include "utils/Logger.hpp"
+#include <memory>
+#include <iostream>
+#include <thread>
+#include <chrono>
+#include <csignal>
+#include <atomic>
 
-// Global flag for graceful shutdown
-static std::atomic<bool> g_running{true};
+// Using declarations for convenience
+using domain::ports::DelayCalcTrackData;
+using domain::ports::FinalCalcTrackData;
+using utils::Logger;
+
+// Global resources for signal handler access
+// NOTE: Signal handlers cannot access member variables, so we use static globals
+// All pointers are set to nullptr after use to prevent dangling references
+static std::atomic<bool> g_running{true};  // Thread-safe shutdown flag
+static domain::logic::TargetStatisticService* g_domainService{nullptr};
+static adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter* g_incomingAdapter{nullptr};
+static adapters::outgoing::zeromq::FinalCalcTrackDataZeroMQOutgoingAdapter* g_outgoingAdapter{nullptr};
 
 /**
  * @brief Signal handler for graceful shutdown
  * @param signum Signal number received
  */
 void signalHandler(int signum) {
-    LOG_INFO("Received signal {}, initiating graceful shutdown...", signum);
+    Logger::info("Received signal ", signum, ", initiating graceful shutdown...");
     g_running.store(false);
+    
+    // Stop all components in reverse order (incoming first to stop new data flow)
+    if (g_incomingAdapter != nullptr) {
+        g_incomingAdapter->stop();
+    }
+    if (g_domainService != nullptr) {
+        g_domainService->stop();
+    }
+    if (g_outgoingAdapter != nullptr) {
+        g_outgoingAdapter->stop();
+    }
 }
 
+/**
+ * @brief Application entry point
+ * 
+ * Thread-per-Type Architecture:
+ * ┌─────────────────────────────────────────────────────────────────────────┐
+ * │                    3 ISOLATED THREADS + MAIN THREAD                     │
+ * ├─────────────────────────────────────────────────────────────────────────┤
+ * │                                                                         │
+ * │  Thread 1: Incoming Adapter (CPU 2)                                    │
+ * │    └─ ZeroMQ DISH → Deserialize → submitDelayCalcTrackData()           │
+ * │                                                                         │
+ * │  Thread 2: Domain Service (CPU 3)                                      │
+ * │    └─ Background Queue → TargetStatisticService → sendFinalTrackData() │
+ * │                                                                         │
+ * │  Thread 3: Outgoing Adapter (CPU 4)                                    │
+ * │    └─ Background Queue → Serialize → ZeroMQ RADIO                      │
+ * │                                                                         │
+ * │  Thread 4: Main Thread                                                 │
+ * │    └─ Lifecycle management + Signal handling                           │
+ * │                                                                         │
+ * │  All threads communicate via background queues (non-blocking)          │
+ * └─────────────────────────────────────────────────────────────────────────┘
+ * 
+ * SOLID Compliance:
+ * - TargetStatisticService: Domain business logic
+ * - Direct ZeroMQ usage for messaging simplicity
+ * - ITrackDataStatisticOutgoingPort: Abstract outgoing port
+ * - IDelayCalcTrackDataIncomingPort: Abstract incoming port
+ */
 int main() {
+    Logger::info("=== C_Hexagon Track Processing System Starting ===");
+    Logger::info("Architecture: Thread-per-Type (3 isolated threads)");
+    Logger::info("SOLID: Dependency Inversion enabled via domain ports");
+    
     try {
-        // Initialize async logger (call once at startup)
-        utils::Logger::init("c_hexagon");
-        
-        LOG_INFO("=================================================");
-        LOG_INFO("  C_Hexagon Application Starting");
-        LOG_INFO("  Thread-per-Type Architecture");
-        LOG_INFO("=================================================");
-        
         // Register signal handlers for graceful shutdown
         std::signal(SIGINT, signalHandler);
         std::signal(SIGTERM, signalHandler);
         
-        // Create AdapterManager for pipeline management
-        adapters::AdapterManager adapter_manager;
+        Logger::info("Initializing application components...");
         
-        // ========================================
-        // Pipeline 1: DelayCalcTrackData Pipeline
-        // ========================================
-        LOG_INFO("Creating DelayCalcTrackData pipeline...");
+        // ==================== Create Outgoing Adapter ====================
+        Logger::info("Creating Outgoing Adapter...");
+        Logger::debug("Creating FinalCalcTrackDataZeroMQOutgoingAdapter (RADIO socket)...");
+        auto outgoingAdapter = std::make_shared<adapters::outgoing::zeromq::FinalCalcTrackDataZeroMQOutgoingAdapter>();
+        g_outgoingAdapter = outgoingAdapter.get();
         
-        // Create outgoing adapter (implements both IAdapter and ITrackDataStatisticOutgoingPort)
-        // Using shared_ptr to allow multiple ownership (pipeline and service)
-        auto final_calc_outgoing = std::make_shared<adapters::outgoing::zeromq::FinalCalcTrackDataZeroMQOutgoingAdapter>(
-            "tcp://127.0.0.1:15003",
-            "FinalCalcTrackData"
-        );
+        // ==================== Create Domain Service ====================
+        Logger::debug("Creating TargetStatisticService with outgoing port...");
+        auto domainService = std::make_shared<domain::logic::TargetStatisticService>(outgoingAdapter);
+        g_domainService = domainService.get();
         
-        // Create domain service with outgoing port injection (Dependency Inversion)
-        // Service takes shared_ptr to ITrackDataStatisticOutgoingPort interface
-        // This avoids creating duplicate adapters
-        auto delay_calc_service = std::make_shared<domain::logic::FinalCalculationService>(
-            final_calc_outgoing  // Inject the same adapter instance
-        );
+        // ==================== Create Incoming Adapter ====================
+        Logger::debug("Creating TrackDataZeroMQIncomingAdapter (DISH socket)...");
+        auto incomingAdapter = std::make_shared<adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter>(domainService);
+        g_incomingAdapter = incomingAdapter.get();
         
-        // Create incoming adapter with domain service (implements IDelayCalcTrackDataIncomingPort)
-        auto delay_calc_adapter = std::make_shared<adapters::incoming::zeromq::TrackDataZeroMQIncomingAdapter>(
-            delay_calc_service,  // Inject domain port interface
-            "tcp://127.0.0.1:15002",
-            "DelayCalcTrackData"
-        );
+        // ==================== System Information ====================
+        Logger::info("=== System Configuration ===");
+        Logger::info("Architecture: Thread-per-Type (3 threads + main)");
+        Logger::info("Messaging Input: ZeroMQ DISH (UDP multicast)");
+        Logger::info("Messaging Output: ZeroMQ RADIO (UDP multicast)");
+        Logger::info("Input Group: DelayCalcTrackData");
+        Logger::info("Output Group: FinalCalcTrackData");
+        Logger::info("Thread 1: Incoming Adapter (CPU 2, Priority 95)");
+        Logger::info("Thread 2: Domain Service (CPU 3, Priority 90)");
+        Logger::info("Thread 3: Outgoing Adapter (CPU 4, Priority 95)");
+        Logger::info("Thread 4: Main (lifecycle management)");
+        Logger::info("Press Ctrl+C to shutdown gracefully");
+        Logger::info("===============================");
         
-        // Create pipeline and register with manager
-        // Pipeline manages both incoming and outgoing adapters lifecycle
-        adapters::MessagePipeline delay_calc_pipeline(
-            "DelayCalcTrackData",
-            delay_calc_adapter,
-            final_calc_outgoing
-        );
+        // ==================== Start All Components ====================
+        // Component startup order is critical for Thread-per-Type architecture:
+        // 1. Outgoing adapter starts first - ready to receive processed data
+        // 2. Domain service starts next - ready to process incoming data
+        // 3. Incoming adapter starts last - begins data flow into system
+        // This prevents message loss by ensuring downstream is ready before upstream
+        Logger::info("Starting all components in correct order...");
         
-        adapter_manager.registerPipeline(std::move(delay_calc_pipeline));
+        // Step 1: Start outgoing adapter first (must be ready to receive)
+        Logger::info("Step 1: Starting outgoing adapter...");
+        if (!outgoingAdapter->start()) {
+            Logger::error("Failed to start outgoing adapter");
+            return 1;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));  // Allow initialization
         
-        // ========================================
-        // Future Pipeline Examples:
-        // ========================================
-        // Pipeline 2: RadarData Pipeline
-        // auto radar_service = std::make_shared<RadarDataService>();
-        // auto radar_adapter = std::make_shared<RadarDataZeroMQIncomingAdapter>(radar_service);
-        // adapter_manager.registerPipeline(MessagePipeline::create("RadarData", radar_adapter));
-        //
-        // Pipeline 3: SensorFusion Pipeline
-        // auto fusion_service = std::make_shared<SensorFusionService>();
-        // auto fusion_adapter = std::make_shared<FusionDataZeroMQIncomingAdapter>(fusion_service);
-        // adapter_manager.registerPipeline(MessagePipeline::create("SensorFusion", fusion_adapter));
+        // Step 2: Start domain service
+        Logger::info("Step 2: Starting domain service...");
+        if (!domainService->start()) {
+            Logger::error("Failed to start domain service");
+            return 1;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
         
-        // Start all registered pipelines
-        LOG_INFO("Starting all pipelines...");
-        if (!adapter_manager.startAll()) {
-            LOG_ERROR("Failed to start all pipelines");
-            utils::Logger::shutdown();
+        // Step 3: Start incoming adapter last (begins data flow)
+        Logger::info("Step 3: Starting incoming adapter...");
+        if (!incomingAdapter->start()) {
+            Logger::error("Failed to start incoming adapter");
             return 1;
         }
         
-        LOG_INFO("All pipelines started successfully");
-        LOG_INFO("Registered pipelines: {}", adapter_manager.getPipelineCount());
-        LOG_INFO("Press Ctrl+C to shutdown gracefully");
-        
-        // Main loop - wait for shutdown signal
+        // ==================== Main Loop ====================
+        Logger::info("All components running. Entering main loop...");
         while (g_running.load()) {
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
         }
         
-        // Graceful shutdown
-        LOG_INFO("Stopping all pipelines...");
-        adapter_manager.stopAll();
+        // ==================== Graceful Shutdown ====================
+        Logger::info("Main loop exited, stopping all components...");
         
-        LOG_INFO("=================================================");
-        LOG_INFO("  C_Hexagon Application Shutdown Complete");
-        LOG_INFO("=================================================");
+        // Stop in reverse order of startup to ensure graceful shutdown:
+        // 1. Incoming adapter stops first - prevents new data from entering system
+        // 2. Domain service stops next - completes processing of queued messages
+        // 3. Outgoing adapter stops last - ensures all processed data is sent
+        // This ordering prevents data loss during shutdown
+        incomingAdapter->stop();
+        domainService->stop();
+        outgoingAdapter->stop();
         
-        // Shutdown logger gracefully
-        utils::Logger::shutdown();
+        // Clear global pointers
+        g_incomingAdapter = nullptr;
+        g_domainService = nullptr;
+        g_outgoingAdapter = nullptr;
         
-    } catch (const std::exception& e) {
-        LOG_CRITICAL("c_hexagon application main error: {}", e.what());
-        utils::Logger::shutdown();
+    } catch (const std::exception& ex) {
+        Logger::error("Application error: ", ex.what());
         return 1;
     }
     
+    Logger::info("=== C_Hexagon Application Shutdown Complete ===");
     return 0;
 }

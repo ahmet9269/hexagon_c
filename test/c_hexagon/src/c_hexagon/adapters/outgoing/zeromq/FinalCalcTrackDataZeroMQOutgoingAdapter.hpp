@@ -15,7 +15,7 @@
 
 #include "adapters/common/IAdapter.hpp"
 #include "domain/ports/outgoing/ITrackDataStatisticOutgoingPort.hpp"
-#include "domain/ports/FinalCalcTrackData.hpp"
+#include "domain/ports/outgoing/FinalCalcTrackData.hpp"
 #include <zmq_config.hpp>  // Must be included before zmq.hpp for Draft API
 #include <zmq.hpp>
 #include <zmq_addon.hpp>
@@ -146,7 +146,7 @@ private:
     // ==================== Configuration Constants ====================
     // Real-time thread configuration
     static constexpr int REALTIME_THREAD_PRIORITY = 95;
-    static constexpr int DEDICATED_CPU_CORE = 3;  // Different core for outgoing
+    static constexpr int DEDICATED_CPU_CORE = 4;  // Different core for outgoing
     static constexpr int SEND_TIMEOUT_MS = 100;
     
     // Network configuration constants (UDP RADIO/DISH pattern)

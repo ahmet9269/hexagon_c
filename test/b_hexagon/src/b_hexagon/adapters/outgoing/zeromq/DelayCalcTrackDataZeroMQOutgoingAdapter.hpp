@@ -2,11 +2,10 @@
  * @file DelayCalcTrackDataZeroMQOutgoingAdapter.hpp
  * @brief ZeroMQ RADIO adapter for outbound data transmission using UDP multicast
  * @details Thread-per-Type architecture compliant - implements IAdapter interface
- *          SOLID compliant - depends on IMessageSocket abstraction for testability
+ *          SOLID compliant - uses direct ZeroMQ socket for simplicity
  *          Uses background worker thread for non-blocking sends (~20ns enqueue latency)
  * 
  * Dependency Inversion:
- * - IMessageSocket: Abstraction for messaging (enables mock testing)
  * - IDelayCalcTrackDataOutgoingPort: Domain port abstraction
  * 
  * Thread Architecture:
@@ -25,9 +24,10 @@
 #pragma once
 
 #include "adapters/common/IAdapter.hpp"                              // IAdapter interface
-#include "adapters/common/messaging/IMessageSocket.hpp"              // Socket abstraction (DIP)
 #include "domain/ports/outgoing/IDelayCalcTrackDataOutgoingPort.hpp" // Outbound port interface
-#include "domain/ports/DelayCalcTrackData.hpp"                       // Domain data model
+#include "domain/ports/outgoing/DelayCalcTrackData.hpp"              // Domain data model
+#include <zmq_config.hpp>
+#include <zmq.hpp>
 #include <string>
 #include <memory>
 #include <atomic>
@@ -48,7 +48,7 @@ using domain::ports::DelayCalcTrackData;
  * - Open/Closed: Extends IAdapter and port, closed for modification
  * - Liskov Substitution: Can replace any IAdapter or IDelayCalcTrackDataOutgoingPort
  * - Interface Segregation: Implements focused interfaces
- * - Dependency Inversion: Depends on IMessageSocket abstraction
+ * - Dependency Inversion: Depends on domain port abstractions
  * 
  * Real-time Features:
  * - Non-blocking sendDelayCalcTrackData() (~20ns enqueue)
@@ -57,13 +57,69 @@ using domain::ports::DelayCalcTrackData;
  * - SCHED_FIFO priority for worker thread
  * 
  * Test Coverage:
- * - Inject MockMessageSocket to test without network
- * - Verify serialization and send calls
+ * - Direct ZeroMQ socket usage for production simplicity
+ * - Verify serialization and transmission
  */
 class DelayCalcTrackDataZeroMQOutgoingAdapter final 
     : public adapters::IAdapter
     , public domain::ports::outgoing::IDelayCalcTrackDataOutgoingPort {
 public:
+    // Simple inline ZeroMQ socket wrapper for RADIO pattern
+    // Provides minimal interface for RADIO socket operations
+    // RADIO Pattern: Distributes messages to DISH subscribers via group addressing
+    class SimpleZMQSocket {
+    public:
+        SimpleZMQSocket() : socket_(nullptr) {}
+        
+        bool connect(const std::string& endpoint, const std::string& group) {
+            try {
+                context_ = std::make_shared<zmq::context_t>(1);
+                socket_ = std::make_unique<zmq::socket_t>(*context_, zmq::socket_type::radio);
+                
+                // RADIO sockets connect (not bind) to endpoint
+                // DISH sockets bind to same endpoint to receive messages
+                socket_->connect(endpoint);
+                
+                // Set send timeout to prevent blocking on slow subscribers
+                socket_->set(zmq::sockopt::sndtimeo, 100);
+                
+                group_ = group;  // Store group name for message tagging
+                return true;
+            } catch (const zmq::error_t&) {
+                return false;
+            }
+        }
+        
+        bool send(const std::vector<uint8_t>& data) {
+            if (!socket_) return false;
+            try {
+                zmq::message_t msg(data.data(), data.size());
+                
+                // Set message group for DISH filtering
+                // Only DISH subscribers joined to this group will receive the message
+                msg.set_group(group_.c_str());
+                
+                return socket_->send(msg, zmq::send_flags::none).has_value();
+            } catch (const zmq::error_t&) {
+                return false;
+            }
+        }
+        
+        void close() {
+            if (socket_) {
+                socket_->close();
+                socket_.reset();
+            }
+        }
+        
+        bool isConnected() const { return socket_ != nullptr; }
+        
+    private:
+        std::shared_ptr<zmq::context_t> context_;
+        std::unique_ptr<zmq::socket_t> socket_;
+        std::string group_;
+    };
+
     /**
      * @brief Default constructor (production use)
      */
@@ -74,15 +130,6 @@ public:
      */
     DelayCalcTrackDataZeroMQOutgoingAdapter(
         const std::string& endpoint,
-        const std::string& group);
-
-    /**
-     * @brief Construct with injected socket (for testing with mocks)
-     * @param socket Pre-configured socket (can be MockMessageSocket)
-     * @param group Message group for RADIO
-     */
-    DelayCalcTrackDataZeroMQOutgoingAdapter(
-        std::unique_ptr<adapters::common::messaging::IMessageSocket> socket,
         const std::string& group);
 
     // Destructor - RAII cleanup
@@ -121,28 +168,26 @@ public:
     [[nodiscard]] bool isReady() const noexcept;
 
 private:
-    // Real-time thread configuration
-    static constexpr int REALTIME_THREAD_PRIORITY = 95;
-    static constexpr int DEDICATED_CPU_CORE = 2;  // Different from incoming adapter
-    
     // Network configuration constants
-    static constexpr const char* DEFAULT_ADDRESS = "127.0.0.1";
-    static constexpr int DEFAULT_PORT = 15002;
-    static constexpr const char* DEFAULT_PROTOCOL = "tcp";
-    static constexpr const char* DEFAULT_GROUP = "DelayCalcTrackData";
+    static constexpr const char* ZMQ_ADDRESS = "127.0.0.1";
+    static constexpr int ZMQ_PORT = 15002;
+    static constexpr const char* ZMQ_PROTOCOL = "udp";
+    static constexpr const char* ZMQ_GROUP = "DelayCalcTrackData";
     
     // Queue configuration
-    static constexpr std::size_t MAX_QUEUE_SIZE = 1000;  ///< Prevent unbounded growth
+    // MAX_QUEUE_SIZE controls memory vs latency trade-off:
+    // - Larger queue: More buffering, handles bursts, higher memory usage
+    // - Smaller queue: Lower memory, drops messages faster during overload
+    // 200 messages ≈ 15KB (200 * 76 bytes per message)
+    static constexpr std::size_t MAX_QUEUE_SIZE = 200;   ///< Prevent unbounded growth
+    static constexpr int QUEUE_WAIT_TIMEOUT_MS = 100;    ///< Graceful shutdown timeout (allows loop to check running flag)
 
     /**
-     * @brief Create default ZeroMQ socket
+     * @brief Background processing loop for message transmission
+     * @details Runs in dedicated thread, continuously dequeues messages
+     *          and sends them via ZeroMQ RADIO socket
      */
-    std::unique_ptr<adapters::common::messaging::IMessageSocket> createDefaultSocket();
-
-    /**
-     * @brief Background worker thread for message transmission
-     */
-    void publisherWorker();
+    void process();
 
     /**
      * @brief Enqueue message for background transmission
@@ -155,8 +200,8 @@ private:
     std::string group_;                ///< Group identifier for DISH filtering
     std::string adapterName_;          ///< Adapter name for logging
     
-    // Socket abstraction (DIP - enables mock injection)
-    std::unique_ptr<adapters::common::messaging::IMessageSocket> socket_;
+    // Simple ZeroMQ socket (inline implementation)
+    SimpleZMQSocket socket_;
     
     // Thread management
     std::thread publisherThread_;      ///< Background worker thread

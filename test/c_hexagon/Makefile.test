@@ -29,7 +29,7 @@ TEST_OBJS := $(patsubst $(TEST_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(TEST_SRCS))
 # Find required source files (models, services, and adapters)
 SRC_SRCS := $(SRC_DIR)/domain/model/DelayCalcTrackData.cpp \
             $(SRC_DIR)/domain/model/FinalCalcTrackData.cpp \
-            $(SRC_DIR)/domain/logic/FinalCalculationService.cpp \
+            $(SRC_DIR)/domain/logic/TargetStatisticService.cpp \
             $(SRC_DIR)/adapters/incoming/zeromq/TrackDataZeroMQIncomingAdapter.cpp \
             $(SRC_DIR)/adapters/outgoing/zeromq/FinalCalcTrackDataZeroMQOutgoingAdapter.cpp
 SRC_OBJS := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/src/%.o,$(SRC_SRCS))

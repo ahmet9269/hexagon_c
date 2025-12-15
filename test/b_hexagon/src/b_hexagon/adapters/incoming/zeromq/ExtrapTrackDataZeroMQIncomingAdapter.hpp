@@ -2,19 +2,19 @@
  * @file ExtrapTrackDataZeroMQIncomingAdapter.hpp
  * @brief ZeroMQ DISH adapter for inbound data reception using UDP multicast
  * @details Thread-per-Type architecture compliant - runs in dedicated thread
- *          SOLID compliant - depends on IMessageSocket abstraction for testability
+ *          SOLID compliant - uses direct ZeroMQ socket for simplicity
  * 
  * Dependency Inversion:
- * - IMessageSocket: Abstraction for messaging (enables mock testing)
  * - IExtrapTrackDataIncomingPort: Domain port abstraction
  */
 
 #pragma once
 
 #include "adapters/common/IAdapter.hpp"                           // IAdapter interface
-#include "adapters/common/messaging/IMessageSocket.hpp"           // Socket abstraction (DIP)
 #include "domain/ports/incoming/IExtrapTrackDataIncomingPort.hpp" // Inbound port interface
-#include "domain/ports/ExtrapTrackData.hpp"                       // Domain data model
+#include "domain/ports/incoming/ExtrapTrackData.hpp"              // Domain data model
+#include <zmq_config.hpp>
+#include <zmq.hpp>
 #include <string>
 #include <memory>
 #include <stdexcept>
@@ -33,11 +33,10 @@ using domain::ports::ExtrapTrackData;
  * - Open/Closed: Extends IAdapter, closed for modification
  * - Liskov Substitution: Can replace any IAdapter
  * - Interface Segregation: Implements focused IAdapter interface
- * - Dependency Inversion: Depends on IMessageSocket abstraction
+ * - Dependency Inversion: Depends on domain port abstractions
  * 
  * Test Coverage:
- * - Inject MockMessageSocket to test without network
- * - Control message flow via mock
+ * - Direct ZeroMQ socket usage for production simplicity
  * - Verify data forwarding to domain port
  */
 class ExtrapTrackDataZeroMQIncomingAdapter final : public adapters::IAdapter {
@@ -60,17 +59,6 @@ public:
         const std::string& endpoint,
         const std::string& group);
 
-    /**
-     * @brief Construct with injected socket (for testing with mocks)
-     * @param dataReceiver Domain port to forward received data
-     * @param socket Pre-configured socket (can be MockMessageSocket)
-     * @param group Message group filter
-     */
-    ExtrapTrackDataZeroMQIncomingAdapter(
-        std::shared_ptr<domain::ports::incoming::IExtrapTrackDataIncomingPort> dataReceiver,
-        std::unique_ptr<adapters::common::messaging::IMessageSocket> socket,
-        const std::string& group);
-
     // Destructor - ensures graceful shutdown
     ~ExtrapTrackDataZeroMQIncomingAdapter() noexcept override;
 
@@ -86,32 +74,35 @@ public:
     
     [[nodiscard]] bool start() override;
     void stop() override;
-    [[nodiscard]] bool isRunning() const override;
+    [[nodiscard]] bool isRunning() const noexcept override;
     [[nodiscard]] std::string getName() const noexcept override;
 
 private:
-    // Real-time thread configuration
-    static constexpr int REALTIME_THREAD_PRIORITY = 95;
-    static constexpr int DEDICATED_CPU_CORE = 1;
-    static constexpr int RECEIVE_TIMEOUT_MS = 100;
+    // Thread configuration
+    static constexpr int RECEIVE_TIMEOUT_MS = 100;        ///< Socket receive timeout (allows graceful shutdown check)
     
     // Network configuration constants
-    static constexpr const char* DEFAULT_MULTICAST_ADDRESS = "239.1.1.2";
-    static constexpr int DEFAULT_PORT = 9001;
-    static constexpr const char* DEFAULT_PROTOCOL = "udp";
-    static constexpr const char* DEFAULT_GROUP = "ExtrapTrackData";
+    // ZeroMQ DISH Pattern: Distributed subscriber pattern for UDP multicast
+    // - Allows multiple subscribers to receive same multicast messages
+    // - Group filtering enables selective message reception
+    // - UDP provides low-latency, connectionless communication
+    static constexpr const char* ZMQ_MULTICAST_ADDRESS = "239.1.1.2";  ///< Multicast group address
+    static constexpr int ZMQ_PORT = 9001;                               ///< UDP port number
+    static constexpr const char* ZMQ_PROTOCOL = "udp";
+    static constexpr const char* ZMQ_GROUP = "ExtrapTrackData";
 
     /**
-     * @brief Worker thread function
+     * @brief Background processing loop (runs in dedicated thread)
+     * @details Continuously receives messages from ZeroMQ, deserializes them,
+     *          and submits to domain layer via submitExtrapTrackData().
+     *          Flow: ZeroMQ recv() → deserialize binary → submit to domain
+     *          Thread-safe: Runs in isolated thread, no shared state except atomic flags
      */
-    void workerThread();
-
-    /**
-     * @brief Create default ZeroMQ socket
-     */
-    std::unique_ptr<adapters::common::messaging::IMessageSocket> createDefaultSocket();
+    void process();
 
     // Deserialize binary data to ExtrapTrackData object
+    // Binary format: Little-endian packed struct (4-byte int32, 8-byte doubles, 8-byte int64s)
+    // Total size: 76 bytes (1x int32 + 6x double + 3x int64)
     static ExtrapTrackData deserializeBinary(const uint8_t* data, std::size_t size);
 
     // Configuration
@@ -119,8 +110,9 @@ private:
     std::string group_;                // Group identifier for filtering
     std::string adapterName_;          // Adapter name for logging
     
-    // Socket abstraction (DIP - enables mock injection)
-    std::unique_ptr<adapters::common::messaging::IMessageSocket> socket_;
+    // ZeroMQ socket (direct implementation - no abstraction layer)
+    zmq::context_t zmqContext_;
+    std::unique_ptr<zmq::socket_t> zmqSocket_;
     
     // Thread-safe lifecycle management
     std::shared_ptr<domain::ports::incoming::IExtrapTrackDataIncomingPort> dataReceiver_;

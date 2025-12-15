@@ -16,7 +16,7 @@
 #ifndef FINAL_TRACK_DATA_OUTGOING_PORT_HPP
 #define FINAL_TRACK_DATA_OUTGOING_PORT_HPP
 
-#include "domain/ports/FinalCalcTrackData.hpp"
+#include "domain/ports/outgoing/FinalCalcTrackData.hpp"
 
 namespace domain {
 namespace ports {

@@ -8,4 +8,4 @@ all:
 
 .PHONY: clean
 clean:
-	@$(MAKE) -f ./makefile_white.mk clean SRC_DIR:=$(SRC_DIR) --no-print-directory 
+	@$(MAKE) -f ./makefile_white.mk clean SRC_DIR:=$(SRC_DIR) --no-print-directory

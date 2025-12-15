@@ -10,12 +10,12 @@
  * 
  * @note MISRA C++ 2023 compliant implementation
  * @see DelayCalcTrackData
- * @see FinalCalculationService
+ * @see TargetStatisticService
  */
 
 #pragma once
 
-#include "domain/ports/DelayCalcTrackData.hpp"
+#include "domain/ports/incoming/DelayCalcTrackData.hpp"
 #include <memory>
 
 namespace domain {
@@ -30,8 +30,8 @@ namespace incoming {
  * 
  * @par Hexagonal Architecture Role
  * Primary Port - defines the boundary between external world and domain logic.
- * Implemented by domain services (e.g., FinalCalculationService).
- * 
+ * Implemented by domain services (e.g., TargetStatisticService).
+ *
  * @par Usage Example
  * @code
  * class MyService : public IDelayCalcTrackDataIncomingPort {

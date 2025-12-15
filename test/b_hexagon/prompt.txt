@@ -1,0 +1,6 @@
+Her bir incoming adapter bir thread olmalý. 
+Her bir outgoing adapter bir thread olmalý. 
+Incoming adapterün görevi gelen veriyi incoming portta tanýmlanan fonksiyonun beklediði veri tipine dönüþtürerek domain katmanýna göndermek. Her bir veri geldiðinde bu iþi yapmalý.
+Domain katmaný incoming adapterden gelen veriyi aldýðýnda bunu bir iþ listesine ekler ve o listedeki sýraya göre bu verileri iþleyerek gecikme zamanýný hesaplar. Bu hesaplamanýn ardýndan outgoing portta tanýmlanan metodu çaðýrarak istenen tipteki veriyi outgoing adaptöre/adaptörlere göndermek.
+Outgoing adapter ise domainden gelen veriyi istenen teknoloji ile (ZeroMQ ve DDS) ile dýþ dünyaya göndermek.
+Buradaki akýþ sürekli olmalý. Main'de yapýlan adaptör ve port initializationlarýnýn ardýndan adapterlerde ve domainde birer process metodu olmalý ve bu metodda bir while döngüsü ile istenen iþlemler sonsuza dek devam etmeli.
