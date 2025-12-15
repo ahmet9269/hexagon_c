@@ -4,10 +4,10 @@ Bu doküman, b_hexagon projesinde **tek bir IncomingAdapter'dan gelen veriyi bir
 
 ---
 Kosullar:
- Her bir modele ait incoming adapter, ilgili servis, outoing adapter ayrı birer thread thread olmalı.
+ Her bir incoming adapter, ilgili domain servisi ve outoing adapter ayrı birer thread thread olmalı.
 IncomingAdapter gelen veriyi domainde kendi modeline ait bir queue'ya bu verileri yazsın ve tek isi bu olsun
 Ilgili domain servisinin amacı bu dataların eklendigi queue'yu surekli kontrol edip data geldiginde veriyi cekip business logic'i gerceklestirir.
-Daha sonra Ilgili OutgoingAdapter'ın sürekli dinledigi bir queue'ya yazar.
+Daha sonra domain servisi Ilgili OutgoingAdapter'ın sürekli dinledigi bir queue'ya yazar.
 Outgoing adapter dinledigi bu queue'dan veri geldikce bu veriyi ilgili teknolojiyle dısari yollar
 ## 📋 İçindekiler
 
